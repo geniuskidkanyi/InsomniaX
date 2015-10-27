@@ -1,5 +1,5 @@
 <header>
-  <div class="cd-logo"><a href="#0"><img src="img/cd-logo.svg" alt="Logo"></a></div>
+  <div class="cd-logo"><%= link_to image_tag('cd-logo.svg', alt: 'logo'), '#' %></div>
 
   <nav class="cd-main-nav-wrapper">
     <ul class="cd-main-nav">
@@ -26,7 +26,4 @@
   <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
 </header>
 
-<main class="cd-main-content">
-  <!-- main content here -->
-  <%= yield =>
-</main>
+
