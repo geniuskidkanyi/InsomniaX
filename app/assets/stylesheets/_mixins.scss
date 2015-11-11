@@ -26,3 +26,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+// border radius
+
+@mixin border-radius($radius:.25em) {
+    border-radius: $radius;
+}

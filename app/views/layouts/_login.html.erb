@@ -22,8 +22,8 @@
 
         <ul>
 
-          <li><a href="#0">My Account</a></li>
-          <li><a href="#0">Edit Account</a></li>
+          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "Edit Account", '#' %></li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
         </ul>
       </li>
@@ -37,7 +37,7 @@
   <nav class="cd-main-nav-wrapper">
     <ul class="cd-main-nav">
       <li><a href="#0">About</a></li>
-      <li><%= link_to "Log in", login_path %></li>
+        <li><%= link_to "Log in", login_path, class: 'cd-signin' %></li>
       <li><a href="#0">Blog</a></li>
       <li><a href="#0">Contact</a></li>
       <li>
