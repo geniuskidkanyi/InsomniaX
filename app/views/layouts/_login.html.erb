@@ -16,14 +16,14 @@
       <li><a href="#0">Support</a></li>
       <li class="has-children account">
         <a href="#0">
-          <img src="img/cd-avatar.png" alt="avatar">
+
           Account
         </a>
 
         <ul>
 
           <li><%= link_to "Profile", current_user %></li>
-          <li><%= link_to "Edit Account", '#' %></li>
+            <li><%= link_to "Edit Account", edit_user_path(current_user) %></li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
         </ul>
       </li>

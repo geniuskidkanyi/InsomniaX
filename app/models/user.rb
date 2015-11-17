@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   format: { with: VALID_EMAIL_REGEX },
   uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, length: { minimum: 6 }
+    validates :password, length: { minimum: 6 }, allow_blank: true
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
       BCrypt::Engine.cost
@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
+    # Forgets a user.
+    def forget
+        update_attribute(:remember_digest, nil)
+    end
 end
