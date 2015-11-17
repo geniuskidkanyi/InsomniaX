@@ -1,0 +1,9 @@
+development:
+cloud_name: "atussec"
+api_key: "747636935153476"
+api_secret: "lBwA3tmn-14TH-LyPOHvDYUb3U8"
+
+production:
+cloud_name: "atussec"
+api_key: "747636935153476"
+api_secret: "lBwA3tmn-14TH-LyPOHvDYUb3U8"
