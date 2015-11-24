@@ -1,0 +1,25 @@
+<div class="col-sm-4">
+    <!-- Begin user profile -->
+    <div class="box-info text-center user-profile-2">
+        <div class="header-cover">
+            <img src="http://bootdey.com/img/Content/bg_element.jpg" alt="User cover">
+        </div>
+        <div class="user-profile-inner">
+            <h4 class="white"><%= link_to user.name, user %></h4>
+            <%= image_tag(gravatar_url, alt: user.name, class: "gravatar") %>
+            <h5>Administrator</h5>
+
+            <!-- User button -->
+            <div class="user-button">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-user"></i> Add as friend</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
