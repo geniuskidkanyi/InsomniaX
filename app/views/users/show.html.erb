@@ -138,19 +138,26 @@
 
 
 
-<%= @user.email %>,
 
-<h1>
- <%= gravatar_for @user %>
- <%= @user.name %>
-</h1>
 
 <%= render 'follow_form' if logged_in? %>
+<div class="row">
+ <div class="col-lg-3 col-sm-3 col-xs-12"><section class="micropost_form">
+  <%= @user.email %>,
 
+  <h1>
+   <%= gravatar_for @user %>
+   <%= @user.name %>
+  </h1>
+  </section>
+  </div>
 <% if @user.microposts.any? %>
-<h3>Microposts (<%= @user.microposts.count %>)</h3>
-<ol class="microposts">
-    <%= render @microposts %>
-</ol>
-<%= will_paginate @microposts %>
+<div class="col-lg-9 col-sm-9 col-xs-12"><h3>Microposts (<%= @user.microposts.count %>)</h3>
+  <ol class="microposts">
+   <%= render @microposts %>
+  </ol>
+  <%= will_paginate @microposts %></div>
+</div>
+
+
 <% end %>
