@@ -13,10 +13,10 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'cloudinary'
-gem "font-awesome-rails"
 gem 'will_paginate-bootstrap'
 gem "autoprefixer-rails"
 gem "font-awesome-rails"
+gem 'acts_as_commentable_with_threading'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
