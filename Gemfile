@@ -15,6 +15,7 @@ gem 'fog'
 gem 'cloudinary'
 gem "font-awesome-rails"
 gem 'will_paginate-bootstrap'
+gem "autoprefixer-rails"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

@@ -14,8 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require affix
+//= require alert
+//= require button
+//= require carousel
+//= require collapse
+//= require dropdown
+//= require tab
+//= require transition
+//= require scrollspy
+//= require modal
+//= require tooltip
+//= require popover
+
 //= require bootstrap
-//= require_tree .
 $(document).ready(function () {
     var $btnSets = $('#responsive'),
         $btnLinks = $btnSets.find('a');
