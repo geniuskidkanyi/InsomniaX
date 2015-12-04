@@ -25,7 +25,7 @@
      <a href="#" class="btn btn-default stat-item">
       <i class="fa fa-thumbs-down icon"></i><%= micropost.get_downvotes.size %>
      </a>
-     <%= link_to "Upvote", like_micropost_path(micropost), method: :get %>
+     <%= link_to "Upvote", like_micropost_path(micropost),class: 'vote', method: :get, remote: true, data: { type: :json }  %>
      <%= link_to "Downvote", dislike_micropost_path(micropost), method: :get %>
 
 
