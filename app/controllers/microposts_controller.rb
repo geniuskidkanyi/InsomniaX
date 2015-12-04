@@ -20,13 +20,14 @@ class MicropostsController < ApplicationController
     def upvote
         @micropost = Micropost.find(params[:id])
         @micropost.liked_by current_user
-        redirect_to root_path
+        redirect_to request.referrer
+
     end
 
     def downvote
         @micropost = Micropost.find(params[:id])
         @micropost.downvote_from current_user
-        redirect_to root_path
+        redirect_to request.referrer
     end
     private
     def micropost_params
