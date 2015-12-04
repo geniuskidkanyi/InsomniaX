@@ -25,6 +25,10 @@
      <a href="#" class="btn btn-default stat-item">
       <i class="fa fa-share icon"></i>12
      </a>
+     <%= link_to "Upvote", like_micropost_path(@user, micropost), method: :put %>
+     <%= link_to "Downvote", dislike_micropost_path(@user, micropost), method: :put %>
+     <%= micropost.get_upvotes.size %>
+     <%= micropost.votes_for.size %>
     </div>
    </div>
    <div class="post-footer">

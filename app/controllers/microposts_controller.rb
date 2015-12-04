@@ -17,6 +17,17 @@ class MicropostsController < ApplicationController
         flash[:success] = "Micropost deleted"
         redirect_to request.referrer || root_url
     end
+    def upvote
+        @micropost = Micropost.find(params[:id])
+        @micropost.liked_by current_user
+        redirect_to root_path
+    end
+
+    def downvote
+        @micropost = Micropost.find(params[:id])
+        @micropost.downvote_from current_user
+        redirect_to root_path
+    end
     private
     def micropost_params
         params.require(:micropost).permit(:content, :picture)
