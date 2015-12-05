@@ -19,15 +19,18 @@
     <p><%= micropost.content %> <br>
      <%= image_tag micropost.picture.url if micropost.picture? %></p>
     <div class="stats">
-     <a href="#" class="btn btn-default stat-item">
-      <i class="fa fa-thumbs-up icon"></i> <%= micropost.get_upvotes.size %>
-     </a>
-     <a href="#" class="btn btn-default stat-item">
-      <i class="fa fa-thumbs-down icon"></i><%= micropost.get_downvotes.size %>
-     </a>
-     <%= link_to "Upvote", like_micropost_path(micropost),class: 'vote', method: :get, remote: true, data: { type: :json }  %>
-     <%= link_to "Downvote", dislike_micropost_path(micropost), method: :get %>
 
+     <%= link_to like_micropost_path(micropost), method: :get, class: "btn btn-default stat-item " do %>
+     <span class="fa fa-thumbs-up icon"></span><%= micropost.get_upvotes.size %>
+     Upvote
+
+     <% end %>
+
+     <%= link_to dislike_micropost_path(micropost), method: :get, class: "btn btn-default stat-item" do %>
+     <span class="fa fa-thumbs-down icon"></span><%= micropost.get_downvotes.size %>
+     downvote
+
+     <% end %>
 
     </div>
    </div>

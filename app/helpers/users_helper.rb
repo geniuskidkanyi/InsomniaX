@@ -3,24 +3,28 @@ module UsersHelper
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
         size = options[:size]
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-        image_tag(gravatar_url, alt: user.name, class: "gravatar")
+        avatar_url = user.avatar? ? user.avatar.url : gravatar_url
+        image_tag(avatar_url, alt: user.name, class: "gravatar")
     end
     def gravatar_profile(user, options = { size: 80 })
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
         size = options[:size]
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-        image_tag(gravatar_url, alt: user.name, class: "img-responsive thumbnail")
+        avatar_url = user.avatar? ? user.avatar.url : gravatar_url
+        image_tag(avatar_url, alt: user.name, class: "img-responsive thumbnail")
     end
     def gravatar_all(user, options = { size: 80 })
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
         size = options[:size]
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-        image_tag(gravatar_url, alt: user.name, class: "img-circle profile-avatar")
+        avatar_url = user.avatar? ? user.avatar.url : gravatar_url
+        image_tag(avatar_url, alt: user.name, class: "img-circle profile-avatar")
     end
  def gravatar_post(user, options = { size: 80 })
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
         size = options[:size]
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-        image_tag(gravatar_url, alt: user.name, class: "img-circle avatar")
+     avatar_url = user.avatar? ? user.avatar.url : gravatar_url
+     image_tag(avatar_url, alt: user.name, class: "img-circle avatar")
     end
 end
