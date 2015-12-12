@@ -1,5 +1,5 @@
 <% if logged_in? %>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
  <div class="container-fluid">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -104,12 +104,8 @@
       <li>
        <div class="row">
         <div class="col-md-12">
-         Login via
-         <div class="social-buttons">
-          <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-          <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-         </div>
-         or
+         Login
+
          <%= form_for(:session, url: login_path, class: 'form', id: 'login-nav') do |f| %>
          <div class="form-group">
           <%= f.label :email, class: 'sr-only' %>
@@ -129,11 +125,11 @@
          </div>
          <% end %>
          <%= f.submit 'signin', class:'btn btn-primary btn-block' %>
-         <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+
          <% end %>
         </div>
         <div class="bottom text-center">
-         New here ? <a href="#"><b>Join Us</b></a>
+          New here ? <%= link_to 'Sign Up', new_user_path %>
         </div>
        </div>
       </li>

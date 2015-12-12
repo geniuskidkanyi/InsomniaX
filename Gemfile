@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'cloudinary'
+gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem "autoprefixer-rails"
 gem "font-awesome-rails"

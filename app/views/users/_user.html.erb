@@ -7,16 +7,23 @@
         <div class="user-profile-inner">
             <h4 class="white"><%= link_to user.name, user %></h4>
             <%= gravatar_all user %>
-            <h5>Administrator</h5>
+          <h5><%= user.position %></h5>
 
             <!-- User button -->
             <div class="user-button">
                 <div class="row">
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</button>
-                    </div>
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-user"></i> Add as friend</button>
+
+                      <% if current_user.admin? && !current_user?(user) %>
+                  <div class="col-md-6">
+                     <%= link_to "delete", user, method: :delete,class: 'btn btn-primary btn-sm btn-block',
+data: { confirm: "You sure?" } %>
+                  </div>
+
+                      <% end %>
+
+
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-user"></i> Follow</button>
                     </div>
                 </div>
             </div>

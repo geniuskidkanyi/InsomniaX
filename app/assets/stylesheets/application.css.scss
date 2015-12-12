@@ -5,3 +5,11 @@
 @import "body";
 @import "users";
 @import "microposts";
+@import "index";
+.container-fluid-main {
+  padding-top: 3em;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}

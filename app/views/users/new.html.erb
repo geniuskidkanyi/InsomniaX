@@ -1,40 +1,29 @@
 <% provide(:title, 'sign up') %>
 <h1>sign up</h1>
-<%= form_for(@user) do |f|, class:"form" %>
-<%= render 'shared/error_messages', object: f.object %>>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :email %>
-<%= f.email_field :email %>
-<%= f.label :username %>
-<%= f.text_field :username %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.label :password_confirmation, "Confirmation" %>
-<%= f.password_field :password_confirmation %>  <br>
-
-<%= f.submit "Create my account", class: "btn-defa" %>
+<%= form_for(@user, class:"form" ) do |f|%>
+<%= render 'shared/error_messages', object: f.object %>
+<div class="form-group">
+<%= f.label :name, class: 'sr-only' %>
+  <%= f.text_field :name, class: 'form-control', placeholder: 'Name'  %>
+</div>
+<div class="form-group">
+<%= f.label :email, class: 'sr-only' %>
+  <%= f.email_field :email, class: 'form-control',placeholder: 'Enter Email' %>
+</div>
+<div class="form-group">
+<%= f.label :username, class: 'sr-only' %>
+  <%= f.text_field :username, class: 'form-control',placeholder: 'Username'  %>
+</div>
+<div class="form-group">
+<%= f.label :password, class: 'sr-only' %>
+  <%= f.password_field :password, class: 'form-control',placeholder: 'Enter Password'  %>
+</div>
+<div class="form-group">
+<%= f.label :password_confirmation, "Confirmation", class: 'sr-only' %>
+  <%= f.password_field :password_confirmation, class: 'form-control',placeholder: 'Confirm Password'  %>
+</div>
+<div class="form-group">
+  <%= f.submit "Create my account", class: "btn btn-primary" %>
+</div>
 <% end %>
 
-
-
-
-<form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
- <div class="form-group">
-  <label class="sr-only" for="exampleInputEmail2">Email address</label>
-  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
- </div>
- <div class="form-group">
-  <label class="sr-only" for="exampleInputPassword2">Password</label>
-  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-  <div class="help-block text-right"><a href="">Forget the password ?</a></div>
- </div>
- <div class="form-group">
-  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
- </div>
- <div class="checkbox">
-  <label>
-   <input type="checkbox"> keep me logged-in
-  </label>
- </div>
-</form>
