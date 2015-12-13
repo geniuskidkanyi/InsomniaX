@@ -32,7 +32,12 @@ class User < ActiveRecord::Base
   def authenticated?(remember_token)
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
-
+  def forem_name
+    name
+  end
+  def forem_email
+    email
+  end
     # Forgets a user.
     def forget
         update_attribute(:remember_digest, nil)

@@ -11,21 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212100717) do
+ActiveRecord::Schema.define(version: 20151212111448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "comments", force: :cascade do |t|
-    t.integer  "micropost_id"
-    t.text     "body"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "comments", ["micropost_id"], name: "index_comments_on_micropost_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "forem_categories", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -165,10 +154,10 @@ ActiveRecord::Schema.define(version: 20151212100717) do
     t.string   "remember_digest"
     t.boolean  "admin",                default: false
     t.string   "avatar"
+    t.string   "position"
     t.boolean  "forem_admin",          default: false
     t.string   "forem_state",          default: "pending_review"
     t.boolean  "forem_auto_subscribe", default: false
-    t.string   "position"
   end
 
   create_table "votes", force: :cascade do |t|
@@ -186,6 +175,5 @@ ActiveRecord::Schema.define(version: 20151212100717) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
-  add_foreign_key "comments", "users"
   add_foreign_key "microposts", "users"
 end
