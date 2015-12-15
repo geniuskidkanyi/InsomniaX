@@ -1,0 +1,6 @@
+<div class="comments" id="comments">
+  <ol class="comments_tree" data="<%= { comments: { tolarance_time: TheComments.config.tolerance_time  }  }  %>">
+    <%= render partial: 'the_comments/erb/comment', locals: { tree: comments_tree } %>
+  </ol>
+  <%= render partial: 'the_comments/erb/form', locals: { commentable: commentable } %>
+</div>
