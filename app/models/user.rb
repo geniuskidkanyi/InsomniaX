@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
     has_many :following, through: :passive_relationships, source: :followed
     has_many :followers, through: :active_relationships, source: :follower
   mount_uploader :avatar, AvatarUploader
+
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
 
@@ -36,6 +37,7 @@ class User < ActiveRecord::Base
   def authenticated?(remember_token)
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
+    # forem user classes
   def forem_name
     name
   end

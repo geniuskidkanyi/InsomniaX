@@ -27,11 +27,12 @@ module UsersHelper
      avatar_url = user.avatar? ? user.avatar.url : gravatar_url
      image_tag(avatar_url, alt: user.name, class: "img-circle avatar")
     end
-    def gravatar_message(user, options = { size: 30 })
+
+    def gravatar_message(user, options = { size: 80 })
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
         size = options[:size]
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-        avatar_url = user.avatar? ? user.avatar.url : gravatar_url
+        avatar_url = user.avatar? ? user.avatar.url(:thumb) : gravatar_url
         image_tag(avatar_url, alt: user.name, class: "img-rounded")
     end
 end
