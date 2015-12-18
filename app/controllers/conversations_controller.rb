@@ -17,6 +17,9 @@ class ConversationsController < ApplicationController
     end
     def show
     end
+    def get_conversation
+        @conversation ||= @mailbox.conversations.find(params[:id])
+    end
     def reply
         current_user.reply_to_conversation(@conversation, params[:body])
         flash[:success] = 'Reply sent'

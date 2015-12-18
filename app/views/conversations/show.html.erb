@@ -13,7 +13,7 @@
             <div class="media">
                 <% message = receipt.message %>
                 <div class="media-left">
-                    <%= gravatar_fmessage message.sender, 45, message.sender.name %>
+                    <%= gravatar_message message.sender, { size: 45 } %>
                 </div>
 
                 <div class="media-body">
