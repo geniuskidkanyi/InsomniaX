@@ -27,8 +27,17 @@ Rails.application.routes.draw do
       get "dislike", to: "microposts#downvote"
     end
   end
-  resources :post
-
+    resources :conversations, only: [:index, :show, :destroy] do
+        member do
+            post :reply
+            post :restore
+            post :mark_as_read
+        end
+        collection do
+            delete :empty_trash
+        end
+    end
+  resources :messages, only: [:new, :create]
 
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
