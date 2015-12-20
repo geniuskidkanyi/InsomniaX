@@ -1,3 +1,4 @@
+@import "meyer-reset";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'forem/base';
@@ -6,12 +7,6 @@
 @import "body";
 @import "users";
 @import "microposts";
+@import "sidebar";
 @import "index";
 @import 'chosen';
-.container-fluid-main {
-  padding-top: 3em;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}

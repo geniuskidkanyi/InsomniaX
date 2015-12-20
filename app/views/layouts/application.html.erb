@@ -8,13 +8,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <%= render 'layouts/login' %>
 <!--main content-->
+    <% if logged_in? %>
   <div class="container-fluid-main">
+   <% else %>
+      <div class="main_page">
+          <% end %>
     <% flash.each do |message_type, message| %>
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-    <% end ;%>
-    <%= yield %>
+    <% end %>
+          <% if logged_in? %>
+         <div class="row">
+             <div class="col-lg-3 col-sm-3 col-xs-12 sidebar">
+                 <%= render 'layouts/sidebar' %>
+             </div>
+             <div class=" clearfix col-lg-9 col-sm-9 col-xs-12">
+                 <%= yield %>
+             </div>
+         </div>
+         <%else %>
+          <%= yield %>
+          <%end%>
+
+
     </div>
 
     <%= debug(params) if Rails.env.development? %>
