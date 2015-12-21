@@ -5,7 +5,8 @@
             <img src="http://bootdey.com/img/Content/bg_element.jpg" alt="User cover">
         </div>
         <div class="user-profile-inner">
-            <h4 class="white"><%= link_to user.name, user %></h4>
+            <h4 class="white">
+            <%= link_to user.name, user %></h4>
             <%= gravatar_all user %>
           <h5><%= user.position %></h5>
 
@@ -22,8 +23,13 @@ data: { confirm: "You sure?" } %>
                       <% end %>
 
 
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-user"></i> Follow</button>
+                    </div>
+                         <div class="col-md-6">
+                             <% unless current_user == @user %>
+                             <%= link_to 'Send message', new_message_path(to: user.id), class: 'btn btn-primary btn-sm btn-block' %>
+                             <% end %>
                     </div>
                 </div>
             </div>

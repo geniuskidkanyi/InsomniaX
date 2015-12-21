@@ -3,9 +3,12 @@
 <head>
  <title><%= yield(:title) %> | Insomniax</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag "forem" %>
+    <%= javascript_include_tag "forem" %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
@@ -20,24 +23,27 @@
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
           <% if logged_in? %>
-         <div class="row">
-             <div class="col-lg-3 col-sm-3 col-xs-12 sidebar">
+          <div id="wrapper">
+
+
                  <%= render 'layouts/sidebar' %>
-             </div>
-             <div class=" clearfix col-lg-9 col-sm-9 col-xs-12">
+
+             <div id="main-wrapper" class="col-lg-9 col-sm-9 col-xs-12 pull-right">
+                 <div id="main">
                  <%= yield %>
              </div>
-         </div>
+             </div>
+
          <%else %>
           <%= yield %>
           <%end%>
 
 
     </div>
+    </div>
 
-    <%= debug(params) if Rails.env.development? %>
-  </main>
 
+    </div>
 
 </body>
 </html>

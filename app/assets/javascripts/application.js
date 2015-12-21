@@ -32,6 +32,7 @@
 //= require messages
 
 //= require bootstrap
+
 $(document).ready(function () {
     var $btnSets = $('#responsive'),
         $btnLinks = $btnSets.find('a');
@@ -556,3 +557,8 @@ $('.vote')
     .on('ajax:success', function (data) {
         $(this).html(data.count);
     });
+$('.navbar .dropdown').hover(function () {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
+}, function () {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)
+});
