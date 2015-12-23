@@ -8,7 +8,6 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'faker'
-gem 'will_paginate'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
@@ -25,6 +24,7 @@ gem "mailboxer"
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
+gem 'ransack'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
