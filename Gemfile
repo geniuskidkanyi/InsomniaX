@@ -20,11 +20,13 @@ gem 'acts_as_votable'
 gem 'forem', github: "radar/forem", branch: "rails4"
 gem 'forem-bootstrap', github: "radar/forem-bootstrap"
 gem 'forem-redcarpet', github: "radar/forem-redcarpet"
+gem 'forem-textile_formatter'
 gem "mailboxer"
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem 'ransack'
+gem 'gretel'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

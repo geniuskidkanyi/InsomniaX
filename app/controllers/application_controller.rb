@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   def forem_user
     current_user
   end
@@ -24,6 +23,7 @@ class ApplicationController < ActionController::Base
 
 
     private
+
     # Confirms a logged-in user.
     def logged_in_user
         unless logged_in?

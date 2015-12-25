@@ -6,7 +6,9 @@ class UsersController < ApplicationController
    @user = User.new
   end
  def index
+     @users = User.ransack(params[:q]).result.where(post: @post)
      @users = User.paginate(page: params[:page])
+
  end
  def show
   @user = User.find(params[:id])
