@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225132653) do
+ActiveRecord::Schema.define(version: 20151226155014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,60 +23,15 @@ ActiveRecord::Schema.define(version: 20151225132653) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "blogit_comments", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "email",      null: false
-    t.string   "website"
-    t.text     "body",       null: false
-    t.integer  "post_id",    null: false
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "blogit_comments", ["post_id"], name: "index_blogit_comments_on_post_id", using: :btree
-
-  create_table "blogit_posts", force: :cascade do |t|
-    t.string   "title",                            null: false
-    t.text     "body",                             null: false
-    t.string   "state",          default: "draft", null: false
-    t.integer  "comments_count", default: 0,       null: false
-    t.integer  "blogger_id"
-    t.string   "blogger_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "description"
-  end
-
-  add_index "blogit_posts", ["blogger_type", "blogger_id"], name: "index_blogit_posts_on_blogger_type_and_blogger_id", using: :btree
-
   create_table "comments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "holder_id"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.string   "commentable_url"
-    t.string   "commentable_title"
-    t.string   "commentable_state"
-    t.string   "anchor"
-    t.string   "title"
-    t.string   "contacts"
-    t.text     "raw_content"
-    t.text     "content"
-    t.string   "view_token"
-    t.string   "state",             default: "draft"
-    t.string   "ip",                default: "undefined"
-    t.string   "referer",           default: "undefined"
-    t.string   "user_agent",        default: "undefined"
-    t.integer  "tolerance_time"
-    t.boolean  "spam",              default: false
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "depth",             default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "name"
+    t.text     "body"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
 
   create_table "forem_categories", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -231,23 +186,13 @@ ActiveRecord::Schema.define(version: 20151225132653) do
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "picture"
-    t.integer  "draft_comments_count",     default: 0
-    t.integer  "published_comments_count", default: 0
-    t.integer  "deleted_comments_count",   default: 0
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at", using: :btree
   add_index "microposts", ["user_id"], name: "index_microposts_on_user_id", using: :btree
-
-  create_table "news", force: :cascade do |t|
-    t.string   "title"
-    t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -267,49 +212,22 @@ ActiveRecord::Schema.define(version: 20151225132653) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
-  end
-
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
-
-  create_table "tags", force: :cascade do |t|
-    t.string  "name"
-    t.integer "taggings_count", default: 0
-  end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "username"
     t.string   "description"
     t.integer  "age"
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.boolean  "admin",                       default: false
+    t.boolean  "admin",                default: false
     t.string   "avatar"
     t.string   "position"
-    t.boolean  "forem_admin",                 default: false
-    t.string   "forem_state",                 default: "pending_review"
-    t.boolean  "forem_auto_subscribe",        default: false
-    t.integer  "my_draft_comments_count",     default: 0
-    t.integer  "my_published_comments_count", default: 0
-    t.integer  "my_comments_count",           default: 0
-    t.integer  "draft_comcoms_count",         default: 0
-    t.integer  "published_comcoms_count",     default: 0
-    t.integer  "deleted_comcoms_count",       default: 0
-    t.integer  "spam_comcoms_count",          default: 0
+    t.boolean  "forem_admin",          default: false
+    t.string   "forem_state",          default: "pending_review"
+    t.boolean  "forem_auto_subscribe", default: false
   end
 
   create_table "votes", force: :cascade do |t|
@@ -327,6 +245,7 @@ ActiveRecord::Schema.define(version: 20151225132653) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "comments", "articles"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
