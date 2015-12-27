@@ -16,10 +16,14 @@
 <% else %>
 <div class="main_page">
     <div class="row">
-        <div class="col-lg-4 col-sm-4 col-xs-12 sign_up">
+        <div class="col-lg-8 col-sm-8 col-xs-12 text-left">
+            <h1 class="white-h1 btn-primary">Super charge your skills with expert authored tech and creative training with insomniax(Atus sec)</h1>
+
+        </div>
+        <div class="col-lg-3 col-sm-3 col-xs-12 sign_up">
            <h2>Create A New Account</h2>
-           <h3>Its Free And Always Shall It Be</h3>
-            <%= form_for(:session, url: main_app.signup_path, class: 'form', id: 'login-nav') do |f| %>
+           <h3>Its Free Now And For Always</h3>
+            <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, class: 'form', id: 'login-nav') do |f| %>
             <div class="form-group">
                <%= f.label :name, class: 'sr-only' %>
                 <%= f.text_field :name, class: 'form-control', placeholder: 'Name'  %>
@@ -37,22 +41,12 @@
                 <%= f.label :password_confirmation, "Confirmation", class: 'sr-only' %>
                 <%= f.password_field :password_confirmation, class: 'form-control',placeholder: 'Confirm Password'  %>
             </div>
-            <div class="checkbox">
-                <%= f.label :remember_me, class: "checkbox inline" do %>
-                <%= f.check_box :remember_me %>
-                <span>Remember me on this computer</span>
-            </div>
-            <% end %>
+
             <%= f.submit 'Sign Up', class:'btn btn-primary btn-block' %>
 
             <% end %>
         </div>
-        <div class="col-lg-7 col-sm-7 col-xs-12 text-left">
-            <h1>some random cool text</h1>
-            <h1>some random cool text</h1>
-            <h1>some random cool text</h1>
-            <h1>some random cool text</h1>
-        </div>
+
     </div>
 
 

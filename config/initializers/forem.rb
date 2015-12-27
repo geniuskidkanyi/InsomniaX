@@ -6,7 +6,7 @@ Forem.per_page = 20
 Rails.application.config.to_prepare do
   Forem.layout = "application"
 end
-
+Forem.user_profile_links = true
 
 # Rails.application.config.to_prepare do
 #   If you want to change the layout that Forem uses, uncomment and customize the next line:

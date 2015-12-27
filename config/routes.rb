@@ -21,6 +21,9 @@ Rails.application.routes.draw do
             get :following, :followers
         end
     end
+    resources :articles do
+        resources :comments
+    end
   resources :microposts do
     member do
       get "like", to: "microposts#upvote"
@@ -41,7 +44,6 @@ Rails.application.routes.draw do
 
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
-    resources :articles do
-        resources :comments
-    end
+
+    resources :comments
 end
