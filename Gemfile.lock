@@ -421,6 +421,7 @@ DEPENDENCIES
   forem-bootstrap!
   forem-redcarpet!
   forem-textile_formatter
+  friendly_id (~> 5.0.1)
   gretel
   jbuilder (~> 2.0)
   jquery-rails
