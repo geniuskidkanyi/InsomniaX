@@ -27,6 +27,8 @@ gem 'jquery-turbolinks'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem 'ransack'
 gem 'gretel'
+gem 'acts-as-taggable-on'
+gem "friendly_id", "~> 5.0.1"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

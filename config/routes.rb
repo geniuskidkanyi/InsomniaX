@@ -46,4 +46,5 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
     resources :comments
+    resources :tags, only: [:index, :show]
 end
