@@ -10,3 +10,13 @@
 @import "sidebar";
 @import "index";
 @import 'chosen';
+@media (max-width: 767px) {
+    .navbar-fixed-top {
+        position: relative;
+        top: auto;
+    }
+
+    body {
+        margin: 0;
+    }
+}
