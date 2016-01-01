@@ -27,14 +27,19 @@ gem 'jquery-turbolinks'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem 'ransack'
 gem 'gretel'
-<<<<<<< HEAD
 gem 'acts_as_taggable'
-=======
 gem 'acts-as-taggable-on'
 gem "friendly_id", "~> 5.0.1"
 gem 'impressionist'
 gem 'acts_as_commentable_with_threading'
->>>>>>> blog
+#deploy
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+
+# Add this if you're using rbenv
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
