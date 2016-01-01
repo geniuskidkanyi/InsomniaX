@@ -1,18 +1,15 @@
-
-<h1 class="title">
-    <%= @article.title %>
-</h1>
-
-
-<p class="date">
-    Submitted <%= time_ago_in_words(@article.created_at) %> Ago
-</p>
-
-
-<p class="body">
-    <%= @article.body %>
-</p>
-<div><%= render @article.tags %></div>
+<article class="content__item">
+    <span class="category category--full"><%= render @article.tags %></span>
+    <h2 class="title title--full"> <%= @article.title %></h2>
+    <div class="meta meta--full">
+        <img class="meta__avatar" src="img/authors/6.png" alt="author06" />
+        <span class="meta__author">William Green</span>
+        <span class="meta__date"><i class="fa fa-calendar-o"></i> Submitted <%= time_ago_in_words(@article.created_at) %> Ago</span>
+        <%= "#{@article.impressionist_count} views so far!" %>
+    </div>
+    <p>  <%= @article.body %></p>
+</article>
+<div></div>
 <div id="comments">
     <h2><%= @article.comments.count %> Comments</h2>
     <%= render @article.comments %>

@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
     extend FriendlyId
     friendly_id :title, use: :slugged
+    is_impressionable
     belongs_to :user
     has_many :comments
     acts_as_taggable
