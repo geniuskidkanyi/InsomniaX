@@ -32,7 +32,9 @@
 //= require messages
 
 //= require bootstrap
-
+$(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
 $(document).ready(function () {
     var $btnSets = $('#responsive'),
         $btnLinks = $btnSets.find('a');

@@ -1,14 +1,37 @@
-<article class="content__item">
-    <span class="category category--full"><%= render @article.tags %></span>
-    <h2 class="title title--full"> <%= @article.title %></h2>
-    <div class="meta meta--full">
-        <img class="meta__avatar" src="img/authors/6.png" alt="author06" />
-        <span class="meta__author">William Green</span>
-        <span class="meta__date"><i class="fa fa-calendar-o"></i> Submitted <%= time_ago_in_words(@article.created_at) %> Ago</span>
-        <%= "#{@article.impressionist_count} views so far!" %>
-    </div>
-    <p>  <%= @article.body %></p>
-</article>
+
+<!-- Blog Post Content Column -->
+<div class="col-lg-12">
+
+    <!-- Blog Post -->
+
+    <!-- Title -->
+    <h1 class="text-centre"><%= @article.title %></h1>
+
+    <!-- Author -->
+
+
+    <hr>
+
+    <!-- Date/Time -->
+    <p><span class="glyphicon glyphicon-time"></span> Posted on <%= time_ago_in_words(@article.created_at) %>
+        <span class="glyphicon glyphicon-time"> <%= "#{@article.impressionist_count} views" %></span></p>
+
+    <hr>
+
+    <!-- Preview Image -->
+    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+
+    <hr>
+
+    <!-- Post Content -->
+    <p> <%= @article.body %></p>
+    <hr>
+
+
+
+
+</div>
+
 <div></div>
 <div id="comments">
     <h2><%= @article.comments.count %> Comments</h2>
@@ -17,3 +40,4 @@
 <h3>Add a comment:</h3>
 <%= render "comments/form" %>
 </div>
+
