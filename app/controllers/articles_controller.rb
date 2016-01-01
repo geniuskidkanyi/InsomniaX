@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
+    impressionist actions: [:show], unique: [:session_hash]
     def index
         @articles = Article.all.order('created_at DESC')
+
     end
 
     def new
@@ -16,13 +18,15 @@ class ArticlesController < ApplicationController
          end
     end
     def show
-        @article = Article.find(params[:id])
+        @article = Article.friendly.find(params[:id])
+        @new_comment    = Comment.build_from(@article, current_user.id, "")
+
     end
 
 
    private
 
     def article_params
-       params.require(:article).permit(:title, :body)
+        params.require(:article).permit(:title, :body, :tag_list)
    end
 end

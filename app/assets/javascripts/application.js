@@ -30,9 +30,12 @@
 //= require jquery.turbolinks
 //= require chosen-jquery
 //= require messages
+//= require comments
 
 //= require bootstrap
-
+$(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
 $(document).ready(function () {
     var $btnSets = $('#responsive'),
         $btnLinks = $btnSets.find('a');

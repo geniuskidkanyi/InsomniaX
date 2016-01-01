@@ -1,21 +1,40 @@
 
-<h1 class="title">
-    <%= @article.title %>
-</h1>
+<!-- Blog Post Content Column -->
+<div class="col-lg-12">
+
+    <!-- Blog Post -->
+
+    <!-- Title -->
+    <h1 class="text-centre"><%= @article.title %></h1>
+
+    <!-- Author -->
 
 
-<p class="date">
-    Submitted <%= time_ago_in_words(@article.created_at) %> Ago
-</p>
+    <hr>
+
+    <!-- Date/Time -->
+    <p><span class="glyphicon glyphicon-time"></span> Posted on <%= time_ago_in_words(@article.created_at) %>
+        <span class="glyphicon glyphicon-time"> <%= "#{@article.impressionist_count} views" %></span></p>
+
+    <hr>
+
+    <!-- Preview Image -->
+    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+
+    <hr>
+
+    <!-- Post Content -->
+    <p> <%= @article.body %></p>
+    <hr>
 
 
-<p class="body">
-    <%= @article.body %>
-</p>
-<div id="comments">
-    <h2><%= @article.comments.count %> Comments</h2>
-    <%= render @article.comments %>
 
-<h3>Add a comment:</h3>
-<%= render "comments/form" %>
+
 </div>
+
+<div></div>
+<div id="comments">
+
+    <%= render partial: "comments/template", locals: {commentable: @article, new_comment: @comment} %>
+</div>
+
