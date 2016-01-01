@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160101110333) do
+ActiveRecord::Schema.define(version: 20160101122253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,14 +25,21 @@ ActiveRecord::Schema.define(version: 20160101110333) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "title"
     t.text     "body"
-    t.integer  "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "subject"
+    t.integer  "user_id",          null: false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "forem_categories", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -293,7 +300,6 @@ ActiveRecord::Schema.define(version: 20160101110333) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
-  add_foreign_key "comments", "articles"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"

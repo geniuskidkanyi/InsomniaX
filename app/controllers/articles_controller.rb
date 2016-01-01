@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
     end
     def show
         @article = Article.friendly.find(params[:id])
+        @new_comment    = Comment.build_from(@article, current_user.id, "")
 
     end
 

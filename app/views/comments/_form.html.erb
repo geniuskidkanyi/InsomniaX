@@ -1,9 +1,10 @@
-<%= form_for([@article, @article.comments.build]) do |f| %>
-<%= f.label :name %><br>
-<%= f.text_field :name %><br>
-<br>
-<%= f.label :body %><br>
-<%= f.text_area :body %><br>
-<br>
-<%= f.submit %>
+<%= form_for @new_comment do |f| %>
+<%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+<%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+<div class="field form-group">
+    <%= f.text_area :body, class: 'form-control' %>
+</div>
+<div class="field form-group">
+    <%= submit_tag "Post comment", class: 'btn btn-primary' %>
+</div>
 <% end %>
