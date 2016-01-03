@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-    before_action :admin_user, only: :destroy, :create
+    before_action :admin_user, only: :destroy
+    before_action :admin_user, only: :create
     impressionist actions: [:show], unique: [:session_hash]
     def index
         @articles = Article.all.order('created_at DESC')
@@ -20,8 +21,8 @@ class ArticlesController < ApplicationController
     end
     def show
         @article = Article.friendly.find(params[:id])
-        @new_comment    = Comment.build_from(@article, current_user.id, "")
 
+        @new_comment    = Comment.build_from(@article, current_user, "")
     end
 
 

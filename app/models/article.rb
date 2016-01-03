@@ -1,8 +1,9 @@
 class Article < ActiveRecord::Base
+    acts_as_commentable
     extend FriendlyId
     friendly_id :title, use: :slugged
     is_impressionable
-    acts_as_commentable
+
     belongs_to :user
     has_many :comments
     acts_as_taggable

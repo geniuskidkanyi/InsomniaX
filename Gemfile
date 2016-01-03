@@ -33,12 +33,12 @@ gem "friendly_id", "~> 5.0.1"
 gem 'impressionist'
 gem 'acts_as_commentable_with_threading'
 #deploy
-gem 'capistrano', '~> 3.1.0'
-gem 'capistrano-bundler', '~> 1.1.2'
-gem 'capistrano-rails', '~> 1.1.1'
+#gem 'capistrano', '~> 3.1.0'
+#gem 'capistrano-bundler', '~> 1.1.2'
+#gem 'capistrano-rails', '~> 1.1.1'
 
 # Add this if you're using rbenv
-gem 'capistrano-rbenv', github: "capistrano/rbenv"
+#gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
