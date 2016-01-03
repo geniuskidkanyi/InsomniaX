@@ -1,9 +1,9 @@
 <% if logged_in? %>
-<div id="sidebar-wrapper" class="col-lg-3 col-sm-3 col-xs-12">
+<div id="sidebar-wrapper" class="col-lg-3 col-sm-3 col-xs-12  hidden-xs">
   <div id="sidebar">
     <ul class="nav list-group">
         <li><%= link_to 'Your Conversations', main_app.conversations_path, class: 'list-group-item' %></li>
-
+<li><h3>Forums</h3></li>
 
     </ul>
   </div>
