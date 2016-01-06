@@ -27,19 +27,10 @@ gem 'jquery-turbolinks'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem 'ransack'
 gem 'gretel'
-gem 'acts_as_taggable'
 gem 'acts-as-taggable-on'
 gem "friendly_id", "~> 5.0.1"
 gem 'impressionist'
 gem 'acts_as_commentable_with_threading'
-#deploy
-#gem 'capistrano', '~> 3.1.0'
-#gem 'capistrano-bundler', '~> 1.1.2'
-#gem 'capistrano-rails', '~> 1.1.1'
-
-# Add this if you're using rbenv
-#gem 'capistrano-rbenv', github: "capistrano/rbenv"
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -61,10 +52,16 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bourbon', '~> 3.1.8'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+#deployment
+group :development do
+    gem 'capistrano',         require: false
+    gem 'capistrano-rvm',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
+end
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'puma'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
