@@ -33,8 +33,11 @@
 </div>
 
 <div></div>
+<% if logged_in? %>
 <div id="comments">
 
     <%= render partial: "comments/template", locals: {commentable: @article, new_comment: @comment} %>
 </div>
-
+<% else %>
+ <h1>please login</h1>
+<% end %>
