@@ -6,6 +6,7 @@ set :repo_url, 'git@bitbucket.org:geniuskid/insomniax.git'
 
 set :user,            'deploy'
 set :rbenv_type, :user
+set :rbenv_ruby, '2.2.3p173'
 
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
