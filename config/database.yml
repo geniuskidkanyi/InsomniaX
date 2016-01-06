@@ -88,4 +88,4 @@ production:
   <<: *default
   database: insomniax_production
   username: insomniax
-  password: <%= ENV['INSOMNIAX_DATABASE_PASSWORD'] %>
+  password: Ins@mniax
