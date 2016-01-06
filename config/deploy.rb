@@ -3,7 +3,7 @@ lock '3.4.0'
 server '188.166.6.59', port: 227, roles: [:web, :app, :db], primary: true
 set :application, 'insomniax'
 set :repo_url, 'git@bitbucket.org:geniuskid/insomniax.git'
-
+require 'capistrano/local_precompile'
 set :user,            'deploy'
 set :rbenv_type, :user
 set :rbenv_ruby, '2.2.3'
@@ -14,6 +14,14 @@ set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
+set :turbosprockets_enabled, true
+set :precompile_cmd             # default: bundle exec rake assets:precompile
+set :assets_dir                 # default: "public/assets"
+set :rsync_cmd                  # default: "rsync -av"
+
+set :turbosprockets_enabled     # default: false
+set :turbosprockets_backup_dir  # default: "public/.assets"
+set :cleanexpired_cmd           # default: bundle exec rake assets:clean_expired
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
