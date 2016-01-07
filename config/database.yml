@@ -87,5 +87,5 @@ test:
 production:
   <<: *default
   database: insomniax_production
-  username: insomniax
-  password: Ins@mniax
+  username:  <%= ENV['INSOMNIAX_DATABASE_USER'] %>
+  password:  <%= ENV['INSOMNIAX_DATABASE_PASSWORD'] %>
