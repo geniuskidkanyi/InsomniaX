@@ -17,9 +17,11 @@
       <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
       <%= image_tag @user.avatar.url if @user.avatar? %>
      </span>
-        <%= f.label :age, "Input your age"%>
-        <%= f.text_field :age, class: 'form-control input-date', id: 'input-date', value: '2000-10-31' %>
-        <span class="result"></span>
+        <%= f.check_box :is_female, {}, true %> <%= f.label :is_female, "Female" %>
+        <%= f.check_box :is_female, {}, false %> <%= f.label :is_female, "Male" %> <br>
+        <%= f.label :birthdate, "Input your age"%> <br>
+        <%= f.date_field :birthdate %> <br>
+
         <%= f.label :password %>
         <%= f.password_field :password, class: 'form-control' %>
         <%= f.label :password_confirmation, "Confirmation" %>

@@ -1,11 +1,11 @@
 <% provide(:title, @user.name) %>
 <div class="row user-menu-container square">
-    <div class="col-md-12 user-details">
+    <div class="col-lg-12 user-details">
         <div class="row coralbg white">
-            <div class="col-md-6 no-pad">
+            <div class="col-xs-6 no-pad">
                 <div class="user-pad">
                     <h3><%= @user.name %></h3>
-                    <h4 class="white"><i class="fa fa-eye"></i> <%= @user.age %></h4>
+                    <h4 class="white"><i class="fa fa-eye"></i> <%= @user.birthdate %></h4>
                     <h4 class="white"><i class="fa fa-user-md"></i> <%= @user.username %></h4>
 
                     <h4 class="btn-label"><i class="fa fa-pencil"></i> <% unless current_user == @user %>
@@ -13,7 +13,7 @@
                         <% end %></h4>
                 </div>
             </div>
-            <div class="col-md-6 no-pad">
+            <div class="col-xs-6 no-pad">
                 <div class="user-image">
                     <%= gravatar_profile @user %>
                 </div>
@@ -27,7 +27,7 @@
 
 
 <div class="row">
- <div class="col-lg-3 col-sm-3 col-xs-12"><section class="micropost_form">
+    <div class="col-lg-3 col-sm-3 col-xs-12 hidden-xs"><section class="micropost_form">
   <%= @user.email %>,
 
   <h1>

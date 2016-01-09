@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160101122253) do
+ActiveRecord::Schema.define(version: 20160109101520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -283,6 +283,8 @@ ActiveRecord::Schema.define(version: 20160101122253) do
     t.boolean  "forem_admin",          default: false
     t.string   "forem_state",          default: "pending_review"
     t.boolean  "forem_auto_subscribe", default: false
+    t.date     "birthdate"
+    t.boolean  "is_female",            default: false
   end
 
   create_table "votes", force: :cascade do |t|
