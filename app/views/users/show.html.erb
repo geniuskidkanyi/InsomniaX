@@ -5,8 +5,8 @@
             <div class="col-md-6 no-pad">
                 <div class="user-pad">
                     <h3><%= @user.name %></h3>
-                    <h4 class="white"><i class="fa fa-check-circle-o"></i> <%= @user.name %></h4>
-                    <h4 class="white"><i class="fa fa-twitter"></i> <%= @user.username %></h4>
+                    <h4 class="white"><i class="fa fa-eye"></i> <%= @user.age %></h4>
+                    <h4 class="white"><i class="fa fa-user-md"></i> <%= @user.username %></h4>
 
                     <h4 class="btn-label"><i class="fa fa-pencil"></i> <% unless current_user == @user %>
                         <%= link_to 'Send message', new_message_path(to: @user.id), class: 'btn btn-default btn-sm' %>
