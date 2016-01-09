@@ -63,27 +63,21 @@ $(document).ready(function () {
     );
 });
 
-function init() {
-
-    var _inputs = document.getElementsByTagName('input');
-
-    for (var i = 0; i < _inputs.length; i++) {
-
-        if (!Modernizr.inputtypes[_inputs[i].type]) {
-            _inputs[i].className = 'not-supported';
+var supports = (function () {
+    var d = document.documentElement,
+        c = "ontouchstart" in window || navigator.msMaxTouchPoints;
+    if (c) {
+        d.className += " touch";
+        return {
+            touch: true
         }
-
-        _inputs[i].parentNode.getElementsByClassName('result')[0].innerHTML = _inputs[i].value;
-
-        _inputs[i].onchange = function () {
-            //console.log(this.value);
-            var result_node = this.parentNode.getElementsByClassName('result');
-            result_node[0].innerHTML = this.value;
+    } else {
+        d.className += " no-touch";
+        return {
+            touch: false
         }
     }
-}
-
-window.onload = init;
+})();
 
 $('.vote')
     .on('ajax:send', function () {

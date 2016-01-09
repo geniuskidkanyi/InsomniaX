@@ -11,16 +11,8 @@
 @import "index";
 @import 'chosen';
 @import 'articles';
-@media (max-width: 767px) {
-    .navbar-fixed-top {
-        position: relative;
-        top: auto;
-    }
-    body {
-        margin: 0;
-    }
-}
 
+.no-touch .navbar-static-top {position:fixed;top:0;right:0;left:0;}
 h3,
 .h3 {
     font-size: 14px
