@@ -16,7 +16,7 @@
                         <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
                     </span>
                 </h4>
-                <img src="http://www.remabledesigns.com/bootsnipp/img/201402031158.png" alt="...">
+                <%= image_tag article.picture_article.url if article.picture_article? %>
             <%= link_to article.title, article, class: "btn btn-primary col-xs-12", role: "button" %>
                 <div class="clearfix"></div>
             </div>
