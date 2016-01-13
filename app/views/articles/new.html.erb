@@ -1,8 +1,10 @@
 <% provide(:title, "New Blog") %>
 <h1>New Post</h1>
 
-<%= form_for :article, url: articles_path do |f| %>
-
+<%= form_for :article, url: articles_path, html: { multipart: true } do |f| %>
+<span class="picture">
+    <%= f.file_field :picture_article %>
+</span>
 <%= f.label :title %><br>
 <%= f.text_field :title %><br>
 <br>
