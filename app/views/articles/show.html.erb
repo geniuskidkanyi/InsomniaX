@@ -19,8 +19,9 @@
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-
+    <div class="article-preview">
+    <%= image_tag @article.picture_article.url if @article.picture_article? %>
+    </div>
     <hr>
 
     <!-- Post Content -->

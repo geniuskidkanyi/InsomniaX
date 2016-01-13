@@ -1,6 +1,6 @@
 <h1>New Post</h1>
 
-<%= form_for(@article, html: { multipart: true }) do |f| %>
+<%= form_for :article, url: articles_path, html: { multipart: true } do |f| %>
 <span class="picture">
     <%= f.file_field :picture_article %>
 </span>
