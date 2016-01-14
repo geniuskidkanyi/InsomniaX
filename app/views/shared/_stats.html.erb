@@ -1,11 +1,9 @@
 <% @user ||= current_user %>
 
 <div class="row overview">
-<<<<<<< HEAD
-    <div class="col-sm-6 col-xs-6 user-pad2 text-center">
-=======
+
     <div class="col-sm-6 col-xs-6 user-pad text-center">
->>>>>>> blog
+
         <a href="<%= followers_user_path(@user) %>">
             <strong id="followers">
                 <h4><%= @user.followers.count %></h4>
@@ -16,11 +14,8 @@
 
 
     </div>
-<<<<<<< HEAD
-    <div class="col-sm-6 col-xs-6 user-pad2 text-center">
-=======
+
     <div class="col-sm-6 col-xs-6 user-pad text-center">
->>>>>>> blog
         <a href="<%= following_user_path(@user) %>">
             <strong id="following">
                 <h4><%= @user.following.count %></h4>
