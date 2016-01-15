@@ -1,10 +1,9 @@
 class ArticlesController < ApplicationController
     before_action :admin_user, only: :destroy
     before_action :admin_user, only: :create
-<<<<<<< HEAD
-=======
+
     before_action :admin_user, only: :edit
->>>>>>> blog
+
     impressionist actions: [:show], unique: [:session_hash]
     def index
         @articles = Article.all.order('created_at DESC')

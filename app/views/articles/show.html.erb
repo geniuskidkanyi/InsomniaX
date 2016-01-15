@@ -1,4 +1,4 @@
-<% provide(:title, " lol" ) %>
+<% provide(:title,  @article.title ) %>
 <!-- Blog Post Content Column -->
 <div class="col-lg-12">
 
@@ -25,7 +25,8 @@
     <hr>
 
     <!-- Post Content -->
-    <p> <%= @article.body %></p>
+    <p> <%= raw @article.body %></p>
+
     <hr>
 
 

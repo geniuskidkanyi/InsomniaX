@@ -31,7 +31,7 @@
 //= require chosen-jquery
 //= require messages
 //= require comments
-
+//= require ckeditor/init
 //= require bootstrap
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();

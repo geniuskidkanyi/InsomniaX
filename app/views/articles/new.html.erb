@@ -9,7 +9,8 @@
 <%= f.text_field :title %><br>
 <br>
 <%= f.label :body %><br>
-<%= f.text_field :body %><br>
+<%= f.cktext_area :body, :ckeditor => {:toolbar => 'mini'} %>
+
 <br>
 <%= f.text_field :tag_list %>
 <%= f.submit %>
