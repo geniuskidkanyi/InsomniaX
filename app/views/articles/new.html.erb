@@ -1,4 +1,5 @@
 <% provide(:title, "New Blog") %>
+<% if current_user.admin? && !current_user?(user) %>
 <h1>New Post</h1>
 
 <%= form_for :article, url: articles_path, html: { multipart: true } do |f| %>
@@ -14,4 +15,5 @@
 <br>
 <%= f.text_field :tag_list %>
 <%= f.submit %>
+<% end %>
 <% end %>
