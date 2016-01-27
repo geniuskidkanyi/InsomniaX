@@ -33,6 +33,7 @@
 //= require comments
 //= require ckeditor/init
 //= require bootstrap
+//= require google_analytics
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
