@@ -1,9 +1,8 @@
 <% if current_user && current_user.admin? %>
-<% provide(:title, "New Blog") %>
+<% provide(:title, "edit Blog") %>
 <h1>New Post</h1>
 
-<%= form_for :article, url: articles_path, html: { multipart: true } do |f| %>
-<h2>Add picture preview</h2>
+<%= form_for @article, html: { multipart: true } do |f| %>
 <span class="picture">
     <%= f.file_field :picture_article %>
 </span>
@@ -17,6 +16,6 @@
 <%= f.text_field :tag_list %>
 <%= f.submit %>
 <% end %>
-<% else%>
-<h2>Only admin can create a user</h2>
+<% else %>
+<h2>You dont have enough privileges</h2>
 <% end %>
