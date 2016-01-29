@@ -1,4 +1,5 @@
 @import "meyer-reset";
+@import 'demo';
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'forem/base';
@@ -12,9 +13,18 @@
 @import 'chosen';
 @import 'articles';
 
-.no-touch .navbar-static-top {position:fixed;top:0;right:0;left:0;}
+.no-touch .navbar-static-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
 h3,
 .h3 {
     font-size: 14px
 }
-.user-pad2{padding: 5px}
+
+.user-pad2 {
+    padding: 5px
+}

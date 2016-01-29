@@ -33,6 +33,8 @@
 //= require comments
 //= require ckeditor/init
 //= require bootstrap
+//= require jquery.soulmate
+//= require search
 //= require google_analytics
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();

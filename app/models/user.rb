@@ -12,6 +12,11 @@ class User < ActiveRecord::Base
 
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
+  after_save :load_into_soulmate
+  before_destroy :remove_from_soulmate
+
+  validates_uniqueness_of :name
+    
 
   validates :name, presence: true, length: { maximum: 100 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -73,4 +78,17 @@ OR user_id = :user_id", user_id: id)
         following.include?(other_user)
     end
 
+    private
+    
+    def load_into_soulmate
+        loader = Soulmate::Loader.new("Users")
+		loader.add("term" => name, "id" => self.id, "data" => {
+            "link" => Rails.application.routes.url_helpers.user_path(self)
+	   	})
+	end
+
+	def remove_from_soulmate
+        loader = Soulmate::Loader.new("Users")
+	    loader.remove("id" => self.id)
+	end
 end

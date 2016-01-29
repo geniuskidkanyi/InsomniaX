@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Forem relies on it being the default of "forem"
   mount Forem::Engine, :at => '/forums'
+    mount Soulmate::Server, :at => "/searchs"
 
   root 'pages#index'
   get 'help'  => 'pages#help'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'search' => 'search#index'
   resources :users
     resources :users do
         member do
