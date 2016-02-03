@@ -31,8 +31,9 @@ header,
     font-size: 2em;
     text-align: center;
     margin-top: 1em;
-    margin-left: 2em;
+    margin-left: auto;
     padding: 14px;
+    background-color: #fff;opacity: .7
 }
 
 .follow-avatar {
@@ -45,4 +46,7 @@ header,
     width: 200px
 }
 
-.main-page {background-image: }
+.main-page {
+    background-image: image-url('cover.jpg');
+    background-size: contain
+}
