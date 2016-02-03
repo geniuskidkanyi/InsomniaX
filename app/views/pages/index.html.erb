@@ -14,13 +14,14 @@
 
 
 <% else %>
-<div class="main_page hero">
+
+<div class="parallax-container">
     <div class="row">
-        <div class="col-lg-8 col-sm-8 col-xs-12 text-left">
+        <div class="col sm12 m3 l3">
             <h1 class="white-h1 btn-primary">Super charge your skills with expert authored tech and creative training with insomniax(Atus sec)</h1>
 
         </div>
-        <div class="col-lg-3 col-sm-3 col-xs-12 sign_up">
+        <div class="col sm12 m9 l9">
            <h2>Create A New Account</h2>
            <h3>Its Free Now And For Always</h3>
             <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, class: 'form', id: 'login-nav') do |f| %>
@@ -49,6 +50,6 @@
 
     </div>
 
-
+<div class="parallax"></div>
 </div>
 <% end %>

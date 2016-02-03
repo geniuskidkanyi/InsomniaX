@@ -15,17 +15,16 @@
 
 </head>
 <body>
-  <header>
        <%= render 'layouts/navbar' %>
-  </header>
+
       
   
 
  
 <!--main content-->
-   <main class="main">
+   <main class="lol">
     <% if logged_in? %>
-         <div class="row">
+         <div class="row main">
            
     <div class="col s12"> 
             
@@ -40,17 +39,12 @@
 
  
          </div>
-         </main>
+    </main>
           
-   <%else %>
-         <div class="row">
-            <div class="col-s12">
-                 <%= yield %>   
-            </div>
-         
-         </div>
-          
+   <% else %>
 
+                 <%= yield %>   
+                      
  <%end%>
 
 

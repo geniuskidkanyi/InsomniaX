@@ -60,9 +60,10 @@
     
       </ul>
 <!--end desktop navigation-->
+      <% if logged_in? %>
       <ul id="nav-mobile" class="side-nav fixed">
 <!--      for login user-->
-       <% if logged_in? %>
+      
         <li class="active hide-on-med-and-up"><%= link_to "friends", main_app.following_user_path(current_user) %></li>
         <li class="hide-on-med-and-up"><a class="dropdown-button" href="#!" data-activates="dropdown3">Users<i class="material-icons right">arrow_drop_down</i></a></li>
 <li class="hide-on-med-and-up"><%= link_to "Blog", main_app.articles_path %></li>
@@ -87,10 +88,12 @@
         <li><a href="/forums/categories/basic-help" class="list-group-item">Help</a></li>
 
     </ul>
-          <% end %>
+       
 <!--          end of login user-->
     
       </ul>
+        <% else %>
+        <% end %>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
