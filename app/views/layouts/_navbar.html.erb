@@ -1,0 +1,62 @@
+<!--begining of navbar dropdowns-->
+  
+   <ul id="dropdown1" class="dropdown-content">
+           <li class="active"><%= link_to "following", main_app.following_user_path(current_user) %></li>
+         <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
+         <li><%= link_to "Users", main_app.users_path %></li>
+   </ul>
+   
+     <ul id="dropdown2" class="dropdown-content">
+        
+         
+        <li><%= link_to 'Profile', main_app.user_path(current_user) %>
+       </li>
+       <li><%= link_to "Edit Account", main_app.edit_user_path(current_user) %>
+       </li>
+       <li class="divider"></li>
+       <li><%= link_to "Log out", main_app.logout_path, method: :delete %>
+       </li>
+      
+    </ul>
+   
+<!--   end of navbar dropdowns-->
+  <div class="navbar-fixed">
+   <nav  role="navigation">
+    <div class="nav-wrapper">
+        <%= link_to image_tag('logo.png', alt: 'logo', class: 'brand-logo', id: 'logo-container'), main_app.root_path %>
+      
+<!--    egining of mobile navigation-->
+      <ul class="right hide-on-med-and-down">
+           
+       <li class="active"><%= link_to "friends", main_app.following_user_path(current_user) %></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Users<i class="material-icons right">arrow_drop_down</i></a></li>
+<li><%= link_to "Blog", main_app.articles_path %></li>
+   <li><%= form_tag '#', :class => 'nav-form' do -%>
+    <div class="input-field">
+	  <%= text_field_tag "search", nil, placeholder: "Search", autocomplete: :off, id: "search" %>
+    </div>
+	<% end %></li>
+    
+      
+    <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+    
+      </ul>
+<!--end desktop navigation-->
+      <ul id="nav-mobile" class="side-nav">
+        <li class="active"><%= link_to "friends", main_app.following_user_path(current_user) %></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Users<i class="material-icons right">arrow_drop_down</i></a></li>
+<li><%= link_to "Blog", main_app.articles_path %></li>
+   <li><%= form_tag '#', :class => 'nav-form' do -%>
+    <div class="input-field">
+	  <%= text_field_tag "search", nil, placeholder: "Search", autocomplete: :off, id: "search" %>
+    </div>
+	<% end %></li>
+    
+      
+    <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+    
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+</div>

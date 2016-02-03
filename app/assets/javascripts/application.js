@@ -13,74 +13,23 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
-//= require affix
-//= require alert
-//= require button
-//= require carousel
-//= require collapse
-//= require dropdown
-//= require tab
-//= require transition
-//= require scrollspy
-//= require modal
-//= require tooltip
-//= require popover
+//= require materialize-sprockets
+//= require materialize
 //= require forem
 //= require jquery.turbolinks
 //= require chosen-jquery
 //= require messages
 //= require comments
 //= require ckeditor/init
-//= require bootstrap
 //= require jquery.soulmate
 //= require search
 //= require google_analytics
-$(document).ready(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-});
-$(document).ready(function () {
-    var $btnSets = $('#responsive'),
-        $btnLinks = $btnSets.find('a');
 
-    $btnLinks.click(function (e) {
-        e.preventDefault();
-        $(this).siblings('a.active').removeClass("active");
-        $(this).addClass("active");
-        var index = $(this).index();
-        $("div.user-menu>div.user-menu-content").removeClass("active");
-        $("div.user-menu>div.user-menu-content").eq(index).addClass("active");
-    });
+$(document).on('ready page:load', function () {
+    $(".dropdown-button").dropdown();
+    $(".button-collapse").sideNav();
 });
 
-$(document).ready(function () {
-    $("[rel='tooltip']").tooltip();
-
-    $('.view').hover(
-        function () {
-            $(this).find('.caption').slideDown(250); //.fadeIn(250)
-        },
-        function () {
-            $(this).find('.caption').slideUp(250); //.fadeOut(205)
-        }
-    );
-});
-
-var supports = (function () {
-    var d = document.documentElement,
-        c = "ontouchstart" in window || navigator.msMaxTouchPoints;
-    if (c) {
-        d.className += " touch";
-        return {
-            touch: true
-        }
-    } else {
-        d.className += " no-touch";
-        return {
-            touch: false
-        }
-    }
-})();
 
 $('.vote')
     .on('ajax:send', function () {

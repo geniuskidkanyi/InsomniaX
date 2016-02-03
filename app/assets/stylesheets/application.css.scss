@@ -1,25 +1,15 @@
 @import "meyer-reset";
+@import "materialize";
 @import 'demo';
-@import "bootstrap-sprockets";
-@import "bootstrap";
 @import 'forem/base';
 @import "font-awesome";
 @import "heade-footer";
 @import "body";
 @import "users";
 @import "microposts";
-@import "sidebar";
 @import "index";
 @import 'chosen';
 @import 'articles';
-
-.no-touch .navbar-static-top {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-}
-
 h3,
 .h3 {
     font-size: 14px

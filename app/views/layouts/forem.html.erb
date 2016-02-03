@@ -3,9 +3,9 @@
 <head>
  <title><%= yield(:title) %> | Insomniax the social community for geeks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+    <%= stylesheet_link_tag "forem" %>
+    <%= javascript_include_tag "forem" %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag :modernizr %>
   <%= csrf_meta_tags %>
@@ -16,9 +16,15 @@
 </head>
 <body>
 
-  <%= render 'layouts/navbar' %>
+  <%= render 'layouts/login' %>
 <!--main content-->
     <% if logged_in? %>
+  <div class="container-fluid-main">
+   <% else %>
+      <div class="main_page">
+          <% end %>
+
+              <% if logged_in? %>
           <div id="wrapper">
 
 
@@ -39,6 +45,11 @@
 
 
     </div>
+    </div>
+
+
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     
 </body>
 </html>

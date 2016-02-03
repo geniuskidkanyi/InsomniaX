@@ -4,7 +4,7 @@ Forem.email_from_address = "no-reply@insomniax.biz"
 # Forem.avatar_user_method = :custom_avatar_url
 Forem.per_page = 10
 Rails.application.config.to_prepare do
-  Forem.layout = "application"
+    Forem.layout = "forem"
 end
 Forem.user_profile_links = true
 
