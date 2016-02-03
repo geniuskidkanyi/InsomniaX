@@ -24,6 +24,7 @@
 //= require jquery.soulmate
 //= require search
 //= require google_analytics
+//= require dropzone
 
 $(document).on('ready page:load', function () {
     $(".dropdown-button").dropdown();
