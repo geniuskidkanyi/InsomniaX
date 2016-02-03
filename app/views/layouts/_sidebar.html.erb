@@ -1,27 +1,28 @@
 <% if logged_in? %>
-<div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
-        <!-- Grey navigation panel
-
-              This content will be:
-          3-columns-wide on large screens,
-          4-columns-wide on medium screens,
-          12-columns-wide on small screens  -->
-
-      </div>
-<div id="sidebar-wrapper" class="col-lg-3 col-sm-3 col-xs-12  hidden-xs">
+<div class="col s12 m4 l3 hide-on-small-only fixed"> 
+    
   <div id="sidebar">
-    <ul class="nav list-group">
-        <li><%= link_to 'Your Conversations', main_app.conversations_path, class: 'list-group-item' %></li>
-        <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
-        <li><h3 class="text-center">Forums</h3></li>
-        <li><%= link_to 'Forums', forem.forums_path, class: 'list-group-item' %></li>
-        <li><a href="/forums/categories/networking" class="list-group-item">Networking</a></li>
-        <li><a href="/forums/categories/programing" class="list-group-item">Programing</a></li>
-        <li><a href="/forums/categories/etthical-hacking" class="list-group-item">Ethical hacking</a></li>
-        <li><a href="/forums/categories/basic-computing" class="list-group-item">Basic computing</a></li>
-        <li><a href="/forums/categories/basic-help" class="list-group-item">Help</a></li>
+    <ul class="collection">
+        <li>
+        
+       <%= link_to(main_app.conversations_path, :class => 'collection-item') do %>
+  <span class="new badge"> <%= current_user.mailbox.inbox(:unread => true).count(:id, :distinct => true)  %></span> Conversations
+<% end %>
+        </li>
+        
+        <li><%= link_to 'Articles', main_app.articles_path, class: 'collection-item' %></li>
+        <li><h3 class="center-align">Forums</h3></li>
+        <li><%= link_to 'Forums', forem.forums_path, class: 'collection-item' %></li>
+        <li><a href="/forums/categories/networking" class="collection-item">Networking</a></li>
+        <li><a href="/forums/categories/programing" class="collection-item">Programing</a></li>
+        <li><a href="/forums/categories/etthical-hacking" class="collection-item">Ethical hacking</a></li>
+        <li><a href="/forums/categories/basic-computing" class="collection-item">Basic computing</a></li>
+        <li><a href="/forums/categories/basic-help" class="collection-item">Help</a></li>
 
     </ul>
   </div>
-</div>
+     
+      </div>
+
+
 <% end %>

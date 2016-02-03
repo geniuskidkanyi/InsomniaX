@@ -1,24 +1,16 @@
 <div class="row">
-
-
- <div class="col-sm-12">
-  <div class="panel panel-white post panel-shadow">
-   <div class="post-heading">
-    <div class="pull-left image">
-     <%= link_to gravatar_post(micropost.user, size: 50), micropost.user %>
-    </div>
-    <div class="pull-left meta">
-     <div class="title h5">
-      <%= link_to micropost.user.name, micropost.user %>
-      made a post.
-     </div>
-     <h6 class="text-muted time"><%= time_ago_in_words(micropost.created_at) %> ago</h6>
-    </div>
-   </div>
-   <div class="post-description">
-    <p><%= micropost.content %> <br>
+<ul class="collection">
+    <li class="collection-item avatar">
+      <%= link_to gravatar_post(micropost.user, size: 50), micropost.user %>
+      <span class="title"><%= link_to micropost.user.name, micropost.user %>
+      made a post.</span>
+      <span class="title"><%= time_ago_in_words(micropost.created_at) %> ago</span>
+      <p><%= micropost.content %> <br>
      <%= image_tag micropost.picture.url if micropost.picture? %></p>
-    <div class="stats">
+      </p>
+     
+    </li>
+     <div class="stats">
 
      <%= link_to like_micropost_path(micropost), method: :get, class: "btn btn-default stat-item " do %>
      <span class="fa fa-thumbs-up icon"></span><%= micropost.get_upvotes.size %>
@@ -33,11 +25,10 @@
      <% end %>
 
     </div>
-   </div>
-   <div class="post-footer">
-    </div>
-  </div>
- </div>
+   
+</ul>
+
+ 
 </div>
 
 

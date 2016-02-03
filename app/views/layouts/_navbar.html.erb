@@ -1,6 +1,11 @@
 <!--begining of navbar dropdowns-->
-  
+  <% if logged_in? %>
    <ul id="dropdown1" class="dropdown-content">
+           <li class="active"><%= link_to "following", main_app.following_user_path(current_user) %></li>
+         <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
+         <li><%= link_to "Users", main_app.users_path %></li>
+   </ul>
+      <ul id="dropdown3" class="dropdown-content">
            <li class="active"><%= link_to "following", main_app.following_user_path(current_user) %></li>
          <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
          <li><%= link_to "Users", main_app.users_path %></li>
@@ -17,8 +22,19 @@
        <li><%= link_to "Log out", main_app.logout_path, method: :delete %>
        </li>
       
+    </ul><ul id="dropdown4" class="dropdown-content">
+        
+         
+        <li><%= link_to 'Profile', main_app.user_path(current_user) %>
+       </li>
+       <li><%= link_to "Edit Account", main_app.edit_user_path(current_user) %>
+       </li>
+       <li class="divider"></li>
+       <li><%= link_to "Log out", main_app.logout_path, method: :delete %>
+       </li>
+      
     </ul>
-   
+<% end %>
 <!--   end of navbar dropdowns-->
   <div class="navbar-fixed">
    <nav  role="navigation">
@@ -27,6 +43,7 @@
       
 <!--    egining of mobile navigation-->
       <ul class="right hide-on-med-and-down">
+          <% if logged_in? %>
            
        <li class="active"><%= link_to "friends", main_app.following_user_path(current_user) %></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Users<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -39,21 +56,39 @@
     
       
     <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+          <% end %>
     
       </ul>
 <!--end desktop navigation-->
-      <ul id="nav-mobile" class="side-nav">
-        <li class="active"><%= link_to "friends", main_app.following_user_path(current_user) %></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Users<i class="material-icons right">arrow_drop_down</i></a></li>
-<li><%= link_to "Blog", main_app.articles_path %></li>
-   <li><%= form_tag '#', :class => 'nav-form' do -%>
+      <ul id="nav-mobile" class="side-nav fixed">
+<!--      for login user-->
+       <% if logged_in? %>
+        <li class="active hide-on-med-and-up"><%= link_to "friends", main_app.following_user_path(current_user) %></li>
+        <li class="hide-on-med-and-up"><a class="dropdown-button" href="#!" data-activates="dropdown3">Users<i class="material-icons right">arrow_drop_down</i></a></li>
+<li class="hide-on-med-and-up"><%= link_to "Blog", main_app.articles_path %></li>
+   <li class="hide-on-med-and-up"><%= form_tag '#', :class => 'nav-form' do -%>
     <div class="input-field">
 	  <%= text_field_tag "search", nil, placeholder: "Search", autocomplete: :off, id: "search" %>
     </div>
 	<% end %></li>
     
       
-    <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+    <li class="hide-on-med-and-up"><a class="dropdown-button" href="#!" data-activates="dropdown4"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+    <div class="divider hide-on-med-and-up"></div>
+    <ul class="nav list-group">
+        <li><%= link_to 'Your Conversations', main_app.conversations_path, class: 'list-group-item' %></li>
+        <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
+    
+        <li><%= link_to 'Forums', forem.forums_path, class: 'list-group-item' %></li>
+        <li><a href="/forums/categories/networking" class="list-group-item">Networking</a></li>
+        <li><a href="/forums/categories/programing" class="list-group-item">Programing</a></li>
+        <li><a href="/forums/categories/etthical-hacking" class="list-group-item">Ethical hacking</a></li>
+        <li><a href="/forums/categories/basic-computing" class="list-group-item">Basic computing</a></li>
+        <li><a href="/forums/categories/basic-help" class="list-group-item">Help</a></li>
+
+    </ul>
+          <% end %>
+<!--          end of login user-->
     
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
