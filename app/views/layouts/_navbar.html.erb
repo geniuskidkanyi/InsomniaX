@@ -77,7 +77,12 @@
     <li class="hide-on-med-and-up"><a class="dropdown-button" href="#!" data-activates="dropdown4"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
     <div class="divider hide-on-med-and-up"></div>
     <ul class="nav list-group">
-        <li><%= link_to 'Your Conversations', main_app.conversations_path, class: 'list-group-item' %></li>
+         <li>
+        
+       <%= link_to(main_app.conversations_path, :class => 'collection-item') do %>
+  <span class="new badge"> <%= current_user.mailbox.inbox(:unread => true).count(:id, :distinct => true)  %></span> Conversations
+<% end %>
+        </li>
         <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
     
         <li><%= link_to 'Forums', forem.forums_path, class: 'list-group-item' %></li>

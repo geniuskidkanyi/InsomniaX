@@ -12,13 +12,13 @@
     </li>
      <div class="stats">
 
-     <%= link_to like_micropost_path(micropost), method: :get, class: "btn btn-default stat-item " do %>
+     <%= link_to like_micropost_path(micropost), method: :get, class: "waves-effect waves-light btn " do %>
      <span class="fa fa-thumbs-up icon"></span><%= micropost.get_upvotes.size %>
      Upvote
 
      <% end %>
 
-     <%= link_to dislike_micropost_path(micropost), method: :get, class: "btn btn-default stat-item" do %>
+     <%= link_to dislike_micropost_path(micropost), method: :get, class: "waves-effect waves-light btn" do %>
      <span class="fa fa-thumbs-down icon"></span><%= micropost.get_downvotes.size %>
      downvote
 

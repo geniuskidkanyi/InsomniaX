@@ -1,4 +1,5 @@
-<% if can?(:read, forum) %>
+
+ <% if can?(:read, forum) %>
   <tr class="forum <%= cycle("odd", "even") %>">
     <td>
       <%= link_to forem_emojify(forum.title), forem.forum_path(forum), :class => "title" %>

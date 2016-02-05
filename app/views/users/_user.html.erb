@@ -16,7 +16,7 @@
 
                       <% if current_user.admin? && !current_user?(user) %>
                   <div class="col-md-6">
-                     <%= link_to "delete", user, method: :delete,class: 'btn btn-primary btn-sm btn-block',
+                     <%= link_to "delete", user, method: :delete,class: 'waves-effect waves-light btn',
 data: { confirm: "You sure?" } %>
                   </div>
 
@@ -24,11 +24,11 @@ data: { confirm: "You sure?" } %>
 
 
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-user"></i> Follow</button>
+                        <button type="button" class="waves-effect waves-light btn"><i class="fa fa-user"></i> Follow</button>
                     </div>
                          <div class="col-md-6">
                              <% unless current_user == @user %>
-                             <%= link_to 'Send message', new_message_path(to: user.id), class: 'btn btn-primary btn-sm btn-block' %>
+                             <%= link_to 'Send message', new_message_path(to: user.id), class: 'waves-effect waves-light btn' %>
                              <% end %>
                     </div>
                 </div>
