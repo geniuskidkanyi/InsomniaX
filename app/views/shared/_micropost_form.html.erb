@@ -18,12 +18,13 @@
                     <li><a href="#"><span class="glyphicon glyphicon-camera"></span></a></li>
 
                     <li><a href="#" class='glyphicon glyphicon-map-marker'></a></li>
-                    <li class='pull-right'><%= f.submit "Post", class: "waves-effect waves-light btn" %></li>
+                    <li class='pull-right'><%= f.submit "Post", class: "waves-effect waves-light btn light-blue accent-4" %></li>
                 </ul>
 
         </div>
-    <span class="picture">
-        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'dropzone' %>
+       
+    <span class="file-path-wrapper">
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'file-path validate' %>
         <% end %>
     </span>
     </div>

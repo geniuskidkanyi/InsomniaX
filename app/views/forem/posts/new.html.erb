@@ -12,5 +12,5 @@
 
 <%= simple_form_for [forem, @topic.forum, @topic, @post] do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
-  <%= f.submit t("forem.post.buttons.reply"), :class => "btn btn-primary" %>
+  <%= f.submit t("forem.post.buttons.reply"), :class => "btn light-blue accent-4" %>
 <% end %>
