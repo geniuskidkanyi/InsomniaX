@@ -6,7 +6,7 @@
   <% @forums.group_by(&:category).each do |category, forums| %>
     <h2><%= category.try(:name) || t('.no_category') %></h2>
 
-    <table id='forums' class='forums table table-striped' cellspacing='0'>
+    <table id='forums' class='forums table striped' cellspacing='0'>
       <thead>
         <tr>
           <th><%= t('edit', :scope => 'forem.admin.forums') %></th>
