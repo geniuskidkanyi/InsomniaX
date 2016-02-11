@@ -16,7 +16,7 @@
 
                       <% if current_user.admin? && !current_user?(user) %>
                   <div class="col-md-6">
-                     <%= link_to "delete", user, method: :delete,class: 'waves-effect waves-light btn',
+                     <%= link_to "delete", user, method: :delete,class: 'waves-effect waves-light btn red darken-4',
 data: { confirm: "You sure?" } %>
                   </div>
 
