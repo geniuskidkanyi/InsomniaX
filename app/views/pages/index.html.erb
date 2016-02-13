@@ -1,9 +1,9 @@
+
+
 <% provide(:title, "Home") %>
 <% if logged_in? %>
 
-        <section class="user_info">
-            <%= render 'shared/user_info' %>
-        </section>
+      
 
         <section class="micropost_form">
             <%= render 'shared/micropost_form' %>
@@ -14,14 +14,13 @@
 
 
 <% else %>
-
-<div class="main-page">
+<div class="login">
     <div class="row">
         <div class="col sm12 m3 l3">
             <h1 class="white-h1 ">Super charge your skills with expert authored tech and creative training with insomniax(Atus sec)</h1>
 
         </div>
-        <div class="col sm12 m9 l9 white-h1">
+        <div class="col sm12 m8 l8 white-h1">
            <h2>Create A New Account</h2>
            <h3>Its Free Now And For Always</h3>
             <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, class: 'form', id: 'login-nav') do |f| %>

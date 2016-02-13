@@ -27,10 +27,12 @@
 //= require dropzone
 
 $(document).on('ready page:load', function () {
-    $(".dropdown-button").dropdown();
+    $(".dropdown-button").dropdown(
+        hover: true, );
     $(".button-collapse").sideNav();
     $('.parallax').parallax();
     $('.materialboxed').materialbox();
+
 });
 
 

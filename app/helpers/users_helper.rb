@@ -25,7 +25,7 @@ module UsersHelper
         size = options[:size]
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
         avatar_url = user.avatar? ? user.avatar.url : gravatar_url
-        image_tag(avatar_url, alt: user.name, class: "img-responsive thumbnail")
+        image_tag(avatar_url, alt: user.name, class: " responsive-img materialboxed")
     end
     def gravatar_all(user, options = { size: 80 })
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)

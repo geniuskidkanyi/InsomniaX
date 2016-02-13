@@ -2,7 +2,7 @@
 
 <div class="row overview">
 
-    <div class="col-sm-6 col-xs-6 user-pad text-center">
+    <div class="col s6 m6 user-pad text-center">
 
         <a href="<%= followers_user_path(@user) %>">
             <strong id="followers">
@@ -15,7 +15,7 @@
 
     </div>
 
-    <div class="col-sm-6 col-xs-6 user-pad text-center">
+    <div class="col s6 m6 user-pad text-center">
 
         <a href="<%= following_user_path(@user) %>">
             <strong id="following">
@@ -28,7 +28,7 @@
 
     </div>
     <% if logged_in? %>
-    <div class="col-sm-4 col-xs-4 user-pad text-center">
+    <div class="col s4 m4 user-pad text-center">
         <h3><%= render 'users/follow_form' %></h3>
 
     </div>
