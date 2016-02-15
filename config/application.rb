@@ -24,6 +24,7 @@ module Insomniax
       config.active_record.raise_in_transactional_callbacks = true
       # Include the authenticity token in remote forms.
       config.action_view.embed_authenticity_token_in_remote_forms = true
-     
+     Rails.application.routes.default_url_options[:host] = 'https://insomniax.biz'
+
   end
 end
