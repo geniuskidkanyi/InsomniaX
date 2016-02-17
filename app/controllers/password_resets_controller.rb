@@ -1,7 +1,6 @@
 class PasswordResetsController < ApplicationController
-    before_action :get_user,
-only: [:edit, :update]
-before_action :valid_user, only: [:edit, :update]
+    before_action :get_user, only: [:edit, :update]
+    before_action :valid_user, only: [:edit, :update]
     before_action :check_expiration, only: [:edit, :update]
   def new
   end
@@ -48,7 +47,7 @@ before_action :valid_user, only: [:edit, :update]
     end
 # Confirms a valid user.
    def valid_user
-    unless (@user && @user.activated? &&
+    unless (@user &&
        @user.authenticated?(:reset, params[:id]))
       redirect_to root_url
     end
