@@ -88,7 +88,7 @@ test:
 #
 production:
   <<: *default
-  host: insomniax
+  host: localhost
   database: insomniax_production
   username:  <%= ENV['INSOMNIAX_DATABASE_USER'] %>
   password:  <%= ENV['INSOMNIAX_DATABASE_PASSWORD'] %>
