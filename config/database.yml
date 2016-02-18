@@ -25,7 +25,7 @@ default: &default
 
 development:
   <<: *default
-    host: localhost
+  host: localhost
   database: insomniax_development
   username: insomniax
   password: Ins@mniax
@@ -62,7 +62,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-    host: localhost
+  host: localhost
   database: insomniax_test
   username: insomniax
   password: Ins@mniax
