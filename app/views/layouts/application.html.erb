@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
  <title><%= yield(:title) %>| Insomniax the social community for geeks</title>
+
+   <meta name="msvalidate.01" content="9BF9701D09E8E5A4D09FA989AE2C5617" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -24,11 +28,12 @@
 <!--main content-->
    <main>
     <% if logged_in? %>
+
          <div class="row main">
            
     <div class="col s12"> 
             
-  
+
                  <div id="main">
                      <% flash.each do |message_type, message| %>
                      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>

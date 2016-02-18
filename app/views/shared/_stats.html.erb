@@ -4,6 +4,7 @@
 
     <div class="col s6 m6 user-pad text-center">
 
+
         <a href="<%= followers_user_path(@user) %>">
             <strong id="followers">
                 <h4><%= @user.followers.count %></h4>
@@ -15,7 +16,9 @@
 
     </div>
 
+
     <div class="col s6 m6 user-pad text-center">
+
 
         <a href="<%= following_user_path(@user) %>">
             <strong id="following">

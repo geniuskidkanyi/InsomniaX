@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   mount Ckeditor::Engine => '/ckeditor'
   # This line mounts Forem's routes at /forums by default.
   # This means, any requests to the /forums URL of your application will go to Forem::ForumsController#index.
@@ -19,6 +23,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'search' => 'search#index'
   resources :users
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
     resources :users do
         member do
             get :following, :followers
