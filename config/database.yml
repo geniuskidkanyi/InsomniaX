@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
+
 
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -25,6 +25,7 @@ default: &default
 
 development:
   <<: *default
+    host: localhost
   database: insomniax_development
   username: insomniax
   password: Ins@mniax
@@ -61,6 +62,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+    host: localhost
   database: insomniax_test
   username: insomniax
   password: Ins@mniax
@@ -86,6 +88,7 @@ test:
 #
 production:
   <<: *default
+  host: insomniax
   database: insomniax_production
   username:  <%= ENV['INSOMNIAX_DATABASE_USER'] %>
   password:  <%= ENV['INSOMNIAX_DATABASE_PASSWORD'] %>
