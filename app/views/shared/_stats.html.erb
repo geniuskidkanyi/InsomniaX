@@ -2,31 +2,31 @@
 
 <div class="row overview">
 
-    <div class="col s6 m6 user-pad text-center">
+    <div class="col s6 m3 user-pad text-center">
 
 
         <a href="<%= followers_user_path(@user) %>">
             <strong id="followers">
-                <h4><%= @user.followers.count %></h4>
+                <h5><%= @user.followers.count %></h5>
 
          </strong>
-            <h5>FOLLOWERS</h5>
+            <h6>FOLLOWERS</h6>
         </a>
 
 
     </div>
 
 
-    <div class="col s6 m6 user-pad text-center">
+    <div class="col s6 m3 user-pad text-center">
 
 
         <a href="<%= following_user_path(@user) %>">
             <strong id="following">
-                <h4><%= @user.following.count %></h4>
+                <h5><%= @user.following.count %></h5>
 
 
             </strong>
-            <h5>FOLLOWING</h5>
+            <h6>FOLLOWING</h6>
         </a>
 
     </div>

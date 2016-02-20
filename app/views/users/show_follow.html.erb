@@ -1,25 +1,54 @@
 <% provide(:title, @title) %>
-<div class="row">
-    <aside class="col-lg-4 ">
-        <section class="user_info">
-            <%= gravatar_followed_user @user %>
-            <h1><%= @user.name %></h1>
-            <span><%= link_to "view my profile", @user %></span>
-            <span><b>Microposts:</b> <%= @user.microposts.count %></span>
-            <section class="stats"><%= render 'shared/stats' %></section>
-        </section>
 
-    </aside>
-    <div class="col-lg-7 ">
+  <div class="row user-menu-container square">
+    <div class="col l12 user-details">
+        <div class="row coralbg">
+            <div class="col s6 no-pad">
+                <div class="user-pad">
+                    <h3><i class="small material-icons">perm_identity</i><%= @user.name %></h3>
+                    <h3 ><i class="small material-icons">perm_identity</i> <%= @user.username %></h3>
+                    <h3 ><i class="small material-icons">perm_identity</i>   <%= @user.email %></h3>
+                    <h3 ><i class="small material-icons">perm_identity</i> <%= @user.birthdate %></h3>
+
+                    <% unless current_user == @user %>
+                        <%= link_to(new_message_path(to: @user.id), :class => 'waves-effect waves-light btn') do %>
+  <i class="fa fa-pencil"></i>  Send message
+<% end %>
+                     
+                      
+                     <% end %>
+                </div>
+            </div>
+            <div class="col s6 no-pad">
+                <div class="user-image">
+                    <%= gravatar_profile @user %>
+                </div>
+            </div>
+        </div>
+        <%= render 'shared/stats' %>
+    </div>
+
+
+</div>
+<div class="row">
+     <div class="col s12 ">
         <h3><%= @title %></h3>
         <section class="stats">
 
             <% if @users.any? %>
             <div class="user_avatars">
+                 <div class="row">
+                   
                 <% @users.each do |user| %>
-                <%= link_to gravatar_follow(user, size: 30), user %>
-
+               <div class="col s6 m3 l3">
+                         <%= link_to gravatar_follow(user, size: 80), user %>
+                          <br>
+                <%= link_to user.name, user %>
+                 </div>
                 <% end %>
+               
+                </div>
+               
             </div>
             <%= will_paginate %>
             <% end %>
@@ -28,3 +57,5 @@
 
     </div>
 </div>
+   
+

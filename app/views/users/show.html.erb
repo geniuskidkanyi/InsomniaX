@@ -5,12 +5,16 @@
             <div class="col s6 no-pad">
                 <div class="user-pad">
                     <h3><i class="small material-icons">perm_identity</i><%= @user.name %></h3>
-                    <h3 ><i class="small material-icons">perm_identity</i> <%= @user.birthdate %></h3>
                     <h3 ><i class="small material-icons">perm_identity</i> <%= @user.username %></h3>
+                    <h3 ><i class="small material-icons">perm_identity</i>   <%= @user.email %></h3>
+                    <h3 ><i class="small material-icons">perm_identity</i> <%= @user.birthdate %></h3>
 
                     <% unless current_user == @user %>
-                        <i class="fa fa-pencil"></i> 
-                        <%= link_to 'Send message', new_message_path(to: @user.id), class: 'waves-effect waves-light btn' %>
+                        <%= link_to(new_message_path(to: @user.id), :class => 'waves-effect waves-light btn') do %>
+  <i class="fa fa-pencil"></i>  Send message
+<% end %>
+                     
+                      
                      <% end %>
                 </div>
             </div>
@@ -28,13 +32,12 @@
 
 
 <div class="row">
-    <div class="col s12 m3 l3 hidden-xs"><section class="micropost_form">
-  <%= @user.email %>,
-
-  <h1>
+    <div class="col s12 m3 l3 hidden-xs">
+    <section class="micropost_form">
+<h5>
    <%= gravatar_for @user %>
    <%= @user.name %>
-  </h1>
+  </h5>
   </section>
   </div>
 <% if @user.microposts.any? %>
