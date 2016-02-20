@@ -56,4 +56,14 @@ Rails.application.routes.draw do
 
     resources :comments
     resources :tags, only: [:index, :show]
+    
+    resources :forums, :only => [:index, :show], :path => "/" do
+    resources :topics, :except => :index do
+      resources :posts, :except => :index
+      member do
+        post :subscribe
+        post :unsubscribe
+      end
+    end
+  end
 end

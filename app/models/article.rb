@@ -1,11 +1,11 @@
 class Article < ActiveRecord::Base
     after_save :load_into_soulmate
 	before_destroy :remove_from_soulmate
-
+     acts_as_commentable
     validates_uniqueness_of :title
     include PublicActivity::Model
     tracked
-    acts_as_commentable
+   
     extend FriendlyId
     friendly_id :title, use: :slugged
     is_impressionable

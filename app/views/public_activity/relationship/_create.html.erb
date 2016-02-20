@@ -1,5 +1,6 @@
 <li class="list-group-item">
   <% if a.trackable %>
+   <small class="text-muted"><%= a.created_at.strftime('%H:%M:%S %-d %B %Y') %></small><br/>
     <%= a.trackable.followed_id %> was followed
   <% else %>
     An article that is currently deleted was edited.
