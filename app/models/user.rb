@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-   
+   include PublicActivity::Model
+   tracked
     acts_as_voter
     has_many :microposts, dependent: :destroy
     has_many :articles

@@ -3,7 +3,8 @@ class Article < ActiveRecord::Base
 	before_destroy :remove_from_soulmate
 
     validates_uniqueness_of :title
-    
+    include PublicActivity::Model
+    tracked
     acts_as_commentable
     extend FriendlyId
     friendly_id :title, use: :slugged

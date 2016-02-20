@@ -34,6 +34,7 @@ gem 'rack-contrib'
 gem 'soulmate', :require => 'soulmate/server'
 gem 'will_paginate-bootstrap'
 gem 'materialize-sass'
+gem 'public_activity'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
