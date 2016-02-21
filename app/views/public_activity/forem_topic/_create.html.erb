@@ -3,6 +3,8 @@
   <% if a.trackable %>
    <small class="text-muted"><%= a.created_at.strftime('%H:%M:%S %-d %B %Y') %></small><br/>
    <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong> <br>
+   forum_topic_post_path
+    <%= link_to a.trackable.title, forem.forum_topic_path(a.trackable) %> was added
     <%= a.trackable.title %> was added
   <% else %>
     An article that is currently deleted was edited.
