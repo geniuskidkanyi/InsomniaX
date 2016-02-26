@@ -44,7 +44,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     CFPropertyList (2.3.2)
-    RedCloth (4.2.9)
     actionmailer (4.2.4)
       actionpack (= 4.2.4)
       actionview (= 4.2.4)
@@ -290,9 +289,6 @@ GEM
       railties (>= 3.2, < 5.0)
     foreigner (1.7.4)
       activerecord (>= 3.0.0)
-    forem-textile_formatter (0.1.0)
-      RedCloth
-      forem
     formatador (0.2.5)
     friendly_id (5.0.5)
       activerecord (>= 4.0.0)
@@ -500,7 +496,6 @@ DEPENDENCIES
   forem!
   forem-bootstrap!
   forem-redcarpet!
-  forem-textile_formatter
   friendly_id (~> 5.0.1)
   gretel
   impressionist

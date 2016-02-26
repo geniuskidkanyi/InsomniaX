@@ -17,7 +17,6 @@ gem 'acts_as_votable'
 gem 'forem', github: "radar/forem", branch: "rails4"
 gem 'forem-bootstrap', github: "radar/forem-bootstrap"
 gem 'forem-redcarpet', github: "radar/forem-redcarpet"
-gem 'forem-textile_formatter'
 gem "mailboxer"
 gem 'chosen-rails'
 gem 'jquery-turbolinks'

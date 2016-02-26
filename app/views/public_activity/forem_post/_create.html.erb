@@ -4,7 +4,8 @@
    <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong> <br>
     <%= a.trackable.topic.subject %> was added
     
-    <%= link_to a.trackable.topic.subject, forem.forum_topic_post_path(a.trackable) %> was added
+   
+
   <% else %>
     An article that is currently deleted was edited.
   <% end %>
