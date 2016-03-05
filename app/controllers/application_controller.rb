@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    include PublicActivity::StoreController
+ include PublicActivity::StoreController
   def forem_user
     current_user
   end
