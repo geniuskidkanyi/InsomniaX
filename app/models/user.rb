@@ -107,10 +107,10 @@ OR user_id = :user_id", user_id: id)
     reset_sent_at < 2.hours.ago
    end
     private
-    def create_activation_digest
-      self.activation_token = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end
+    #def create_activation_digest
+    #  self.activation_token = User.new_token
+    #  self.activation_digest = User.digest(activation_token)
+    #end
 
 
     
