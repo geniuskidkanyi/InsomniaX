@@ -20,6 +20,9 @@
 
 
     <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+          <% else %>
+<li><a class="dropdown-button" href="#!" data-activates="dropdown5">Login
+  <i class="material-icons right">arrow_drop_down</i></a></li>
           <% end %>
 
       </ul>
@@ -57,11 +60,11 @@
         <li><a href="/forums/categories/basic-computing" class="list-group-item">Basic computing</a></li>
         <li><a href="/forums/categories/basic-help" class="list-group-item">Help</a></li>
 
-   
+
 <!--          end of login user-->
-       
-     
-       
+
+
+
     </ul>
 
 
@@ -70,7 +73,7 @@
          <ul id="nav-mobile" class="side-nav fixed">
 <!--      for login user-->
 
-      
+
         </li>
         <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
 
@@ -81,16 +84,16 @@
         <li><a href="/forums/categories/basic-computing" class="list-group-item">Basic computing</a></li>
         <li><a href="/forums/categories/basic-help" class="list-group-item">Help</a></li>
 
-   
+
 <!--          end of login user-->
-       
-     
-       
+
+
+
     </ul>
 
 
       </ul>
-      
+
          <% end %>
 
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>

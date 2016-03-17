@@ -14,41 +14,47 @@
 
 
 <% else %>
-<div class="login">
+
+
+
+    <div class="login">
     <div class="row">
-        <div class="col sm12 m3 l3">
-            <h1 class="white-h1 ">Super charge your skills with expert authored tech and creative training with insomniax(Atus sec)</h1>
-
-        </div>
-        <div class="col sm12 m8 l8 white-h1">
-           <h3>Create A New Account</h3>
-           <h5>Its Free Now And For Always</h5>
-            <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, class: 'form', id: 'login-nav') do |f| %>
-            <div class="input-field">
-                <%= f.label :name, class: 'active' %>
-                <%= f.text_field :name, class: 'form-control'   %>
-            </div>
-            <div class="input-field">
-                <%= f.label :email, class: 'active' %>
-                <%= f.email_field :email, class: 'form-control' %>
+            <div class="col sm12 m3 l3">
+                <h1 class="white-h1 ">Super charge your skills with expert authored tech and creative training with insomniax(Atus sec)</h1>
 
             </div>
-            <div class="input-field">
-                <%= f.label :password, class: 'active' %>
-                <%= f.password_field :password, class: 'form-control'  %>
-            </div>
-            <div class="input-field">
-                <%= f.label :password_confirmation, "Confirmation", class: 'active' %>
-                <%= f.password_field :password_confirmation, class: 'form-control'  %>
+            <div class="col sm12 m8 l8 ">
+                <div class="white-h1">
+                    <h3>Create A New Account</h3>
+                    <h5>Its Free Now And For Always</h5>
+                     <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, class: 'form', id: 'login-nav') do |f| %>
+                     <div class="input-field">
+                         <%= f.label :name, class: 'active' %>
+                         <%= f.text_field :name, class: 'form-control'   %>
+                     </div>
+                     <div class="input-field">
+                         <%= f.label :email, class: 'active' %>
+                         <%= f.email_field :email, class: 'form-control' %>
+
+                     </div>
+                     <div class="input-field">
+                         <%= f.label :password, class: 'active' %>
+                         <%= f.password_field :password, class: 'form-control'  %>
+                     </div>
+                     <div class="input-field">
+                         <%= f.label :password_confirmation, "Confirmation", class: 'active' %>
+                         <%= f.password_field :password_confirmation, class: 'form-control'  %>
+                     </div>
+
+                     <%= f.submit 'Sign Up', class:'waves-effect waves-light btn' %>
+
+                     <% end %>
+                </div>
+
             </div>
 
-            <%= f.submit 'Sign Up', class:'waves-effect waves-light btn' %>
-
-            <% end %>
         </div>
 
     </div>
-
-</div>
 
 <% end %>

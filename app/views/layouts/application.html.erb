@@ -26,28 +26,40 @@
 
 
 <!--main content-->
+
+
+<% if logged_in? %>
    <main>
+     <div class="row main">
 
-
-         <div class="row main">
-
-    <div class="col s12">
+       <div class="col s12">
 
 
                  <div id="main">
                      <% flash.each do |message_type, message| %>
                      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-                     <% end %>
-                 <%= yield %>
-             </div>
-      </div>
+                      <% end %>
+                          <%= yield %>
+                </div>
+        </div>
 
 
          </div>
-    </main>
-  <% if logged_in? %>
+      </main>
 
-  <% else %>
+           <% else %>
+
+           <main class="login-page main" >
+
+               <% flash.each do |message_type, message| %>
+               <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+                <% end %>
+                    <%= yield %>
+
+    </main>
+
+
+
 <%= render 'layouts/footer' %>
   <% end %>
 
