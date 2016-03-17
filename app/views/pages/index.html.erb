@@ -3,7 +3,7 @@
 <% provide(:title, "Home") %>
 <% if logged_in? %>
 
-      
+
 
         <section class="micropost_form">
             <%= render 'shared/micropost_form' %>
@@ -21,8 +21,8 @@
 
         </div>
         <div class="col sm12 m8 l8 white-h1">
-           <h2>Create A New Account</h2>
-           <h3>Its Free Now And For Always</h3>
+           <h3>Create A New Account</h3>
+           <h5>Its Free Now And For Always</h5>
             <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, class: 'form', id: 'login-nav') do |f| %>
             <div class="input-field">
                 <%= f.label :name, class: 'active' %>
@@ -50,13 +50,5 @@
     </div>
 
 </div>
-<footer class="page-footer">
-    
-          <div class="footer-copyright">
-            <div class="container">
-            © 2014 Copyright Insomniax
-            <a class="grey-text text-lighten-4 right" href="/">Insomniax</a>
-        </div>
-          </div>
-</footer>
+
 <% end %>
