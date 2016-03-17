@@ -3,17 +3,17 @@
      min-height: 100vh;
      flex-direction: column;
  }
- 
+
  main {
      flex: 1 0 auto;
  }
- 
+
  .user-profile-2 {
      text-align: center;
      position: relative;
      margin-top: 10px;
  }
- 
+
  .box-info {
      position: relative;
      padding: 15px;
@@ -25,7 +25,7 @@
      -o-transition: All 0.4s ease;
      border-bottom: 4px solid #DDDDDD;
  }
- 
+
  .user-profile-2 .header-cover {
      position: absolute;
      left: 0;
@@ -35,16 +35,16 @@
      overflow: hidden;
      z-index: 1;
  }
- 
+
  .user-profile-2 .user-profile-inner {
      z-index: 2;
      position: relative;
  }
- 
+
  .user-profile-2 .user-profile-inner h4.white {
      color: #fff;
  }
- 
+
  .user-profile-2 .user-profile-inner img.profile-avatar {
      box-shadow: 0 0 0 5px rgba(255, 255, 255, 1);
      -moz-box-shadow: 0 0 0 5px rgba(255, 255, 255, 1);
@@ -53,34 +53,34 @@
      width: 100px;
      height: 100px;
  }
- 
+
  .user-button {
      margin: 15px 0;
  }
- 
+
  .message-avatar {
      height: 80px;
      width: 100p;
  }
- 
+
  .micropost-avatar {
-     height: 200px;
+     height: 144px;
      width: 100%;
  }
- 
+
  .forum-avatar {
      height: 80px;
      width: 80px;
      border-radius: 90px
  }
- 
+
  .well-social-post {
      border-radius: 0;
      background-color: #ffffff;
      border: 1px solid #ddd;
      padding: 0;
  }
- 
+
  .well-social-post .glyphicon,
  .well-social-post .fa,
  .well-social-post [class^='icon-'],
@@ -88,23 +88,23 @@
      font-weight: bold;
      color: #999999;
  }
- 
+
  .well-social-post a,
  .well-social-post a:hover,
  .well-social-post a:active,
  .well-social-post a:focus {
      text-decoration: none;
  }
- 
+
  .well-social-post .list-inline {
      border-bottom: 1px solid #ddd;
      padding-bottom: 10px;
  }
- 
+
  .well-social-post .list-inline li {
      position: relative;
  }
- 
+
  .well-social-post .list-inline li.active::after {
      position: absolute;
      display: block;
@@ -120,12 +120,12 @@
      border-right: 5px solid transparent;
      border-top: 5px solid #dddddd;
  }
- 
+
  .well-social-post .list-inline li.active a {
      color: #222222;
      font-weight: bold;
  }
- 
+
  .well-social-post .form-control {
      width: 100%;
      min-height: 100px;
@@ -133,21 +133,21 @@
      border-radius: 0;
      box-shadow: none;
  }
- 
+
  .well-social-post .list-inline {
      padding: 10px;
  }
- 
+
  .well-social-post .list-inline li + li {
      margin-left: 10px;
  }
- 
+
  .well-social-post .post-actions {
      margin: 0;
      background-color: #f6f7f8;
      border-top-color: #e9eaed;
  }
- 
+
  input:not([type]),
  input[type=text],
  input[type=password],
@@ -162,7 +162,7 @@
  textarea.materialize-textarea {
      border-bottom: #333 1px solid;
  }
- 
+
  nav .input-field input:focus,
  nav .input-field input[type=text]:valid,
  nav .input-field input[type=password]:valid,
@@ -172,14 +172,14 @@
      border-bottom: #fff 1px solid;
      box-shadow: none;
  }
- 
+
  img.responsive-img,
  {
      max-width: 100%;
      height: 200px;
      width: 100%;
  }
- 
+
  #materialbox-overlay {
      position: fixed;
      top: 0;
