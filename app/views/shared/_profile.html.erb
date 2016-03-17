@@ -1,0 +1,62 @@
+
+<div class="row">
+
+<!-- code start -->
+<div class="twPc-div">
+    <a class="twPc-bg twPc-block"></a>
+
+	<div>
+		<div class="twPc-button">
+            <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow -->
+            <%= render 'users/follow_form' %>
+            <!-- Twitter Button -->
+		</div>
+  <%= gravatar_profile @user %>
+
+
+		<div class="twPc-divUser">
+			<div class="twPc-divName">
+			<%= @user.username %>
+			</div>
+			<span>
+			@<span><%= @user.name %></span>
+			</span>
+		</div>
+		<div class="col s6 m3 user-pad text-center">
+
+
+
+
+		</div>
+		<div class="twPc-divStats">
+			<ul class="twPc-Arrange">
+				<li class="twPc-ArrangeSizeFit">
+	        <a href="<%= following_user_path(@user) %>">
+						<span class="twPc-StatLabel twPc-block">FOLLOWING</span>
+						<span class="twPc-StatValue"><%= @user.following.count %></span>
+          <a/>
+
+
+				</li>
+				<li class="twPc-ArrangeSizeFit">
+					<a href="<%= followers_user_path(@user) %>">
+						<span class="twPc-StatLabel twPc-block">FOLLOWERS</span>
+						<span class="twPc-StatValue"><%= @user.followers.count %></span>
+					<a/>
+				</li>
+				<li class="twPc-ArrangeSizeFit">
+					<a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+						<span class="twPc-StatLabel twPc-block">Followers</span>
+						<span class="twPc-StatValue">1.810</span>
+					</a>
+				</li>
+
+				<li class="twPc-ArrangeSizeFit">
+					<%= link_to "About", about_user_path(@user), class: "btn" %>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- code end -->
+</div>

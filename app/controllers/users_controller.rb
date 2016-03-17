@@ -6,7 +6,7 @@ class UsersController < ApplicationController
    @user = User.new
   end
  def index
-     
+
      @users = User.paginate(page: params[:page])
 
  end
@@ -53,6 +53,12 @@ class UsersController < ApplicationController
         @users = @user.followers.paginate(page: params[:page])
         render 'show_follow'
  end
+ def about
+
+        @user = User.find(params[:id])
+      @title = @user.name
+        render 'show_about'
+ end
 
 
   private
@@ -78,4 +84,3 @@ class UsersController < ApplicationController
     end
 
 end
-
