@@ -27,7 +27,11 @@
 //= require dropzone
 
 $(document).on('ready page:load', function () {
-    $(".dropdown-button").dropdown();
+    $(".dropdown-button").dropdown(
+        constrain_width: false,
+        gutter: 0,
+        alignment: 'right'
+    );
     $(".button-collapse").sideNav();
     $('.parallax').parallax();
     $('.materialboxed').materialbox();
