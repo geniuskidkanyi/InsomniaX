@@ -147,11 +147,8 @@ ul.twPc-Arrange {
     overflow: hidden;
     letter-spacing: .8px;
     width: 15%;
-    min-width: 80px;
+    min-width: 100px;
 }
 .tabs .indicator {
-    position: absolute;
-    bottom: 0;
-    background-color: #f6b2b5;
-    will-change:left;
+    display: none !important;
 }
