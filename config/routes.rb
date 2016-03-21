@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'help'  => 'pages#help'
   get 'about' => 'pages#about'
+  get 'leaderboard' => 'pages#leaderboard'
   get 'contact' => 'pages#contact'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
