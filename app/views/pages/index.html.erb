@@ -60,3 +60,14 @@
 
 
 <% end %>
+
+<style media="screen">
+function hideDropdown() {
+// Check for simultaneous focus and click events.
+isFocused = false;
+activates.fadeOut(options.outDuration);
+activates.removeClass('none');
+origin.removeClass('none');
+setTimeout(function() { activates.css('max-height', ''); }, options.outDuration);
+}
+</style>
