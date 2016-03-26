@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   def forem_user
     current_user
   end
-
+before_action :load_activities
   helper_method :forem_user
 
     rescue_from ActiveRecord::RecordNotFound do
@@ -19,7 +19,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include SessionsHelper
-
+  def load_activities
+    @activities = PublicActivity::Activity.order('created_at DESC').limit(20)
+  end
 
 
 

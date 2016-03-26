@@ -7,7 +7,7 @@
    <meta name="msvalidate.01" content="9BF9701D09E8E5A4D09FA989AE2C5617" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -15,24 +15,24 @@
   <%= csrf_meta_tags %>
     <%= forem_atom_auto_discovery_link_tag %>
 <%= render 'layouts/footer' %>
-   
+
 
 </head>
 <body>
        <%= render 'layouts/navbar' %>
 
-      
-  
 
- 
+
+
+
 <!--main content-->
    <main>
     <% if logged_in? %>
 
          <div class="row main">
-           
-    <div class="col s12 m9 l9"> 
-            
+
+    <div class="col s12 m9 l9">
+
 
                  <div id="main">
                      <% flash.each do |message_type, message| %>
@@ -47,17 +47,17 @@
       </div>
     </div>
 
- 
+
          </div>
     </main>
-          
+
    <% else %>
 
-                 <%= yield %>   
-                      
+                 <%= yield %>
+
  <%end%>
 
 
-    
+
 </body>
 </html>

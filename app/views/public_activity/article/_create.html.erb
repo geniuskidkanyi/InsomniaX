@@ -1,10 +1,16 @@
-<li class="list-group-item">
-  <% if a.trackable %>
-   <small class="text-muted"><%= a.created_at.strftime('%H:%M:%S %-d %B %Y') %></small><br/>
-   <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong> <br>
-   
-    <%= link_to a.trackable.title, article_path(a.trackable) %> was added
-  <% else %>
-    An article that is currently deleted was edited.
-  <% end %>
-</li>
+
+ <li class="collection-item avatar">
+     <i class="Tiny material-icons circle blue lighten-1">markunread_mailbox</i>
+      <span class="title medium-font"> <strong class="medium-font"><%= link_to activity.owner ? activity.owner.name : 'Guest', @user %></strong> </span>
+<% if a.trackable %>
+ <p> created <%= link_to a.trackable.title, main_app.article_path(a.trackable) %>  check it out and comment</p>
+        <div class="secondary-content small-font"><%= a.created_at.strftime('%-d %B %Y') %></div>
+          <% else %>
+          <p>
+
+
+      <strong> this article doesnt exist anymore</strong>
+      </p>
+      <% end %>
+
+ </li>
