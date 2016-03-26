@@ -36,6 +36,7 @@ $(document).on('ready page:load', function () {
     $('.parallax').parallax();
     $('.materialboxed').materialbox();
     $('ul.tabs').tabs();
+     $('ul.tabs').tabs('select_tab', '#test1');
 
 
 
