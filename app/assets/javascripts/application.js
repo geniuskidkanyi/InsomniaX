@@ -35,7 +35,10 @@ $(document).on('ready page:load', function () {
     $(".button-collapse").sideNav();
     $('.parallax').parallax();
     $('.materialboxed').materialbox();
-    $('ul.tabs').tabs('select_tab', 'tab_id');
+    $('ul.tabs').tabs();
+
+
+
 
 });
 

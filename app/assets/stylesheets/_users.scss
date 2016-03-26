@@ -152,3 +152,22 @@ ul.twPc-Arrange {
 .tabs .indicator {
     display: none !important;
 }
+.tabs .tab a {
+    color: #0d47a1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-transition: color .28s ease;
+    transition: color .28s ease;
+}
+
+.tabs .tab a:hover {
+    color: #82b1ff;
+}
+@media screen and (max-width:400px) {
+#test2{display: block !important}
+#test3{display: block !important}
+#test1{display: block !important}
+}
