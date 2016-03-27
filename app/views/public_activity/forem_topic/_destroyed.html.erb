@@ -1,3 +1,17 @@
-<li class="list-group-item">
-     made a micropost
-</li>
+
+
+<li class="collection-item avatar">
+     <i class="Tiny material-icons circle blue lighten-1">markunread_mailbox</i>
+      <span class="title medium-font"> <strong class="medium-font"><%= link_to activity.owner ? activity.owner.name : 'Guest', @user %></strong> </span>
+<% if a.trackable %>
+ <p> created <%= link_to a.trackable.title, forem.forum_topic_path(a.trackable) %> check it out and comment</p>
+        <div class="secondary-content small-font"><%= a.created_at.strftime('%-d %B %Y') %></div>
+          <% else %>
+          <p>
+
+
+      <strong> this article doesnt exist anymore</strong>
+      </p>
+      <% end %>
+
+ </li>
