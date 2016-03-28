@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
   uniqueness: { case_sensitive: false }
   has_secure_password
     validates :password, length: { minimum: 6 }, allow_blank: true
+    default_scope { order('created_at DESC') }
+
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
       BCrypt::Engine.cost

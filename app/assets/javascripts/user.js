@@ -29,7 +29,7 @@ $(document).ready(function () {
             // the response will be a script
             dataType: "script",
 
-            // upon success 
+            // upon success
             success: function () {
                 // hide the loading gif
                 $('.loading-gif').hide();
