@@ -26,9 +26,9 @@
 
 
 <!--main content-->
-   <main>
-    <% if logged_in? %>
 
+    <% if logged_in? %>
+   <main>
          <div class="row main">
 
     <div class="col s12 m8 l9">
@@ -36,7 +36,7 @@
 
                  <div id="main">
                      <% flash.each do |message_type, message| %>
-                     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+                     <%= content_tag(:div, message, class: "notice #{message_type}") %>
                      <% end %>
                  <%= yield %>
              </div>
@@ -49,9 +49,12 @@
 
 
          </div>
-    </main>
 
+     </main>
    <% else %>
+   <% flash.each do |message_type, message| %>
+   <%= content_tag(:div, message, class: "notice #{message_type}") %>
+   <% end %>
 
                  <%= yield %>
 
