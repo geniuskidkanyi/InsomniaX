@@ -7,7 +7,7 @@
    <meta name="msvalidate.01" content="9BF9701D09E8E5A4D09FA989AE2C5617" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -15,44 +15,57 @@
   <%= csrf_meta_tags %>
     <%= forem_atom_auto_discovery_link_tag %>
 <%= render 'layouts/footer' %>
-   
+
 
 </head>
 <body>
        <%= render 'layouts/navbar' %>
 
-      
-  
 
- 
+
+
+
 <!--main content-->
-   <main>
-    <% if logged_in? %>
 
+    <% if logged_in? %>
+   <main>
          <div class="row main">
-           
-    <div class="col s12"> 
-            
+
+    <div class="col s12 m8 l9">
+
 
                  <div id="main">
                      <% flash.each do |message_type, message| %>
-                     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+                     <%= content_tag(:div, message, class: "notice #{message_type}") %>
                      <% end %>
                  <%= yield %>
              </div>
       </div>
+  <div class="col hide-on-small-only m4 l3">
+      <div class="toc-wrapper">
+       <%= render 'shared/activities' %>
+      </div>
+          <div class="load-more-container">
+        <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
+	         <%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
+	          <%= link_to "Load More", users_path, class: "load-more" %>
+          </div>
+  </div>
 
- 
+
          </div>
-    </main>
-          
-   <% else %>
 
-                 <%= yield %>   
-                      
+     </main>
+   <% else %>
+   <% flash.each do |message_type, message| %>
+   <%= content_tag(:div, message, class: "notice #{message_type}") %>
+   <% end %>
+
+                 <%= yield %>
+
  <%end%>
 
 
-    
+
 </body>
 </html>

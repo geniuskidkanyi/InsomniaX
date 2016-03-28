@@ -5,21 +5,29 @@
     </div>
     <div class="row">
 <% @articles.each do |article| %>
+
+
         <div class="col s6 m4">
-            <div class="thumbnail">
-                <h4>
+            <div class="card ">
+                <span class="label label-info info blue darken-3">
 
-                    <span class="label label-info info">
+                    <span data-toggle="tooltip" title="viewed">
+                        <b class="glyphicon glyphicon-sunglasses"><%= "#{article.impressionist_count} views" %></b></span>
+                    <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
+                </span>
+                        <div class="card-image">
+                          <%= image_tag article.picture_article.url if article.picture_article? %>
+                          <span class="card-title"><%= article.title %></span>
+                        </div>
+                        <div class="card-content">
+                          <p>I am a very simple card. I am good at containing small bits of information.
+                          I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action">
+                          <%= link_to article.title, article, class: "btn light-blue darken-4", role: "button" %>
 
-                        <span data-toggle="tooltip" title="viewed">
-                            <b class="glyphicon glyphicon-sunglasses"><%= "#{article.impressionist_count} views" %></b></span>
-                        <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
-                    </span>
-                </h4>
-                <%= image_tag article.picture_article.url if article.picture_article? %>
-            <%= link_to article.title, article, class: "btn light-blue darken-4", role: "button" %>
-                <div class="clearfix"></div>
-            </div>
+                        </div>
+                      </div>
         </div>
 <% end %>
 </div>

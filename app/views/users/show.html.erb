@@ -13,8 +13,8 @@
                         <%= link_to(new_message_path(to: @user.id), :class => 'waves-effect waves-light btn') do %>
   <i class="fa fa-pencil"></i>  Send message
 <% end %>
-                     
-                      
+
+
                      <% end %>
                 </div>
             </div>
@@ -45,7 +45,8 @@
   <ol class="microposts">
    <%= render @microposts %>
   </ol>
-  <%= will_paginate @microposts %></div>
+  <%= will_paginate @microposts %>
+</div>
 </div>
 
 

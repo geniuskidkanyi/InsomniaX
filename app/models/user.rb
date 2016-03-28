@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-   
     acts_as_voter
     has_many :microposts, dependent: :destroy
     has_many :articles
@@ -10,7 +9,9 @@ class User < ActiveRecord::Base
     has_many :following, through: :active_relationships, source: :followed
     has_many :followers, through: :passive_relationships, source: :follower
   mount_uploader :avatar, AvatarUploader
-
+  include PublicActivity::Model
+    tracked
+    tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save { self.email = email.downcase }
 
@@ -81,7 +82,7 @@ OR user_id = :user_id", user_id: id)
     def following?(other_user)
         following.include?(other_user)
     end
-    
+
     # Activates an account.
   def activate
    update_attribute(:activated,
@@ -92,7 +93,7 @@ OR user_id = :user_id", user_id: id)
   def send_activation_email
    UserMailer.account_activation(self).deliver_now
   end
-    
+
     def create_reset_digest
       self.reset_token = User.new_token
       update_attribute(:reset_digest, User.digest(reset_token))
@@ -113,7 +114,7 @@ OR user_id = :user_id", user_id: id)
     #end
 
 
-    
+
     def load_into_soulmate
         loader = Soulmate::Loader.new("Users")
 		loader.add("term" => name, "id" => self.id, "data" => {
@@ -128,4 +129,3 @@ OR user_id = :user_id", user_id: id)
 
 
 end
-

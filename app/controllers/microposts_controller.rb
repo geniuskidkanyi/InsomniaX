@@ -30,7 +30,10 @@ class MicropostsController < ApplicationController
     def downvote
         @micropost = Micropost.find(params[:id])
         @micropost.downvote_from current_user
-        redirect_to request.referrer
+        respond_to do |format|
+            format.html {redirect_to :back }
+            format.json { render json: { count: @micropost.get_upvote.size } }
+        end
     end
     private
     def micropost_params

@@ -1,10 +1,11 @@
 class Article < ActiveRecord::Base
     after_save :load_into_soulmate
 	before_destroy :remove_from_soulmate
-
+     acts_as_commentable
     validates_uniqueness_of :title
-    
-    acts_as_commentable
+    include PublicActivity::Model
+    tracked
+   tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
     extend FriendlyId
     friendly_id :title, use: :slugged
     is_impressionable
