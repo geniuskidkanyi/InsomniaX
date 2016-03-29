@@ -6,4 +6,8 @@ class PagesController < ApplicationController
          @activities = PublicActivity::Activity.order("created_at desc").limit(20)
         end
     end
+
+    def leaderboard
+        @leaderboard = Merit::Score.top_scored
+    end
 end

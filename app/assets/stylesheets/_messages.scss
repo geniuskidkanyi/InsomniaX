@@ -4,3 +4,20 @@
     margin-bottom: 1em;
     margin-top: 1em;
 }
+.collection .collection-item.active {
+    background-color: #003400;
+    color: #eafaf9;
+}
+.collection a.collection-item {
+    display: block;
+    -webkit-transition: .25s; 
+    transition: .25s;
+    color: #fff;
+}
+.collection a.collection-item {
+    display: block;
+    -webkit-transition: .25s;
+    transition: .25s;
+    color: #fff;
+    font-size: 0.8em;
+}

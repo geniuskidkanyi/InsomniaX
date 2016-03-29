@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'help'  => 'pages#help'
   get 'about' => 'pages#about'
+  get 'leaderboard' => 'pages#leaderboard'
   get 'contact' => 'pages#contact'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
     resources :users do
         member do
-            get :following, :followers
+            get :following, :followers, :about
         end
     end
     resources :articles do

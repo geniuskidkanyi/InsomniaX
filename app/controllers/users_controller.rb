@@ -6,6 +6,7 @@ class UsersController < ApplicationController
    @user = User.new
   end
  def index
+
    # if the id params is present
        if params[:id]
          # get all records with id less than 'our last id'
@@ -63,6 +64,12 @@ end
         @user = User.find(params[:id])
         @users = @user.followers.paginate(page: params[:page])
         render 'show_follow'
+ end
+ def about
+
+        @user = User.find(params[:id])
+      @title = @user.name
+        render 'show_about'
  end
 
 

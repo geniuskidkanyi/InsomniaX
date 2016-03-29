@@ -34,6 +34,7 @@ gem 'soulmate', :require => 'soulmate/server'
 gem 'will_paginate-bootstrap'
 gem 'materialize-sass'
 gem 'public_activity'
+gem 'merit'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -64,7 +65,7 @@ group :development do
     gem 'capistrano3-puma',   require: false
     gem 'capistrano-local-precompile', require: false
     gem 'capistrano-faster-assets', '~> 1.0'
-    
+
 end
 
 gem 'puma'
@@ -81,4 +82,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

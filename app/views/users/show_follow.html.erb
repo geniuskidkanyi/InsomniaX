@@ -1,5 +1,5 @@
 <% provide(:title, @title) %>
-
+  <%= render 'shared/profile' %>
   <div class="row user-menu-container square">
     <div class="col l12 user-details">
         <div class="row coralbg">
@@ -14,8 +14,8 @@
                         <%= link_to(new_message_path(to: @user.id), :class => 'waves-effect waves-light btn') do %>
   <i class="fa fa-pencil"></i>  Send message
 <% end %>
-                     
-                      
+
+
                      <% end %>
                 </div>
             </div>
@@ -38,7 +38,7 @@
             <% if @users.any? %>
             <div class="user_avatars">
                  <div class="row">
-                   
+
                 <% @users.each do |user| %>
                <div class="col s6 m3 l3">
                          <%= link_to gravatar_follow(user, size: 80), user %>
@@ -46,9 +46,9 @@
                 <%= link_to user.name, user %>
                  </div>
                 <% end %>
-               
+
                 </div>
-               
+
             </div>
             <%= will_paginate %>
             <% end %>
@@ -57,5 +57,3 @@
 
     </div>
 </div>
-   
-
