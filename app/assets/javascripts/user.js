@@ -1,5 +1,5 @@
 // when the page is ready for manipulation
-$(document).ready(function () {
+$(document).on('ready page:load', function () {
     // when the load more link is clicked
     $('a.load-more').click(function (e) {
 

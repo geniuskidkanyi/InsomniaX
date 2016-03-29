@@ -1,9 +1,9 @@
 <% provide(:title, 'All users') %>
 <h5>All users</h5>
+<div class="row">
+  <%= render @users %>
+</div>
 
-<ul class="users">
- <%= render @users %>
-</ul>
 <div class="load-more-container">
         <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
 	<%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>

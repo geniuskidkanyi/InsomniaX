@@ -10,7 +10,7 @@ class UsersController < ApplicationController
        if params[:id]
          # get all records with id less than 'our last id'
          # and limit the results to 5
-         @users = User.where('id < ?', params[:id]).limit(5)
+         @users = User.where('id > ?', params[:id]).limit(5)
        else
          @users = User.limit(5)
        end
