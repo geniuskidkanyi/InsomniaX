@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
     has_secure_password
     include PublicActivity::Model
     tracked
-    tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
 
     validates :name, presence: true, length: { maximum: 100 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

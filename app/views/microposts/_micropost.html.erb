@@ -7,9 +7,7 @@
       <span class="title"><%= time_ago_in_words(micropost.created_at) %> ago</span>
       <p><%= micropost.content %> <br>
           <%= image_tag(micropost.picture.url , class: 'materialboxed') %></p>
-      </p>
-
-    </li>
+       </li>
      <div class="stats">
 
      <%= link_to like_micropost_path(micropost), method: :get, class: "waves-effect waves-light btn vote", remote: true, data: { type: :json }  do %>

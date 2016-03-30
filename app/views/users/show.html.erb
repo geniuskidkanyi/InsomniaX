@@ -2,14 +2,7 @@
 <%= render 'shared/profile' %>
 
 <div class="row">
-    <div class="col s12 m3 l3 hidden-xs">
-    <section class="micropost_form">
-<h5>
-   <%= gravatar_for @user %>
-   <%= @user.name %>
-  </h5>
-  </section>
-  </div>
+
 <% if @user.microposts.any? %>
 <div class="col s12 m9 l9"><h3>Microposts (<%= @user.microposts.count %>)</h3>
   <ol class="microposts">
@@ -17,7 +10,5 @@
   </ol>
   <%= will_paginate @microposts %>
 </div>
-</div>
-
-
 <% end %>
+</div>
