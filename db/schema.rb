@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160306160302) do
+ActiveRecord::Schema.define(version: 20160330131131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -383,6 +383,9 @@ ActiveRecord::Schema.define(version: 20160306160302) do
     t.boolean  "is_female",            default: false
     t.integer  "sash_id"
     t.integer  "level",                default: 0
+    t.string   "activation_digest"
+    t.boolean  "activated",            default: false
+    t.datetime "activated_at"
   end
 
   create_table "votes", force: :cascade do |t|
