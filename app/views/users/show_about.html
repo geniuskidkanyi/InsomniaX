@@ -41,7 +41,10 @@
 			</div>
 			<div id="test2" class="col s10">
 				<%= @user.points %>
-<%= @user.badges %>
+				<% @user.badges.each do |badge| %>
+			    <li><%= badge.name %></li>
+					  <li><%= image_tag(badge.image) %></li>
+			    <% end %>
 			</div>
 			<div id="test4" class="col s10">Test 4</div>
 	</div>

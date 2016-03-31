@@ -33,12 +33,25 @@ end
 # end
 Merit::Badge.create!(
   id: 1,
-  name: "Jr.Critic",
+  name: 'Pioneer',
+  description: "Belongs to the first 300 users of the site",
+  image: '/images/pioneer.png'
+)
+Merit::Badge.create!(
+  id: 2,
+  name: "/images/logo.png",
   description: "Over 10 comments",
   image: "/images/logo.png"
 )
 Merit::Badge.create!(
-  id: 2,
+  id: 3,
   name: "Sr.Critic",
   description: "Over 50 comments"
+  image: "/images/logo.png"
+)
+Merit::Badge.create!(
+  id: 4,
+  name: "Noviece user",
+  description: "Over 50 comments"
+  image: "/images/logo.png"
 )
