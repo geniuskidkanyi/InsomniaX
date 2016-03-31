@@ -34,7 +34,8 @@ end
 Merit::Badge.create!(
   id: 1,
   name: "Jr.Critic",
-  description: "Over 10 comments"
+  description: "Over 10 comments",
+  image: "/images/logo.png"
 )
 Merit::Badge.create!(
   id: 2,
