@@ -35,7 +35,7 @@ Merit::Badge.create!(
   id: 1,
   name: 'Jr.Critic',
   description: "Belongs to the first 300 users of the site",
-custom_fields: { img_url: '/images/logo.png' }
+custom_fields: { image: 'logo.png' }
 )
 
 Merit::Badge.create!(

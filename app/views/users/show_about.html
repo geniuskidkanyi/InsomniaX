@@ -43,7 +43,7 @@
 				<%= @user.points %>
 				<% @user.badges.each do |badge| %>
 			    <li><%= badge.name %></li>
-					  <li><%= image_tag (badge.custom_fields[:img_url]) %> </li>
+					  <li><%= image_tag (badge.custom_fields[:image]) %> </li>
 			    <% end %>
 			</div>
 			<div id="test4" class="col s10">Test 4</div>
