@@ -66,6 +66,7 @@
                 <% flash.each do |message_type, message| %>
                <%= content_tag(:div, message, class: "notice #{message_type}") %>
                 <% end %>
+                <%= render 'layouts/login_modal' %>
                     <%= yield %>
 
     </main>
