@@ -2,14 +2,14 @@
 	<%= render 'shared/profile' %>
 
 <div class="row">
-			<div class="col s2">
+			<div class="col s12 m3">
 				<ul class="tabs hide-on-small-only">
 					<li class="tab "><a class="active" href="#test1">Basic info</a></li>
 					<li class="tab "><a  href="#test2">Trophies</a></li>
-			    <li class="tab s2"><a href="#test4">Test 4</a></li>
+			    <li class="tab "><a href="#test4">Test 4</a></li>
 				</ul>
 			</div>
-			<div id="test1" class="col s10">
+			<div id="test1" class="col s12 m9">
 
 				<ul class="collection">
 			     <li class="collection-item avatar">
@@ -39,12 +39,12 @@
 			   </ul>
 
 			</div>
-			<div id="test2" class="col s10">
+			<div id="test2" class="col s12 m9">
 				<%= @user.points %>
 				<% @user.badges.each do |badge| %>
 			    <li><%= badge.name %></li>
 					  <li><%= image_tag (badge.custom_fields[:image]) %> </li>
 			    <% end %>
 			</div>
-			<div id="test4" class="col s10">Test 4</div>
+			<div id="test4" class="col s12 m9">Test 4</div>
 	</div>
