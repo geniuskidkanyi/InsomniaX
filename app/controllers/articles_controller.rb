@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
-   
+
     before_action :admin_user, only: :create
 
-    
+
 
     impressionist actions: [:show], unique: [:session_hash]
     def index
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
 impressionist(@article)
         @new_comment    = Comment.build_from(@article, current_user, "")
     end
-    
+
     def edit
         @article = Article.friendly.find(params[:id])
     end
