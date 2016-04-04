@@ -72,7 +72,7 @@ $soulmateWidth: $inputWidth - 21px;
     width: $inputWidth;
     @include border-radius(4px);
     &:focus {
-        //    outline: none; 
+        //    outline: none;
     }
 }
 
@@ -157,5 +157,5 @@ $soulmateWidth: $inputWidth - 21px;
 }
 
 li.soulmate-suggestion {
-    text-align: left;
+    text-align: left; display: block;float: none;
 }

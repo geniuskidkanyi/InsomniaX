@@ -28,7 +28,7 @@ module Merit
       # end
 
         set_rank level: 1, to: User.active do |user|
-            user.comments > 10 && user.followers >= 10
+            user.comments > 10 && user.followers >= 10 && user.micropost >= 20
         end
 
         set_rank level: 2, to: User.active do |user|
