@@ -8,11 +8,11 @@
 
             <%= form_for(@micropost, html: { multipart: true }) do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
-                   <ul class="list-inline" id='list_PostActions'>
-                    <li class='active'><a href='#'>Update status</a></li>
+                <ul class="list-inline" id='list_PostActions'>
+                    <li class='active'><a href='#'>status</a></li>
 
                        <li><%= link_to "view my profile", current_user %></li>
-                       <li><span><%= pluralize(current_user.microposts.count, "micropost") %></span></li>
+
                 </ul>
 
                 <%= f.text_area :content, placeholder: "Compose new micropost...", class: 'form-control' %>
@@ -24,7 +24,7 @@
                 </ul>
 
         </div>
-       
+
     <span class="file-path-wrapper">
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'file-path validate' %>
         <% end %>

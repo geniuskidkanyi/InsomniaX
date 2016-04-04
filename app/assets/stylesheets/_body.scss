@@ -70,7 +70,9 @@
      background-color: #ffffff;
      border: 1px solid #ddd;
      padding: 0;
+     padding-top: 10px;
  }
+ .well-social-post .list-inline{display: inline-block;width: 100%}
 
  .well-social-post .glyphicon,
  .well-social-post .fa,
@@ -93,7 +95,7 @@
  }
 
  .well-social-post .list-inline li {
-     position: relative;
+     position: relative;float: left
  }
 
  .well-social-post .list-inline li.active::after {
@@ -138,6 +140,12 @@
      background-color: #f6f7f8;
      border-top-color: #e9eaed;
  }
+ .well-social-post .post-actions li{
+     margin: -10px;
+     background-color: #f6f7f8;
+     border-top-color: #e9eaed;display: inline;float:none;
+ }
+  .well-social-post .post-actions .pull-right{float: right}
 
  input:not([type]),
  input[type=text],
