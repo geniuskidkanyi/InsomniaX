@@ -1,5 +1,8 @@
 <% provide(:title, 'All users') %>
 <h5>All users</h5>
-<div class="row">
-  <%= render @users %>
-</div>
+<<%= will_paginate  @user ,renderer: BootstrapPagination::Rails%>
+<ul class="row">
+
+ <%= render @users %>
+</ul>
+<%= will_paginate @user ,renderer: BootstrapPagination::Rails %>
