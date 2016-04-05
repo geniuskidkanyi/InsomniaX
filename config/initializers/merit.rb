@@ -35,23 +35,63 @@ Merit::Badge.create!(
   id: 1,
   name: 'Jr.Critic',
   description: "Belongs to the first 300 users of the site",
-custom_fields: { image: 'logo.png' }
+  custom_fields: { image: 'logo.png' }
+)
+Merit::Badge.create!(
+  id: 2,
+  name: 'Engraved Glass',
+  description: "Belongs to users sent more than 50 messages",
+  custom_fields: { image: 'logo.png' }
 )
 
 Merit::Badge.create!(
-  id: 2,
-  name: "pioner",
-  description: "Over 10 comments"
-)
-Merit::Badge.create!(
   id: 3,
-  name: "Sr.Critic",
-  description: "Over 50 comments",
-  custom_fields: {:img_url=>"/images/logo.png"}
+  name: 'Golf',
+  description: "Belongs to users sent more than 100 messages",
+  custom_fields: { image: 'logo.png' }
 )
 Merit::Badge.create!(
   id: 4,
-  name: "Noviece user",
-  description: "Over 50 comments",
-custom_fields: {:img_url=>"/images/logo.png"}
+  name: 'Stopwatch',
+  description: "made more than 10 comments",
+  custom_fields: { image: 'logo.png' }
+)
+Merit::Badge.create!(
+  id: 5,
+  name: 'Nike Sticker',
+  description: "Belongs to users sent more than 50 comments",
+  custom_fields: { image: 'logo.png' }
+)
+Merit::Badge.create!(
+  id: 6,
+  name: 'Fox',
+  description: "Belongs to users sent more than 100 comments",
+  custom_fields: { image: 'logo.png' }
+)
+Merit::Badge.create!(
+  id: 7,
+  name: 'Golden Golbet',
+  description: "Belongs to users sent more than 200 comments",
+  custom_fields: { image: 'logo.png' }
+)
+
+Merit::Badge.create!(
+  id: 8,
+  name: 'Diamond Ring',
+  description: "Belongs to users made 50 micropost",
+  custom_fields: { image: 'logo.png' }
+)
+
+Merit::Badge.create!(
+  id: 9,
+  name: 'Crystal',
+  description: "Belongs to users made 100 micropost",
+  custom_fields: { image: 'logo.png' }
+)
+
+Merit::Badge.create!(
+  id: 10,
+  name: 'Gold glove',
+  description: "Belongs to users made 200 micropost",
+  custom_fields: { image: 'logo.png' }
 )
