@@ -54,13 +54,6 @@
                       </li>
                     </ul>
 <li class="hide-on-large-only"><%= link_to "Blog", main_app.articles_path %></li>
-   <li class="hide-on-large-only"><%= form_tag '#', :class => 'nav-form' do -%>
-    <div class="input-field">
-	  <%= text_field_tag "search", nil, placeholder: "Search", autocomplete: :off, id: "search" %>
-    </div>
-	<% end %>
-</li>
-
 <ul class="collapsible collapsible-accordion hide-on-large-only">
               <li>
                 <a class="collapsible-header"><%= current_user.name %><i class="mdi-navigation-arrow-drop-down"></i></a>

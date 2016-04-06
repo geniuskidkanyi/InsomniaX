@@ -25,9 +25,10 @@
 //= require search
 //= require google_analytics
 //= require user
+//= require sticky
 
 $(document).on('ready page:load', function () {
-
+  $('#sidebar').Stickyfill();
     $(".button-collapse").sideNav();
     $('.parallax').parallax();
     $('.materialboxed').materialbox();
@@ -38,6 +39,8 @@ $(document).on('ready page:load', function () {
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+
+
 });
 
 
@@ -59,3 +62,6 @@ $('.navbar .dropdown').hover(function () {
 }, function () {
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)
 });
+
+var sidebar = document.getElementById('sidebar');
+Stickyfill.add(sidebar);

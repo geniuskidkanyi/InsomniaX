@@ -45,15 +45,11 @@
                         <%= yield %>
                     </div>
           </div>
-         <div class="col hide-on-small-only m4 l4 notification-bar">
+         <div class="col hide-on-small-only m4 l4 sidebar">
              <div class="toc-wrapper">
               <%= render 'shared/activities' %>
              </div>
-              <div class="load-more-container">
-               <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
-       	         <%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
-       	          <%= link_to "Load More", users_path, class: "load-more" %>
-              </div>
+
          </div>
 
 
