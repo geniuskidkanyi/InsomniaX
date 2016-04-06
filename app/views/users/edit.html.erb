@@ -25,6 +25,19 @@
          </div>
       <%= image_tag @user.avatar.url if @user.avatar? %>
   </div>
+
+  <div class="picture">
+      <div class="file-field input-field">
+          <div class="btn">
+                  <span>File</span>
+<%= f.file_field :dprofile, accept: 'image/jpeg,image/gif,image/png' %>
+         </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                </div>
+      </div>
+   <%= image_tag @user.dprofile.url if @user.dprofile? %>
+</div>
         <%= f.check_box :is_female, {}, true %> <%= f.label :is_female, "Female" %>
         <%= f.check_box :is_female, {}, false %> <%= f.label :is_female, "Male" %> <br>
         <%= f.label :birthdate, "Age"%> <br>

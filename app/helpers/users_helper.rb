@@ -27,6 +27,13 @@ module UsersHelper
         avatar_url = user.avatar? ? user.avatar.url : gravatar_url
         image_tag(avatar_url, alt: user.name, class: " twPc-avatarImg")
     end
+    def gravatar_dprofile(user, options = { size: 80 })
+        gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+        size = options[:size]
+        gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+        dprofile_url = user.dprofile? ? user.dprofile.url : gravatar_url
+        image_tag(dprofile_url, alt: user.name, class: " twPc-bg twPc-block")
+    end
     def gravatar_all(user, options = { size: 80 })
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
         size = options[:size]

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330131131) do
+ActiveRecord::Schema.define(version: 20160406223358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -386,6 +386,7 @@ ActiveRecord::Schema.define(version: 20160330131131) do
     t.string   "activation_digest"
     t.boolean  "activated",            default: false
     t.datetime "activated_at"
+    t.string   "dprofile"
   end
 
   create_table "votes", force: :cascade do |t|

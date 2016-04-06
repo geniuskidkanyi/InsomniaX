@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     acts_as_voter
     acts_as_messageable
     mount_uploader :avatar, AvatarUploader
+    mount_uploader :dprofile, ProfileCoverUploader
     has_many :microposts, dependent: :destroy
     has_many :articles
     has_many :comments, dependent: :destroy
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
     has_many :following, through: :active_relationships, source: :followed
     has_many :followers, through: :passive_relationships, source: :follower
     has_secure_password
-  
+
 
     validates :name, presence: true, length: { maximum: 100 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

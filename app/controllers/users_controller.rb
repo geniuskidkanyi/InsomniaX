@@ -63,7 +63,7 @@ end
 
   private
   def user_params
-      params.require(:user).permit(:name, :email, :username, :password, :password_confirmation, :age, :description, :avatar, :birthdate, :is_female)
+      params.require(:user).permit(:name, :email, :username, :password, :password_confirmation, :age, :description, :avatar, :birthdate, :is_female, :dprofile)
   end
     # Before filters
     # Confirms a logged-in user.
