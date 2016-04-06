@@ -13,14 +13,22 @@
         <%= f.text_field :username, class: 'form-control' %>
         <%= f.label :description, class: 'form-control' %>
         <%= f.text_field :description, class: 'form-control' %>
-     <span class="picture">
-      <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
+     <div class="picture">
+         <div class="file-field input-field">
+             <div class="btn">
+                     <span>File</span>
+<%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
+            </div>
+                   <div class="file-path-wrapper">
+                     <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                   </div>
+         </div>
       <%= image_tag @user.avatar.url if @user.avatar? %>
-     </span>
+  </div>
         <%= f.check_box :is_female, {}, true %> <%= f.label :is_female, "Female" %>
         <%= f.check_box :is_female, {}, false %> <%= f.label :is_female, "Male" %> <br>
-        <%= f.label :birthdate, "Input your age"%> <br>
-        <%= f.date_field :birthdate %> <br>
+        <%= f.label :birthdate, "Age"%> <br>
+        <%= f.date_field :birthdate, class: "datepicker" %> <br>
 
         <%= f.label :password %>
         <%= f.password_field :password, class: 'form-control' %>

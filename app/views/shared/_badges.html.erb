@@ -1,0 +1,16 @@
+<%= @user.points %>
+
+<ul class="collection">
+      <li class="collection-item"> Earned <%= @user.points %> coins</li>
+
+    </ul>
+
+<ul class="collection">
+    <% @user.badges.each do |badge| %>
+     <li class="collection-item avatar">
+       <i class="circle green"><%= image_tag (badge.custom_fields[:image]) %> </i>
+       <span class="title"><%= badge.name %></span>
+       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+     </li>
+       <% end %>
+ </ul>

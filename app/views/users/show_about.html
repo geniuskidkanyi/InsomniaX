@@ -1,4 +1,4 @@
-<% provide(:title, @title) %>
+<%provide(:title, @title) %>
 	<%= render 'shared/profile' %>
 
 <div class="row">
@@ -40,11 +40,7 @@
 
 			</div>
 			<div id="test2" class="col s12 m9">
-				<%= @user.points %>
-				<% @user.badges.each do |badge| %>
-			    <li><%= badge.name %></li>
-					  <li><%= image_tag (badge.custom_fields[:image]) %> </li>
-			    <% end %>
+			<%= render "shared/badges" %> 
 			</div>
 			<div id="test4" class="col s12 m9">Test 4</div>
 	</div>

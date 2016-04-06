@@ -6,7 +6,11 @@
    <nav  role="navigation">
     <div class="nav-wrapper">
         <%= link_to image_tag('logo.png', alt: 'logo', class: 'brand-logo', id: 'logo-container'), main_app.root_path %>
-<a class="right waves-effect waves-light btn modal-trigger" href="#modal1">login</a>
+        <% if logged_in? %>
+        <% else %>
+        <a class="right waves-effect waves-light btn modal-trigger" href="#modal1">login</a>
+        <% end %>
+
 <!--    egining of mobile navigation-->
       <ul class="right hide-on-med-and-down">
           <% if logged_in? %>
@@ -26,7 +30,7 @@
 
     <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
           <% else %>
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">login</a>
+
           <% end %>
 
       </ul>
@@ -36,7 +40,19 @@
 <!--      for login user-->
 
         <li class="active hide-on-large-only"><%= link_to "friends", main_app.following_user_path(current_user) %></li>
-        <li class="hide-on-large-only"><a class="dropdown-button" href="#!" data-activates="dropdown3">Users<i class="material-icons right">arrow_drop_down</i></a></li>
+
+        <ul class="collapsible collapsible-accordion hide-on-large-only">
+                      <li>
+                        <a class="collapsible-header">Users<i class="mdi-navigation-arrow-drop-down"></i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li><%= link_to "following", main_app.following_user_path(current_user) %></li>
+                          <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
+                          <li><%= link_to "Users", main_app.users_path %></li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
 <li class="hide-on-large-only"><%= link_to "Blog", main_app.articles_path %></li>
    <li class="hide-on-large-only"><%= form_tag '#', :class => 'nav-form' do -%>
     <div class="input-field">
@@ -45,8 +61,22 @@
 	<% end %>
 </li>
 
-
-    <li class="hide-on-large-only"><a class="dropdown-button" href="#!" data-activates="dropdown4"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+<ul class="collapsible collapsible-accordion hide-on-large-only">
+              <li>
+                <a class="collapsible-header"><%= current_user.name %><i class="mdi-navigation-arrow-drop-down"></i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><%= link_to 'Profile', main_app.user_path(current_user) %>
+                   </li>
+                   <li><%= link_to "Edit Account", main_app.edit_user_path(current_user) %>
+                   </li>
+                   <li class="divider"></li>
+                   <li><%= link_to "Log out", main_app.logout_path, method: :delete %>
+                   </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
     <div class="divider hide-on-large-only"></div>
     <ul class="nav list-group">
          <li>
