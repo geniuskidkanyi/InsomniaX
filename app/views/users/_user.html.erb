@@ -2,7 +2,7 @@
     <!-- Begin user profile -->
     <div class="box-info text-center user-profile-2">
         <div class="header-cover">
-            <img src="http://bootdey.com/img/Content/bg_element.jpg" alt="User cover">
+            <%= gravatar_dprofile user %>
         </div>
         <div class="user-profile-inner">
             <h6 >
@@ -23,9 +23,9 @@ data: { confirm: "You sure?" } %>
                       <% end %>
                          <div class="col m6">
                              <% unless current_user == @user %>
-                             <%= link_to 'Send message', new_message_path(to: user.id), class: 'waves-effect waves-light btn' %>
-                             <% else %>
-                             your not the user
+                             <%= link_to(new_message_path(to: user.id), :class => 'waves-effect waves-light btn') do %>
+     						<i class="fa fa-pencil"></i>  Send message
+     						<% end %>
                              <% end %>
                     </div>
                 </div>
