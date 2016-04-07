@@ -54,7 +54,7 @@ module UsersHelper
         size = options[:size]
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
         avatar_url = user.avatar? ? user.avatar.url : gravatar_url
-        image_tag(avatar_url, alt: user.name, class: "message-avatar")
+        image_tag(avatar_url, alt: user.name, class: "message-avatar circle")
     end
     def gravatar_forum(user, options = { size: 80 })
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
