@@ -28,11 +28,12 @@
 //= require sticky
 
 $(document).on('ready page:load', function () {
-  $('#sidebar').Stickyfill();
+    $('ul.tabs').tabs('select_tab', '#test1');
+
     $(".button-collapse").sideNav();
     $('.parallax').parallax();
     $('.materialboxed').materialbox();
-    $('ul.tabs').tabs('select_tab', '#test1');
+
     $(".dropdown-button").dropdown();
     $('.modal-trigger').leanModal();
     $('.datepicker').pickadate({
@@ -40,10 +41,12 @@ $(document).on('ready page:load', function () {
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
 
-
+$('#sidebar').Stickyfill();
 });
 
-
+$(document).on('page:load', function () {
+    $('ul.tabs').tabs('select_tab', '#test1');
+});
 $('.vote')
     .on('ajax:send', function () {
         $(this).addClass('loading');

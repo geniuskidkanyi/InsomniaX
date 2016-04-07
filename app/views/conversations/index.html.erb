@@ -4,7 +4,7 @@
 
     <div class="col s12 m4 l3">
         <ul class="collection">
-            <%= link_to ' new conversation', new_message_path, class: 'collection-item btn light-blue accent-4' %>
+            <%= link_to ' new ', new_message_path, class: 'collection-item btn light-blue accent-4' %>
             <%= mailbox_section 'inbox', @box, class: 'collection-item' %>
             <%= mailbox_section 'sent', @box, class: 'collection-item' %>
             <%= mailbox_section 'trash', @box, class: 'collection-item' %>
