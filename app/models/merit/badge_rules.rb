@@ -47,11 +47,34 @@ module Merit
     grant_on 'comments#create',  badge: 'Jr.Critic', to: :user do |comment|
         comment.user.comments.count >= 10 &&  comment.user.comments.count < 50
     end
-    grant_on 'comments#create',  badge: 'Sr.Critic', to: :user do |comment|
+   grant_on 'messages#create',  badge: 'Engraved Glass', to: :user do |message|
+        message.user.messages.count >= 50
+    end
+    grant_on 'messages#create',  badge: 'Golf', to: :user do |message|
+        message.user.messages.count >= 100
+    end
+    grant_on 'comments#create',  badge: 'Stopwatch', to: :user do |comment|
+        comment.user.comments.count >= 10
+    end
+    grant_on 'comments#create',  badge: 'Mike Sticker', to: :user do |comment|
         comment.user.comments.count >= 50
     end
-        
-        
+    grant_on 'comments#create',  badge: 'Fox', to: :user do |comment|
+        comment.user.comments.count >= 100
+    end
+    grant_on 'comments#create',  badge: 'Golden Golbet', to: :user do |comment|
+        comment.user.comments.count >= 200
+    end
+    grant_on 'microposts#create',  badge: 'Diamond Ring', to: :user do |micropost|
+        micropost.user.microposts.count >= 50
+    end
+    grant_on 'microposts#create',  badge: 'Crystal', to: :user do |micropost|
+          micropost.user.micropost.count >= 100
+    end
+    grant_on 'microposts#create',  badge: 'Gold Glove', to: :user do |micropost|
+          micropost.user.micropost.count >= 200
+    end
+
     end
   end
 end

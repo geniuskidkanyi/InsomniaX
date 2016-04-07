@@ -91,7 +91,7 @@ Merit::Badge.create!(
 
 Merit::Badge.create!(
   id: 10,
-  name: 'Gold glove',
+  name: 'Gold Glove',
   description: "Belongs to users made 200 micropost",
   custom_fields: { image: 'logo.png' }
 )
