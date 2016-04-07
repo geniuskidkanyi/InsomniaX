@@ -1,28 +1,34 @@
 <% provide(:title, 'Conversations') %>
 
-<p>Chatting with
-    <%= render 'conversations/participants', conversation: @conversation %>
+
+<p>
+    Chatting with
+
 </p>
 
-<div class="panel panel-default">
-    <div class="panel-heading"><%= @conversation.subject %></div>
+    <div class="panel-heading"></div>
 
     <div class="panel-body">
         <div class="messages">
-            <% @conversation.receipts_for(current_user).each do |receipt| %>
-            <div class="media">
-                <% message = receipt.message %>
-                <div class="media-left">
-                    <%= gravatar_message message.sender, { size: 45 } %>
-                </div>
+          <div class="chat">
+              <ul>
 
-                <div class="media-body">
-                    <h6 class="media-heading"><%= message.sender.name %>
-                        says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></h6>
+            <% @conversation.receipts_for(current_user).each do |receipt| %>
+              <% message = receipt.message %>
+                <li class="you">
+                  <a class="user" href="#">  <%= gravatar_message message.sender, { size: 45 } %></a>
+                  <div class="date">
+                    <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
+                  </div>
+                  <div class="message">
+                    <p>
                     <%= message.body %>
-                </div>
+                    </p>
+                  </div>
+                </li>
+          <% end %>
+              </ul>
             </div>
-            <% end %>
         </div>
         <%= form_tag reply_conversation_path(@conversation), method: :post do %>
         <div class="form-group">
