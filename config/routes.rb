@@ -31,8 +31,12 @@ Rails.application.routes.draw do
             get :following, :followers, :about
         end
     end
+    put '/comments/:id/:action' => 'comments#upvote'
+    put '/comments/:id/:action' => 'comments#downvote'
     resources :articles do
-        resources :comments
+        resources :comments do
+
+        end
     end
   resources :microposts do
     member do

@@ -15,6 +15,25 @@ class CommentsController < ApplicationController
         end
     end
 
+    def upvote
+    @comment = Comment.find(params[:id])
+    @comment.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
+  end
+
+  def downvote
+    @comment = Comment.find(params[:id])
+    @comment.downvote_from current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
+  end
+
+
     private
 
     def comment_params

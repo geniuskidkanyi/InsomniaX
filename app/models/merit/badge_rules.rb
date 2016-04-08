@@ -47,6 +47,9 @@ module Merit
     grant_on 'comments#create',  badge: 'Jr.Critic', to: :user do |comment|
         comment.user.comments.count >= 10 &&  comment.user.comments.count < 50
     end
+    grant_on 'messages#create', badge: 'Engraved Glass', to: :receiver, model_name: "User" do |message|
+        message.receiver.messages.count >= 1
+    end
     #grant_on 'messages#create',  badge: 'Engraved Glass', to: :user do |message|
     #    message.user.messages.count >= 50
     #end

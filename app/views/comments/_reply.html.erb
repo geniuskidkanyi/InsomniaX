@@ -1,8 +1,21 @@
 <% comments.each do |comment| %>
 <div class="comments-show">
   <div class="comment">
+    <p class="comment_name">
+      <strong><%= comment.user.name %></strong>
+    </p>
+
     <p><%= comment.body %><br></p>
+    <p class="comment_time"><%= time_ago_in_words(comment.created_at) %>
+      Ago</p>
+
     <div class="comment-nav">
+      <div class="stats">
+        <%= link_to "Upvote", {:controller =>"comments", :action => "upvote", :id => comment.id}, :class => 'btn', method: :put %>
+        <%= comment.get_downvotes.size %>
+        <%= link_to "Downvote", {:controller =>"comments", :action => "downvote", :id => comment.id}, :class => 'btn', method: :put %>
+
+      </div>
       <a href="#" class="comment-reply">reply</a>
     </div>
     <div class="reply-form">

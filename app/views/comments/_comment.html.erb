@@ -3,6 +3,19 @@
     <p class="comment_name">
       <strong><%= @user.comment.name %></strong>
     </p>
+    <div class="stats">
+
+      <%= link_to like_comment_path(coment), method: :get, class: "vote" do %>
+      <span class="fa fa-thumbs-up icon"></span><%= "#{micropost.get_upvotes.size}" %>
+
+      <% end %>
+
+      <%= link_to dislike_comment_path(comment), method: :get, class: " vote"  do %>
+      <span class="fa fa-thumbs-down icon"></span><%= "#{micropost.get_downvotes.size}" %>
+
+      <% end %>
+
+    </div>
     <p class="comment_body"><%= comment.body %></p>
     <p class="comment_time"><%= time_ago_in_words(comment.created_at) %>
       Ago</p>
