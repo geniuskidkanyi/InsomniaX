@@ -18,8 +18,6 @@ class User < ActiveRecord::Base
     has_many :followers, through: :passive_relationships, source: :follower
     has_secure_password
     include PublicActivity::Model
-    tracked
-    #tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
     tracked only: [:create], owner: Proc.new{ |controller, model| controller.current_user }
 
     validates :name, presence: true, length: { maximum: 100 }

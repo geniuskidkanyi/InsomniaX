@@ -16,10 +16,10 @@
   <div class="comment-nav">
       <div class="stats">
         <%= link_to '<i class="tiny material-icons">thumb_up</i>'.html_safe, {:controller =>"comments", :action => "upvote", :id => comment.id}, method: :put %>
-        <%= comment.get_upvotes.size %>
+        <span class="blue accent-3"> <%= comment.get_upvotes.size %></span>
         <%= link_to '<i class="tiny material-icons">thumb_down</i>'.html_safe, {:controller =>"comments", :action => "downvote", :id => comment.id}, method: :put %>
+          <span class="red accent-4"><%= comment.get_downvotes.size %></span>
 
-          <%= comment.get_downvotes.size %>
       <a href="#" class="comment-reply">reply</a>
     </div>
     </div>

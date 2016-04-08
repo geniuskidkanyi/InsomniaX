@@ -4,7 +4,7 @@
       <%= link_to gravatar_post(micropost.user, size: 50), micropost.user %>
       <span class="title"><%= link_to micropost.user.name, micropost.user %>
         made a post.</span>
-      <span class="title"><%= time_ago_in_words(micropost.created_at) %>
+      <span class="title secondary-content"><%= time_ago_in_words(micropost.created_at) %>
         ago</span>
       <p><%= micropost.content %>
         <br>
