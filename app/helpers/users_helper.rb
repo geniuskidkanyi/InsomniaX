@@ -34,6 +34,13 @@ module UsersHelper
         dprofile_url = user.dprofile? ? user.dprofile.url : gravatar_url
         image_tag(dprofile_url, alt: user.name, class: " twPc-bg twPc-block")
     end
+    def gravatar_comment(user, options = { size: 80 })
+        gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+        size = options[:size]
+        gravatar_url = "http://bootdey.com/img/Content/bg_element.jpg"
+        dprofile_url = user.dprofile? ? user.dprofile.url : gravatar_url
+        image_tag(dprofile_url, alt: user.name, class: " circle")
+    end
     def gravatar_all(user, options = { size: 80 })
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
         size = options[:size]

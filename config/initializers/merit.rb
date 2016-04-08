@@ -58,7 +58,7 @@ Merit::Badge.create!(
 )
 Merit::Badge.create!(
   id: 5,
-  name: 'Nike Sticker',
+  name: 'Mike Sticker',
   description: "Belongs to users sent more than 50 comments",
   custom_fields: { image: 'logo.png' }
 )
