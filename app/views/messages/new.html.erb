@@ -11,14 +11,14 @@
 
   <div class="col s12 m8 l9">
     <%= form_tag messages_path, method: :post do %>
-    <div class="form-group">
+    <div class="input-field">
       <%= label_tag 'message[subject]', 'Subject' %>
       <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
     </div>
 
-    <div class="form-group">
+    <div class="input-field">
       <%= label_tag 'message[body]', 'Message' %>
-      <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+      <%= text_area_tag 'message[body]', nil, class: 'materialize-textarea', required: true %>
     </div>
 
     <div class="form-group">

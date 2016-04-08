@@ -24,7 +24,7 @@ class MicropostsController < ApplicationController
     @micropost.liked_by current_user
     respond_to do |format|
       format.html { redirect_to :back }
-      format.json { render json: { count: micropost.get_upvote.size } }
+      format.js
     end
   end
 
@@ -33,7 +33,7 @@ class MicropostsController < ApplicationController
     @micropost.downvote_from current_user
     respond_to do |format|
       format.html { redirect_to :back }
-      format.json { render json: { count: micropost.get_upvote.size } }
+      format.js
     end
   end
 
