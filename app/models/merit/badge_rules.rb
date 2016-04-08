@@ -69,10 +69,10 @@ module Merit
         micropost.user.microposts.count >= 50
     end
     grant_on 'microposts#create',  badge: 'Crystal', to: :user do |micropost|
-          micropost.user.micropost.count >= 100
+          micropost.user.microposts.count >= 100
     end
     grant_on 'microposts#create',  badge: 'Gold Glove', to: :user do |micropost|
-          micropost.user.micropost.count >= 200
+          micropost.user.microposts.count >= 200
     end
 
     end

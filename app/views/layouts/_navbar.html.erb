@@ -15,7 +15,7 @@
       <ul class="right hide-on-med-and-down">
           <% if logged_in? %>
 
-       <li class="active"><%= link_to "friends", main_app.following_user_path(current_user) %></li>
+
 
         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Users<i class="material-icons right">arrow_drop_down</i></a></li>
 <li><%= link_to "Blog", main_app.articles_path %></li>
@@ -39,7 +39,7 @@
       <ul id="nav-mobile" class="side-nav fixed">
 <!--      for login user-->
 
-        <li class="active hide-on-large-only"><%= link_to "friends", main_app.following_user_path(current_user) %></li>
+
 
         <ul class="collapsible collapsible-accordion hide-on-large-only">
                       <li>
@@ -53,7 +53,6 @@
                         </div>
                       </li>
                     </ul>
-<li class="hide-on-large-only"><%= link_to "Blog", main_app.articles_path %></li>
 <ul class="collapsible collapsible-accordion hide-on-large-only">
               <li>
                 <a class="collapsible-header"><%= current_user.name %><i class="mdi-navigation-arrow-drop-down"></i></a>
@@ -69,7 +68,8 @@
                   </ul>
                 </div>
               </li>
-            </ul>
+</ul>
+            <li class="hide-on-large-only"><%= link_to "Blog", main_app.articles_path %></li>
     <div class="divider hide-on-large-only"></div>
     <ul class="nav list-group">
          <li>
@@ -86,6 +86,7 @@
         <li><a href="/forums/categories/etthical-hacking" class="list-group-item">Ethical hacking</a></li>
         <li><a href="/forums/categories/basic-computing" class="list-group-item">Basic computing</a></li>
         <li><a href="/forums/categories/basic-help" class="list-group-item">Help</a></li>
+        <li><a href="/forums/categories/health" class="list-group-item">Health</a></li>
 
 
 <!--          end of login user-->
