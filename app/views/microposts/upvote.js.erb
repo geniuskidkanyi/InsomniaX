@@ -1,1 +1,2 @@
-$("#votable").html('<%= @micropost.get_upvotes.size %>')
+$("#vote_form").html("<%= escape_javascript(render('votable/vote')) %>")
+$("#vote").html('<%= @micropost.get_upvotes.size %>')
