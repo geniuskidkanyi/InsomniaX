@@ -1,4 +1,4 @@
-<li class="list-group-item clearfix">
+<li class="collection-item">
     <%= link_to conversation.subject, conversation_path(conversation) %>
     <div class="btn-group-vertical pull-right">
         <% if conversation.is_trashed?(current_user) %>
@@ -14,7 +14,7 @@ class: 'btn btn-xs btn-info', method: :post %>
         <% end %>
 
     </div>
-    <p><%= render 'conversations/participants', conversation: conversation %></p>
+    <%= render 'conversations/participants', conversation: conversation %>
     <p><%= conversation.last_message.body %>
     <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
 </li>

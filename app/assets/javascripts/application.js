@@ -25,7 +25,6 @@
 //= require search
 //= require google_analytics
 //= require user
-//= require sticky
 
 $(document).on('ready page:load', function () {
     $('ul.tabs').tabs('select_tab', '#test1');
@@ -40,22 +39,8 @@ $(document).on('ready page:load', function () {
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+});
 
-$('#sidebar').Stickyfill();
-});
-$(document).ready(function() {
-  $(".list-friends").niceScroll(conf);
-  $(".messages").niceScroll(lol);
-  $("#texxt").keypress(function(e) {
-    if (e.keyCode === 13) {
-      insertI();
-      return false;
-    }
-  });
-  return $(".send").click(function() {
-    return insertI();
-  });
-});
 $(document).on('page:load', function () {
     $('ul.tabs').tabs('select_tab', '#test1');
 });

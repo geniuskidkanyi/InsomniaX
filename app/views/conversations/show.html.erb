@@ -1,13 +1,6 @@
 <% provide(:title, 'Conversations') %>
-
-
-<p>
-    Chatting with
-    <%= render 'conversations/participants', conversation: @conversation %>
-
-</p>
-
-    <div class="panel-heading"></div>
+<div class="panel-heading"> <span>Chatting with</span>
+    <%= render 'conversations/participants', conversation: @conversation %></div>
 
     <div class="panel-body">
         <div class="messages">
@@ -38,4 +31,3 @@
         <%= submit_tag "Send Message", class: 'btn light-blue accent-4' %>
         <% end %>
     </div>
-</div>

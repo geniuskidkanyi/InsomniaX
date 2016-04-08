@@ -1,12 +1,10 @@
-<ul class="collection">
+
 <% conversation.participants.each do |participant| %>
 <% unless participant == current_user %>
  <div class="chip">
-
-
-          <%= gravatar_message participant %>
+  <%= gravatar_message participant %>
           <%= participant.name %>
-  <% end %>
 </div>
+  <% end %>
+
         <% end %>
-</ul>

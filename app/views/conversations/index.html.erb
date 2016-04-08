@@ -17,7 +17,7 @@
         <p><%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn red darken-4', method: :delete,
 data: {confirm: 'Are you sure?'} %></p>
         <% end %>
-        <ul class="list-group">
+        <ul class="collection">
             <%= render partial: 'conversations/conversation', collection: @conversations %>
         </ul>
 
