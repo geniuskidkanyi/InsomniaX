@@ -1,10 +1,9 @@
-
 <% conversation.participants.each do |participant| %>
 <% unless participant == current_user %>
- <div class="chip">
+<div class="chip">
   <%= gravatar_message participant %>
-          <%= participant.name %>
+  <%= participant.name %>
 </div>
-  <% end %>
+<% end %>
 
-        <% end %>
+<% end %>

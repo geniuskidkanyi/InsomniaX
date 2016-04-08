@@ -1,38 +1,37 @@
+<div id="modal1" class="modal">
+  <div class="row">
+    <div class="col s12">
+      <h5 class="center-align">Login</h5>
 
-        <div id="modal1" class="modal">
-          <div class="row">
-           <div class="col s12">
-                   <h5 class="center-align">Login</h5>
+      <%= form_for(:session, url: main_app.login_path, class: 'form', id: 'login-nav') do |f| %>
+      <div class="input-field">
+        <%= f.label :email %>
+        <%= f.email_field :email, class:'form-control validate' %>
+      </div>
+      <div class="input-field">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control validate' %>
+      </div>
 
+      <div class="help-block text-right"><%= link_to "(forgot password)", main_app.new_password_reset_path %></div>
 
-            <%= form_for(:session, url: main_app.login_path, class: 'form', id: 'login-nav') do |f| %>
-            <div class="input-field">
-             <%= f.label :email %>
-             <%= f.email_field :email, class:'form-control validate' %>
-            </div>
-            <div class="input-field">
-             <%= f.label :password %>
-             <%= f.password_field :password, class: 'form-control validate' %>
-             </div>
+      <div class="checkbox">
 
-             <div class="help-block text-right"><%= link_to "(forgot password)", main_app.new_password_reset_path %></div>
+        <%= f.label :remember_me do %>
+        <%= f.check_box :remember_me, class: "filled-in", id: "filled-in-box", checked: "checked" %>
+        <span>Remember me on this computer</span>
+      </div>
+      <% end %>
+      <%= f.submit 'signin', class:'btn btn-primary btn-block' %>
 
-            <div class="checkbox">
+      <% end %>
+    </div>
 
-             <%= f.label :remember_me do %>
-             <%= f.check_box :remember_me, class: "filled-in", id: "filled-in-box", checked: "checked" %>
-             <span>Remember me on this computer</span>
-            </div>
-            <% end %>
-            <%= f.submit 'signin', class:'btn btn-primary btn-block' %>
-
-            <% end %>
-           </div>
-
-          </div>
-            <div class="modal-footer">
-              <div class="bottom text-center">
-                New here ? <%= link_to 'Sign Up', main_app.new_user_path, class: "modal-action modal-close waves-effect waves-green btn-flat" %>
-              </div>
-            </div>
-          </div>
+  </div>
+  <div class="modal-footer">
+    <div class="bottom text-center">
+      New here ?
+      <%= link_to 'Sign Up', main_app.new_user_path, class: "modal-action modal-close waves-effect waves-green btn-flat" %>
+    </div>
+  </div>
+</div>

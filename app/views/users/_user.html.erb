@@ -1,35 +1,35 @@
 <div class="col m4">
-    <!-- Begin user profile -->
-    <div class="box-info text-center user-profile-2">
-        <div class="header-cover">
-            <%= gravatar_dprofile user %>
-        </div>
-        <div class="user-profile-inner">
-            <h6 >
-            <%= link_to user.name, user %></h4>
-            <%= gravatar_all user %>
-
-
-            <!-- User button -->
-            <div class="user-button">
-                <div class="row">
-
-                      <% if current_user.admin? && !current_user?(user) %>
-                  <div class="col m6">
-                     <%= link_to "delete", user, method: :delete,class: 'waves-effect waves-light btn red darken-4',
-data: { confirm: "You sure?" } %>
-                  </div>
-
-                      <% end %>
-                         <div class="col m6">
-                             <% unless current_user == @user %>
-                             <%= link_to(new_message_path(to: user.id), :class => 'waves-effect waves-light btn') do %>
-     						<i class="fa fa-pencil"></i>  Send message
-     						<% end %>
-                             <% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- Begin user profile -->
+  <div class="box-info text-center user-profile-2">
+    <div class="header-cover">
+      <%= gravatar_dprofile user %>
     </div>
+    <div class="user-profile-inner">
+      <h6 >
+        <%= link_to user.name, user %></h4>
+      <%= gravatar_all user %>
+
+      <!-- User button -->
+      <div class="user-button">
+        <div class="row">
+
+          <% if current_user.admin? && !current_user?(user) %>
+          <div class="col m6">
+            <%= link_to "delete", user, method: :delete,class: 'waves-effect waves-light btn red darken-4',
+data: { confirm: "You sure?" } %>
+          </div>
+
+          <% end %>
+          <div class="col m6">
+            <% unless current_user == @user %>
+            <%= link_to(new_message_path(to: user.id), :class => 'waves-effect waves-light btn') do %>
+            <i class="fa fa-pencil"></i>
+            Send message
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

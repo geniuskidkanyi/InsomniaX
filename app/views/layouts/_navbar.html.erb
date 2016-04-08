@@ -1,130 +1,151 @@
-
 <%= render 'layouts/login_dropdown' %>
 
 <!--   end of navbar dropdowns-->
-  <div class="navbar-fixed">
-   <nav  role="navigation">
+<div class="navbar-fixed">
+  <nav role="navigation">
     <div class="nav-wrapper">
-        <%= link_to image_tag('logo.png', alt: 'logo', class: 'brand-logo', id: 'logo-container'), main_app.root_path %>
+      <%= link_to image_tag('logo.png', alt: 'logo', class: 'brand-logo', id: 'logo-container'), main_app.root_path %>
+      <% if logged_in? %>
+    <% else %>
+      <a class="right waves-effect waves-light btn modal-trigger" href="#modal1">login</a>
+      <% end %>
+
+      <!--    egining of mobile navigation-->
+      <ul class="right hide-on-med-and-down">
         <% if logged_in? %>
-        <% else %>
-        <a class="right waves-effect waves-light btn modal-trigger" href="#modal1">login</a>
+
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">Users<i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+        <li><%= link_to "Blog", main_app.articles_path %></li>
+        <li>
+          <%= form_tag '#', :class => 'nav-form' do -%>
+          <div class="input-field">
+            <%= text_field_tag "search", nil, placeholder: "Search", autocomplete: :off, id: "search" %>
+          </div>
+          <% end %>
+        </li>
+
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %>
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+      <% else %>
+
         <% end %>
 
-<!--    egining of mobile navigation-->
-      <ul class="right hide-on-med-and-down">
-          <% if logged_in? %>
-
-
-
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Users<i class="material-icons right">arrow_drop_down</i></a></li>
-<li><%= link_to "Blog", main_app.articles_path %></li>
-   <li>
-        <%= form_tag '#', :class => 'nav-form' do -%>
-      <div class="input-field">
-	     <%= text_field_tag "search", nil, placeholder: "Search", autocomplete: :off, id: "search" %>
-      </div>
-	   <% end %>
-   </li>
-
-
-    <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
-          <% else %>
-
-          <% end %>
-
       </ul>
-<!--end desktop navigation-->
+      <!--end desktop navigation-->
       <% if logged_in? %>
       <ul id="nav-mobile" class="side-nav fixed">
-<!--      for login user-->
-
-
+        <!--      for login user-->
 
         <ul class="collapsible collapsible-accordion hide-on-large-only">
-                      <li>
-                        <a class="collapsible-header">Users<i class="mdi-navigation-arrow-drop-down"></i></a>
-                        <div class="collapsible-body">
-                          <ul>
-                            <li><%= link_to "following", main_app.following_user_path(current_user) %></li>
-                          <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
-                          <li><%= link_to "Users", main_app.users_path %></li>
-                          </ul>
-                        </div>
-                      </li>
-                    </ul>
-<ul class="collapsible collapsible-accordion hide-on-large-only">
-              <li>
-                <a class="collapsible-header"><%= current_user.name %><i class="mdi-navigation-arrow-drop-down"></i></a>
-                <div class="collapsible-body">
-                  <ul>
-                    <li><%= link_to 'Profile', main_app.user_path(current_user) %>
-                   </li>
-                   <li><%= link_to "Edit Account", main_app.edit_user_path(current_user) %>
-                   </li>
-                   <li class="divider"></li>
-                   <li><%= link_to "Log out", main_app.logout_path, method: :delete %>
-                   </li>
-                  </ul>
-                </div>
-              </li>
+          <li>
+            <a class="collapsible-header">Users<i class="mdi-navigation-arrow-drop-down"></i>
+            </a>
+            <div class="collapsible-body">
+              <ul>
+                <li><%= link_to "following", main_app.following_user_path(current_user) %></li>
+                <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
+                <li><%= link_to "Users", main_app.users_path %></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="collapsible collapsible-accordion hide-on-large-only">
+          <li>
+            <a class="collapsible-header"><%= current_user.name %>
+              <i class="mdi-navigation-arrow-drop-down"></i>
+            </a>
+            <div class="collapsible-body">
+              <ul>
+                <li><%= link_to 'Profile', main_app.user_path(current_user) %>
+                </li>
+                <li><%= link_to "Edit Account", main_app.edit_user_path(current_user) %>
+                </li>
+                <li class="divider"></li>
+                <li><%= link_to "Log out", main_app.logout_path, method: :delete %>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      <li class="hide-on-large-only"><%= link_to "Blog", main_app.articles_path %></li>
+      <div class="divider hide-on-large-only"></div>
+      <ul class="nav list-group">
+        <li>
+
+          <%= link_to(main_app.conversations_path, :class => 'collection-item') do %>
+          <span class="new badge">
+            <%= current_user.mailbox.inbox(:unread => true).count(:id, :distinct => true)  %></span>
+          Conversations
+          <% end %>
+        </li>
+        <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
+
+        <li><%= link_to 'Forums', forem.forums_path, class: 'list-group-item' %></li>
+        <li>
+          <a href="/forums/categories/networking" class="list-group-item">Networking</a>
+        </li>
+        <li>
+          <a href="/forums/categories/programing" class="list-group-item">Programing</a>
+        </li>
+        <li>
+          <a href="/forums/categories/etthical-hacking" class="list-group-item">Ethical hacking</a>
+        </li>
+        <li>
+          <a href="/forums/categories/basic-computing" class="list-group-item">Basic computing</a>
+        </li>
+        <li>
+          <a href="/forums/categories/basic-help" class="list-group-item">Help</a>
+        </li>
+        <li>
+          <a href="/forums/categories/health" class="list-group-item">Health</a>
+        </li>
+
+        <!--          end of login user-->
+
+      </ul>
+
+  </ul>
+<% else %>
+  <ul id="nav-mobile" class="side-nav fixed">
+    <!--      for login user-->
+
+  </li>
+  <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
+
+  <li><%= link_to 'Forums', forem.forums_path, class: 'list-group-item' %></li>
+  <li>
+    <a href="/forums/categories/networking" class="list-group-item">Networking</a>
+  </li>
+  <li>
+    <a href="/forums/categories/programing" class="list-group-item">Programing</a>
+  </li>
+  <li>
+    <a href="/forums/categories/etthical-hacking" class="list-group-item">Ethical hacking</a>
+  </li>
+  <li>
+    <a href="/forums/categories/basic-computing" class="list-group-item">Basic computing</a>
+  </li>
+  <li>
+    <a href="/forums/categories/basic-help" class="list-group-item">Help</a>
+  </li>
+
+  <!--          end of login user-->
+
 </ul>
-            <li class="hide-on-large-only"><%= link_to "Blog", main_app.articles_path %></li>
-    <div class="divider hide-on-large-only"></div>
-    <ul class="nav list-group">
-         <li>
 
-       <%= link_to(main_app.conversations_path, :class => 'collection-item') do %>
-  <span class="new badge"> <%= current_user.mailbox.inbox(:unread => true).count(:id, :distinct => true)  %></span> Conversations
+</ul>
+
 <% end %>
-        </li>
-        <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
 
-        <li><%= link_to 'Forums', forem.forums_path, class: 'list-group-item' %></li>
-        <li><a href="/forums/categories/networking" class="list-group-item">Networking</a></li>
-        <li><a href="/forums/categories/programing" class="list-group-item">Programing</a></li>
-        <li><a href="/forums/categories/etthical-hacking" class="list-group-item">Ethical hacking</a></li>
-        <li><a href="/forums/categories/basic-computing" class="list-group-item">Basic computing</a></li>
-        <li><a href="/forums/categories/basic-help" class="list-group-item">Help</a></li>
-        <li><a href="/forums/categories/health" class="list-group-item">Health</a></li>
-
-
-<!--          end of login user-->
-
-
-
-    </ul>
-
-
-      </ul>
-      <% else %>
-         <ul id="nav-mobile" class="side-nav fixed">
-<!--      for login user-->
-
-
-        </li>
-        <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
-
-        <li><%= link_to 'Forums', forem.forums_path, class: 'list-group-item' %></li>
-        <li><a href="/forums/categories/networking" class="list-group-item">Networking</a></li>
-        <li><a href="/forums/categories/programing" class="list-group-item">Programing</a></li>
-        <li><a href="/forums/categories/etthical-hacking" class="list-group-item">Ethical hacking</a></li>
-        <li><a href="/forums/categories/basic-computing" class="list-group-item">Basic computing</a></li>
-        <li><a href="/forums/categories/basic-help" class="list-group-item">Help</a></li>
-
-
-<!--          end of login user-->
-
-
-
-    </ul>
-
-
-      </ul>
-
-         <% end %>
-
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+<a href="#" data-activates="nav-mobile" class="button-collapse">
+<i class="material-icons">menu</i>
+</a>
+</div>
+</nav>
 </div>

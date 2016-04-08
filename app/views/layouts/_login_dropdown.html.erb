@@ -1,39 +1,37 @@
 <!--begining of navbar dropdowns-->
-  <% if logged_in? %>
-   <ul id="dropdown1" class="dropdown-content">
-           <li class="active"><%= link_to "following", main_app.following_user_path(current_user) %></li>
-         <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
-         <li><%= link_to "Users", main_app.users_path %></li>
-   </ul>
-      <ul id="dropdown3" class="dropdown-content">
-           <li class="active"><%= link_to "following", main_app.following_user_path(current_user) %></li>
-         <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
-         <li><%= link_to "Users", main_app.users_path %></li>
-   </ul>
+<% if logged_in? %>
+<ul id="dropdown1" class="dropdown-content">
+  <li class="active"><%= link_to "following", main_app.following_user_path(current_user) %></li>
+  <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
+  <li><%= link_to "Users", main_app.users_path %></li>
+</ul>
+<ul id="dropdown3" class="dropdown-content">
+  <li class="active"><%= link_to "following", main_app.following_user_path(current_user) %></li>
+  <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
+  <li><%= link_to "Users", main_app.users_path %></li>
+</ul>
 
-     <ul id="dropdown2" class="dropdown-content">
+<ul id="dropdown2" class="dropdown-content">
 
+  <li><%= link_to 'Profile', main_app.user_path(current_user) %>
+  </li>
+  <li><%= link_to "Edit Account", main_app.edit_user_path(current_user) %>
+  </li>
+  <li class="divider"></li>
+  <li><%= link_to "Log out", main_app.logout_path, method: :delete %>
+  </li>
 
-        <li><%= link_to 'Profile', main_app.user_path(current_user) %>
-       </li>
-       <li><%= link_to "Edit Account", main_app.edit_user_path(current_user) %>
-       </li>
-       <li class="divider"></li>
-       <li><%= link_to "Log out", main_app.logout_path, method: :delete %>
-       </li>
+</ul>
+<ul id="dropdown4" class="dropdown-content">
 
-    </ul>
-    <ul id="dropdown4" class="dropdown-content">
+  <li><%= link_to 'Profile', main_app.user_path(current_user) %>
+  </li>
+  <li><%= link_to "Edit Account", main_app.edit_user_path(current_user) %>
+  </li>
+  <li class="divider"></li>
+  <li><%= link_to "Log out", main_app.logout_path, method: :delete %>
+  </li>
 
-
-        <li><%= link_to 'Profile', main_app.user_path(current_user) %>
-       </li>
-       <li><%= link_to "Edit Account", main_app.edit_user_path(current_user) %>
-       </li>
-       <li class="divider"></li>
-       <li><%= link_to "Log out", main_app.logout_path, method: :delete %>
-       </li>
-
-    </ul>
+</ul>
 <% else %>
 <% end %>

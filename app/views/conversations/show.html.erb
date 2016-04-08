@@ -1,33 +1,35 @@
 <% provide(:title, 'Conversations') %>
-<div class="panel-heading"> <span>Chatting with</span>
-    <%= render 'conversations/participants', conversation: @conversation %></div>
+<div class="panel-heading">
+  <span>Chatting with</span>
+  <%= render 'conversations/participants', conversation: @conversation %></div>
 
-    <div class="panel-body">
-        <div class="messages">
-          <div class="chat">
-              <ul>
+<div class="panel-body">
+  <div class="messages">
+    <div class="chat">
+      <ul>
 
-            <% @conversation.receipts_for(current_user).each do |receipt| %>
-              <% message = receipt.message %>
-                <li class="you">
-                  <a class="user" href="#">  <%= gravatar_message message.sender, { size: 45 } %></a>
-                  <div class="date">
-                    <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
-                  </div>
-                  <div class="message">
-                    <p>
-                    <%= message.body %>
-                    </p>
-                  </div>
-                </li>
-          <% end %>
-              </ul>
-            </div>
-        </div>
-        <%= form_tag reply_conversation_path(@conversation), method: :post do %>
-        <div class="form-group">
-            <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
-        </div>
-        <%= submit_tag "Send Message", class: 'btn light-blue accent-4' %>
+        <% @conversation.receipts_for(current_user).each do |receipt| %>
+        <% message = receipt.message %>
+        <li class="you">
+          <a class="user" href="#">
+            <%= gravatar_message message.sender, { size: 45 } %></a>
+          <div class="date">
+            <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
+          </div>
+          <div class="message">
+            <p>
+              <%= message.body %>
+            </p>
+          </div>
+        </li>
         <% end %>
+      </ul>
     </div>
+  </div>
+  <%= form_tag reply_conversation_path(@conversation), method: :post do %>
+  <div class="form-group">
+    <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+  </div>
+  <%= submit_tag "Send Message", class: 'btn light-blue accent-4' %>
+  <% end %>
+</div>

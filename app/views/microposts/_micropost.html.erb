@@ -1,30 +1,31 @@
 <div class="row">
-<ul class="collection">
+  <ul class="collection">
     <li class="collection-item avatar">
       <%= link_to gravatar_post(micropost.user, size: 50), micropost.user %>
       <span class="title"><%= link_to micropost.user.name, micropost.user %>
-      made a post.</span>
-      <span class="title"><%= time_ago_in_words(micropost.created_at) %> ago</span>
-      <p><%= micropost.content %> <br>
-          <%= image_tag(micropost.picture.url , class: 'materialboxed') %></p>
-       </li>
-     <div class="stats">
+        made a post.</span>
+      <span class="title"><%= time_ago_in_words(micropost.created_at) %>
+        ago</span>
+      <p><%= micropost.content %>
+        <br>
+        <%= image_tag(micropost.picture.url , class: 'materialboxed') %></p>
+    </li>
+    <div class="stats">
 
-     <%= link_to like_micropost_path(micropost), method: :get, class: "waves-effect waves-light btn vote", remote: true, data: { type: :json }  do %>
-     <span class="fa fa-thumbs-up icon"></span><%= "#{micropost.get_upvotes.size}" %>
-     Upvote
+      <%= link_to like_micropost_path(micropost), method: :get, class: "waves-effect waves-light btn vote", remote: true, data: { type: :json }  do %>
+      <span class="fa fa-thumbs-up icon"></span><%= "#{micropost.get_upvotes.size}" %>
+      Upvote
 
-     <% end %>
+      <% end %>
 
-     <%= link_to dislike_micropost_path(micropost), method: :get, class: " waves-effect waves-light btn vote", remote: true, data: { type: :json }  do %>
-     <span class="fa fa-thumbs-down icon"></span><%= "#{micropost.get_downvotes.size}" %>
-     downvote
+      <%= link_to dislike_micropost_path(micropost), method: :get, class: " waves-effect waves-light btn vote", remote: true, data: { type: :json }  do %>
+      <span class="fa fa-thumbs-down icon"></span><%= "#{micropost.get_downvotes.size}" %>
+      downvote
 
-     <% end %>
+      <% end %>
 
     </div>
 
-</ul>
-
+  </ul>
 
 </div>

@@ -2,89 +2,108 @@
 
 <div class="row overview">
 
-    <div class="col s6 m3 user-pad text-center">
+  <div class="col s6 m3 user-pad text-center">
 
+    <a href="<%= followers_user_path(@user) %>">
+      <strong id="followers">
+        <h5><%= @user.followers.count %></h5>
 
-        <a href="<%= followers_user_path(@user) %>">
-            <strong id="followers">
-                <h5><%= @user.followers.count %></h5>
+      </strong>
+      <h6>FOLLOWERS</h6>
+    </a>
 
+  </div>
 
-         </strong>
-            <h6>FOLLOWERS</h6>
-        </a>
+  <div class="col s6 m3 user-pad text-center">
 
+    <a href="<%= following_user_path(@user) %>">
+      <strong id="following">
+        <h5><%= @user.following.count %></h5>
 
-    </div>
+      </strong>
+      <h6>FOLLOWING</h6>
+    </a>
 
+  </div>
+  <% if logged_in? %>
+  <div class="col s4 m4 user-pad text-center">
+    <h3><%= render 'users/follow_form' %></h3>
 
-    <div class="col s6 m3 user-pad text-center">
+  </div>
 
-
-        <a href="<%= following_user_path(@user) %>">
-            <strong id="following">
-                <h5><%= @user.following.count %></h5>
-
-
-            </strong>
-            <h6>FOLLOWING</h6>
-        </a>
-
-    </div>
-    <% if logged_in? %>
-    <div class="col s4 m4 user-pad text-center">
-        <h3><%= render 'users/follow_form' %></h3>
-
-    </div>
-
-    <% end %>
-    <ul>
-  <% current_user.badges.each do |badge| %>
+  <% end %>
+  <ul>
+    <% current_user.badges.each do |badge| %>
     <li><%= badge.name %></li>
     <% end %>
 
-
-  <span id="txtstat"></span><!--Code Copyright:friendz4u.waplux.com-->
+    <span id="txtstat"></span>
+    <!--Code Copyright:friendz4u.waplux.com-->
     <script>
-        var p=<%= current_user.points %>;
-var st="Practise";
-if(p>=50) st="Beginner";
-if(p>=100) st="Newly Interested";
-if(p>=200) st="Getting Interested";
-if(p>=500) st="Lover";
-if(p>=1000) st="True Lover";
-if(p>=2000) st="True Core Lover";
-if(p>=3000) st="Getting Popular";
-if(p>=4000) st="Party Freak";
-if(p>=5000) st="Master Blaster";
-if(p>=7000) st="Guru";
-if(p>=10000) st="V.I.P";
-if(p>=20000) st="Advisor";
-document.getElementById("txtstat").innerHTML=st;
-</script>
- <%= current_user.points %>
+      var p = <%= current_user.points %>;
+      var st = "Practise";
+      if (p >= 50)
+        st = "Beginner";
+      if (p >= 100)
+        st = "Newly Interested";
+      if (p >= 200)
+        st = "Getting Interested";
+      if (p >= 500)
+        st = "Lover";
+      if (p >= 1000)
+        st = "True Lover";
+      if (p >= 2000)
+        st = "True Core Lover";
+      if (p >= 3000)
+        st = "Getting Popular";
+      if (p >= 4000)
+        st = "Party Freak";
+      if (p >= 5000)
+        st = "Master Blaster";
+      if (p >= 7000)
+        st = "Guru";
+      if (p >= 10000)
+        st = "V.I.P";
+      if (p >= 20000)
+        st = "Advisor";
+      document.getElementById("txtstat").innerHTML = st;
+    </script>
+    <%= current_user.points %>
 
-<script>var level=<%= current_user.points %>;
-var s=1;
-if(level>=0) s=1;
-if(level>=10) s=2;
-if(level>=20) s=3;
-if(level>=30) s=4;
-if(level>=40) s=5;
-if(level>=50) s=5;
-if(level>=60) s=6;
-if(level>=70) s=7;
-if(level>=80) s=8;
-if(level>=90) s=9;
-if(level>=99) s=10;
-var c=1;
-var im="<img src=http://friendz4u.waplux.com/files/300877/yellow_star.png>";
-var pic=im;
-for(c=1;c<s;c++)
-{ pic=pic+im; }
-var status=document.getElementById("stat");
-status.innerHTML=pic;
-</script>
+    <script>
+      var level = <%= current_user.points %>;
+      var s = 1;
+      if (level >= 0)
+        s = 1;
+      if (level >= 10)
+        s = 2;
+      if (level >= 20)
+        s = 3;
+      if (level >= 30)
+        s = 4;
+      if (level >= 40)
+        s = 5;
+      if (level >= 50)
+        s = 5;
+      if (level >= 60)
+        s = 6;
+      if (level >= 70)
+        s = 7;
+      if (level >= 80)
+        s = 8;
+      if (level >= 90)
+        s = 9;
+      if (level >= 99)
+        s = 10;
+      var c = 1;
+      var im = "<img src=http://friendz4u.waplux.com/files/300877/yellow_star.png>";
+      var pic = im;
+      for (c = 1; c < s; c++) {
+        pic = pic + im;
+      }
+      var status = document.getElementById("stat");
+      status.innerHTML = pic;
+    </script>
 
-</ul>
+  </ul>
 </div>
