@@ -24,11 +24,19 @@
                 </ul>
 
         </div>
+        
+        <div class="file-field input-field">
+        <div class="btn">
+        <span>File</span>
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        </div>
+        <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Upload picture along">
+        </div>
+        </div>
 
-    <span class="file-path-wrapper">
-        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'file-path validate' %>
         <% end %>
-    </span>
+
     </div>
 </div>
 

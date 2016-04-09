@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   def forem_user
     current_user
   end
+
 before_action :load_activities
   helper_method :forem_user
 

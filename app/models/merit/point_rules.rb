@@ -25,9 +25,9 @@ module Merit
       # ]
       #
       # score -10, :on => 'comments#destroy'
-        
-        score 5, on: 'comments#create', to: [:user]
-        score 10, on: 'comments#vote_up', to: [:comment_owner]
+
+        score 2, on: 'comments#create', to: [:user]
+        score 3, on: 'comments#upvote', to: [:comment_owner]
     end
   end
 end
