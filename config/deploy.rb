@@ -3,7 +3,8 @@ lock '3.4.0'
 server '188.166.6.59', port: 22, roles: [:web, :app, :db], primary: true
 set :application, 'insomniax'
 set :repo_url, 'git@bitbucket.org:geniuskid/insomniax.git'
-set :branch,        :version2
+set :branch,      fetch(:branch, 'version2')
+#set :branch,        :version2
 set :user,            'deploy'
 set :rbenv_type, :user
 set :rbenv_ruby, '2.2.3'
