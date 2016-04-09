@@ -13,7 +13,7 @@
     <hr>
 
     <!-- Date/Time -->
-    <p><span class="glyphicon glyphicon-time"></span> Posted on <%= time_ago_in_words(@article.created_at) %>
+    <p><span class="glyphicon glyphicon-time"></span> Posted on <%= time_ago_in_words(@article.created_at) %> ago
         <span class="glyphicon glyphicon-time"> <%= "#{@article.impressionist_count} views" %></span></p>
 
     <hr>

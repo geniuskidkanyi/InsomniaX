@@ -1,9 +1,11 @@
 <ul class="collection">
+    <li class="collection-header"><h4>Bytecoin Earned</h4></li>
       <li class="collection-item"> Earned <%= @user.points %> Bytecoin</li>
 
 </ul>
 
 <ul class="collection">
+    <li class="collection-header"><h4>Badges Earned</h4></li>
     <% @user.badges.each do |badge| %>
      <li class="collection-item avatar">
        <i class="circle green"><%= image_tag (badge.custom_fields[:image]) %> </i>
