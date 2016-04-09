@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
     def body
         comment_params[:body]
     end
-    
+
 
     def make_child_comment
         return "" if comment_id.blank?

@@ -27,7 +27,8 @@ module Merit
       # score -10, :on => 'comments#destroy'
 
         score 2, on: 'comments#create', to: [:user]
-        score 3, on: 'comments#upvote', to: [:comment_owner]
+        score 3, on: 'microposts#create', to: [:user]
+        score 3, on:  'sessions#create', to: [:user]
     end
   end
 end
