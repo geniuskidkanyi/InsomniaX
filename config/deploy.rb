@@ -3,7 +3,7 @@ lock '3.4.0'
 server '188.166.6.59', port: 22, roles: [:web, :app, :db], primary: true
 set :application, 'insomniax'
 set :repo_url, 'git@bitbucket.org:geniuskid/insomniax.git'
-
+set :branch,        :version2
 set :user,            'deploy'
 set :rbenv_type, :user
 set :rbenv_ruby, '2.2.3'
@@ -46,8 +46,8 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 # Default value for :log_level is :debug
 # set :log_level, :debug
-
 # Default value for :pty is false
+
 # set :pty, true
 
 # Default value for :linked_files is []
