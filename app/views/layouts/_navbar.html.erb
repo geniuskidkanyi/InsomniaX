@@ -7,7 +7,8 @@
       <%= link_to image_tag('logo.png', alt: 'logo', class: 'brand-logo', id: 'logo-container'), main_app.root_path %>
       <% if logged_in? %>
     <% else %>
-      <a class="right waves-effect waves-light btn modal-trigger" href="#modal1">login</a>
+    
+<%= link_to "Login", main_app.login_path, class: "right waves-effect waves-light btn " %>
       <% end %>
 
       <!--    egining of mobile navigation-->
