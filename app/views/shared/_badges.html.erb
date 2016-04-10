@@ -8,8 +8,11 @@
     <li class="collection-header"><h4>Badges Earned</h4></li>
     <% @user.badges.each do |badge| %>
      <li class="collection-item avatar">
-       <i class="circle green"><%= image_tag (badge.custom_fields[:image]) %> </i>
+       <i class="circle green img-badge"><%= image_tag (badge.custom_fields[:image]), class: "img-badge" %> </i>
        <span class="title"><%= badge.name %></span>
+       <p>
+           <%= badge.description %>
+       </p>
        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
      </li>
        <% end %>

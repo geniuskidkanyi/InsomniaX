@@ -44,11 +44,11 @@ module Merit
       #
       #   user.name.length > 4
       # end
-    grant_on 'comments#create',  badge: 'Jr.Critic', to: :user do |comment|
-        comment.user.comments.count >= 10 &&  comment.user.comments.count < 50
-    end
+    #grant_on 'comments#create',  badge: 'Engraved Glass', to: :user do |comment|
+
+    #end
     grant_on 'messages#create', badge: 'Engraved Glass', to: :recipients, model_name: "User" do |message|
-        message.recipients.messages.count >= 1
+        message.recipients.messages.count >= 10
     end
     #grant_on 'messages#create',  badge: 'Engraved Glass', to: :user do |message|
     #    message.user.messages.count >= 50
