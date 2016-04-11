@@ -13,12 +13,12 @@
     <div class="stats">
 
       <%= link_to like_micropost_path(micropost), method: :get, class: "vote" do %>
-      <span class="fa fa-thumbs-up icon"></span><%= "#{micropost.get_upvotes.size}" %>
+     <i class="material-icons">thumb_up</i> <%= "#{micropost.get_upvotes.size}" %>
 
       <% end %>
 
       <%= link_to dislike_micropost_path(micropost), method: :get, class: " vote"  do %>
-      <span class="fa fa-thumbs-down icon"></span><%= "#{micropost.get_downvotes.size}" %>
+    <i class="material-icons">thumb_down</i><%= "#{micropost.get_downvotes.size}" %>
 
       <% end %>
 
