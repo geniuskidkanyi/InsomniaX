@@ -8,7 +8,7 @@
 
 
         <div class="col s6 m4">
-            <div class="card ">
+            <div class="card small">
                 <span class="label label-info info blue darken-3">
 
                     <span data-toggle="tooltip" title="viewed">
@@ -20,7 +20,7 @@
                           <span class="card-title"><%= article.title %></span>
                         </div>
                         <div class="card-content">
-                          <p> <%= truncate article.body, length: 145 %> </p>
+                          <p> <%= raw truncate article.body, length: 145 %> </p>
                         </div>
                         <div class="card-action">
                           <%= link_to article.title, article, class: "btn light-blue darken-4", role: "button" %>
