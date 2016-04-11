@@ -15,13 +15,11 @@
                         <b class="glyphicon glyphicon-sunglasses"><%= "#{article.impressionist_count} views" %></b></span>
                     <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
                 </span>
-                        <div class="card-image">
+                        <div class="card-image image-card">
                           <%= image_tag article.picture_article.url if article.picture_article? %>
                           <span class="card-title"><%= article.title %></span>
                         </div>
-                        <div class="card-content">
-                          <p> <%= raw truncate article.body, length: 145 %> </p>
-                        </div>
+
                         <div class="card-action">
                           <%= link_to article.title, article, class: "btn light-blue darken-4", role: "button" %>
 
