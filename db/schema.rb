@@ -183,19 +183,6 @@ ActiveRecord::Schema.define(version: 20160406223358) do
   add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id", using: :btree
   add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
 
-  create_table "hcjs", force: :cascade do |t|
-    t.text     "html"
-    t.text     "css"
-    t.text     "js"
-    t.text     "title"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "hcjs", ["user_id", "created_at", "updated_at"], name: "index_hcjs_on_user_id_and_created_at_and_updated_at", using: :btree
-  add_index "hcjs", ["user_id"], name: "index_hcjs_on_user_id", using: :btree
-
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
     t.integer  "impressionable_id"
@@ -383,9 +370,6 @@ ActiveRecord::Schema.define(version: 20160406223358) do
     t.boolean  "is_female",            default: false
     t.integer  "sash_id"
     t.integer  "level",                default: 0
-    t.string   "activation_digest"
-    t.boolean  "activated",            default: false
-    t.datetime "activated_at"
     t.string   "dprofile"
   end
 
@@ -404,7 +388,6 @@ ActiveRecord::Schema.define(version: 20160406223358) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
-  add_foreign_key "hcjs", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"

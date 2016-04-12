@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     current_user
   end
 
-before_action :load_activities
+  before_action :load_activities
   helper_method :forem_user
 
     rescue_from ActiveRecord::RecordNotFound do
