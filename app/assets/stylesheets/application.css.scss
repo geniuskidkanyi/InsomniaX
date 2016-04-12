@@ -45,3 +45,15 @@ main {
     flex: 1 0 auto;
 }
 .image-card{height: 200px}
+.btn, .btn-large, .btn-large, .btn-flat {
+    border: none;
+    border-radius: 2px;
+    display: inline;
+    height: 36px;
+    line-height: 36px;
+    outline: 0;
+    padding: 0 0.3rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+}
