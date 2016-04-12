@@ -12,12 +12,12 @@
                 <span class="label label-info info blue darken-3">
 
                     <span data-toggle="tooltip" title="viewed">
-                        <b class="glyphicon glyphicon-sunglasses"><%= "#{article.impressionist_count} views" %></b></span>
+                        <b class="glyphicon glyphicon-sunglasses"><%= "#{article.impressionist_count} views" %></b> </span>
                     <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
                 </span>
                         <div class="card-image image-card">
                           <%= image_tag article.picture_article.url if article.picture_article? %>
-                          <span class="card-title"><%= article.title %></span>
+
                         </div>
 
                         <div class="card-action">
