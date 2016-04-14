@@ -1,6 +1,6 @@
-<% provide(:title, "Welcome login signup ") %>
-<% if logged_in? %>
 
+<% if logged_in? %>
+<% provide(:title,  " @user.name Welcome ") %>
 <section class="micropost_form">
   <%= render 'shared/micropost_form' %>
 </section>
@@ -8,6 +8,7 @@
 <%= render 'shared/feed' %>
 
 <% else %>
+<% provide(:title, "Welcome login signup ") %>
 <div class="login-page">
 
   <div class="login">
