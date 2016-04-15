@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
     has_many :following, through: :active_relationships, source: :followed
     has_many :followers, through: :passive_relationships, source: :follower
     has_secure_password
-    include PublicActivity::Model
-    tracked only: [:create], owner: Proc.new{ |controller, model| controller.current_user }
+    #include PublicActivity::Model
+    #tracked only: [:create], owner: Proc.new{ |controller, model| controller.current_user }
 
     validates :name, presence: true, length: { maximum: 100 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -114,8 +114,8 @@ OR user_id = :user_id", user_id: id)
     private
 
    def create_activation_digest
-     self.activation_token = User.new_token
-     self.activation_digest = User.digest(activation_token)
+     #self.activation_token = User.new_token
+     #self.activation_digest = User.digest(activation_token)
    end
 
 

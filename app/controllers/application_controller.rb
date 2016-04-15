@@ -15,7 +15,42 @@ class ApplicationController < ActionController::Base
     def redirect_back_or(path)
         redirect_to request.referer || path
     end
+    before_action :prepare_meta_tags, if: "request.get?"
 
+      def prepare_meta_tags(options={})
+        site_name   = "Insomniax"
+        title       = [controller_name, action_name].join(" ")
+        description = "Super charge your skills with expert authored tech and creative training with insomniax(Atus sec). the best social networkign site
+        for geeks "
+        current_url = request.url
+
+        # Let's prepare a nice set of defaults
+        defaults = {
+          site:        site_name,
+          title:       title,
+          description: description,
+          keywords:    %w[website socialnetwork development mobile app blogging insomniax],
+          twitter: {
+            site_name: site_name,
+            site: '@theinsomniax',
+            card: 'summary',
+            description: description,
+            #image: image
+          },
+          og: {
+            url: current_url,
+            site_name: site_name,
+            title: title,
+            #image: image,
+            description: description,
+            type: 'website'
+          }
+        }
+
+        options.reverse_merge!(defaults)
+
+        set_meta_tags options
+      end
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception

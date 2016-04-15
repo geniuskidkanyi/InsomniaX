@@ -24,9 +24,16 @@ class ArticlesController < ApplicationController
     end
     def show
         @article = Article.friendly.find(params[:id])
-impressionist(@article)
+        impressionist(@article)
         @new_comment    = Comment.build_from(@article, current_user, "")
+                    prepare_meta_tags(title: @article.title,
+                        description: @article.body,
+                        #keywords: @article.tags,
+                        image: @article.picture_article.url,
+                        twitter: {card: "summary_large_image"})
+
     end
+
 
     def edit
         @article = Article.friendly.find(params[:id])

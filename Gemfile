@@ -12,7 +12,6 @@ gem 'mini_magick'
 gem 'fog'
 gem 'cloudinary'
 gem 'will_paginate'
-gem "autoprefixer-rails"
 gem "font-awesome-rails"
 gem 'acts_as_votable'
 gem 'forem', github: "radar/forem", branch: "rails4"
@@ -37,6 +36,8 @@ gem 'materialize-sass'
 gem 'public_activity'
 gem 'merit'
 gem 'redis'
+gem 'redcarpet'
+gem 'meta-tags'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
