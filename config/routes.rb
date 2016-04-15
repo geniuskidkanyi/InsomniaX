@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
+  get 'sign_in' => 'sessions#new'
+  post 'sign_in' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get 'search' => 'search#index'
   resources :users
