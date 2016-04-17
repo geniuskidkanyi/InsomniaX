@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
 
       def prepare_meta_tags(options={})
         site_name   = "Insomniax"
-        title       = [controller_name, action_name].join(" ")
         description = "Super charge your skills with expert authored tech and creative training with insomniax(Atus sec). the best social networkign site
         for geeks "
         current_url = request.url
@@ -28,7 +27,6 @@ class ApplicationController < ActionController::Base
         # Let's prepare a nice set of defaults
         defaults = {
           site:        site_name,
-          title:       title,
           description: description,
           keywords:    %w[website socialnetwork development mobile app blogging insomniax],
           twitter: {
@@ -41,7 +39,6 @@ class ApplicationController < ActionController::Base
           og: {
             url: current_url,
             site_name: site_name,
-            title: title,
             #image: image,
             description: description,
             type: 'website'
