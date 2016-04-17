@@ -20,8 +20,8 @@ class ApplicationController < ActionController::Base
 
       def prepare_meta_tags(options={})
         site_name   = "Insomniax"
-        description = "Super charge your skills with expert authored tech and creative training with insomniax(Atus sec). the best social networkign site
-        for geeks "
+        #description = "Super charge your skills with expert authored tech and creative training with insomniax(Atus sec). the best social networkign site
+        #for geeks "
         current_url = request.url
 
         # Let's prepare a nice set of defaults
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
             site_name: site_name,
             site: '@theinsomniax',
             card: 'summary',
-            description: description,
+            #description: description,
             #image: image
           },
           og: {
