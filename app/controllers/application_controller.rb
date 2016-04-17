@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    before_action :prepare_meta_tags, if: "request.get?"
  include PublicActivity::StoreController
   def forem_user
     current_user
@@ -15,7 +16,7 @@ class ApplicationController < ActionController::Base
     def redirect_back_or(path)
         redirect_to request.referer || path
     end
-    before_action :prepare_meta_tags, if: "request.get?"
+
 
       def prepare_meta_tags(options={})
         site_name   = "Insomniax"
