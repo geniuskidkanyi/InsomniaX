@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
         impressionist(@article)
         @new_comment    = Comment.build_from(@article, current_user, "")
                     prepare_meta_tags(title: @article.title,
-                        description: @article.body,
+                        #description: @article.body,
                         #keywords: @article.tags,
                         image: @article.picture_article.url,
                         twitter: {card: "summary_large_image"})

@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
         # Let's prepare a nice set of defaults
         defaults = {
           site:        site_name,
-          description: description,
+          #description: description,
           keywords:    %w[website socialnetwork development mobile app blogging insomniax],
           twitter: {
             site_name: site_name,
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
             url: current_url,
             site_name: site_name,
             #image: image,
-            description: description,
+            #description: description,
             type: 'website'
           }
         }
