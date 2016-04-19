@@ -7,7 +7,7 @@
       <%= link_to image_tag('logo.png', alt: 'logo', class: 'brand-logo', id: 'logo-container'), main_app.root_path %>
       <% if logged_in? %>
     <% else %>
-    
+
 <%= link_to "Login", main_app.login_path, class: "right waves-effect waves-light btn " %>
       <% end %>
 
@@ -74,7 +74,7 @@
             </div>
           </li>
         </ul>
-      <li class="hide-on-large-only"><%= link_to "Blog", main_app.articles_path %></li>
+      
       <div class="divider hide-on-large-only"></div>
       <ul class="nav list-group">
         <li>
