@@ -3,9 +3,9 @@ class Article < ActiveRecord::Base
 	before_destroy :remove_from_soulmate
      acts_as_commentable
     validates_uniqueness_of :title
-    include PublicActivity::Model
-    tracked
-   tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
+    #include PublicActivity::Model
+    #tracked
+   #tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
     extend FriendlyId
     friendly_id :title, use: :slugged
     is_impressionable
@@ -18,7 +18,7 @@ class Article < ActiveRecord::Base
     validates :body, presence: true
 
     
-    
+    default_scope { order('created_at DESC') }
 
 	def load_into_soulmate
         loader = Soulmate::Loader.new("articles")

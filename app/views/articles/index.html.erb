@@ -4,6 +4,8 @@
         <hr/>
     </div>
     <div class="row">
+    <%= will_paginate  @user ,renderer: BootstrapPagination::Rails%>
+
 <% @articles.each do |article| %>
 
 
@@ -27,4 +29,5 @@
                       </div>
         </div>
 <% end %>
+<%= will_paginate @user ,renderer: BootstrapPagination::Rails %>
 </div>
