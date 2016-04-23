@@ -3,9 +3,9 @@
         <h4 class="text-center">BLOGS </h4>
         <hr/>
     </div>
-    <div class="row">
+ 
     <%= will_paginate  @user ,renderer: BootstrapPagination::Rails%>
-
+   <div class="row">
 <% @articles.each do |article| %>
 
 
@@ -29,5 +29,6 @@
                       </div>
         </div>
 <% end %>
-<%= will_paginate @user ,renderer: BootstrapPagination::Rails %>
 </div>
+<%= will_paginate @user ,renderer: BootstrapPagination::Rails %>
+
