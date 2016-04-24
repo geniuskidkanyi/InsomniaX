@@ -26,11 +26,30 @@ class ArticlesController < ApplicationController
         @article = Article.friendly.find(params[:id])
         impressionist(@article)
         @new_comment    = Comment.build_from(@article, current_user, "")
-                    prepare_meta_tags(title: @article.title,
-                        #description: @article.body,
+                    prepare_meta_tags(
+                    title: @article.title,
+                        description: @article.body,
                         #keywords: @article.tags,
                         image: @article.picture_article.url,
-                        twitter: {card: "summary_large_image"})
+                        #twitter: {card: "summary_large_image"}
+                        twitter: {
+                          #site_name: site_name,
+                          title: @article.title,
+                          site: '@theinsomniax',
+                          #keywords: @article.tags,
+                          card: 'insomniax socialneworking community gor geeks',
+                          description: @article.body,
+                          image: @article.picture_article.url
+                        },
+                        og: {
+                          #url: current_url,
+                          #site_name: site_name,
+                          title: @article.title,
+                          #keywords: @article.tags,
+                          image: @article.picture_article.url,
+                          description: @article.body,
+                          type: 'website'
+                        })
 
     end
 

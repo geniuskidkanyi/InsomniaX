@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
     before_action :prepare_meta_tags, if: "request.get?"
+    before_action :load_activities
  include PublicActivity::StoreController
   def forem_user
     current_user
   end
 
-  before_action :load_activities
+
   helper_method :forem_user
 
     rescue_from ActiveRecord::RecordNotFound do
@@ -20,27 +21,27 @@ class ApplicationController < ActionController::Base
 
       def prepare_meta_tags(options={})
         site_name   = "Insomniax"
-        #description = "Super charge your skills with expert authored tech and creative training with insomniax(Atus sec). the best social networkign site
-        #for geeks "
+        description = "Super charge your skills with expert authored tech and creative training with insomniax(Atus sec). the best social networkign site
+        for geeks "
         current_url = request.url
-
+        image =
         # Let's prepare a nice set of defaults
         defaults = {
           site:        site_name,
-          #description: description,
-          keywords:    %w[website socialnetwork development mobile app blogging insomniax],
+          description: description,
+          keywords:    %w[website socialnetworking development mobile app blogging insomniax],
           twitter: {
             site_name: site_name,
             site: '@theinsomniax',
-            card: 'summary',
-            #description: description,
-            #image: image
+            card: 'insomniax socialneworking community gor geeks',
+            description: description,
+            image: image
           },
           og: {
             url: current_url,
             site_name: site_name,
-            #image: image,
-            #description: description,
+            image: image,
+            description: description,
             type: 'website'
           }
         }
@@ -53,14 +54,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include SessionsHelper
-  def load_activities
-    @activities = PublicActivity::Activity.order('created_at DESC').limit(20)
-  end
+
 
 
 
     private
-
+    def load_activities
+      @activities = PublicActivity::Activity.order('created_at DESC').limit(20)
+    end
     # Confirms a logged-in user.
     def logged_in_user
         unless logged_in?
