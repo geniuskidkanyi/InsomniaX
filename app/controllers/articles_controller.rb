@@ -25,6 +25,8 @@ class ArticlesController < ApplicationController
     def show
         @article = Article.friendly.find(params[:id])
         impressionist(@article)
+        @related_articles = Article.tagged_with(@article.tag_list, any: true)
+
         @new_comment    = Comment.build_from(@article, current_user, "")
                     prepare_meta_tags(
                     title: @article.title,
@@ -37,7 +39,7 @@ class ArticlesController < ApplicationController
                           title: @article.title,
                           site: '@theinsomniax',
                           #keywords: @article.tags,
-                          card: 'insomniax socialneworking community gor geeks',
+                          card: 'insomniax socialnetworking community gor geeks',
                           description: @article.body,
                           image: @article.picture_article.url
                         },

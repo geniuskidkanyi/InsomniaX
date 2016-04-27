@@ -29,6 +29,9 @@
 $(document).on('ready page:load', function () {
     $('ul.tabs').tabs('select_tab', '#test1');
 
+    $('input#input_text, textarea#textarea1').characterCounter();
+
+
     $(".button-collapse").sideNav();
     $('.parallax').parallax();
     $('.materialboxed').materialbox();
