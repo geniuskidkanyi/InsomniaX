@@ -14,54 +14,21 @@
 @import 'forem_base';
 @import "body";
 @import "notification";
-h1{font-size: 5em}
-h2{font-size: 4em}
-h3{font-size: 3em}
-h4{font-size: 2em}
-h5{font-size: 1em}
-h6{font-size: 0.5em}
 
-
-.user-pad2 {
-    padding: 5px
+@media (max-width: 601px){
+  .collection .collection-item.avatar .title {
+    font-size: 10px;
 }
-.btn, .btn-large, .btn-flat {
-  border: none;
-  border-radius: 2px;
-  display: inline-block;
-  height: 36px;
-  line-height: 36px;
-  outline: 0;
-  padding: 0 0.3rem;
-  text-transform: uppercase;
-  vertical-align: middle;
-  -webkit-tap-highlight-color: transparent;
+.collection .collection-item.avatar .secondary-content {
+    position: absolute;
+    top: 10px;
+    right: 16px;
 }
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;padding-top: 0;
+.well-social-post .list-inline {font-size: 10px;padding: 0}
 }
 
-main {
-    flex: 1 0 auto;
-}
-.image-card{height: 200px}
-.btn, .btn-large, .btn-large, .btn-flat {
-    border: none;
-    border-radius: 2px;
-    display: inline;
-    height: 36px;
-    line-height: 36px;
-    outline: 0;
-    padding: 0 0.3rem;
-    text-transform: uppercase;
-    vertical-align: middle;
-    -webkit-tap-highlight-color: transparent;
-}
-blockquote {
-    margin: 20px 0;
-    padding-left: 1.5rem;
-    border-left: 5px solid #01579b;
-    background-color: #f0f0f0;;
+.side-nav li {
+    float: none;
+    line-height: 64px;
+    border-bottom: 1px solid #e0e0e0;
 }

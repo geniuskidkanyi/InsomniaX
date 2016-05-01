@@ -2,30 +2,27 @@
 <!-- Blog Post Content Column -->
 <div class="col s12">
 
-    <!-- Blog Post -->
+<div class="card-panel">
 
-    <!-- Title -->
+
     <h4 class="text-centre"><%= @article.title %></h4>
 
-    <!-- Author -->
-
-
     <hr>
-
-    <!-- Date/Time -->
+<!-- Date/Time -->
     <p><span class="glyphicon glyphicon-time"></span> Posted on <%= time_ago_in_words(@article.created_at) %> ago
         <span class="glyphicon glyphicon-time"> <%= "#{@article.impressionist_count} views" %></span></p>
-
-    <hr>
-
-    <!-- Preview Image -->
+ <hr>
+<!-- Preview Image -->
     <div class="article-preview">
     <%= image_tag @article.picture_article.url if @article.picture_article? %>
     </div>
     <hr>
 
     <!-- Post Content -->
-    <p> <%= raw @article.body %></p>
+    <div class="post-body flow-text">
+       <%= raw @article.body %>
+    </div>
+
     <% @related_articles.each do |related_articles| %>
       <div><%= render 'related' %></div>
     <% end %>
@@ -39,6 +36,7 @@
     <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %></div>
 <% end %>
 
+</div>
 
 <% if logged_in? %>
 <div id="comments">
@@ -48,11 +46,12 @@
 
 </div>
 <% else %>
- <h4>please login to join the conversation</h4>
- <% provide(:title, "Log in") %>
+
  <!-- <h4>Login</h4> -->
 <div class="row">
    <div class="col s12 m6 l6">
+      <h4>please login to join the conversation</h4>
+      <% provide(:title, "Log in") %>
       <%= form_for(:session, url: login_path, class: 'form', id: 'login-nav') do |f| %>
       <div class="input-fieldp">
         <%= f.label :email, class: 'active' %>

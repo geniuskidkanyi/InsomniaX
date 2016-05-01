@@ -153,3 +153,10 @@
 
 
 // custonme
+.post-body{
+  width: calc(100%);display: block;
+}
+.post-body p{
+    color: rgba(0,0,0,0.71);
+    padding: 0;
+    -webkit-font-smoothing: antialiased;line-height: 1.3em}

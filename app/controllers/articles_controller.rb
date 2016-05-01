@@ -25,6 +25,8 @@ class ArticlesController < ApplicationController
     def show
         @article = Article.friendly.find(params[:id])
         impressionist(@article)
+        #@related_articles =  ActsAsTaggableOn::Tag.friendly.find(params[:id])
+        #@articles = Article.tagged_with(@tag.name)
         @related_articles = Article.tagged_with(@article.tag_list, any: true)
 
         @new_comment    = Comment.build_from(@article, current_user, "")
