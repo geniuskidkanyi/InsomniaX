@@ -6,17 +6,19 @@ class ArticlesController < ApplicationController
 
     impressionist actions: [:show], unique: [:session_hash]
     def index
-        @articles = Article.paginate(page: params[:page],:per_page => 12)
+        @article = Article.paginate(page: params[:page],:per_page => 12)
 
     end
 
-    def new
+   def new
+     @article = Article.new
    end
 
     def create
         @article = Article.new(article_params)
 
         if @article.save
+            flash[:success] = 'Micropost created!'
             redirect_to @article
          else
         render 'new'

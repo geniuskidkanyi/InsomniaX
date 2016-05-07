@@ -85,8 +85,7 @@ OR user_id = :user_id", user_id: id)
 
     # Activates an account.
   def activate
-   update_attribute(:activated,
-   true)
+   update_attribute(:activated,   true)
    update_attribute(:activated_at, Time.zone.now)
   end
     # Sends activation email.
