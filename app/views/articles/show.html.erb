@@ -14,6 +14,7 @@
               <span class="glyphicon glyphicon-time"> <%= "#{@article.impressionist_count} views" %></span></p>
        <hr>
       <!-- Preview Image -->
+
           <div class="article-preview">
           <%= image_tag @article.picture_article.url if @article.picture_article? %>
           </div>
@@ -23,7 +24,7 @@
           <div class="post-body flow-text">
              <%= raw @article.body %>
           </div>
-
+<%= social_share_button_tag(@article.title) %>
           <hr>
 
 
@@ -61,7 +62,7 @@
           <div class="post-body flow-text">
              <%= raw @article.body %>
           </div>
-
+ <%= social_share_button_tag(@article.title) %>
           <hr>
 
 
@@ -78,7 +79,7 @@
 
 
 
-      <%= social_share_button_tag(@article.title) %>
+
         <ul class="collection">
           <li class="collection-header"><h4>Recent Articles</h4></li>
           <% @articles.each do |article| %>
