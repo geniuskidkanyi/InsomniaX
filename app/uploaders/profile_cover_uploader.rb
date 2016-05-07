@@ -3,6 +3,7 @@
 class ProfileCoverUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
+  include CarrierWave::BombShelter
     process resize_to_fit: [400, 400]
 
 

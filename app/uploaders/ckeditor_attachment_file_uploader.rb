@@ -3,6 +3,7 @@ require 'carrierwave'
 
 class CkeditorAttachmentFileUploader < CarrierWave::Uploader::Base
   include Ckeditor::Backend::CarrierWave
+  include CarrierWave::BombShelter
 
   # Include RMagick or ImageScience support:
   # include CarrierWave::RMagick

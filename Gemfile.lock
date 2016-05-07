@@ -86,6 +86,7 @@ GEM
       activesupport (>= 4.0)
       awesome_nested_set (>= 3.0)
     acts_as_votable (0.10.0)
+    addressable (2.4.0)
     ambry (0.3.1)
     arel (6.0.3)
     autoprefixer-rails (6.1.0.1)
@@ -131,6 +132,10 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    carrierwave-bombshelter (0.2.0.1)
+      activesupport (>= 3.2.0)
+      carrierwave
+      fastimage
     chosen-rails (1.4.1)
       coffee-rails (>= 3.2)
       compass-rails (>= 1.1.2)
@@ -176,6 +181,8 @@ GEM
     execjs (2.6.0)
     faker (1.5.0)
       i18n (~> 0.5)
+    fastimage (2.0.0)
+      addressable (~> 2)
     ffi (1.9.10)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
@@ -494,6 +501,7 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano3-puma
   carrierwave
+  carrierwave-bombshelter
   chosen-rails
   ckeditor
   cloudinary
