@@ -4,6 +4,7 @@
 <h4 class="center-align">Add new Blog post</h4>
 
 <%= form_for :article, url: articles_path, html: { multipart: true } do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
 <h5>Add a preview picture</h5>
 <span class="picture">
     <%= f.file_field :picture_article %>
