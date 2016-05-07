@@ -60,6 +60,9 @@
   content: "X";
   background-color: #FF4136;
 }
+.pagination li.active {
+    background-color: #0277bd;
+}
 .pagination li{display: inline}
 
   .pagination > .disabled > span,

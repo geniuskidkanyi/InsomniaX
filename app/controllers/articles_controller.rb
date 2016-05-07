@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 
     impressionist actions: [:show], unique: [:session_hash]
     def index
-        @article = Article.paginate(page: params[:page],:per_page => 12)
+        @articles = Article.paginate(page: params[:page],:per_page => 12)
 
     end
 

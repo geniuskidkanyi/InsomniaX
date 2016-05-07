@@ -4,7 +4,7 @@
         <hr/>
     </div>
 
-    <%= will_paginate  @user ,renderer: BootstrapPagination::Rails%>
+    <%= will_paginate  renderer: BootstrapPagination::Rails%>
    <div class="row">
 <% @articles.each do |article| %>
 
@@ -18,7 +18,7 @@
                     <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
                 </div>
                         <div class="card-image image-card">
-                          
+
                      <%= link_to (image_tag article.picture_article.url), article_path(article) %>
                         </div>
 
@@ -30,4 +30,4 @@
         </div>
 <% end %>
 </div>
-<%= will_paginate @user ,renderer: BootstrapPagination::Rails %>
+<%= will_paginate renderer: BootstrapPagination::Rails %>
