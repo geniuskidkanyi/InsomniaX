@@ -11,6 +11,7 @@
 @import 'articles';
 @import 'messages';
 @import 'monokai';
+@import "social-share-button";
 @import 'forem_base';
 @import "body";
 @import "notification";
@@ -31,4 +32,9 @@ h1,h2,h3,h4,h5,h6{text-transform: uppercase}
     float: none;
     line-height: 64px;
     border-bottom: 1px solid #e0e0e0;
+}
+.social-share-button-facebook {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
 }

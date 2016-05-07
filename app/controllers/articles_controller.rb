@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
     end
     def show
         @article = Article.friendly.find(params[:id])
+        @articles = Article.friendly.order("created_at DESC").limit(5).offset(1)
         impressionist(@article)
         @new_comment    = Comment.build_from(@article, current_user, "")
                     prepare_meta_tags(
