@@ -26,6 +26,9 @@
 //= require social-share-button
 //= require google_analytics
 //= require user
+$(document).ready(function(){
+      $('.parallax').parallax();
+    });
 
 $(document).on('ready page:load', function () {
     $('ul.tabs').tabs('select_tab', '#test1');
@@ -34,7 +37,7 @@ $(document).on('ready page:load', function () {
 
 
     $(".button-collapse").sideNav();
-    $('.parallax').parallax();
+    // $('.parallax').parallax();
     $('.materialboxed').materialbox();
 
     $(".dropdown-button").dropdown();

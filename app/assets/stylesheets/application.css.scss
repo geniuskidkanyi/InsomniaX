@@ -39,3 +39,11 @@ h1,h2,h3,h4,h5,h6{text-transform: uppercase}
 	height: 16px;
 }
 blockquote {background-color: #eeeeee;display: inline-block;line-height: 1em;padding: 0.5em;margin-left: 1.5em;border:2px solid;border-radius: 4px;color: #fff}
+.parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 111;
+}
