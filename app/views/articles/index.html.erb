@@ -3,7 +3,7 @@
         <h4 class="text-center">BLOGS </h4>
         <hr/>
     </div>
- 
+
     <%= will_paginate  @user ,renderer: BootstrapPagination::Rails%>
    <div class="row">
 <% @articles.each do |article| %>
@@ -11,15 +11,15 @@
 
         <div class="col s6 m4">
             <div class="card small">
-                <span class="label label-info blue darken-3">
+                <div class="label label-info blue darken-3">
 
                     <span data-toggle="tooltip" title="viewed">
                         <b class="glyphicon glyphicon-sunglasses"><%= "#{article.impressionist_count} views" %></b> </span>
                     <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
-                </span>
+                </div>
                         <div class="card-image image-card">
-                          <%= image_tag article.picture_article.url if article.picture_article? %>
-
+                          
+                     <%= link_to (image_tag article.picture_article.url), article_path(article) %>
                         </div>
 
                         <div class="card-action">
@@ -31,4 +31,3 @@
 <% end %>
 </div>
 <%= will_paginate @user ,renderer: BootstrapPagination::Rails %>
-
