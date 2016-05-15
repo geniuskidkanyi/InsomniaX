@@ -11,7 +11,7 @@ class Article < ActiveRecord::Base
     is_impressionable
     mount_uploader :picture_article, PictureArticleUploader
     acts_as_commentable
-    belongs_to :user
+    #belongs_to :user
     has_many :comments
     acts_as_taggable
     validates :title, presence: true, length: {minimum: 5}
