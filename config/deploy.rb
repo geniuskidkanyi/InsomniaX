@@ -1,6 +1,6 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
-server '188.166.6.59', port: 22, roles: [:web, :app, :db], primary: true
+server '188.166.6.59', port: 3445, roles: [:web, :app, :db], primary: true
 set :application, 'insomniax'
 set :repo_url, 'git@bitbucket.org:geniuskid/insomniax.git'
 set :branch, ENV["REVISION"] || ENV["BRANCH_NAME"] || "master"
@@ -104,6 +104,14 @@ namespace :deploy do
     after  :finishing,    :compile_assets
     after  :finishing,    :cleanup
     after  :finishing,    :restart
+end
+namespace :redis do
+  %w[start stop restart].each do |command|
+    desc "#{command} redis"
+    task command, roles: :web do
+      run "#{sudo} service redis-server #{command}"
+    end
+  end
 end
 
 # ps aux | grep puma    # Get puma pid
