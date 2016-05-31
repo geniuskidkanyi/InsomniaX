@@ -1,6 +1,6 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
-server '188.166.6.59', port: 22, roles: [:web, :app, :db], primary: true
+server '188.166.6.59', port: 3445, roles: [:web, :app, :db], primary: true
 set :application, 'insomniax'
 set :repo_url, 'git@bitbucket.org:geniuskid/insomniax.git'
 set :branch, ENV["REVISION"] || ENV["BRANCH_NAME"] || "master"
