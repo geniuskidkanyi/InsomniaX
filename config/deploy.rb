@@ -84,14 +84,7 @@ namespace :deploy do
             end
         end
     end
-    namespace :redis do
-      %w[start stop restart].each do |command|
-        desc "#{command} redis"
-        task command, roles: :web do
-          run "#{sudo} service redis-server #{command}"
-        end
-      end
-    end
+
     desc 'Initial Deploy'
     task :initial do
         on roles(:app) do
