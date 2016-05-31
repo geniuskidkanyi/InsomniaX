@@ -105,14 +105,14 @@ namespace :deploy do
     after  :finishing,    :cleanup
     after  :finishing,    :restart
 end
-namespace :redis do
-  %w[start stop restart].each do |command|
-    desc "#{command} redis"
-    task command, roles: :web do
-      run "#{sudo} service redis-server #{command}"
-    end
-  end
-end
+# namespace :redis do
+#   %w[start stop restart].each do |command|
+#     desc "#{command} redis"
+#     task command, roles: :web do
+#       run "#{sudo} service redis-server #{command}"
+#     end
+#   end
+# end
 
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
