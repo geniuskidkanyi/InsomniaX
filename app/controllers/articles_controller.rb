@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
         @new_comment    = Comment.build_from(@article, current_user, "")
                     prepare_meta_tags(
                     title: @article.title,
-                        description: @article.body.html_safe,
+                        description: @article.body,
                         #keywords: @article.tags,
                         image: @article.picture_article.url,
                         #twitter: {card: "summary_large_image"}
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
                           site: '@theinsomniax',
                           #keywords: @article.tags,
                           card: 'insomniax socialnetworking community gor geeks',
-                          description: @article.body.html_safe,
+                          description: @article.body,
                           image: @article.picture_article.url
                         },
                         og: {
@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
                           title: @article.title,
                           #keywords: @article.tags,
                           image: @article.picture_article.url,
-                          description: @article.body.html_safe,
+                          description: @article.body,
                           type: 'website'
                         })
 
