@@ -28,7 +28,7 @@ development:
   host: localhost
   database: insomniax_development
   username: insomniax
-  password: Ins@mniax
+  password: sweetbj1
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -65,7 +65,7 @@ test:
   host: localhost
   database: insomniax_test
   username: insomniax
-  password: Ins@mniax
+  password: sweetbj1
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
