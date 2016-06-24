@@ -52,14 +52,3 @@ $(document).on('ready page:load', function () {
 $(document).on('page:load', function () {
     $('ul.tabs').tabs('select_tab', '#test1');
 });
-var x = new EmbedJS({
-  input: document.getElementById('rawText'),
- openGraphEndpoint:'//opengraph.io/api/1.0/site/${url}',highlightCode:true,
-  onOpenGraphFetch:function(data){
-    if (!data.hybridGraph) return data;
-            data.hybridGraph.success = data.error ?  false : true;
-            return data.hybridGraph;
-        }
-});
-
-x.render();
