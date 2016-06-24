@@ -1,9 +1,9 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
-server '188.166.6.59', port: 22, roles: [:web, :app, :db], primary: true
+lock '3.5.0'
+server '188.166.6.59', port: 3445, roles: [:web, :app, :db], primary: true
 set :application, 'insomniax'
 set :repo_url, 'git@bitbucket.org:geniuskid/insomniax.git'
-
+set :branch, ENV["REVISION"] || ENV["BRANCH_NAME"] || "master"
 set :user,            'deploy'
 set :rbenv_type, :user
 set :rbenv_ruby, '2.2.3'
@@ -14,6 +14,7 @@ set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
+set :linked_dirs, fetch(:linked_dirs, []).push( 'public/uploads')
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"

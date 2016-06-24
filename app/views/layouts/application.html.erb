@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title><%= yield(:title) %> | Insomniax</title>
+ <title><%= yield(:title) %> | Insomniax the social community for geeks</title>
+   <meta name="msvalidate.01" content="9BF9701D09E8E5A4D09FA989AE2C5617" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag "forem" %>
     <%= javascript_include_tag "forem" %>
@@ -10,17 +11,8 @@
     <%= javascript_include_tag :modernizr %>
   <%= csrf_meta_tags %>
     <%= forem_atom_auto_discovery_link_tag %>
-
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-63049832-2', 'auto');
-        ga('send', 'pageview');
-
-    </script>
+<%= render 'layouts/footer' %>
+   
 
 </head>
 <body>
@@ -31,6 +23,9 @@
   <div class="container-fluid-main">
    <% else %>
       <div class="main_page">
+          <% flash.each do |message_type, message| %>
+                     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+                     <% end %>
           <% end %>
 
               <% if logged_in? %>
@@ -59,5 +54,6 @@
 
     </div>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
 </body>
 </html>

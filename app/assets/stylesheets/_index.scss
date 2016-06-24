@@ -7,12 +7,12 @@
 }
 
 .main_page {
-    height: 90vh;
+  
     background-size: 100%;
 }
 
 .hero {
-    height: 90vh;
+    min-height: 90vh;
     background-image: image-url('cover.jpg');
     background-repeat: no-repeat;
     background-size: 100%;

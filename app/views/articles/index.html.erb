@@ -10,14 +10,14 @@
                 <h4>
 
                     <span class="label label-info info">
-                        <span data-toggle="tooltip" title="viewed">257 <b class="glyphicon glyphicon-eye-open"></b></span>
+
                         <span data-toggle="tooltip" title="viewed">
                             <b class="glyphicon glyphicon-sunglasses"><%= "#{article.impressionist_count} views" %></b></span>
                         <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
                     </span>
                 </h4>
                 <%= image_tag article.picture_article.url if article.picture_article? %>
-            <%= link_to article.title, article, class: "btn btn-primary col-xs-12", role: "button" %>
+            <%= link_to article.title, article, class: "btn btn-primary col s12", role: "button" %>
                 <div class="clearfix"></div>
             </div>
         </div>
