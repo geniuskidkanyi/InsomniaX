@@ -16,6 +16,8 @@
 //= require materialize-sprockets
 //= require materialize
 //= require forem
+//= require linkify
+//= require linkify-jquery
 //= require sticky
 //= require jquery.turbolinks
 //= require chosen-jquery
