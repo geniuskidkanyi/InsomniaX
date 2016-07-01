@@ -37,7 +37,7 @@ $(document).on('ready page:load', function () {
     $('ul.tabs').tabs('select_tab', '#test1');
 
     $('input#input_text, textarea#textarea1').characterCounter();
-
+$('p').linkify();
 
     $(".button-collapse").sideNav();
     // $('.parallax').parallax();

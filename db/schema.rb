@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406223358) do
+ActiveRecord::Schema.define(version: 20160701064303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -371,6 +371,9 @@ ActiveRecord::Schema.define(version: 20160406223358) do
     t.integer  "sash_id"
     t.integer  "level",                default: 0
     t.string   "dprofile"
+    t.boolean  "activated"
+    t.datetime "activated_at"
+    t.string   "activation_digest"
   end
 
   create_table "votes", force: :cascade do |t|

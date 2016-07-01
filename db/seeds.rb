@@ -7,8 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create!(name: "Examples User",
     email: "example@railstutorial.org",
-    password:
-    "foobar",
+    password:"foobar",
     password_confirmation: "foobar",
   admin: true,forem_admin: true)
 99.times do |n|
@@ -20,10 +19,4 @@ User.create!(name: "Examples User",
         password:
         password,
         password_confirmation: password)
-end
-users = User.order(:created_at).take(1)
-50.times do
-    content = Faker::Lorem.sentence(10)
-    title = Faker::Lorem.sentence(5)
-    users.each { |user| Article.create!(body: content, title: title) }
 end
