@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
-    after_save :load_into_soulmate
-	before_destroy :remove_from_soulmate
+    # after_save :load_into_soulmate
+	# before_destroy :remove_from_soulmate
      acts_as_commentable
     validates_uniqueness_of :title
     include PublicActivity::Model

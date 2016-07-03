@@ -50,3 +50,8 @@ blockquote {background-color: #eeeeee;display: inline-block;line-height: 1em;pad
     bottom: 0;
     z-index: 111;
 }
+.row .col {
+    float: left;
+    box-sizing: border-box;
+    padding: 0 0
+}
