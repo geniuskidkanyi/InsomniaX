@@ -19,6 +19,7 @@
 @import "notification";
 html{font-family: 'Lato', sans-serif;}
 h1,h2,h3,h4,h5,h6{text-transform: uppercase}
+h3{font-size: 2em}
 @media (max-width: 601px){
   .collection .collection-item.avatar .title {
     font-size: 10px;
