@@ -50,7 +50,7 @@ header,
 .login-page {
     background-image: image-url('cover.jpg');
     background-size: 100% 100%;
-    background-repeat: no-repeat;height: 85vh
+    background-repeat: no-repeat;min-height: 85vh
 }
 
 .input-field label {
@@ -59,7 +59,7 @@ header,
 
 .notification-bar{position: static  }
 .img-badge{height: 42px;width: 42px}
-.login{width: 100%;max-width: 400px;margin: 0 auto;padding: 10px}
+.login-form{width: 100%;max-width: 400px;margin: 0 auto;padding: 10px}
 .card-panel {
     -webkit-transition: box-shadow .25s;
     transition: box-shadow .25s;
