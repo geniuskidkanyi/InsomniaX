@@ -81,13 +81,13 @@
 
           <%= link_to(main_app.conversations_path, :class => 'collection-item') do %>
           <span class="new badge">
-            <%= current_user.mailbox.inbox(:unread => true).count(:id, :distinct => true)  %></span>
+        
           Conversations
           <% end %>
         </li>
         <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
 
-        <li><%= link_to 'Forums', forem.forums_path, class: 'list-group-item' %></li>
+
         <li>
           <a href="/forums/categories/networking" class="list-group-item">Networking</a>
         </li>
@@ -122,7 +122,7 @@
   </li>
   <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
 
-  <li><%= link_to 'Forums', forem.forums_path, class: 'list-group-item' %></li>
+
   <li>
     <a href="/forums/categories/networking" class="list-group-item">Networking</a>
   </li>

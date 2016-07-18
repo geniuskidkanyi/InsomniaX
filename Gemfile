@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '5.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -14,27 +14,25 @@ gem 'cloudinary'
 gem 'will_paginate'
 gem "font-awesome-rails"
 gem 'acts_as_votable'
-gem 'forem', github: "radar/forem", branch: "rails4"
-gem 'forem-bootstrap', github: "radar/forem-bootstrap"
-gem 'forem-redcarpet', github: "radar/forem-redcarpet"
-gem "mailboxer"
+
+gem "mailboxer", github: "mailboxer/mailboxer"
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem 'ransack'
 gem 'gretel'
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', github: "mbleigh/acts-as-taggable-on"
 gem "friendly_id", "~> 5.0.1"
 gem 'impressionist'
 gem 'acts_as_commentable_with_threading'
 gem 'modernizr-rails'
 gem 'ckeditor'
-gem 'rack-contrib'
-gem 'soulmate', :require => 'soulmate/server'
+# gem 'rack-contrib'
+# gem 'soulmate', :require => 'soulmate/server'
 gem 'will_paginate-bootstrap'
 gem 'materialize-sass'
 gem 'public_activity'
-gem 'merit'
+# gem 'merit'
 gem 'redis'
 gem 'redcarpet'
 gem 'meta-tags'
@@ -83,7 +81,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
