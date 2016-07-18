@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701064303) do
+ActiveRecord::Schema.define(version: 20160718102135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +26,10 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.string   "recipient_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
+    t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
+    t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
   end
-
-  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
-  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
-  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -47,11 +45,10 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.integer  "sash_id"
     t.boolean  "notified_user", default: false
     t.datetime "created_at"
+    t.index ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id", using: :btree
+    t.index ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
+    t.index ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
   end
-
-  add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id", using: :btree
-  add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
-  add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -64,10 +61,9 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
   end
-
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
@@ -81,10 +77,9 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.integer  "rgt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
-
-  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "forem_categories", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -92,9 +87,8 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.datetime "updated_at"
     t.string   "slug"
     t.integer  "position",   default: 0
+    t.index ["slug"], name: "index_forem_categories_on_slug", unique: true, using: :btree
   end
-
-  add_index "forem_categories", ["slug"], name: "index_forem_categories_on_slug", unique: true, using: :btree
 
   create_table "forem_forums", force: :cascade do |t|
     t.string  "name"
@@ -103,29 +97,25 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.integer "views_count", default: 0
     t.string  "slug"
     t.integer "position",    default: 0
+    t.index ["slug"], name: "index_forem_forums_on_slug", unique: true, using: :btree
   end
-
-  add_index "forem_forums", ["slug"], name: "index_forem_forums_on_slug", unique: true, using: :btree
 
   create_table "forem_groups", force: :cascade do |t|
     t.string "name"
+    t.index ["name"], name: "index_forem_groups_on_name", using: :btree
   end
-
-  add_index "forem_groups", ["name"], name: "index_forem_groups_on_name", using: :btree
 
   create_table "forem_memberships", force: :cascade do |t|
     t.integer "group_id"
     t.integer "member_id"
+    t.index ["group_id"], name: "index_forem_memberships_on_group_id", using: :btree
   end
-
-  add_index "forem_memberships", ["group_id"], name: "index_forem_memberships_on_group_id", using: :btree
 
   create_table "forem_moderator_groups", force: :cascade do |t|
     t.integer "forum_id"
     t.integer "group_id"
+    t.index ["forum_id"], name: "index_forem_moderator_groups_on_forum_id", using: :btree
   end
-
-  add_index "forem_moderator_groups", ["forum_id"], name: "index_forem_moderator_groups_on_forum_id", using: :btree
 
   create_table "forem_posts", force: :cascade do |t|
     t.integer  "topic_id"
@@ -136,12 +126,11 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.integer  "reply_to_id"
     t.string   "state",       default: "pending_review"
     t.boolean  "notified",    default: false
+    t.index ["reply_to_id"], name: "index_forem_posts_on_reply_to_id", using: :btree
+    t.index ["state"], name: "index_forem_posts_on_state", using: :btree
+    t.index ["topic_id"], name: "index_forem_posts_on_topic_id", using: :btree
+    t.index ["user_id"], name: "index_forem_posts_on_user_id", using: :btree
   end
-
-  add_index "forem_posts", ["reply_to_id"], name: "index_forem_posts_on_reply_to_id", using: :btree
-  add_index "forem_posts", ["state"], name: "index_forem_posts_on_state", using: :btree
-  add_index "forem_posts", ["topic_id"], name: "index_forem_posts_on_topic_id", using: :btree
-  add_index "forem_posts", ["user_id"], name: "index_forem_posts_on_user_id", using: :btree
 
   create_table "forem_subscriptions", force: :cascade do |t|
     t.integer "subscriber_id"
@@ -161,12 +150,11 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.string   "state",        default: "pending_review"
     t.integer  "views_count",  default: 0
     t.string   "slug"
+    t.index ["forum_id"], name: "index_forem_topics_on_forum_id", using: :btree
+    t.index ["slug"], name: "index_forem_topics_on_slug", unique: true, using: :btree
+    t.index ["state"], name: "index_forem_topics_on_state", using: :btree
+    t.index ["user_id"], name: "index_forem_topics_on_user_id", using: :btree
   end
-
-  add_index "forem_topics", ["forum_id"], name: "index_forem_topics_on_forum_id", using: :btree
-  add_index "forem_topics", ["slug"], name: "index_forem_topics_on_slug", unique: true, using: :btree
-  add_index "forem_topics", ["state"], name: "index_forem_topics_on_state", using: :btree
-  add_index "forem_topics", ["user_id"], name: "index_forem_topics_on_user_id", using: :btree
 
   create_table "forem_views", force: :cascade do |t|
     t.integer  "user_id"
@@ -177,11 +165,10 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.string   "viewable_type"
     t.datetime "current_viewed_at"
     t.datetime "past_viewed_at"
+    t.index ["updated_at"], name: "index_forem_views_on_updated_at", using: :btree
+    t.index ["user_id"], name: "index_forem_views_on_user_id", using: :btree
+    t.index ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
   end
-
-  add_index "forem_views", ["updated_at"], name: "index_forem_views_on_updated_at", using: :btree
-  add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id", using: :btree
-  add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
 
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
@@ -197,25 +184,23 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.text     "referrer"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index", using: :btree
+    t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index", using: :btree
+    t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index", using: :btree
+    t.index ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
+    t.index ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
+    t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
+    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
+    t.index ["user_id"], name: "index_impressions_on_user_id", using: :btree
   end
-
-  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index", using: :btree
-  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index", using: :btree
-  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index", using: :btree
-  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
-  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
-  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
-  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
-  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
     t.string  "unsubscriber_type"
     t.integer "conversation_id"
+    t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id", using: :btree
+    t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
   end
-
-  add_index "mailboxer_conversation_opt_outs", ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id", using: :btree
-  add_index "mailboxer_conversation_opt_outs", ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
 
   create_table "mailboxer_conversations", force: :cascade do |t|
     t.string   "subject",    default: ""
@@ -239,12 +224,11 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.datetime "created_at",                           null: false
     t.boolean  "global",               default: false
     t.datetime "expires"
+    t.index ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id", using: :btree
+    t.index ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type", using: :btree
+    t.index ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type", using: :btree
+    t.index ["type"], name: "index_mailboxer_notifications_on_type", using: :btree
   end
-
-  add_index "mailboxer_notifications", ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id", using: :btree
-  add_index "mailboxer_notifications", ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type", using: :btree
-  add_index "mailboxer_notifications", ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type", using: :btree
-  add_index "mailboxer_notifications", ["type"], name: "index_mailboxer_notifications_on_type", using: :btree
 
   create_table "mailboxer_receipts", force: :cascade do |t|
     t.integer  "receiver_id"
@@ -256,10 +240,12 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.string   "mailbox_type",    limit: 25
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.boolean  "is_delivered",               default: false
+    t.string   "delivery_method"
+    t.string   "message_id"
+    t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
+    t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
   end
-
-  add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
-  add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
 
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
@@ -300,10 +286,9 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "picture"
+    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at", using: :btree
+    t.index ["user_id"], name: "index_microposts_on_user_id", using: :btree
   end
-
-  add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at", using: :btree
-  add_index "microposts", ["user_id"], name: "index_microposts_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -317,11 +302,10 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.integer  "followed_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+    t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
   end
-
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "sashes", force: :cascade do |t|
     t.datetime "created_at"
@@ -336,19 +320,17 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.string   "tagger_type"
     t.string   "context",       limit: 128
     t.datetime "created_at"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
   end
-
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
     t.string  "slug"
+    t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
+    t.index ["slug"], name: "index_tags_on_slug", using: :btree
   end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
-  add_index "tags", ["slug"], name: "index_tags_on_slug", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -386,10 +368,9 @@ ActiveRecord::Schema.define(version: 20160701064303) do
     t.integer  "vote_weight"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
-
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
