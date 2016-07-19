@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root 'pages#index'
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
 
-  root 'pages#index'
+
   get 'help'  => 'pages#help'
   get 'about' => 'pages#about'
 #  get 'leaderboard' => 'pages#leaderboard'
@@ -32,39 +32,32 @@ Rails.application.routes.draw do
     resources :articles do
         resources :comments do
 
-        end
-    end
+      end
+   end
   resources :microposts do
     member do
       get "like", to: "microposts#upvote"
-      get "dislike", to: "microposts#downvote"
+get "dislike", to: "microposts#downvote"
     end
-  end
-    resources :conversations, only: [:index, :show, :destroy] do
-        member do
-            post :reply
+ end
+   resources :conversations, only: [:index, :show, :destroy] do
+       member do
+           post :reply
             post :restore
-            post :mark_as_read
-        end
-        collection do
-            delete :empty_trash
-        end
-    end
-  resources :messages, only: [:new, :create]
+           post :mark_as_read
+       end
+       collection do
+           delete :empty_trash        end
+   end
+ resources :messages, only: [:new, :create]
 
-  resources :microposts, only: [:create, :destroy]
-  resources :relationships, only: [:create, :destroy]
+ resources :microposts, only: [:create, :destroy]
+ resources :relationships, only: [:create, :destroy]
 
     resources :comments
-    resources :tags, only: [:index, :show]
+   resources :tags, only: [:index, :show]
 
-    resources :forums, :only => [:index, :show], :path => "/" do
-    resources :topics, :except => :index do
-      resources :posts, :except => :index
-      member do
-        post :subscribe
-        post :unsubscribe
-      end
-    end
-  end
+
+
+
 end
