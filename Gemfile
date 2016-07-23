@@ -15,7 +15,7 @@ gem 'will_paginate'
 gem "font-awesome-rails"
 gem 'acts_as_votable'
 
-gem "mailboxer", github: "mailboxer/mailboxer"
+# gem "mailboxer", github: "mailboxer/mailboxer"
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
@@ -39,6 +39,7 @@ gem 'social-share-button'
 gem 'truncate_html'
 gem 'carrierwave-bombshelter'
 gem 'devise', github: 'plataformatec/devise'
+gem 'thredded', '~> 0.6.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

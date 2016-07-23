@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
     before_save { self.email = email.downcase }
 
     acts_as_voter
-    acts_as_messageable
     mount_uploader :avatar, AvatarUploader
     mount_uploader :dprofile, ProfileCoverUploader
     has_many :notifications, foreign_key: :recipient_id
