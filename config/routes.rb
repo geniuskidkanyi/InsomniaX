@@ -5,19 +5,25 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
 
   mount Ckeditor::Engine => '/ckeditor'
-
+  devise_for :users, skip: [:sessions]
+  as :user do
+      get 'login' => 'devise/sessions#new', :as => :new_user_session
+      post 'login' => 'devise/sessions#create', :as => :user_session
+      match 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+            :via => Devise.mappings[:user].sign_out_via
+  end
 
 
   get 'help'  => 'pages#help'
   get 'about' => 'pages#about'
 #  get 'leaderboard' => 'pages#leaderboard'
   get 'contact' => 'pages#contact'
-  get 'signup' => 'users#new'
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  get 'sign_in' => 'sessions#new'
-  post 'sign_in' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  # get 'signup' => 'users#new'
+  # get 'login' => 'sessions#new'
+  # post 'login' => 'sessions#create'
+  # get 'sign_in' => 'sessions#new'
+  # post 'sign_in' => 'sessions#create'
+  # delete 'logout' => 'sessions#destroy'
   get 'search' => 'search#index'
   resources :users
   resources :account_activations, only: [:edit]

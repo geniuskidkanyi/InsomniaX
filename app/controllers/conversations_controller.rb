@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  before_action :logged_in_user
+before_action :authenticate_user!
   before_action :get_mailbox
   before_action :get_conversation, except: [:index, :empty_trash]
   before_action :get_box, only: [:index]

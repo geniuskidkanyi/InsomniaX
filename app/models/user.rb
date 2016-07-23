@@ -1,12 +1,16 @@
 class User < ActiveRecord::Base
-    attr_accessor :remember_token, :activation_token, :reset_token
-    before_create :create_activation_digest
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+       :recoverable, :rememberable, :trackable, :validatable,  :lockable
+
     before_save { self.email = email.downcase }
-    
+
     acts_as_voter
     acts_as_messageable
     mount_uploader :avatar, AvatarUploader
     mount_uploader :dprofile, ProfileCoverUploader
+    has_many :notifications, foreign_key: :recipient_id
     has_many :microposts, dependent: :destroy
     has_many :articles
     has_many :comments, dependent: :destroy
@@ -14,7 +18,7 @@ class User < ActiveRecord::Base
     has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
     has_many :following, through: :active_relationships, source: :followed
     has_many :followers, through: :passive_relationships, source: :follower
-    has_secure_password
+
     include PublicActivity::Model
     #tracked only: [:create], owner: Proc.new{ |controller, model| controller.current_user }
 

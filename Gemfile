@@ -19,7 +19,6 @@ gem "mailboxer", github: "mailboxer/mailboxer"
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
-gem 'ransack'
 gem 'gretel'
 gem 'acts-as-taggable-on', github: "mbleigh/acts-as-taggable-on"
 gem "friendly_id", "~> 5.0.1"
@@ -39,6 +38,7 @@ gem 'meta-tags'
 gem 'social-share-button'
 gem 'truncate_html'
 gem 'carrierwave-bombshelter'
+gem 'devise', github: 'plataformatec/devise'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
