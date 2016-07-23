@@ -8,7 +8,7 @@
 	<div>
 		<div class="twPc-button">
             <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow -->
-<% if logged_in? %>
+<% if user_signed_in? %>
 					  <%= render 'users/follow_form' %>
 <% end %>
 						<!-- Twitter Button -->

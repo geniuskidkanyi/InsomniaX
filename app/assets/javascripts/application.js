@@ -33,7 +33,7 @@ $(document).ready(function(){
       $('.parallax').parallax();
     });
 
-$(document).on('ready page:load', function () {
+$(document).on('ready turbolinks:load', function () {
     $('ul.tabs').tabs('select_tab', '#test1');
 
     $('input#input_text, textarea#textarea1').characterCounter();
@@ -51,6 +51,6 @@ $('p').linkify();
   });
 });
 
-$(document).on('page:load', function () {
+$(document).on('ready turbolinks:load', function () {
     $('ul.tabs').tabs('select_tab', '#test1');
 });
