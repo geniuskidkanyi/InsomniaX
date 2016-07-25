@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
                           site: '@theinsomniax',
                           #keywords: @article.tags,
                           card: 'insomniax socialnetworking community gor geeks',
-                          description: @article.body,
+                        
                           image: @article.picture_article.url
                         },
                         og: {
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
                           title: @article.title,
                           #keywords: @article.tags,
                           image: @article.picture_article.url,
-                        
+
                           type: 'website'
                         })
 
