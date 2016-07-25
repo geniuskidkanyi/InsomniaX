@@ -155,9 +155,9 @@
 
 // custonme
 .post-body{
-  width: calc(100%);display: block;
+  width: calc(100% - 16px);display: block;max-width: 100%;line-height: 30px;
 }
 .post-body p{
     color: rgba(0,0,0,0.71);
     padding: 0;
-    -webkit-font-smoothing: antialiased;line-height: 1.3em}
+    -webkit-font-smoothing: antialiased;line-height: 35px}
