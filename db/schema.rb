@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160723160608) do
+ActiveRecord::Schema.define(version: 20160727105154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,6 +168,23 @@ ActiveRecord::Schema.define(version: 20160723160608) do
     t.index ["updated_at"], name: "index_forem_views_on_updated_at", using: :btree
     t.index ["user_id"], name: "index_forem_views_on_user_id", using: :btree
     t.index ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
+  end
+
+  create_table "forums", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "position"
+  end
+
+  create_table "forumthreds", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "position"
+    t.integer  "forum_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["forum_id"], name: "index_forumthreds_on_forum_id", using: :btree
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -610,6 +627,7 @@ ActiveRecord::Schema.define(version: 20160723160608) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
 
+  add_foreign_key "forumthreds", "forums"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"

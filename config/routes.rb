@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :forums
   root 'pages#index'
   get 'password_resets/new'
 
