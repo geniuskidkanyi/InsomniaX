@@ -80,7 +80,15 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
-
+  config.active_record.dump_schema_after_migration = false
+  config.assets.precompile += Ckeditor.assets
+  config.assets.precompile += %w( ckeditor/* )
+  config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'no-reply@insomniax.biz'}
+  config.action_mailer.default_url_options = {:host => "https://insomniax.biz"}
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
