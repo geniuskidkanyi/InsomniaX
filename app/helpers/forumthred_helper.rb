@@ -1,0 +1,2 @@
+module ForumthredHelper
+end
