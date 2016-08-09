@@ -1,2 +1,3 @@
-$("#vote_form").html("<%= escape_javascript(render('votable/vote')) %>")
-$("#vote").html('<%= @micropost.get_upvotes.size %>')
+
+$("#vote").html('<i class="material-icons">favorite_border</i> <%= @micropost.get_upvotes.size %>')
+$("#unvote").html('<i class="material-icons">thumb_down</i> <%= @micropost.get_downvotes.size %>')

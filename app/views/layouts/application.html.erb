@@ -14,7 +14,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
     <%= javascript_include_tag :modernizr %>
     <%= csrf_meta_tags %>
 
@@ -63,6 +63,6 @@
 
     <%= render 'layouts/footer' %>
     <% end %>
-
+  <%= javascript_include_tag 'application'%>
   </body>
 </html>

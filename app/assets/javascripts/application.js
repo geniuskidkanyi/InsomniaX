@@ -29,6 +29,7 @@
 //= require social-share-button
 //= require google_analytics
 //= require user
+
 $(document).ready(function(){
       $('.parallax').parallax();
     });

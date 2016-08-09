@@ -12,16 +12,28 @@
     </li>
     <div class="stats">
 
-      <%= link_to like_micropost_path(micropost), method: :get, class: "vote" do %>
-     <i class="material-icons">thumb_up</i> <%= "#{micropost.get_upvotes.size}" %>
+      <%= link_to like_micropost_path(micropost), method: :get, class: "vote", remote: true do %>
+      <div id="vote">
+           <i class="material-icons">favorite_border</i> <%= "#{micropost.get_upvotes.size}" %>
+      </div>
+
+
 
       <% end %>
 
-      <%= link_to dislike_micropost_path(micropost), method: :get, class: " vote"  do %>
-    <i class="material-icons">thumb_down</i><%= "#{micropost.get_downvotes.size}" %>
+      <%= link_to dislike_micropost_path(micropost), method: :get, class: " vote", remote: true  do %>
+      <div id="unvote">
+  <i class="material-icons">thumb_down</i><%= "#{micropost.get_downvotes.size}" %>
+      </div>
+
 
       <% end %>
+      <script type="text/x-template" id="micropost-row">
+        <tr>
+          <td>{{ micropost.get_upvotes }}</td>
 
+        </tr>
+      </script>
     </div>
 
   </ul>
