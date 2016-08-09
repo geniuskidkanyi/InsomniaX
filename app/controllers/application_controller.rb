@@ -1,21 +1,15 @@
 class ApplicationController < ActionController::Base
     before_action :prepare_meta_tags, if: "request.get?"
     before_action :load_activities
+      before_action :configure_permitted_parameters, if: :devise_controller?
  include PublicActivity::StoreController
   def forem_user
     current_user
   end
 
-
-  helper_method :forem_user
-
     rescue_from ActiveRecord::RecordNotFound do
         flash[:warning] = 'Resource not found.'
         redirect_back_or root_path
-    end
-
-    def redirect_back_or(path)
-        redirect_to request.referer || path
     end
 
 
@@ -56,7 +50,11 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
 
-
+protected
+def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :username])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :username])
+end
 
     private
     def load_activities

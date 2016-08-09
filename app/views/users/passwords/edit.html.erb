@@ -1,3 +1,8 @@
+
+
+<% provide(:title, "Change your password") %>
+
+<div class="card login-form">
 <h2>Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
@@ -17,9 +22,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
+  <div class="card-action">
+  <%= f.submit "Log in", class: "waves-effect waves-light btn" %>
+</div>
 <% end %>
 
 <%= render "users/shared/links" %>
+</div>

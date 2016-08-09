@@ -1,6 +1,6 @@
 <% provide(:title,  @article.title ) %>
 <!-- Blog Post Content Column -->
-<% if logged_in? %>
+<% if user_signed_in? %>
 <div class="col s12">
 
       <div class="card-panel">
@@ -100,7 +100,7 @@
 <% end %>
 
 
-<% if logged_in? %>
+<% if user_signed_in? %>
 <div id="comments">
 
     <%= render partial: "comments/template", locals: {commentable: @article, new_comment: @comment} %>

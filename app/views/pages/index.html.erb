@@ -23,20 +23,20 @@
           <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, class: 'form', id: 'login-nav') do |f| %>
           <div class="input-field">
             <%= f.label :name, class: 'active' %>
-            <%= f.text_field :name, class: 'form-control'   %>
+            <%= f.text_field :name %>
           </div>
           <div class="input-field">
             <%= f.label :username, class: 'active' %>
-            <%= f.text_field :username, class: 'form-control' %>
+            <%= f.text_field :username %>
           </div>
           <div class="input-field">
             <%= f.label :email, class: 'active' %>
-            <%= f.email_field :email, class: 'form-control' %>
+            <%= f.email_field :email%>
 
           </div>
           <div class="input-field">
             <%= f.label :password, class: 'active' %>
-            <%= f.password_field :password, class: 'form-control'  %>
+            <%= f.password_field :password  %>
           </div>
           <div class="input-field">
             <%= f.label :password_confirmation, "Confirmation", class: 'active' %>

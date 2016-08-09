@@ -1,200 +1,204 @@
-
- .user-profile-2 {
-     text-align: center;
-     position: relative;
-     margin-top: 10px;
- }
-
- .box-info {
-     position: relative;
-     padding: 15px;
-     background: #fff;
-     color: #5b5b5b;
-     margin-bottom: 20px;
-     -webkit-transition: All 0.4s ease;
-     -moz-transition: All 0.4s ease;
-     -o-transition: All 0.4s ease;
-     border-bottom: 4px solid #DDDDDD;
- }
-
- .user-profile-2 .header-cover {
-     position: absolute;
-     left: 0;
-     top: 0;
-     right: 0;
-     height: 130px;
-     overflow: hidden;
-     z-index: 1;
- }
-
- .user-profile-2 .user-profile-inner {
-     z-index: 2;
-     position: relative;
- }
-
- .user-profile-2 .user-profile-inner h4.white {
-     color: #fff;
- }
-
- .user-profile-2 .user-profile-inner img.profile-avatar {
-     box-shadow: 0 0 0 5px rgba(255, 255, 255, 1);
-     -moz-box-shadow: 0 0 0 5px rgba(255, 255, 255, 1);
-     -webkit-box-shadow: 0 0 0 5px rgba(255, 255, 255, 1);
-     border: none;
-     width: 100px;
-     height: 100px;
- }
-
- .user-button {
-     margin: 15px 0;
- }
-
- .message-avatar {
-     height: 80px;
-     width: 100p;
- }
-
- .micropost-avatar {
-     height: 144px;
-     width: 100%;
- }
-
- .forum-avatar {
-     height: 80px;
-     width: 80px;
-     border-radius: 90px
- }
-
- .well-social-post {
-     border-radius: 0;
-     background-color: #ffffff;
-     border: 1px solid #ddd;
-     padding: 0;
-     padding-top: 10px;
- }
- .well-social-post .list-inline{display: inline-block;width: 100%}
-
- .well-social-post .glyphicon,
- .well-social-post .fa,
- .well-social-post [class^='icon-'],
- .well-social-post [class*='icon-'] {
-     font-weight: bold;
-     color: #999999;
- }
-
- .well-social-post a,
- .well-social-post a:hover,
- .well-social-post a:active,
- .well-social-post a:focus {
-     text-decoration: none;
- }
-
- .well-social-post .list-inline {
-     border-bottom: 1px solid #ddd;
-     padding-bottom: 10px;
- }
-
- .well-social-post .list-inline li {
-     position: relative;float: left
- }
-
- .well-social-post .list-inline li.active::after {
-     position: absolute;
-     display: block;
-     width: 0;
-     height: 0;
-     content: "";
-     top: 30px;
-     left: 50%;
-     left: -webkit-calc(50% - 5px);
-     left: -moz-calc(50%-5px);
-     left: calc(50% - 5px);
-     border-left: 5px solid transparent;
-     border-right: 5px solid transparent;
-     border-top: 5px solid #dddddd;
- }
-
- .well-social-post .list-inline li.active a {
-     color: #222222;
-     font-weight: bold;
- }
-
- .well-social-post .form-control {
-     width: 100%;
-     min-height: 100px;
-     border: none;
-     border-radius: 0;
-     box-shadow: none;
- }
-
- .well-social-post .list-inline {
-     padding: 10px;
- }
-
- .well-social-post .list-inline li + li {
-     margin-left: 10px;
- }
-
- .well-social-post .post-actions {
-     margin: 0;
-     background-color: #f6f7f8;
-     border-top-color: #e9eaed;
- }
- .well-social-post .post-actions li{
-     margin: -10px;
-     background-color: #f6f7f8;
-     border-top-color: #e9eaed;display: inline;float:none;
- }
-  .well-social-post .post-actions .pull-right{float: right}
-
- input:not([type]),
- input[type=text],
- input[type=password],
- input[type=email],
- input[type=url],
- input[type=time],
- input[type=date],
- input[type=datetime-local],
- input[type=tel],
- input[type=number],
- input[type=search],
- textarea.materialize-textarea {
-     border-bottom: #333 1px solid;
- }
-
- nav .input-field input:focus,
- nav .input-field input[type=text]:valid,
- nav .input-field input[type=password]:valid,
- nav .input-field input[type=email]:valid,
- nav .input-field input[type=url]:valid,
- nav .input-field input[type=date]:valid {
-     border-bottom: #fff 1px solid;
-     box-shadow: none;width: 90%;
- }
- img.responsive-img,
- {
-     max-width: 100%;
-     height: 200px;
-     width: 100%;
- }
-
-
- #materialbox-overlay {
-     position: fixed;
-     top: 0;
-     left: 0;
-     right: 0;
-     bottom: 0;
-     background-color: transparent;
-     z-index: 999;
-     will-change: opacity;
- }
- .collection .collection-item.avatar .small-font{
+.user-profile-2 {
+    text-align: center;
+    position: relative;
+    margin-top: 10px;
+}
+.box-info {
+    position: relative;
+    padding: 15px;
+    background: #fff;
+    color: #5b5b5b;
+    margin-bottom: 20px;
+    -webkit-transition: All 0.4s ease;
+    -moz-transition: All 0.4s ease;
+    -o-transition: All 0.4s ease;
+    border-bottom: 4px solid #DDDDDD;
+}
+.user-profile-2 .header-cover {
     position: absolute;
-    top: 12px;
-    right: 16px;font-size: 10px
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 130px;
+    overflow: hidden;
+    z-index: 1;
+}
+.user-profile-2 .user-profile-inner {
+    z-index: 2;
+    position: relative;
+}
+.user-profile-2 .user-profile-inner h4.white {
+    color: #fff;
+}
+.user-profile-2 .user-profile-inner img.profile-avatar {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0 0 0 5px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0 0 0 5px rgba(255, 255, 255, 1);
+    border: none;
+    width: 100px;
+    height: 100px;
+}
+.user-button {
+    margin: 15px 0;
+}
+.message-avatar {
+    height: 80px;
+    width: 100p;
+}
+.micropost-avatar {
+    height: 144px;
+    width: 100%;
+}
+.forum-avatar {
+    height: 80px;
+    width: 80px;
+    border-radius: 90px;
+}
+.well-social-post {
+    border-radius: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px 0 0;
+}
+.well-social-post .list-inline {
+    display: inline-block;
+    width: 100%;
+}
+.well-social-post .fa,
+.well-social-post .glyphicon,
+.well-social-post [class*='icon-'],
+.well-social-post [class^='icon-'] {
+    font-weight: bold;
+    color: #999999;
+}
+.well-social-post a,
+.well-social-post a:active,
+.well-social-post a:focus,
+.well-social-post a:hover {
+    text-decoration: none;
+}
+.well-social-post .list-inline {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+.well-social-post .list-inline li {
+    position: relative;
+    float: left;
+}
+.well-social-post .list-inline li.active::after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    content: "";
+    top: 30px;
+    left: 50%;
+    left: -webkit-calc(50% - 5px);
+    left: -moz-calc(50%-5px);
+    left: calc(50% - 5px);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #dddddd;
+}
+.well-social-post .list-inline li.active a {
+    color: #222222;
+    font-weight: bold;
+}
+.well-social-post .form-control {
+    width: 100%;
+    min-height: 100px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+.well-social-post .list-inline {
+    padding: 10px;
+}
+.well-social-post .list-inline li + li {
+    margin-left: 10px;
+}
+.well-social-post .post-actions {
+    margin: 0;
+    background-color: #f6f7f8;
+    border-top-color: #e9eaed;
+}
+.well-social-post .post-actions li {
+    margin: -10px;
+    background-color: #f6f7f8;
+    border-top-color: #e9eaed;
+    display: inline;
+    float: none;
+}
+.well-social-post .post-actions .pull-right {
+    float: right;
+}
+input:not([type]),
+input[type=date],
+input[type=datetime-local],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+textarea.materialize-textarea {
+    border-bottom: #333 1px solid;
+}
+nav .input-field input:focus,
+nav .input-field input[type=date]:valid,
+nav .input-field input[type=email]:valid,
+nav .input-field input[type=password]:valid,
+nav .input-field input[type=text]:valid,
+nav .input-field input[type=url]:valid {
+    border-bottom: #fff 1px solid;
+    box-shadow: none;
+    width: 90%;
+}
+input:not([type]),
+input[type=date],
+input[type=datetime-local],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+textarea.materialize-textarea {
+    border-bottom: #26a69a 1px solid !important;
 }
 
-.medium-font{font-size: 12px}
- .list-inline{display: inline}
- select{display: block}
+img.responsive-img {
+    max-width: 100%;
+    height: 200px;
+    width: 100%;
+}
+#materialbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    z-index: 999;
+    will-change: opacity;
+}
+.collection .collection-item.avatar .small-font {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 10px;
+}
+.medium-font {
+    font-size: 12px;
+}
+.list-inline {
+    display: inline;
+}
+select {
+    display: block;
+}
+.login-form a{line-height: 32px !important}

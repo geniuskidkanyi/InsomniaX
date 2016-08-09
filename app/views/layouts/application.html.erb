@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <%= javascript_include_tag :modernizr %>
+      <%= javascript_include_tag 'application'%>
     <%= csrf_meta_tags %>
 
 
@@ -34,9 +35,7 @@
         <div class="col s12 m8 l8">
 
           <div id="main">
-            <% flash.each do |message_type, message| %>
-            <%= content_tag(:div, message, class: "notice #{message_type}") %>
-            <% end %>
+<%= flash_messages %>
             <%= yield %>
           </div>
         </div>
@@ -53,9 +52,7 @@
   <% else %>
 
     <main class="main">
-      <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "notice #{message_type}") %>
-      <% end %>
+    <%= flash_messages %>
       <%= render 'layouts/login_modal' %>
       <%= yield %>
 
@@ -63,6 +60,6 @@
 
     <%= render 'layouts/footer' %>
     <% end %>
-  <%= javascript_include_tag 'application'%>
+
   </body>
 </html>

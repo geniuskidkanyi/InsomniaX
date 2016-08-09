@@ -1,67 +1,136 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+<style media="screen">
+*{
+box-sizing:border-box;
+font-family: 'Lora', serif;
+}
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+p{
+font-family: 'Josefin Sans', sans-serif;
+}
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+section{
+position:relative;
+width:100%;
+height:100vh;
+background-color:black;
+overflow:hidden;
+}
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
-</head>
+.centered-text-area{
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+width:600px;
+height:300px;
+margin:auto;
+color:red;
+text-align:center;
+transform:scale(1.3,1.3);
+transition:all 10s linear;
+h1{
+ margin:0;
+  font-weight:700;
+  font-size:6.9em;
+  color:black;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #a7140d;
+  text-shadow: 0px 0px 6px rgba(255,69,30,1);
+  margin-bottom:-40px;
+  letter-spacing:-.01em;
+}
+.top-text{
+  opacity:0;
+  transition: opacity 3s ease;
+}
+.bottom-text{
+  display:flex;
+  justify-content: space-between;
+}
+.bottom-text h1{
+  opacity:0;
+  transition: opacity 3s ease;
+}
+.top{
+  border:1px solid #a7140d;
+  height:3px;
+  outline:#a7140d;
+  width:0%;
+  margin:auto;
+  transition:all 1s cubic-bezier(.04,.47,.41,1);
+  margin-bottom:-10px;
+  opacity:0;
+}
+.inline{
+  display:inline-block;
+  float:left;
+  position:relative;
+  width:0;
+  border:1px solid #a7140d;
+  height:3px;
+  outline:#a7140d;
+  top:30px;
+  transition:all 1s cubic-bezier(.04,.47,.41,1);
+  opacity:0;
+}
+p{
+  opacity:0;
+  width:75%;
+  margin:auto;
+  line-height:1.5em;
+  font-size:1.2em;
+  font-weight:300;
+  color:white;
+  margin-top:75px;
+  transition:all 1s cubic-bezier(.04,.47,.41,1);
+}
+}
+</style>
 
-<body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>please recheck the the url properly.</p>
+<section class="error-page">
+
+  <div class="centered-text-area">
+    <hr class="top">
+    <h1 class="top-text"><span class="bigger-letter">S</span>TRANGE<span class="bigger-letter">R</span></h1>
+    <div class="bottom-text"><hr class="inline"><h1>404</h1><hr class="inline"></div>
+
+      <p>Woah, you rolled a 404 and the Demogorgan came out to eat the page you were looking for. Looks like your party needs to go back and look for the page again.
   </div>
-</body>
-</html>
+</section>
+<script type="text/javascript">
+var fadeInText = function(){
+$(".top-text").fadeIn();
+$(".top-text").css("opacity",1);
+$(".bottom-text h1").css("opacity",1);
+$(".bottom-text h1").fadeIn();
+}
+
+var fadeInParagraph = function(){
+$("p").css("opacity",1);
+}
+
+var fillInLines = function(){
+$(".top").css("width","100%");
+$(".top").css("opacity",1);
+$(".inline").css("width","25%");
+$(".inline").css("opacity",1);
+}
+
+var shrinkText = function(){
+$('.centered-text-area').css({
+'-webkit-transform' : 'scale(1.0,1.0)',
+'-moz-transform'    : 'scale(1.0,1.0)',
+'-ms-transform'     : 'scale(1.0,1.0)',
+'-o-transform'      : 'scale(1.0,1.0)',
+'transform'         : 'scale(1.0,1.0)'
+});
+}
+
+window.setTimeout(shrinkText, 100);
+window.setTimeout(fadeInText, 500);
+window.setTimeout(fillInLines, 3000);
+window.setTimeout(fadeInParagraph, 5000);
+// fadeInText();
+</script>

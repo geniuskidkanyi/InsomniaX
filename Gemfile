@@ -39,7 +39,7 @@ gem 'social-share-button'
 gem 'truncate_html'
 gem 'carrierwave-bombshelter'
 gem 'devise', github: 'plataformatec/devise'
-gem 'vuejs-rails'
+gem 'toastr-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

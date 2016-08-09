@@ -131,22 +131,26 @@ textarea.materialize-textarea {
 position: relative;
 top: 50%;
 left: 50%;
-transform: translate3d(-50%, -50%, 0)
+transform: translate3d(-50%, -50%, 0);
+
+  height:100px;
+  width: 100px;
   }
   .background{
     height: 100%;
     width: 100%;
     position: relative;
-    top: -36%;
+    top: -43%;
   }
   .name{
     position: relative;
     top: -88%;
     padding-left: 30px;
+
   }
   .email{
     position: relative;
-    top: -95%;
+    top: -88%;
     padding-left: 30px;
   }
 }

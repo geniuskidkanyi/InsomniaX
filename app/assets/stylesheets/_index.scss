@@ -59,7 +59,31 @@ header,
 
 .notification-bar{position: static  }
 .img-badge{height: 42px;width: 42px}
-.login-form{width: 100%;max-width: 400px;margin: 0 auto;padding: 10px}
+.login-form{width: 100%;max-width: 400px;margin: 0 auto;}
+.loginTitle{
+  background: #0277bd;
+    height: 62px;
+    text-align: center;
+    color: white;
+    h2{
+      font-size: 32px;
+    padding-top: 16px;
+    }
+}
+.loginContent{
+  padding: 0px 10px;
+}
+.loginButton{
+  width: 80%;
+    margin: 0 auto;
+    display: block;
+    background-color: #0277bd !important;
+}
+.navbarBtn{
+  height: 100%;
+    background-color: #0277bd !important;
+    line-height: 56px;
+}
 .card-panel {
     -webkit-transition: box-shadow .25s;
     transition: box-shadow .25s;

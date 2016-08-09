@@ -9,12 +9,13 @@
 <% @articles.each do |article| %>
 
 
-        <div class="col s6 m4">
+        <div class="col s12 m6 l4">
             <div class="card small">
-                <div class="label label-info blue darken-3">
+                <div class="article-label label label-info blue darken-3">
 
                     <span data-toggle="tooltip" title="viewed">
-                        <b class="glyphicon glyphicon-sunglasses"></b> </span>
+                        <i class="tiny material-icons">date_range</i>
+                       </span>
                     <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
                 </div>
                         <div class="card-image image-card">
