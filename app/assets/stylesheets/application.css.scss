@@ -5,7 +5,7 @@
 @import "materialize";
 @import 'demo';
 @import 'iphone';
-@import "heade-footer";
+
 @import "users";
 @import "microposts";
 @import "index";
@@ -16,6 +16,7 @@
 @import 'forem_base';
 @import "body";
 @import "notification";
+@import "heade-footer";
 html{font-family: 'Lato', sans-serif;}
 h1,h2,h3,h4,h5,h6{text-transform: uppercase}
 h3{font-size: 2em}

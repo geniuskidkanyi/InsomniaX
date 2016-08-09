@@ -77,6 +77,15 @@
 
       <div class="divider hide-on-large-only"></div>
       <ul class="nav list-group">
+<%= link_to  main_app.user_path(current_user), class: "userView" do %>
+
+            <%= gravatar_mprofile current_user %>
+
+          <%= gravatar_mdprofile current_user %>
+          <span class="white-text name"><%= current_user.name %></span>
+          <span class="white-text email"><%= current_user.email %></span>
+
+<% end %>
         <li>
 
           <%= link_to(main_app.conversations_path, :class => 'collection-item') do %>

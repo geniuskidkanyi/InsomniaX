@@ -123,3 +123,30 @@ input[type=search],
 textarea.materialize-textarea {
     border-bottom: #fff 1px solid;
 }
+.side-nav.fixed .userView{
+  height: 300px;
+  padding: 0;
+  .circle{
+    z-index: 99;
+position: relative;
+top: 50%;
+left: 50%;
+transform: translate3d(-50%, -50%, 0)
+  }
+  .background{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    top: -36%;
+  }
+  .name{
+    position: relative;
+    top: -88%;
+    padding-left: 30px;
+  }
+  .email{
+    position: relative;
+    top: -95%;
+    padding-left: 30px;
+  }
+}
