@@ -62,9 +62,10 @@ header,
 .login-form{width: 100%;max-width: 400px;margin: 0 auto;}
 .loginTitle{
   background: #0277bd;
-    height: 62px;
+    min-height: 62px;
     text-align: center;
     color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     h2{
       font-size: 32px;
     padding-top: 16px;

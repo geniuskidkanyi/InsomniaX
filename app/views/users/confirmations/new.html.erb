@@ -1,20 +1,25 @@
 <% provide(:title, "Confirmation") %>
 
 <div class="card login-form">
-<h2>Resend confirmation instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+  <div class="loginTitle">
+    <h2>Resend confirmation instructions</h2>
   </div>
 
-  <div class="card-action">
-  <%= f.submit "Resend confirmation instructions", class: "waves-effect waves-light btn" %>
-</div>
-<% end %>
+<div class="logincontent">
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
 
-<%= render "users/shared/links" %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    </div>
+
+    <div class="card-action">
+    <%= f.submit "Resend confirmation instructions", class: "waves-effect waves-light btn loginButton" %>
+  </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
+
 </div>

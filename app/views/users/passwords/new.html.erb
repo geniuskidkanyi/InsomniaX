@@ -4,20 +4,25 @@
 <% provide(:title, "forgot your password") %>
 
 <div class="card login-form">
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="loginTitle">
+    <h2>Forgot your password?</h2>
   </div>
 
-  <div class="card-action">
-  <%= f.submit "Submit", class: "waves-effect waves-light btn" %>
-</div>
-<% end %>
+<div class="loginContent">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
 
-<%= render "users/shared/links" %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="card-action">
+    <%= f.submit "Submit", class: "waves-effect waves-light btn loginButton" %>
+  </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
+
 </div>
