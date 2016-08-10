@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :chatgroups do
+    resource :chatgroup_users
+    resources :messages
+  end
   get 'forumthred/index'
 
   get 'forumthred/show'
@@ -54,16 +58,7 @@ Rails.application.routes.draw do
 get "dislike", to: "microposts#downvote"
     end
  end
-   resources :conversations, only: [:index, :show, :destroy] do
-       member do
-           post :reply
-            post :restore
-           post :mark_as_read
-       end
-       collection do
-           delete :empty_trash        end
-   end
- resources :messages, only: [:new, :create]
+
 
  resources :microposts, only: [:create, :destroy]
  resources :relationships, only: [:create, :destroy]

@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :chatgroup_users
+  has_many :chatgroups, through: :chatgroup_users
+  has_many :messages
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

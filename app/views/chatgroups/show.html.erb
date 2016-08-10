@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @chatgroup.name %>
+</p>
+<div class="" data-behavior="messages">
+<% 1.upto(1000) do %>
+<div class="">
+  <strong>mela</strong>: hello world
+</div>
+<% end %>
+</div>
+ <%= form_for [@chatgroup, Message.new] do |f| %>
+
+  <%= f.text_field :body  %>
+
+<% end %>
+<%= link_to 'Edit', edit_chatgroup_path(@chatgroup) %> |
+<%= link_to 'Back', chatgroups_path %>

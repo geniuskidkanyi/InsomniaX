@@ -2,119 +2,115 @@
 
 <!--   end of navbar dropdowns-->
 <div class="navbar-fixed ">
-  <nav role="navigation" >
-    <div class="nav-wrapper">
-      <%= link_to image_tag('logo.png', alt: 'logo', class: 'brand-logo', id: 'logo-container'), main_app.root_path %>
-      <% if user_signed_in? %>
+    <nav role="navigation">
+        <div class="nav-wrapper">
+            <%= link_to image_tag('logo.png', alt: 'logo', class: 'brand-logo', id: 'logo-container'), main_app.root_path %>
+            <% if user_signed_in? %>
+        <% else %>
+
+            <%= link_to "Login", main_app.new_user_session_path, class: "right waves-effect waves-light btn navbarBtn" %>
+            <% end %>
+
+            <!--    egining of mobile navigation-->
+            <ul class="right hide-on-med-and-down">
+                <% if user_signed_in? %>
+
+                <li>
+                    <a class="dropdown-button" href="#!" data-activates="dropdown1">Users<i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+                <li><%= link_to "Blog", main_app.articles_path %></li>
+                <li>
+                    <%= form_tag '#', :class => 'nav-form' do -%>
+                    <div class="input-field">
+                        <%= text_field_tag "search", nil, placeholder: "Search", autocomplete: :off, id: "search" %>
+                    </div>
+                    <% end %>
+                </li>
+
+                <li>
+                    <a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %>
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+            <% else %>
+
+                <% end %>
+
+            </ul>
+            <!--end desktop navigation-->
+            <% if user_signed_in? %>
+            <ul id="nav-mobile" class="side-nav fixed">
+                <!--      for login user-->
+
+                <ul class="collapsible collapsible-accordion hide-on-large-only">
+                    <li>
+                        <a class="collapsible-header">Users<i class="mdi-navigation-arrow-drop-down"></i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><%= link_to "following", main_app.following_user_path(current_user) %></li>
+                                <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
+                                <li><%= link_to "Users", main_app.users_path %></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="collapsible collapsible-accordion hide-on-large-only">
+                    <li>
+                        <a class="collapsible-header"><%= current_user.name %>
+                            <i class="mdi-navigation-arrow-drop-down"></i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><%= link_to 'Profile', main_app.user_path(current_user) %>
+                                </li>
+                                <li><%= link_to "Edit Account", main_app.edit_user_registration_path(current_user) %>
+                                </li>
+                                <li class="divider"></li>
+                                <li><%= link_to "Log out", main_app.destroy_user_session_path, method: :delete %>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="divider hide-on-large-only"></div>
+                <ul class="nav list-group">
+                    <%= link_to  main_app.user_path(current_user), class: "userView" do %>
+
+                    <%= gravatar_mprofile current_user %>
+
+                    <%= gravatar_mdprofile current_user %>
+                    <span class="white-text name"><%= current_user.name %></span>
+                    <span class="white-text email"><%= current_user.email %></span>
+
+                    <% end %>
+                    <li>
+                        <h5>chatgroups</h5>
+                        <ul>
+                          <% current_user.chatgroups.each do |chatgroup|  %>
+                          <li><%= link_to chatgroup.name, chatgroup %></li>
+                          <% end %>
+                        </ul>
+                    </li>
+                    <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
+
+                    <!--          end of login user-->
+
+                </ul>
+
+        </ul>
     <% else %>
+        <ul id="nav-mobile" class="side-nav fixed">
+            <!--      for login user-->
 
-<%= link_to "Login", main_app.new_user_session_path, class: "right waves-effect waves-light btn navbarBtn" %>
-      <% end %>
-
-      <!--    egining of mobile navigation-->
-      <ul class="right hide-on-med-and-down">
-        <% if user_signed_in? %>
-
-        <li>
-          <a class="dropdown-button" href="#!" data-activates="dropdown1">Users<i class="material-icons right">arrow_drop_down</i>
-          </a>
-        </li>
-        <li><%= link_to "Blog", main_app.articles_path %></li>
-        <li>
-          <%= form_tag '#', :class => 'nav-form' do -%>
-          <div class="input-field">
-            <%= text_field_tag "search", nil, placeholder: "Search", autocomplete: :off, id: "search" %>
-          </div>
-          <% end %>
-        </li>
-
-        <li>
-          <a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %>
-            <i class="material-icons right">arrow_drop_down</i>
-          </a>
-        </li>
-      <% else %>
-
-        <% end %>
-
-      </ul>
-      <!--end desktop navigation-->
-      <% if user_signed_in? %>
-      <ul id="nav-mobile" class="side-nav fixed">
-        <!--      for login user-->
-
-        <ul class="collapsible collapsible-accordion hide-on-large-only">
-          <li>
-            <a class="collapsible-header">Users<i class="mdi-navigation-arrow-drop-down"></i>
-            </a>
-            <div class="collapsible-body">
-              <ul>
-                <li><%= link_to "following", main_app.following_user_path(current_user) %></li>
-                <li><%= link_to "followers", main_app.followers_user_path(current_user) %></li>
-                <li><%= link_to "Users", main_app.users_path %></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-        <ul class="collapsible collapsible-accordion hide-on-large-only">
-          <li>
-            <a class="collapsible-header"><%= current_user.name %>
-              <i class="mdi-navigation-arrow-drop-down"></i>
-            </a>
-            <div class="collapsible-body">
-              <ul>
-                <li><%= link_to 'Profile', main_app.user_path(current_user) %>
-                </li>
-                <li><%= link_to "Edit Account", main_app.edit_user_registration_path(current_user) %>
-                </li>
-                <li class="divider"></li>
-                <li><%= link_to "Log out", main_app.destroy_user_session_path, method: :delete %>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-
-      <div class="divider hide-on-large-only"></div>
-      <ul class="nav list-group">
-<%= link_to  main_app.user_path(current_user), class: "userView" do %>
-
-            <%= gravatar_mprofile current_user %>
-
-          <%= gravatar_mdprofile current_user %>
-          <span class="white-text name"><%= current_user.name %></span>
-          <span class="white-text email"><%= current_user.email %></span>
-
-<% end %>
-        <li>
-
-          <%= link_to(main_app.conversations_path, :class => 'collection-item') do %>
-          <span class="new badge">
-
-          Conversations
-          <% end %>
         </li>
         <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
 
-
-
         <!--          end of login user-->
 
-      </ul>
-
-  </ul>
-<% else %>
-  <ul id="nav-mobile" class="side-nav fixed">
-    <!--      for login user-->
-
-  </li>
-  <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
-
-
-
-  <!--          end of login user-->
-
-</ul>
+    </ul>
 
 </ul>
 

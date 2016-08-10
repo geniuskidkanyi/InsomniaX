@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Chatgroups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chatgroups.each do |chatgroup| %>
+      <tr>
+        <td><%= chatgroup.name %></td>
+        <td><%= link_to 'Show', chatgroup %></td>
+        <td><%= link_to 'Edit', edit_chatgroup_path(chatgroup) %></td>
+        <td><%= link_to 'Destroy', chatgroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to "Join Room", chatgroup_chatgroup_users_path(chatgroup), method: :post %>
+            <%= link_to "Leave Room", chatgroup_chatgroup_users_path(chatgroup), method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chatgroup', new_chatgroup_path %>
