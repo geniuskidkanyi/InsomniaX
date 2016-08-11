@@ -5,16 +5,16 @@
   <%= @chatgroup.name %>
 </p>
 <div class="" data-behavior="messages">
-<% 1.upto(1000) do %>
-<div class="">
-  <strong>mela</strong>: hello world
+<% @chatgroup.messages.order(created_at: :desc).limit(100).reverse.each do |message| %>
+<div class=" ">
+  <strong><%= message.user.username %></strong> <%= message.body %>
 </div>
 <% end %>
 </div>
- <%= form_for [@chatgroup, Message.new] do |f| %>
-
-  <%= f.text_field :body  %>
-
+ <%= form_for [@chatgroup, Message.new], remote: true do |f| %>
+<div id="new_message">
+  <%= f.text_field :body, autofocus: :true, id: "new_message"  %>
+</div>
 <% end %>
 <%= link_to 'Edit', edit_chatgroup_path(@chatgroup) %> |
 <%= link_to 'Back', chatgroups_path %>

@@ -24,7 +24,6 @@
 //= require messages
 //= require comments
 //= require ckeditor/init
-//= require soulmate
 //= require search
 //= require social-share-button
 //= require google_analytics
