@@ -4,7 +4,7 @@
   <strong>Name:</strong>
   <%= @chatgroup.name %>
 </p>
-<div class="" data-behavior="messages">
+<div class="" data-behavior="messages" data-chatgroup-id="<%= @chatgroup.id %>">
 <% @chatgroup.messages.order(created_at: :desc).limit(100).reverse.each do |message| %>
 <%= render message %>
 <% end %>

@@ -2,7 +2,8 @@
 class ChatgroupsChannel < ApplicationCable::Channel
   def subscribed
     current_user.chatgroups.each do |chatgroup|
-        stream_from "chatgroup:#{chatgroup.id}"
+      
+        stream_from "chatgroups:#{chatgroup.id}"
     end
 
   end

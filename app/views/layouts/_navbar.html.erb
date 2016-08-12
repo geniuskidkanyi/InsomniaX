@@ -90,7 +90,7 @@
                         <h5>chatgroups</h5>
                         <ul>
                           <% current_user.chatgroups.each do |chatgroup|  %>
-                          <li><%= link_to chatgroup.name, chatgroup %></li>
+                          <li><%= link_to chatgroup.name, chatgroup, data: {behavior: "chatgroup-link", chatgroup_id: chatgroup.id} %></li>
                           <% end %>
                         </ul>
                     </li>
