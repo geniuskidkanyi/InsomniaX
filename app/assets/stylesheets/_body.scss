@@ -202,3 +202,9 @@ select {
     display: block;
 }
 .login-form a{line-height: 32px !important}
+@media screen and (max-device-width: 480px){
+ body {
+    -webkit-text-size-adjust: none;
+    padding: 0px;
+    margin: 0 auto;
+}}
