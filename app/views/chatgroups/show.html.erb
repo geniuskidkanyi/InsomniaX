@@ -6,9 +6,7 @@
 </p>
 <div class="" data-behavior="messages">
 <% @chatgroup.messages.order(created_at: :desc).limit(100).reverse.each do |message| %>
-<div class=" ">
-  <strong><%= message.user.username %></strong> <%= message.body %>
-</div>
+<%= render message %>
 <% end %>
 </div>
  <%= form_for [@chatgroup, Message.new], remote: true do |f| %>

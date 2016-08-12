@@ -17,6 +17,7 @@
 //= require materialize
 //= require forem
 //= require linkify
+//= require cable
 //= require linkify-jquery
 //= require sticky
 //= require jquery.turbolinks

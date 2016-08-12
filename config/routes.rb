@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
   resources :chatgroups do
     resource :chatgroup_users
     resources :messages
