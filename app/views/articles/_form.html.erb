@@ -9,7 +9,7 @@
 <%= f.label :title %><br>
 <%= f.text_field :title %><br>
 <br>
-<%= f.cktext_area :body, id: 'content' %>
+<%= f.text_area :body, id: 'content', row: '5' %>
 
 <br>
 <%= f.text_field :tag_list %>
@@ -20,6 +20,6 @@
 <% end %>
 <script>
       $(function() {
-          $('#edit').froalaEditor()
+          $('#content').froalaEditor()
       });
   </script>
