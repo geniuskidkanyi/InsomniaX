@@ -4,7 +4,7 @@
 
 
   <div class="message-data align-right">
-    <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
+    <span class="message-data-time" ><%= time_ago_in_words(message.created_at) %> ago</span> &nbsp; &nbsp;
     <span class="message-data-name" ><%= message.user.username %></span> <i class="fa fa-circle me"></i>
 
   </div>
