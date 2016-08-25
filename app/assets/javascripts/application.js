@@ -20,7 +20,7 @@
 //= require chosen-jquery
 //= require messages
 //= require comments
-//= require ckeditor/init
+
 //= require soulmate
 //= require search
 //= require social-share-button

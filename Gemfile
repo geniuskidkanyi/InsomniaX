@@ -28,7 +28,7 @@ gem "friendly_id", "~> 5.0.1"
 gem 'impressionist'
 gem 'acts_as_commentable_with_threading'
 gem 'modernizr-rails'
-gem 'ckeditor'
+
 gem 'rack-contrib'
 gem 'soulmate', :require => 'soulmate/server'
 gem 'will_paginate-bootstrap'
