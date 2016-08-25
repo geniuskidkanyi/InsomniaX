@@ -3,7 +3,6 @@
 @import "meyer-reset";
 @import 'chosen';
 @import "materialize";
-@import 'demo';
 @import 'iphone';
 
 @import "users";
@@ -13,13 +12,12 @@
 @import 'messages';
 @import 'monokai';
 @import "social-share-button";
-@import 'forem_base';
 @import "body";
 @import "notification";
 @import "heade-footer";
 html{font-family: 'Lato', sans-serif;}
 h1,h2,h3,h4,h5,h6{text-transform: uppercase}
-h3{font-size: 2em}
+h3{font-size: 1.5em}
 @media (max-width: 601px){
   .collection .collection-item.avatar .title {
     font-size: 10px;

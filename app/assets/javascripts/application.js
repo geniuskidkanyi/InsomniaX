@@ -25,12 +25,12 @@
 //= require messages
 //= require comments
 //= require ckeditor/init
-//= require search
+//= require chatgroups
 //= require social-share-button
 //= require google_analytics
 //= require user
 //= require toastr
-
+//= require notification
 $(document).ready(function(){
       $('.parallax').parallax();
     });

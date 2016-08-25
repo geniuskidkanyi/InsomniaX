@@ -1,3 +1,14 @@
-<div class=" ">
-  <strong><%= message.user.username %></strong> <%= message.body %>
-</div>
+
+
+<li class="clearfix">
+
+
+  <div class="message-data align-right">
+    <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
+    <span class="message-data-name" ><%= message.user.username %></span> <i class="fa fa-circle me"></i>
+
+  </div>
+  <div class="message other-message float-right">
+    <%= message.body %>
+  </div>
+</li>

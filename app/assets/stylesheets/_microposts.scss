@@ -112,3 +112,82 @@
 #unvote{
   display: inline-block;
 }
+
+.item {background:white;width:100%;padding-bottom:30px;margin:0 auto 2em;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
+.itemhead {padding:30px;overflow:hidden;position:relative;}
+.itemhead img {border-radius:100%;float:left}
+.itemhead h2 {font-weight:400;float:left;margin-left:20px;}
+.itemhead .heart {cursor:pointer;position:absolute;right:4px;top:4px;padding:7px;border-radius:2px}
+.item p:first-of-type {margin-top:0}
+.item p {padding:0px 30px;font-size:19px;line-height:26px;margin:0;margin-top:1em;}
+.item a {text-decoration:none;color:#00bcd4;font-weight:500;font-size:0.8em;}
+
+.heart:hover {box-shadow:0 1px 0 0 rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.1)}
+.heart #favorite {fill:#636363}
+.heart.active #favorite {fill:#DA4336;}
+
+.box {display:none;overflow:auto;position:relative;overflow-x:hidden;}
+.box.show {display:block;}
+
+@-webkit-keyframes expand {
+    0% {
+        background:rgba(255,255,141,1);
+        opacity:1;
+        border-radius:100%;
+        transform: scale(0);
+        -webkit-transform: scale(0);
+        -moz-transform:scale(0);
+    }
+    50% {
+        background:rgba(255,255,141,0.8);
+        border-radius:50%;
+    }
+    100% {
+        background:rgba(255,255,141,0);
+        transform: scale(3);
+        border-radius: 0;
+        -webkit-transform: scale(3);
+        -moz-transform:scale(3);
+        opacity:1;
+    }
+}
+@-moz-keyframes expand {
+    0% {
+        background:rgba(255,255,141,1);
+        opacity:1;
+        border-radius:100%;
+        transform: scale(0);
+        -moz-transform:scale(0);
+    }
+    50% {
+        background:rgba(255,255,141,0.8);
+        border-radius:50%;
+    }
+    100% {
+        background:rgba(255,255,141,0);
+        transform: scale(3);
+        border-radius: 0;
+        -moz-transform:scale(3);
+        opacity:1;
+    }
+}
+@-webkit-keyframes border-expand {
+    0% {
+        opacity:0;
+        width:0;
+    }
+    100% {
+        opacity:1;
+        width:100%;
+    }
+}
+@-moz-keyframes border-expand {
+    0% {
+        opacity:0;
+        width:0;
+    }
+    100% {
+        opacity:1;
+        width:100%;
+    }
+}

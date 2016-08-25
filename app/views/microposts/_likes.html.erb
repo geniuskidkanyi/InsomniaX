@@ -1,0 +1,5 @@
+<% if  user_signed_in? && current_user.likes(@micropost) %>
+<%= link_to "Unlike", micropost_like_path(@micropost), method: :delete %>
+<% else %>
+<%= link_to "like", micropost_like_path(@micropost), method: :post %>
+<% end %>
