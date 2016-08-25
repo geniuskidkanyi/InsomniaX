@@ -1,66 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-
-    <title><%= yield(:title) %>| Insomniax the social community for geeks</title>
-     <%= favicon_link_tag 'favicon.ico' %>
-    <meta name="msvalidate.01" content="9BF9701D09E8E5A4D09FA989AE2C5617"/>
-    <%= display_meta_tags %>
-      <meta/>
+<head>
+ <title><%= yield(:title) %> | Insomniax the social community for geeks</title>
+   <meta name="msvalidate.01" content="9BF9701D09E8E5A4D09FA989AE2C5617" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content='<%= logged_in? ? current_user.name : "" %>' name='user-id'/>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag "forem" %>
+    <%= javascript_include_tag "forem" %>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag :modernizr %>
-    <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>
     <%= forem_atom_auto_discovery_link_tag %>
+<%= render 'layouts/footer' %>
 
-    <%= render 'layouts/google' %>
 
-  </head>
-  <body>
-    <%= render 'layouts/navbar' %>
+</head>
+<body>
 
-    <!--main content-->
-
+  <%= render 'layouts/login' %>
+<!--main content-->
     <% if logged_in? %>
-    <main>
-      <div class="row main">
+  <div class="container-fluid-main">
+   <% else %>
+      <div class="main_page">
+          <% flash.each do |message_type, message| %>
+                     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+                     <% end %>
+          <% end %>
 
-        <div class="col s12 m8 l8">
+              <% if logged_in? %>
+          <div id="wrapper">
 
-          <div id="main">
-            <% flash.each do |message_type, message| %>
-            <%= content_tag(:div, message, class: "notice #{message_type}") %>
-            <% end %>
-            <%= yield %>
-          </div>
-        </div>
-        <div class="col hide-on-small-only m4 l4 sidebar">
-          <div class="toc-wrapper">
-            <%= render 'shared/activities' %>
-          </div>
 
-        </div>
+                 <%= render 'layouts/sidebar' %>
 
-      </div>
-    </main>
+             <div id="main-wrapper" class="col-lg-9 col-sm-9 col-xs-12 pull-right">
+                 <div id="main">
+                     <% flash.each do |message_type, message| %>
+                     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+                     <% end %>
+                 <%= yield %>
+             </div>
+             </div>
 
-  <% else %>
+         <%else %>
+          <%= yield %>
+          <%end%>
 
-    <main class="main">
-      <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "notice #{message_type}") %>
-      <% end %>
-      <%= render 'layouts/login_modal' %>
-      <%= yield %>
 
-    </main>
+    </div>
+    </div>
 
-    <%= render 'layouts/footer' %>
-    <% end %>
 
-  </body>
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+</body>
 </html>
