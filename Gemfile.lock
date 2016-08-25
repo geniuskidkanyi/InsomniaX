@@ -479,6 +479,9 @@ GEM
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
     workflow (1.0.0)
+    wysiwyg-rails (2.3.4)
+      font-awesome-rails (~> 4.4, >= 4.4.0.0)
+      railties (>= 3.2, < 6.0)
     xml-simple (1.1.5)
     yajl-ruby (1.1.0)
 
@@ -544,6 +547,7 @@ DEPENDENCIES
   web-console (~> 2.0)
   will_paginate
   will_paginate-bootstrap
+  wysiwyg-rails
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

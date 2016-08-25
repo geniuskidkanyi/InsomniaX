@@ -34,6 +34,7 @@ gem 'soulmate', :require => 'soulmate/server'
 gem 'will_paginate-bootstrap'
 gem 'materialize-sass'
 gem 'public_activity'
+gem "wysiwyg-rails"
 gem 'merit'
 gem 'redis'
 gem 'redcarpet'
