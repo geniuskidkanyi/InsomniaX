@@ -1,0 +1,19 @@
+@import "froala-editor";
+@import "froala-style";
+@import "plugins/char-counter";
+@import "plugins/code-view";
+@import "plugins/colors";
+@import "plugins/draggable";
+@import "plugins/file";
+@import "plugins/fullscreen";
+@import "plugins/image-manager";
+@import "plugins/image";
+@import "plugins/quick-insert";
+@import "plugins/table";
+@import "plugins/video";
+@import "plugins/line-breaker";
+
+
+.fr-box.fr-basic.fr-top .fr-wrapper{
+  min-height: 300px;
+}
