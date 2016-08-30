@@ -31,6 +31,7 @@
 //= require user
 //= require toastr
 //= require notification
+//= require local_time
 $(document).ready(function(){
       $('.parallax').parallax();
     });

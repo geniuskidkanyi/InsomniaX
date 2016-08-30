@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :chatgroup_users
   has_many :chatgroups, through: :chatgroup_users
   has_many :messages
+  has_many :forum_threads
+  has_many :forum_posts
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

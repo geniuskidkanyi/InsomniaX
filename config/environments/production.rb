@@ -80,10 +80,7 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
-  config.active_record.dump_schema_after_migration = false
-  config.assets.precompile += Ckeditor.assets
-  config.assets.precompile += %w( ckeditor/* )
-  config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+  config.active_job.queue_adapter = :sucker_punch
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true

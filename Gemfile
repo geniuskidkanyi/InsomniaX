@@ -40,6 +40,10 @@ gem 'truncate_html'
 gem 'carrierwave-bombshelter'
 gem 'devise', github: 'plataformatec/devise'
 gem 'toastr-rails'
+ gem 'record_tag_helper', '~> 1.0'
+ gem 'local_time'
+ gem 'sucker_punch'
+ gem 'ransack', github: 'activerecord-hackery/ransack'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -63,6 +67,7 @@ gem 'bourbon', '~> 3.1.8'
 # Use Unicorn as the app server
 #deployment
 group :development do
+    gem 'better_errors'
     gem 'capistrano', '~> 3.4.0',         require: false
     gem 'capistrano-rbenv',     require: false
     gem 'capistrano-rails',   require: false
