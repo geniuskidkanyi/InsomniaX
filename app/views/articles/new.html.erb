@@ -1,37 +1,7 @@
 
 <% provide(:title, "New Blog") %>
-<% if current_user && current_user.admin? %>
-<h4 class="center-align">Add new Blog post</h4>
+<div id="page_wrapper">
+  <h1>Edit Post</h1>
 
-<%= form_for :article, url: articles_path, html: { multipart: true } do |f| %>
-<% if @article.errors.any? %>
-<div id="error_explanation">
-    <div class="notice red darken-4">
-        The form contains <%= pluralize(@article.errors.count, "error") %>.
-    </div>
-    <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-        <li class="notice red"><%= msg %></li>
-        <% end %>
-    </ul>
+  <%= render 'form' %>
 </div>
-<% end %>
-<h5>Add a preview picture</h5>
-<span class="picture">
-    <%= f.file_field :picture_article %>
-</span> <br>
-<div class="form-group">
-<%= f.label :title, class: 'active' %><br>
-<%= f.text_field :title, class: 'form-control'%><br>
-</div>
-
-<%= f.cktext_area :body, :ckeditor => {:toolbar => 'mini'} %>
-
-<br>
-<%= f.text_field :tag_list %>
-<%= f.submit  class: 'btn light-blue accent-4' %>
-<% end %>
-<% else %>
-
-<h2>Only admin can create a user</h2>
-<% end %>

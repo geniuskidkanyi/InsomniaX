@@ -1,34 +1,5 @@
-<% provide(:title, "Blog") %>
-    <div class="row">
-        <h4 class="text-center">BLOGS </h4>
-        <hr/>
-    </div>
+<div id="page_wrapper">
+  <h1>new Post</h1>
 
-    <%= will_paginate  renderer: BootstrapPagination::Rails%>
-   <div class="row">
-<% @articles.each do |article| %>
-
-
-        <div class="col s12 m6 l4">
-            <div class="card small">
-                <div class="article-label label label-info blue darken-3">
-
-                    <span data-toggle="tooltip" title="viewed">
-                        <i class="tiny material-icons">date_range</i>
-                       </span>
-                    <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
-                </div>
-                        <div class="card-image image-card">
-
-                     <%= link_to (image_tag article.picture_article.url), article_path(article) %>
-                        </div>
-
-                        <div class="card-action">
-                          <%= link_to article.title, article, class: "btn light-blue darken-4 ", role: "button" %>
-
-                        </div>
-                      </div>
-        </div>
-<% end %>
+  <%= render 'form' %>
 </div>
-<%= will_paginate renderer: BootstrapPagination::Rails %>

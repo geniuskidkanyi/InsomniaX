@@ -44,6 +44,7 @@ gem 'toastr-rails'
  gem 'local_time'
  gem 'sucker_punch'
  gem 'ransack', github: 'activerecord-hackery/ransack'
+ gem "binding_of_caller"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

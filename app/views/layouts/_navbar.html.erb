@@ -28,6 +28,13 @@
                     <% end %>
                 </li>
 
+                    <li data-behavior="notifications">
+                      <a class='dropdown-button btn' href='#' data-activates='dropdown5'  data-behavior="notifications-links">
+  <i class="material-icons right">arrow_drop_down</i> <span data-behavior="unread-count"></span>
+                      </a>
+                    </li>
+
+
                 <li>
                     <a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %>
                         <i class="material-icons right">arrow_drop_down</i>

@@ -7,9 +7,11 @@ class ForumThreads::ForumPostsController < ApplicationController
     @forum_post.user = current_user
 
     if @forum_post.save
-
+      @forum_thread.users.uniq - [current_user].each do |user|
+        Notification.create(recipient:user, actor: current_user, action: "posted", notifiable: @forum_post)
+      end
       @forum_post.send_notifications!
-      byebug
+
       redirect_to forum_thread_path(@forum_thread, anchor: "forum_post_#{@forum_post.id}"), notice: "Successfully posted!"
     else
       redirect_to @forum_thread, alert: "Unable to save your post"

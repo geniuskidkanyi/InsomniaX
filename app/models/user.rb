@@ -26,12 +26,6 @@ class User < ActiveRecord::Base
     include PublicActivity::Model
     #tracked only: [:create], owner: Proc.new{ |controller, model| controller.current_user }
 
-    validates :name, presence: true, length: { maximum: 100 }
-    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates :email, presence: true, length: { maximum: 255 },
-    format: { with: VALID_EMAIL_REGEX },
-    uniqueness: { case_sensitive: false }
-    validates :password, length: { minimum: 6 }, allow_blank: true
     default_scope { order('created_at DESC') }
 
   def User.digest(string)

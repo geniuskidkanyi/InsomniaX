@@ -30,6 +30,7 @@
 //= require google_analytics
 //= require user
 //= require toastr
+//= require notifications
 //= require notification
 //= require local_time
 $(document).ready(function(){

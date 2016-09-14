@@ -66,11 +66,15 @@ get "dislike", to: "microposts#downvote"
 
   resources :comments
   resources :tags, only: [:index, :show]
-resources :forum_threads do
-  resources :forum_posts, module: :forum_threads
+  resources :forum_threads do
+    resources :forum_posts, module: :forum_threads
 
   end
-
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 
 
 
