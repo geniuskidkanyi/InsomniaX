@@ -37,6 +37,14 @@ GIT
       responders
       warden (~> 1.2.3)
 
+GIT
+  remote: git://github.com/scambra/devise_invitable.git
+  revision: 7e1cda14f684751660bdfda76aa48d3febb5c97c
+  specs:
+    devise_invitable (1.7.0)
+      actionmailer (>= 4.0.0)
+      devise (>= 4.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -509,6 +517,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   compass-rails!
   devise!
+  devise_invitable!
   faker
   fog
   font-awesome-rails

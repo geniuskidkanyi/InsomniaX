@@ -4,17 +4,8 @@ Rails.application.routes.draw do
     resource :chatgroup_users
     resources :messages
   end
-  get 'forumthred/index'
 
-  get 'forumthred/show'
-
-  get 'forumthred/edit'
-
-  resources :forums
   root 'pages#index'
-  get 'password_resets/new'
-
-  get 'password_resets/edit'
 
   mount Ckeditor::Engine => '/ckeditor'
 
@@ -29,14 +20,7 @@ Rails.application.routes.draw do
 
   get 'help'  => 'pages#help'
   get 'about' => 'pages#about'
-#  get 'leaderboard' => 'pages#leaderboard'
   get 'contact' => 'pages#contact'
-  # get 'signup' => 'users#new'
-  # get 'login' => 'sessions#new'
-  # post 'login' => 'sessions#create'
-  # get 'sign_in' => 'sessions#new'
-  # post 'sign_in' => 'sessions#create'
-  # delete 'logout' => 'sessions#destroy'
   get 'search' => 'search#index'
   resources :users
   resources :account_activations, only: [:edit]
@@ -66,7 +50,7 @@ get "dislike", to: "microposts#downvote"
 
   resources :comments
   resources :tags, only: [:index, :show]
-  resources :forum_threads do
+  resources :forum_threads, path: '/forums/'  do
     resources :forum_posts, module: :forum_threads
 
   end

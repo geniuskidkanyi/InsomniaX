@@ -1,4 +1,21 @@
-<%= div_for forum_post do %>
-  <p class="text-muted">Posted by <%= forum_post.user.name %> <%= local_time_ago forum_post.created_at %></p>
-  <p><%= forum_post.body %></p>
+
+
+  <%= div_for forum_post do %>
+
+  <li>
+    <div class="avatar">
+      <img src="http://www.croop.cl/UI/twitter/images/carl.jpg">
+      <div class="hover">
+        <div class="icon-twitter"></div>
+      </div>
+    </div>
+    <div class="bubble-container">
+      <div class="bubble">
+        <h3><%= forum_post.user.name %>  <%= local_time_ago forum_post.created_at %></h3><br/>
+      <%= forum_post.body %>
+
+      </div>
+      <div class="arrow"></div>
+    </div>
+  </li>
 <% end %>

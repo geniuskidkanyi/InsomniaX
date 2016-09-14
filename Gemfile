@@ -14,7 +14,7 @@ gem 'cloudinary'
 gem 'will_paginate'
 gem "font-awesome-rails"
 gem 'acts_as_votable'
-
+gem 'devise_invitable', github: 'scambra/devise_invitable'
 # gem "mailboxer", github: "mailboxer/mailboxer"
 gem 'chosen-rails'
 gem 'jquery-turbolinks'

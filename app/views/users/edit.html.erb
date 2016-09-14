@@ -1,6 +1,14 @@
 <% provide(:title, "Edit user") %>
 <h3>Update your profile</h3>
-<div class="row">
+
+
+<% provide(:title, "Log in") %>
+
+<div class="card registration-form">
+  <div class="loginTitle">
+  <h2>Edit account </h2>
+</div>
+
 
   <%= form_for(@user, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
@@ -21,7 +29,6 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
     </div>
-
   </div>
   <div class="col m12">
 
@@ -30,7 +37,7 @@
       <%= f.text_field :description, class: 'form-control' %>
     </div>
   </div>
-  <div class="col m12">
+  <div class="col m6">
     <div class="picture">
       <div class="file-field input-field">
         <div class="btn">
@@ -44,7 +51,7 @@
       <%= image_tag @user.avatar.url if @user.avatar? %>
     </div>
   </div>
-  <div class="col m12">
+  <div class="col m6">
     <div class="picture">
       <div class="file-field input-field">
         <div class="btn">
@@ -73,14 +80,23 @@
 
   </div>
 
-  <div class="col m6">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
   </div>
 
-  <div class="col m6">
-    <%= f.label :password_confirmation, "Password Confirmation" %>
-    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
   <div class="col m12">
@@ -88,4 +104,10 @@
   </div>
 
   <% end %>
+
+  <h3>Cancel my account</h3>
+
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+  <%= link_to "Back", :back %>
 </div>

@@ -1,10 +1,12 @@
-<div class="container">
-  <h1><%= @forum_thread.subject %></h1>
+<span class="first">
+			<%= @forum_thread.subject %> Created by <%= @forum_thread.user.name %>
+			<span class="icon-edit new"></span>
+		</span>
 
-  <p class="text-muted">Created by <%= @forum_thread.user.name %></p>
-  <hr>
+<ul class="timeline">
   <%= render @forum_thread.forum_posts %>
+</ul>
 
   <hr />
-  <%= render partial: "forum_posts/form" %>
-</div>
+
+    <%= render partial: "forum_posts/form" %>
