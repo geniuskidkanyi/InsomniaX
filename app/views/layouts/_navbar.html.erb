@@ -20,13 +20,7 @@
                     </a>
                 </li>
                 <li><%= link_to "Blog", main_app.articles_path %></li>
-                <li>
-                    <%= form_tag '#', :class => 'nav-form' do -%>
-                    <div class="input-field">
-                        <%= text_field_tag "search", nil, placeholder: "Search", autocomplete: :off, id: "search" %>
-                    </div>
-                    <% end %>
-                </li>
+
 
                     <li data-behavior="notifications">
                       <a class='dropdown-button btn' href='#' data-activates='dropdown5'  data-behavior="notifications-links">

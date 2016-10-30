@@ -58,7 +58,7 @@ end
 
     private
     def load_activities
-      @activities = PublicActivity::Activity.order('created_at DESC').limit(20)
+    @q = ForumThread.search(params[:q])
     end
     # Confirms a logged-in user.
     def logged_in_user

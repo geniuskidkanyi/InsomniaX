@@ -1,0 +1,12 @@
+
+<div class="input-field">
+          <%= search_form_for @q, html: { class: "form-inline" } do |f| %>
+
+            <%= f.search_field :subject_or_forum_posts_body_cont, id: "search" %>
+
+            <label for="search"> <i class="material-icons">search</i></label>
+
+            <i class="material-icons">close</i>
+          <% end %>
+
+  </div>
