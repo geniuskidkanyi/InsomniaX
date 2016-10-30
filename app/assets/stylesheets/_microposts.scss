@@ -128,7 +128,9 @@
 
 .box {display:none;overflow:auto;position:relative;overflow-x:hidden;}
 .box.show {display:block;}
-
+.micropost-img img{
+  width: 100%;height: auto;
+}
 @-webkit-keyframes expand {
     0% {
         background:rgba(255,255,141,1);

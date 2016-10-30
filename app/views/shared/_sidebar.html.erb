@@ -10,3 +10,12 @@
           <% end %>
 
   </div>
+  <div id="notifications">
+
+    <% @notifications.each do |notification| %>
+
+      <%= notification.actor.username %>
+      <%= notification.action %>
+      <%= notification.notifiable.class.to_s.underscore.humanize.downcase %>
+      <%= link_to notification.notifiable.forum_thread.subject, forum_thread_path(notification.notifiable.forum_thread, anchor: dom_id(notification.notifiable)) %>
+  <% end %>

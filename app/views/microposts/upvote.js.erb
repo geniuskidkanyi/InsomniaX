@@ -1,3 +1,3 @@
 
-$("#vote").html('<i class="small material-icons">favorite_border</i> <%= @micropost.get_upvotes.size %>')
-$("#unvote").html('<i class="small material-icons">thumb_down</i> <%= @micropost.get_downvotes.size %>')
+$("#vote-<%= @micropost.id %>").html('<i class="small material-icons">favorite_border</i> <%= @micropost.get_upvotes.size %>')
+$("#unvote-<%= @micropost.id %>").html('<i class="small material-icons">thumb_down</i> <%= @micropost.get_downvotes.size %>')

@@ -1,5 +1,5 @@
 
-<div class="col s12 m6 l6">
+<div class="col s12 m10 l9 offset-m2 offset-l3">
   <div class="item">
         <div class="itemhead">
             <%= link_to gravatar_post(micropost.user, size: 50), micropost.user %>
@@ -7,25 +7,26 @@
             <div class="heart">
 
               <%= link_to like_micropost_path(micropost), method: :get, class: "vote", remote: true do %>
-              <div id="vote">
+              <div id="vote-<%= micropost.id %>">
                    <i class="small material-icons">favorite_border</i> <%= "#{micropost.get_upvotes.size}" %>
               </div>
               <% end %>
 
 
               <%= link_to dislike_micropost_path(micropost), method: :get, class: " vote", remote: true  do %>
-              <div id="unvote">
-              <i class="small material-icons">thumb_down</i><%= "#{micropost.get_upvotes.size}" %>
+              <div id="unvote-<%= micropost.id %>">
+              <i class="small material-icons">thumb_down</i><%= "#{micropost.get_downvotes.size}" %>
               </div>
-          
+
               <% end %>
 
 
 
             </div>
         </div>
-    <p><%= micropost.content %>
-      <br>
-      <%= image_tag micropost.picture.url unless micropost.picture.blank?  %></p>
+        <p><%= micropost.content %></p>
+        <div class="micropost-img">  <%= image_tag micropost.picture.url unless micropost.picture.blank?  %></div>
+
+
     </div>
 </div>
