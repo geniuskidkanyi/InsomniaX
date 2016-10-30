@@ -1,31 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Chatgroups</h1>
+<ul class="collection with-header">
+       <li class="collection-header light-blue darken-3 forum-head"><h4>Chat Groups</h4></li>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+         <%= render @chatgroups %>
+     </ul>
 
-  <tbody>
-    <% @chatgroups.each do |chatgroup| %>
-      <tr>
-        <td><%= chatgroup.name %></td>
-        <td><%= link_to 'Show', chatgroup %></td>
-        <td><%= link_to 'Edit', edit_chatgroup_path(chatgroup) %></td>
-        <td><%= link_to 'Destroy', chatgroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td>
-          <%= link_to "Join Room", chatgroup_chatgroup_users_path(chatgroup), method: :post %>
-            <%= link_to "Leave Room", chatgroup_chatgroup_users_path(chatgroup), method: :delete %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+
 
 <%= link_to 'New Chatgroup', new_chatgroup_path %>

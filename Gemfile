@@ -22,10 +22,11 @@ gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem 'gretel'
 gem 'acts-as-taggable-on', github: "mbleigh/acts-as-taggable-on"
 gem "friendly_id", "~> 5.0.1"
-gem 'impressionist'
+gem 'impressionist', github: "charlotte-ruby/impressionist"
 gem 'acts_as_commentable_with_threading'
 gem 'modernizr-rails'
 gem 'ckeditor'
+
 # gem 'rack-contrib'
 # gem 'soulmate', :require => 'soulmate/server'
 gem 'will_paginate-bootstrap'
@@ -45,6 +46,7 @@ gem 'toastr-rails'
  gem 'sucker_punch'
  gem 'ransack', github: 'activerecord-hackery/ransack'
  gem "binding_of_caller"
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

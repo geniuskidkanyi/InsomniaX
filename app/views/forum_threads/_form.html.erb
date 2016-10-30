@@ -1,8 +1,23 @@
 <%= form_for @forum_thread do |f| %>
   <%= render "shared/error_messages", object: @forum_thread %>
-  <%= f.text_field :subject, class: "form-control" %>
+  <div class="row">
+  <div class="input-field col s12">
+        <%= f.text_field :subject, id: "enter_subject", class: "validate" %>
+
+            <label for="fenter_subject">Enter title</label>
+  </div>
+
+
+
   <%= f.fields_for :forum_posts do |p| %>
-      <%= p.text_area :body, placeholder: 'add a comment', rows: '10' %>
+  <div class="input-field col s12">
+    <%= p.text_area :body,rows: '10', id: "textarea1", class: "materialize-textarea" %>
+
+          <label for="textarea1">enter your description </label>
+      </div>
+
   <% end %>
-<%= f.submit %>
+  <%= f.button "create thread", class: "waves-effect waves-light btn loginButton" %>
+</div>
+
 <% end %>

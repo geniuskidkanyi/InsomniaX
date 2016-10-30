@@ -1,5 +1,6 @@
 class ForumThreadsController < ApplicationController
   before_action :set_forum_thread,except: [:index, :new, :create]
+    impressionist :actions=>[:show]
   def index
     @q = ForumThread.search(params[:q])
     @forum_threads = @q.result(distinct: true)
@@ -22,12 +23,12 @@ class ForumThreadsController < ApplicationController
   end
 
   def show
-@forum_post = ForumPost.new
+    @forum_post = ForumPost.new
   end
 private
 
 def set_forum_thread
-@forum_thread = ForumThread.find(params[:id])
+@forum_thread = ForumThread.friendly.find(params[:id])
 end
 
 def forum_threads_params

@@ -1,9 +1,12 @@
 header,
 .brand-logo,
 .main {
-    margin-left: 240px;
+    margin-left: 300px;
 }
-
+.side-nav {
+    position: fixed;
+    width: 300px;
+}
 @media only screen and (max-width: 992px) {
     header,
     .main,
@@ -12,6 +15,10 @@ header,
     }
     .brand-logo {
         margin-left: 20px;
+    }
+    .side-nav {
+        position: fixed;
+        width: 240px;
     }
 }
 
