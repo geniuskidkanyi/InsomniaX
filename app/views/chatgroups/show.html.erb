@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<script type="text/javascript">
+var objDiv = document.getElementById("content");
+objDiv.scrollTop = objDiv.scrollHeight;
+</script>
 
  <div class="main_chat">
  <div class="main_chat_title"> <%= @chatgroup.name %> <span>  <%= link_to edit_chatgroup_path(@chatgroup) do %><i class="material-icons">edit</i> <% end %>
@@ -36,7 +40,7 @@
      <div class="editor">
        <%= form_for [@chatgroup, Message.new] do |f| %>
        <%= f.text_field :body, autofocus: :true, class: "main_chat_form"  %>
-     <%= f.submit "send", class: "btn btn-icon btn-big right" %>
+     <button class="btn btn-icon btn-big right">send</button>
 <% end %>
    </div>
      </div>

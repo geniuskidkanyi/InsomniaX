@@ -2,9 +2,13 @@
 <div class="input-field col s12">
       <%= f.text_field :name, id: "enter_subject", class: "validate" %>
 
-          <label for="fenter_subject">Enter group name</label>
+          <label for="enter_subject">Enter group name</label>
 </div>
+<div class="input-field col s12">
+      <%= f.text_field :description, id: "enter_description", class: "validate" %>
 
+          <label for="enter_description">Enter group description</label>
+</div>
   <div class="form-actions">
     <%= f.button "create group", class: "waves-effect waves-light btn loginButton" %>
   </div>

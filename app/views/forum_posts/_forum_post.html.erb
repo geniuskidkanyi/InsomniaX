@@ -12,7 +12,7 @@
     <div class="bubble-container">
       <div class="bubble">
         <h3><%= forum_post.user.name %>  <%= local_time_ago forum_post.created_at %></h3><br/>
-      <%= forum_post.body %>
+      <%= markdownify forum_post.body %>
 
       </div>
       <div class="arrow"></div>

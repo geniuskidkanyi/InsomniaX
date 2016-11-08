@@ -24,7 +24,7 @@
 
             </div>
         </div>
-        <p><%= micropost.content %></p>
+        <p><%= markdownify micropost.content %></p>
         <div class="micropost-img">  <%= image_tag micropost.picture.url unless micropost.picture.blank?  %></div>
 
 

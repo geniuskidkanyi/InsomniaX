@@ -46,7 +46,12 @@ gem 'toastr-rails'
  gem 'sucker_punch'
  gem 'ransack', github: 'activerecord-hackery/ransack'
  gem "binding_of_caller"
-
+gem 'html-pipeline'
+gem 'github-markdown'
+gem 'gemoji'
+gem 'github-linguist'
+gem 'rinku'
+gem 'sanitize'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

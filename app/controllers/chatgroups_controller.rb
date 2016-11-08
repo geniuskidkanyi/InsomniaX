@@ -70,6 +70,6 @@ class ChatgroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chatgroup_params
-      params.require(:chatgroup).permit(:name)
+      params.require(:chatgroup).permit(:name, :description)
     end
 end
