@@ -1,11 +1,20 @@
 
 
-<%= link_to chatgroup do %>
-<li class="collection-item forum-thread"><div><%= chatgroup.name %> <div class="secondary-content">
-  <span class="forum-details"><%= link_to 'Edit', edit_chatgroup_path(chatgroup) %> </span>
-   <span class="forum-details"><%= link_to "Join Room", chatgroup_chatgroup_users_path(chatgroup), method: :post %></span>
-<span class="forum-subject"><%= link_to "Leave Room", chatgroup_chatgroup_users_path(chatgroup), method: :delete %> </span>
-<span class="forum-subject"><%= link_to 'Destroy', chatgroup, method: :delete, data: { confirm: 'Are you sure?' }  %> </span>
+
+
+
+
+
+<li class="chat-single">
+<span class="title"><%= link_to chatgroup.name , chatgroup  %></span>
+<div class="description">
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa totam ea commodi iusto </div>
+<div class="description">
+  <span class="chat-owner"><%= link_to "Join Room", chatgroup_chatgroup_users_path(chatgroup), method: :post %></span>
+|  <span class="members"><%= link_to "Leave Room", chatgroup_chatgroup_users_path(chatgroup), method: :delete %></span>
+| <span class="Destroy"><%= link_to 'Destroy', chatgroup, method: :delete, data: { confirm: 'Are you sure?' }  %></span>
+| <span class="edit"><%= link_to 'Edit', edit_chatgroup_path(chatgroup) %></span>
+  
+  </div>
 </div>
- </div></li>
-<% end %>
+</li>

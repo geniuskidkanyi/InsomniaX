@@ -1,65 +1,146 @@
 <p id="notice"><%= notice %></p>
-<div class="container-message clearfix">
-    <div class="people-list" id="people-list">
-      <div class="search">
-        <input type="text" placeholder="search" />
-        <i class="fa fa-search"></i>
-      </div>
-      <ul class="list">
-        <li class="clearfix">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_10.jpg" alt="avatar" />
-          <div class="about">
-            <div class="name">Peyton Mckinney</div>
-            <div class="status">
-              <i class="fa fa-circle online"></i> online
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
 
-    <div class="chat">
-      <div class="chat-header clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+ <%= @chatgroup.name %>
+ <div class="main_chat">
+ <div class="main_chat_title"> this title area</div>
+   <div class="main_chat_users">
+   <div class="input-field main_chat_search">
+           <input id="search" type="search" required>
+           <label for="search"><i class="material-icons">search</i></label>
+           <i class="material-icons">close</i>
+         </div>
+     <ul class="collection">
+     <li class="collection-item avatar">
+       <img src="images/yuna.jpg" alt="" class="circle">
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
 
-        <div class="chat-about">
-          <div class="chat-with">  <%= @chatgroup.name %></div>
-          <div class="chat-num-messages">already 1 902 messages</div>
-        </div>
-        <i class="fa fa-star"></i>
-      </div> <!-- end chat-header -->
+     </li>
 
-      <div class="chat-history">
-        <ul>
-          <div class="" data-behavior="messages" data-chatgroup-id="<%= @chatgroup.id %>">
-          <% @chatgroup.messages.order(created_at: :desc).limit(100).reverse.each do |message| %>
-          <%= render message %>
-          <% end %>
-          </div>
+        <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
+
+     </li>
+        <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
+
+     </li>
+        <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
+
+     </li>
+        <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
+
+     </li>
+        <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
+
+     </li>
+        <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
+
+     </li>
+        <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
+
+     </li>
+        <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
+
+     </li>
+     <li class="collection-item avatar">
+       <i class="material-icons circle green">insert_chart</i>
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
+
+     </li>
+     <li class="collection-item avatar">
+       <i class="material-icons circle red">play_arrow</i>
+       <span class="title">Title</span>
+       <p>First Line <br>
+          Second Line
+       </p>
+
+     </li>
+   </ul>
+   </div>
+   <div class="main_chat_messages">
+     <div class="" data-behavior="messages" data-chatgroup-id="<%= @chatgroup.id %>" id="content">
+     <% @chatgroup.messages.order(created_at: :desc).limit(100).reverse.each do |message| %>
+     <%= render message %>
+     <% end %>
+     </div>
+     <div class="editor">
+       <%= form_for [@chatgroup, Message.new] do |f| %>
+       <%= f.text_field :body, autofocus: :true  %>
+     <%= f.submit "send", class: "btn btn-icon btn-big right" do %>
+  <i class="send">
+      <% end %>
+<% end %>
+   </div>
 
 
 
 
 
 
-        </ul>
-
-      </div> <!-- end chat-history -->
-
-      <div class="chat-message clearfix">
-        <%= form_for [@chatgroup, Message.new] do |f| %>
-
-         <%= f.text_field :body, autofocus: :true  %>
-
-<button>Send</button>
-       <% end %>
 
 
-      </div> <!-- end chat-message -->
 
-    </div> <!-- end chat -->
+         </div>
 
-  </div> <!-- end container -->
+
+ </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
   <%= link_to 'Edit', edit_chatgroup_path(@chatgroup) %> |
   <%= link_to 'Back', chatgroups_path %>

@@ -59,7 +59,7 @@ end
     private
     def load_activities
     @q = ForumThread.search(params[:q])
-    @notifications = Notification.where(recipient: current_user).unread
+  
     end
     # Confirms a logged-in user.
     def logged_in_user

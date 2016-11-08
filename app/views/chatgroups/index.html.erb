@@ -1,12 +1,14 @@
-<p id="notice"><%= notice %></p>
 
-<ul class="collection with-header">
-       <li class="collection-header light-blue darken-3 forum-head"><h4>Chat Groups</h4></li>
+  <div class="chat-title">
+  <div class="title">
+    this open room
+    </div>
+    <div class="action">
+    <%= link_to 'Create Room', new_chatgroup_path %>
+    </div>
+  </div>
+  <ul class="chat">
 
          <%= render @chatgroups %>
-     </ul>
 
-
-
-
-<%= link_to 'New Chatgroup', new_chatgroup_path %>
+</ul>
