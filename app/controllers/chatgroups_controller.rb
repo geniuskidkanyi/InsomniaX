@@ -65,6 +65,7 @@ class ChatgroupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_chatgroup
       @chatgroup = Chatgroup.find(params[:id])
+      @users = @chatgroup.users.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

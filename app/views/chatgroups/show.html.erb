@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
- <%= @chatgroup.name %>
+
  <div class="main_chat">
- <div class="main_chat_title"> this title area</div>
+ <div class="main_chat_title"> <%= @chatgroup.name %> <span>  <%= link_to edit_chatgroup_path(@chatgroup) do %><i class="material-icons">edit</i> <% end %>
+ </span> <span><%= link_to chatgroups_path do %> <i class="material-icons">reply_all</i><% end %></span></%> <span><i class="material-icons">delete_sweep</i></span></div>
    <div class="main_chat_users">
    <div class="input-field main_chat_search">
            <input id="search" type="search" required>
@@ -10,95 +11,19 @@
            <i class="material-icons">close</i>
          </div>
      <ul class="collection">
-     <li class="collection-item avatar">
-       <img src="images/yuna.jpg" alt="" class="circle">
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
+       <% @chatgroup.users.each do |user| %>
+       <li class="collection-item avatar">
+         <img src="images/yuna.jpg" alt="" class="circle">
+         <span class="title"><%= user.name %></span>
+         <p>   <%= user.username %>
+         </p>
 
-     </li>
+       </li>
 
-        <li class="collection-item avatar">
-       <i class="material-icons circle">folder</i>
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
+       <% end %>
 
-     </li>
-        <li class="collection-item avatar">
-       <i class="material-icons circle">folder</i>
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
 
-     </li>
-        <li class="collection-item avatar">
-       <i class="material-icons circle">folder</i>
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
 
-     </li>
-        <li class="collection-item avatar">
-       <i class="material-icons circle">folder</i>
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
-
-     </li>
-        <li class="collection-item avatar">
-       <i class="material-icons circle">folder</i>
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
-
-     </li>
-        <li class="collection-item avatar">
-       <i class="material-icons circle">folder</i>
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
-
-     </li>
-        <li class="collection-item avatar">
-       <i class="material-icons circle">folder</i>
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
-
-     </li>
-        <li class="collection-item avatar">
-       <i class="material-icons circle">folder</i>
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
-
-     </li>
-     <li class="collection-item avatar">
-       <i class="material-icons circle green">insert_chart</i>
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
-
-     </li>
-     <li class="collection-item avatar">
-       <i class="material-icons circle red">play_arrow</i>
-       <span class="title">Title</span>
-       <p>First Line <br>
-          Second Line
-       </p>
-
-     </li>
    </ul>
    </div>
    <div class="main_chat_messages">
@@ -109,38 +34,11 @@
      </div>
      <div class="editor">
        <%= form_for [@chatgroup, Message.new] do |f| %>
-       <%= f.text_field :body, autofocus: :true  %>
-     <%= f.submit "send", class: "btn btn-icon btn-big right" do %>
-  <i class="send">
-      <% end %>
+       <%= f.text_field :body, autofocus: :true, class: "main_chat_form"  %>
+     <%= f.submit "send", class: "btn btn-icon btn-big right" %>
 <% end %>
    </div>
-
-
-
-
-
-
-
-
-
-         </div>
+     </div>
 
 
  </div>
- </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <%= link_to 'Edit', edit_chatgroup_path(@chatgroup) %> |
-  <%= link_to 'Back', chatgroups_path %>

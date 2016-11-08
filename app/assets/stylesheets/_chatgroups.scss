@@ -26,12 +26,24 @@ padding: 16px 0px 0px 0px;
   display: flex;
   flex-flow: row wrap;
   background-color: #fefefe;
-  height: 80vh;
+  height: 86vh;
   &_title{
     color: gray;
     width:100%;
     height: 49px;
-  line-height: 49px;
+    line-height: 49px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    span{
+      width: 54px;
+      text-align: center;
+      line-height: 60px;
+      background-color: #26A69A;
+      a{
+        color: white;
+      }
+    }
   }
   &_users{
     width:35%;
@@ -58,6 +70,11 @@ padding: 16px 0px 0px 0px;
     width:100%;
 
   }
+  &_form{
+    background-color: white;
+    height: 150px;
+  }
+
 }
 
 a.btn-icon {
@@ -165,7 +182,7 @@ h3.name {
 }
 
 .time {
-  font-size: 90%;
+  font-size: 75%;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-top: 0.8em;
@@ -179,12 +196,15 @@ h3.name {
   position: relative;
   border-bottom: solid 1px $lightgrey;
   width: 100%;
-  input{
-    padding: 1.5em 3em 1.5em 1em;
-    border:none;
-    width:100%;
-    box-sizing:border-box;
-  
+  input[type=text]{
+    padding: .5em 1em .5em 1em;
+    border: none;
+    width: calc(100% - 32px);
+    background-color: white;
+    box-sizing: border-box;
+    margin: 16px;
+    height: 77px;
+
   }
   a{
     position: absolute;
