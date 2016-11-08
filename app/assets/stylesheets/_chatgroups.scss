@@ -38,11 +38,22 @@ padding: 16px 0px 0px 0px;
     span{
       width: 54px;
       text-align: center;
+      &:active,:focus,:hover{
+
+        background-color: #F4F5F7;
+      }
       line-height: 60px;
       background-color: #26A69A;
+
       a{
         color: white;
+        transition: color 400ms ease-in-out;
+        &:active,:focus,:hover{
+
+          color: green;
+        }
       }
+
     }
   }
   &_users{

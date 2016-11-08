@@ -13,7 +13,8 @@
      <ul class="collection">
        <% @chatgroup.users.each do |user| %>
        <li class="collection-item avatar">
-         <img src="images/yuna.jpg" alt="" class="circle">
+         <%= gravatar_forum(user)  %>
+
          <span class="title"><%= user.name %></span>
          <p>   <%= user.username %>
          </p>

@@ -4,7 +4,8 @@
     <div class="message-container">
       <div class="pic-container">
         <%= image_tag message.user.avatar.url if message.user.avatar? %>
-        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/felipenogs/128.jpg" alt="" class="profilePic" />
+        <%= gravatar_forum(message.user) %>
+
         <div class="status"></div>
       </div>
       <h3 class="name"><%= message.user.username %></h3>
