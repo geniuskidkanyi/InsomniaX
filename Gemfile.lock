@@ -190,6 +190,8 @@ GEM
     debug_inspector (0.0.2)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
+    emoji (1.0.7)
+      json
     erubis (2.7.0)
     escape_utils (1.1.1)
     excon (0.51.0)
@@ -423,6 +425,8 @@ GEM
       nokogiri (~> 1.6.0)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_emoji_picker (0.1.5)
+      emoji
     railties (5.0.0)
       actionpack (= 5.0.0)
       activesupport (= 5.0.0)
@@ -564,6 +568,7 @@ DEPENDENCIES
   public_activity
   puma
   rails (= 5.0.0)
+  rails_emoji_picker
   ransack!
   record_tag_helper (~> 1.0)
   redcarpet

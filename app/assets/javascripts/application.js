@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require rails_emoji_picker
 //= require materialize-sprockets
 //= require materialize
 //= require forem
@@ -24,7 +25,6 @@
 //= require chosen-jquery
 //= require messages
 //= require comments
-//= require ckeditor/init
 //= require chatgroups
 //= require social-share-button
 //= require google_analytics

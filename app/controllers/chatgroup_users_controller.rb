@@ -15,6 +15,6 @@ class ChatgroupUsersController < ApplicationController
     private
 
     def set_chatgroup
-        @chatgroup = Chatgroup.find(params[:chatgroup_id])
+        @chatgroup = Chatgroup.friendly.find(params[:chatgroup_id])
     end
 end

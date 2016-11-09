@@ -2,10 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :prepare_meta_tags, if: "request.get?"
     before_action :load_activities
       before_action :configure_permitted_parameters, if: :devise_controller?
- include PublicActivity::StoreController
-  def forem_user
-    current_user
-  end
+
 
     rescue_from ActiveRecord::RecordNotFound do
         flash[:warning] = 'Resource not found.'
@@ -59,7 +56,7 @@ end
     private
     def load_activities
     @q = ForumThread.search(params[:q])
-  
+
     end
     # Confirms a logged-in user.
     def logged_in_user

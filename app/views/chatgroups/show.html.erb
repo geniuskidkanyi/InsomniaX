@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 var objDiv = document.getElementById("content");
-objDiv.scrollTop = objDiv.scrollHeight;
+objDiv.scrollTop = objDiv.-;
 </script>
 
  <div class="main_chat">
@@ -37,9 +37,9 @@ objDiv.scrollTop = objDiv.scrollHeight;
      <%= render message %>
      <% end %>
      </div>
-     <div class="editor">
+     <div class="editor ">
        <%= form_for [@chatgroup, Message.new] do |f| %>
-       <%= f.text_field :body, autofocus: :true, class: "main_chat_form"  %>
+       <%= f.text_field :body, autofocus: :true, class: "main_chat_form" %>
      <button class="btn btn-icon btn-big right">send</button>
 <% end %>
    </div>

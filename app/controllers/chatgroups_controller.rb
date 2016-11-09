@@ -64,12 +64,12 @@ class ChatgroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_chatgroup
-      @chatgroup = Chatgroup.find(params[:id])
+      @chatgroup = Chatgroup.friendly.find(params[:id])
       @users = @chatgroup.users.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chatgroup_params
-      params.require(:chatgroup).permit(:name, :description)
+      params.require(:chatgroup).permit(:name, :description, :slug)
     end
 end

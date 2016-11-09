@@ -52,6 +52,7 @@ gem 'gemoji'
 gem 'github-linguist'
 gem 'rinku'
 gem 'sanitize'
+gem 'rails_emoji_picker'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

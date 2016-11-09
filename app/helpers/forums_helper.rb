@@ -1,9 +1,9 @@
 module ForumsHelper
   def markdownify(content)
-    pipeline_context = {gfm: true}
+    pipeline_context = {gfm: true,asset_root: "https://a248.e.akamai.net/assets.github.com/images/icons" }
     pipeline = HTML::Pipeline.new [
       HTML::Pipeline::MarkdownFilter,
-      # HTML::Pipeline::EmojiFilter,
+      HTML::Pipeline::EmojiFilter,
       HTML::Pipeline::SanitizationFilter,
       HTML::Pipeline::SyntaxHighlightFilter,
 
