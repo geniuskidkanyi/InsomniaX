@@ -73,6 +73,7 @@ padding: 16px 0px 0px 0px;
   }
   &_search{
     background-color: #fefefe;
+    overflow: hidden;
 
   }
   &_send{
@@ -175,7 +176,7 @@ a.active i:after{
 h3.name {
   margin: 0 0 0.8em;
   font-weight: 300;
-  font-size: 110%;
+  font-size: 80%;
   color: $black;
 }
 

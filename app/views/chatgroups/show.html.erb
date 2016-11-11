@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <script type="text/javascript">
-var objDiv = document.getElementById("content");
-objDiv.scrollTop = objDiv.-;
+
+$(document).ready(function () {
+    $('.content').animate({
+        scrollTop: $('.content .message-container:last-child').position().top
+    }, 'slow');
+});
 </script>
 
  <div class="main_chat">
@@ -32,7 +36,7 @@ objDiv.scrollTop = objDiv.-;
    </ul>
    </div>
    <div class="main_chat_messages">
-     <div class="" data-behavior="messages" data-chatgroup-id="<%= @chatgroup.id %>" id="content">
+     <div class="content" data-behavior="messages" data-chatgroup-id="<%= @chatgroup.id %>" id="content">
      <% @chatgroup.messages.order(created_at: :desc).limit(100).reverse.each do |message| %>
      <%= render message %>
      <% end %>

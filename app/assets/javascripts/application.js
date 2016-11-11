@@ -57,6 +57,7 @@ $('p').linkify();
 
 $(document).on('ready turbolinks:load', function () {
     $('ul.tabs').tabs('select_tab', '#test1');
+    
 });
 $(document).on('ready turbolinks:load', function () {
 

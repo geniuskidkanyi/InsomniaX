@@ -1,32 +1,19 @@
+<div class="card col s12 m10 l9 offset-m2 offset-l3 news-feed-list">
+<div class="news-feed-details">
+  <%= link_to gravatar_post(micropost.user, size: 72), micropost.user, class: "news-feed-image" %>
+<div class="news-feed-person"><h5><%= link_to micropost.user.name, micropost.user %></h5>
+ <span><%= link_to micropost.user.username, micropost.user %></span></div>
+ <div class="news-feed-time"> 4 hours ago</div>
+   </div>
+ <hr />
+ <div class="news-feed-content">
+   <div class="micropost-img">  <%= image_tag micropost.picture.url unless micropost.picture.blank?  %></div>
+<%= markdownify micropost.content %>
 
-<div class="col s12 m10 l9 offset-m2 offset-l3">
-  <div class="item">
-        <div class="itemhead">
-            <%= link_to gravatar_post(micropost.user, size: 50), micropost.user %>
-            <h3><%= link_to micropost.user.name, micropost.user %></h3>
-            <div class="heart">
+ </div>
+ <div class="news-feed-social">
+ <span><i class="material-icons">favorite</i> like</span>
+   <span><i class="material-icons">chat_bubble_outline</i>comment</span>
+ </div>
 
-              <%= link_to like_micropost_path(micropost), method: :get, class: "vote", remote: true do %>
-              <div id="vote-<%= micropost.id %>">
-                   <i class="small material-icons">favorite_border</i> <%= "#{micropost.get_upvotes.size}" %>
-              </div>
-              <% end %>
-
-
-              <%= link_to dislike_micropost_path(micropost), method: :get, class: " vote", remote: true  do %>
-              <div id="unvote-<%= micropost.id %>">
-              <i class="small material-icons">thumb_down</i><%= "#{micropost.get_downvotes.size}" %>
-              </div>
-
-              <% end %>
-
-
-
-            </div>
-        </div>
-        <p><%= markdownify micropost.content %></p>
-        <div class="micropost-img">  <%= image_tag micropost.picture.url unless micropost.picture.blank?  %></div>
-
-
-    </div>
 </div>
