@@ -5,10 +5,11 @@ module ForumsHelper
       HTML::Pipeline::MarkdownFilter,
       HTML::Pipeline::EmojiFilter,
       HTML::Pipeline::SanitizationFilter,
-      HTML::Pipeline::SyntaxHighlightFilter,
+      HTML::Pipeline::RougeFilter,
+      HTML::Pipeline::MentionFilter,
+      HTML::Pipeline::AutolinkFilter,
 
-
-    ], pipeline_context
+      ], pipeline_context
     pipeline.call(content)[:output].to_s.html_safe
   end
 end
