@@ -2,6 +2,9 @@
     // They will automatically be included in application.css.
     // You can use Sass (SCSS) here: http://sass-lang.com/
     /* microposts */
+.micropost{
+      display: inline;
+}
 
 .panel-shadow {
  box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
@@ -144,4 +147,8 @@ h5{
   position:relative;
   top:-70px;
   padding: 16px 16px;
+}
+.news-feed-social{
+  padding-top: 8px;
+border-top: 1px solid black;
 }

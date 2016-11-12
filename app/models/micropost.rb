@@ -1,6 +1,7 @@
 class Micropost < ActiveRecord::Base
   acts_as_commentable
-    acts_as_votable
+  has_many :hearts, dependent: :destroy
+
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
     mount_uploader :picture, PictureUploader

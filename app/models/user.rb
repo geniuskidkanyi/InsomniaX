@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :chatgroup_users
   has_many :chatgroups, through: :chatgroup_users
   has_many :messages
+  has_many :hearts, dependent: :destroy
   has_many :forum_threads
   has_many :forum_posts
   # Include default devise modules. Others available are:
@@ -28,31 +29,6 @@ class User < ActiveRecord::Base
 
     default_scope { order('created_at DESC') }
 
-  def User.new_token
-    SecureRandom.urlsafe_base64
-  end
-    def mailboxer_email(object)
-        email
-    end
-  def remember
-    self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
-  end
-  # Returns true if the given token matches the digest.
-
-    # forem user classes
-  def forem_name
-    name
-  end
-  def forem_email
-    email
-  end
-    # Forgets a user.
-    def forget
-        update_attribute(:remember_digest, nil)
-    end
-    # Defines a proto-feed.
-    # See "Following users" for the full implementation.
 
      def feed
       following_ids = "SELECT followed_id FROM relationships
@@ -74,7 +50,20 @@ OR user_id = :user_id", user_id: id)
         following.include?(other_user)
     end
 
+    def heart!(micropost)
+      self.hearts.create!(micropost_id: micropost.id)
+    end
 
+    # destroys a heart with matching micropost_id and user_id
+    def unheart!(micropost)
+      heart = self.hearts.find_by_micropost_id(micropost.id)
+      heart.destroy!
+    end
+
+    # returns true of false if a micropost is hearted by user
+    def heart?(micropost)
+      self.hearts.find_by_micropost_id(micropost.id)
+    end
 
 
 

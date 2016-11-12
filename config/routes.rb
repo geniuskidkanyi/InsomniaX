@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hearts
   mount ActionCable.server => '/cable'
   resources :chatgroups do
     resource :chatgroup_users
@@ -39,8 +40,8 @@ Rails.application.routes.draw do
    end
   resources :microposts do
     member do
-      get "like", to: "microposts#upvote"
-get "dislike", to: "microposts#downvote"
+      get "heart", to: "microposts#heart", via: :post
+      delete "unheart", to: "microposts#unheart"
     end
  end
 
@@ -59,7 +60,8 @@ get "dislike", to: "microposts#downvote"
       post :mark_as_read
     end
   end
-
-
+  # get 'heart', to: 'hearts#heart', via: :post
+  #
+  # match 'unheart', to: 'hearts#unheart', via: :delete
 
 end

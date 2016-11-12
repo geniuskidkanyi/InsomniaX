@@ -19,18 +19,21 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
-  def upvote
+  def heart
+    @user = current_user
     @micropost = Micropost.find(params[:id])
-    @micropost.liked_by current_user
+    @user.heart!(@micropost)
     respond_to do |format|
       format.html { redirect_to :back }
       format.js
     end
   end
 
-  def downvote
+  def unheart
+    @user = current_user
+    @heart = @user.hearts.find_by_micropost_id(params[:id])
     @micropost = Micropost.find(params[:id])
-    @micropost.downvote_from current_user
+    @heart.destroy!
     respond_to do |format|
       format.html { redirect_to :back }
       format.js

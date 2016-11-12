@@ -1,5 +1,10 @@
-<% if  user_signed_in? && current_user.likes(@micropost) %>
-<%= link_to "Unlike", micropost_like_path(@micropost), method: :delete %>
+
+   <% if current_user.heart?(micropost) %>
+  <%= link_to unheart_micropost_path(micropost), class: "pink-text text-darken-1", remote: true, method: :delete do %>
+      <i class="material-icons">favorite</i>
+  <% end %>
 <% else %>
-<%= link_to "like", micropost_like_path(@micropost), method: :post %>
+  <%= link_to heart_micropost_path(micropost), class: "pink-text text-darken-1", remote: true do %>
+  <i class="material-icons">favorite_border</i>
+  <% end %>
 <% end %>

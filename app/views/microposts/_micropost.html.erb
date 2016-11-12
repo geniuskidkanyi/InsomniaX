@@ -12,7 +12,10 @@
 
  </div>
  <div class="news-feed-social">
- <span><i class="material-icons">favorite</i> like</span>
+ <span><%= div_for micropost do %>
+     <%= render partial: "microposts/likes", locals: { micropost: micropost } %>
+  <% end %>
+</span>
    <span><i class="material-icons">chat_bubble_outline</i>comment</span>
  </div>
 
