@@ -9,7 +9,7 @@ end
 
 def unheart
   @user = current_user
-  @heart = @user.hearts.find_by_micropost_id(params[:micropost_id])
-  @micropost = Micropost.find(params[:micropost_id])
+  @heart = @user.hearts.find_by_micropost_id(params[:id])
+  @micropost = Micropost.find(params[:id])
   @heart.destroy!
 end

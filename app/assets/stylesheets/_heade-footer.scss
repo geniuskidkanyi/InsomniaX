@@ -124,7 +124,7 @@ textarea.materialize-textarea {
     border-bottom: #fff 1px solid;
 }
 .side-nav.fixed .userView{
-  height: 300px;
+  height: 250px;
   padding: 0;
   .circle{
     z-index: 99;
@@ -139,18 +139,18 @@ transform: translate3d(-50%, -50%, 0);
   .background{
     height: 100%;
     width: 100%;
-    position: relative;
-    top: -43%;
+    position: absolute;
+    top: 0;
   }
   .name{
     position: relative;
-    top: -88%;
+    top: -40%;
     padding-left: 30px;
 
   }
   .email{
     position: relative;
-    top: -88%;
+    top: -42%;
     padding-left: 30px;
   }
 }

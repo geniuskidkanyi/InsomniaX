@@ -51,14 +51,7 @@
 				<li class="twPc-ArrangeSizeFit ">
 					<%= link_to "About", about_user_path(@user), class: "btn" %>
 				</li>
-					<li class="twPc-ArrangeSizeFit hide-on-small-only">
-						<% unless current_user == @user %>
-						<%= link_to(new_message_path(to: @user.id), :class => 'waves-effect waves-light btn') do %>
-						<i class="fa fa-pencil"></i>  Send message
-						<% end %>
-						 <% end %>
-					</li>
-
+			
 			</ul>
 		</div>
 	</div>

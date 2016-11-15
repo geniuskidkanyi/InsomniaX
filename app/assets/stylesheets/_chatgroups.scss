@@ -145,14 +145,15 @@ a.active i:after{
   @include scrolling-shadows(#F4F5F7);
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
+
 
 .message-container {
   margin-bottom: 3em;
   margin-left: 4em;
   position: relative;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .pic-container {

@@ -76,7 +76,7 @@
 
                 <div class="divider hide-on-large-only"></div>
                 <ul class="nav list-group">
-                    <%= link_to  main_app.user_path(current_user), class: "userView" do %>
+                  <li>  <%= link_to  main_app.user_path(current_user), class: "userView" do %>
 
                     <%= gravatar_mprofile current_user %>
 
@@ -84,7 +84,8 @@
                     <span class="white-text name"><%= current_user.name %></span>
                     <span class="white-text email"><%= current_user.email %></span>
 
-                    <% end %>
+                    <% end %></li>
+
                     <li>
                         <h5>chatgroups</h5>
                         <ul>
