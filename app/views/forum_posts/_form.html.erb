@@ -2,7 +2,7 @@
   <%= form_for [@forum_thread, @forum_post] do |f| %>
 
   <div class="input-field col s12">
-    <%= f.simplemde_text_area :body,rows: '10', id: "textarea2", class: "materialize-textarea" %>
+    <%= f.text_area :body,rows: '10', id: "textarea2", class: "materialize-textarea" %>
 
 
       </div>
@@ -14,3 +14,6 @@
   parse with markdown
 </p>
 </div>
+<script>
+var simplemde = new SimpleMDE({ element: document.getElementById("textarea2"), showIcons: ["code", "table"] });
+</script>
