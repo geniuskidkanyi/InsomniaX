@@ -9,12 +9,12 @@
 <span class="title"><%= link_to chatgroup.name , chatgroup  %></span>
 <div class="description">
 <div><%= chatgroup.description %> </div>
-
   <span class="chat-owner"><%= link_to "Join Room", chatgroup_chatgroup_users_path(chatgroup), method: :post %></span>
-|  <span class="members"><%= link_to "Leave Room", chatgroup_chatgroup_users_path(chatgroup), method: :delete %></span>
+  |  <span class="members"><%= link_to "Leave Room", chatgroup_chatgroup_users_path(chatgroup), method: :delete %></span>
+<% if current_user.admin? %>
 | <span class="Destroy"><%= link_to 'Destroy', chatgroup, method: :delete, data: { confirm: 'Are you sure?' }  %></span>
 | <span class="edit"><%= link_to 'Edit', edit_chatgroup_path(chatgroup) %></span>
-
+<% end %>
   </div>
-</div>
+
 </li>
