@@ -33,6 +33,7 @@
 //= require notifications
 //= require notification
 //= require local_time
+//= require simplemde.min
 $(document).ready(function(){
       $('.parallax').parallax();
     });
@@ -52,6 +53,8 @@ $('p').linkify();
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+
+
 });
 
 $(document).on('ready turbolinks:load', function () {

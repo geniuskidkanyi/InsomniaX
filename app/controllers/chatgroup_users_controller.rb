@@ -1,8 +1,9 @@
 class ChatgroupUsersController < ApplicationController
   before_action :authenticate_user!
     before_action :set_chatgroup
-    def create
 
+
+    def create
       @chatgroup_user = @chatgroup.chatgroup_users.where(user_id: current_user.id).first_or_create
       redirect_to @chatgroup
     end

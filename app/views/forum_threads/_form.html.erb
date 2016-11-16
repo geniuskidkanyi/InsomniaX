@@ -11,13 +11,17 @@
 
   <%= f.fields_for :forum_posts do |p| %>
   <div class="input-field col s12">
-    <%= p.text_area :body,rows: '10', id: "textarea1", class: "materialize-textarea" %>
 
-          <label for="textarea1">enter your description </label>
+    <%= p.text_area :body,rows: '10', id: "textarea2", class: "materialize-textarea" %>
+<% end %>
+
       </div>
 
-  <% end %>
+
   <%= f.button "create thread", class: "waves-effect waves-light btn loginButton" %>
+  <p class="parse">
+    parse with markdown
+  </p>
 </div>
 
 <% end %>

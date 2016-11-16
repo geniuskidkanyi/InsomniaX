@@ -1,6 +1,6 @@
 class ChatgroupsController < ApplicationController
   before_action :set_chatgroup, only: [:show, :edit, :update, :destroy]
-  helper_method :group_admin
+
 
   # GET /chatgroups
   # GET /chatgroups.json
@@ -68,7 +68,7 @@ class ChatgroupsController < ApplicationController
       @chatgroup = Chatgroup.friendly.find(params[:id])
       @users = @chatgroup.users.all
     end
-    
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def chatgroup_params
       params.require(:chatgroup).permit(:name, :description, :slug)

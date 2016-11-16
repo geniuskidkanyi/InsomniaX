@@ -26,6 +26,7 @@ gem 'impressionist', github: "charlotte-ruby/impressionist"
 gem 'acts_as_commentable_with_threading'
 gem 'modernizr-rails'
 gem 'ckeditor'
+gem 'simplemde-rails'
 
 # gem 'rack-contrib'
 # gem 'soulmate', :require => 'soulmate/server'

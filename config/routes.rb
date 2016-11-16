@@ -60,8 +60,6 @@ Rails.application.routes.draw do
       post :mark_as_read
     end
   end
-  # get 'heart', to: 'hearts#heart', via: :post
-  #
-  # match 'unheart', to: 'hearts#unheart', via: :delete
+
 
 end
