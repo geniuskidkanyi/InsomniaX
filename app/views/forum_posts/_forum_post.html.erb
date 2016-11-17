@@ -1,21 +1,20 @@
 
 
   <%= div_for forum_post do %>
+<div class="card forum">
+<div class="forum-pic">
+  <%= gravatar_forum(forum_post.user, size: 54)  %>
+</div>
+<div class="forum-message">
+  <div class="forum-detail">
+    <%= forum_post.user.name %> commented on <%= local_time_ago forum_post.created_at %>
+  </div>
+<%= markdownify forum_post.body %>
+</div>
 
-  <li>
-    <div class="avatar">
-      <img src="http://www.croop.cl/UI/twitter/images/carl.jpg">
-      <div class="hover">
-        <div class="icon-twitter"></div>
-      </div>
-    </div>
-    <div class="bubble-container">
-      <div class="bubble">
-        <h3><%= forum_post.user.name %>  <%= local_time_ago forum_post.created_at %></h3><br/>
-      <%= markdownify forum_post.body %>
 
-      </div>
-      <div class="arrow"></div>
-    </div>
-  </li>
+
+</div>
+
+
 <% end %>

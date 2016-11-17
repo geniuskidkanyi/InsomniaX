@@ -10,3 +10,24 @@
           <% end %>
 
   </div>
+  <h3 class="question-test">Recent Questions</h3>
+
+  <% @forum_threads.each do |forum_thread| %>
+  <div class="card questions">
+    <%= link_to forum_thread_path(id: forum_thread.slug) do %>
+    <div class="questions-wrap">
+      <div class="questions-subject">
+        <%= forum_thread.subject%>
+      </div>
+
+    <div class="questions-user">
+      <%= gravatar_forum(forum_thread.user, size: 12)  %>
+        <%= forum_thread.user.name %>
+    </div>
+    </div>
+
+
+  <% end %>
+</div>
+
+  <% end %>

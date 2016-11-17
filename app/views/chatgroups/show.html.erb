@@ -3,9 +3,17 @@
 <script type="text/javascript">
 
 $(document).ready(function () {
-    $('.content').animate({
-        scrollTop: $('.content .message-container:last-child').position().top
-    }, 'slow');
+    // $('.content').animate({
+    //     scrollTop: $('.content .message-container:last-child').position().top
+    // }, 'slow');
+
+    var claerResizeScroll;
+
+    claerResizeScroll = function() {
+      $("#message_body").val("");
+      $(".message-container").getNiceScroll(0).resize();
+      return scrollTop: $('.content .message-container:last-child').position().top
+    };
 });
 </script>
 
@@ -43,7 +51,7 @@ $(document).ready(function () {
      </div>
      <div class="editor ">
        <%= form_for [@chatgroup, Message.new] do |f| %>
-       <%= f.text_field :body, autofocus: :true, class: "main_chat_form" %>
+       <%= f.text_field :body, autofocus: :true, class: "main_chat_form"  %>
      <button class="btn btn-icon btn-big right">send</button>
 <% end %>
    </div>

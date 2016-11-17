@@ -1,0 +1,7 @@
+<h3 class="question-test">Recent Questions</h3>
+<div class="card questions">
+<% @forum_thread.each |forum_thread| do %>
+<%= forum_thread.subject %>
+<%= forum_thread.forum_posts.first.user %>
+<% end %>
+</div>

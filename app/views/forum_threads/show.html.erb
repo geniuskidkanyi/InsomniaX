@@ -1,12 +1,10 @@
 <span class="first">
-			<%= @forum_thread.subject %> Created by <%= @forum_thread.user.name %>
+			<%= @forum_thread.subject %> by <%= @forum_thread.user.name %>
 			<span class="icon-edit new"></span>
 		</span>
 
-<ul class="timeline">
-  <%= render @forum_thread.forum_posts %>
-</ul>
 
-  <hr />
+  <%= render @forum_thread.forum_posts %>
+
 
     <%= render partial: "forum_posts/form" %>

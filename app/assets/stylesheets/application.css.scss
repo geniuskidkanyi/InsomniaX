@@ -5,6 +5,7 @@
 @import "materialize";
 @import 'iphone';
 @import "forums";
+@import "iphone";
 @import "users";
 @import "microposts";
 @import "index";
@@ -98,3 +99,13 @@ body {
     color: black;
     font-weight: 300;
 }
+
+blockquote {background-color: #eeeeee;
+display: inline-block;
+line-height: 1em;
+padding: 0.5em;
+margin-left: 0em;
+border: 2px solid;
+border-radius: 4px;
+color: #000;
+margin: 4px;}

@@ -34,6 +34,7 @@
 //= require notification
 //= require local_time
 //= require simplemde.min
+//= require forums
 $(document).ready(function(){
       $('.parallax').parallax();
     });
