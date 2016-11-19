@@ -85,7 +85,8 @@
                     <span class="white-text email"><%= current_user.email %></span>
 
                     <% end %></li>
-
+                    <li><%= link_to 'Forum', main_app.forum_threads_path, class: 'list-group-item' %></li>
+                    <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
                     <li>
                         <h5>chatgroups</h5>
                         <ul>
@@ -94,7 +95,7 @@
                           <% end %>
                         </ul>
                     </li>
-                    <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
+
 
                     <!--          end of login user-->
 

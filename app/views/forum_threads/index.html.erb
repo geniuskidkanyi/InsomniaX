@@ -1,10 +1,12 @@
 
-  <div class="pull-right">
-    <%= link_to "New Thread", new_forum_thread_path, class: "btn btn-success" %>
-  </div>
 
-<ul class="collection with-header">
-       <li class="collection-header light-blue darken-3 forum-head"><h4>Forum Thread</h4></li>
+<div class="row">
+  <ul class="collection with-header col s12 m10 l9 offset-m1 offset-l2 ">
+         <li class="collection-header light-blue darken-3 forum-head"><h4 style="display: inline-block;">Forum Thread</h4> <div class="right">
+           <%= link_to "New Thread", new_forum_thread_path, class: "btn btn-success" %>
+         </div></li>
 
-         <%= render @forum_threads %>
- </ul>
+           <%= render @forum_threads %>
+   </ul>
+
+</div>
