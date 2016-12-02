@@ -1,5 +1,48 @@
-<div id="page_wrapper">
+<% provide(:title, "Blog") %>
+<script type="text/javascript">
+$(window).load(function() {
+$('.post-module').hover(function() {
+  $(this).find('.description').stop().animate({
+    height: "toggle",
+    opacity: "toggle"
+  }, 300);
+});
+});
+</script>
+    <div class="row">
+        <h2 class="text-center">BLOGS </h2>
+        <hr/>
+    </div>
+    <div class="row">
+<% @articles.each do |article| %>
+<%= link_to article do %>
+<div class="post-module col s12 m4 s4">
+     <!-- Thumbnail-->
+     <div class="thumbnail">
+       <div class="date">
+         <div class="day"><%= article.created_at.strftime("%b") %></div>
+         <div class="month"><%= article.created_at.strftime("%d") %></div>
+       </div> <%= article_for article %> 
+     </div>
+     <!-- Post Content-->
+     <div class="post-content">
+       <% if article.tags.nil? %>
+
+       <% else %>
+
+       <div class="category"><%= article.tags.first %></div>
+       <% end %>
+
+       <h1 class="title"><%= article.title %></h1>
+       <!-- <h2 class="sub_title">The city that never sleeps.</h2> -->
+       <p class="description"><%= article.body %>.</p>
+       <div class="post-meta">
+         <span class="comments"><i class="fa fa-comments"></i><a href="#"> <%= "#{article.impressionist_count} views" %></a></span></div>
+     </div>
+   </div>
+<% end %>
 
 
-  <%= render @rticles %>
+
+<% end %>
 </div>

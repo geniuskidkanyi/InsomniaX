@@ -18,7 +18,7 @@
 @import "heade-footer";
 @import "chatgroups";
 @import "simplemde.min";
-html{font-family: 'Lato', sans-serif;}
+html{font-family: sans-serif;}
 h1,h2,h3,h4,h5,h6{text-transform: uppercase}
 h3{font-size: 1.5em}
 @media (max-width: 601px){
@@ -100,7 +100,8 @@ body {
     font-weight: 300;
 }
 
-blockquote {background-color: #eeeeee;
+blockquote {
+background-color: #eeeeee;
 display: inline-block;
 line-height: 1em;
 padding: 0.5em;

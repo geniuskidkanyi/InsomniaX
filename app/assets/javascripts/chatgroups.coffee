@@ -11,5 +11,5 @@ $(document).on "turbolinks:load", ->
     body        = $("#message_body")
     #
     App.chatgroups.send_message(chatgroup_id, body.val())
-  
+
     body.val("")
