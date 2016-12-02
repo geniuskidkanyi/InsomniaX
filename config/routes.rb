@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resource :chatgroup_users
     resources :messages
   end
+  authenticated :user do
 
+   root 'chatgroups#index', as: :authenticated_root
+  end
   root 'pages#index'
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -38,18 +41,18 @@ Rails.application.routes.draw do
 
       end
    end
-  resources :microposts do
-    member do
-      get "heart", to: "microposts#heart", via: :post
-      delete "unheart", to: "microposts#unheart"
-    end
- end
+ #  resources :microposts do
+ #    member do
+ #      get "heart", to: "microposts#heart", via: :post
+ #      delete "unheart", to: "microposts#unheart"
+ #    end
+ # end
 
-
- resources :microposts, only: [:create, :destroy]
+ #
+ # resources :microposts, only: [:create, :destroy]
  resources :relationships, only: [:create, :destroy]
 
-  resources :comments
+  # resources :comments
   resources :tags, only: [:index, :show]
   resources :forum_threads, path: '/forums/'  do
     resources :forum_posts, module: :forum_threads
