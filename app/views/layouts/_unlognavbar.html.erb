@@ -1,0 +1,39 @@
+<%= render 'layouts/login_dropdown' %>
+
+<!--   end of navbar dropdowns-->
+<div class="navbar-fixed ">
+    <nav role="navigation">
+        <div class="nav-wrapper">
+            <%= link_to image_tag('logo.png', alt: 'logo', class: 'brand-logo', id: 'logo-container'), main_app.root_path %>
+
+
+            <%= link_to "Login", main_app.new_user_session_path, class: "right waves-effect waves-light btn navbarBtn" %>
+
+
+            <!--    egining of mobile navigation-->
+            <ul class="right hide-on-med-and-down">
+                <li><%= link_to 'Forum', main_app.forum_threads_path %></li>
+                <li><%= link_to "Blog", main_app.articles_path %></li>
+
+
+
+
+            </ul>
+            <!--end desktop navigation-->
+
+
+<a href="#" data-activates="nav-mobile" class="button-collapse">
+<i class="material-icons">menu</i>
+</a>
+
+
+</div>
+</nav>
+</div>
+
+
+<style media="screen">
+header, .brand-logo, .main {
+   margin-left: 0;
+}
+</style>

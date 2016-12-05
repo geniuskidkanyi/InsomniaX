@@ -35,6 +35,7 @@
 //= require local_time
 //= require simplemde.min
 //= require forums
+//= require microposts
 $(document).ready(function(){
       $('.parallax').parallax();
     });

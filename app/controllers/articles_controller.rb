@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
         render 'new'
          end
     end
+
     def show
         @article = Article.friendly.find(params[:id])
         @articles = Article.friendly.order("created_at DESC").limit(5).offset(1)

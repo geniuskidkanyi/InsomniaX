@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resource :chatgroup_users
     resources :messages
   end
-
+  authenticated :user do
+  #  get '/home', to: 'pages#home', as: :authenticated_root
+   root 'pages#home', as: :authenticated_root
+  end
   root 'pages#index'
 
   mount Ckeditor::Engine => '/ckeditor'

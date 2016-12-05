@@ -11,7 +11,7 @@
     <%= display_meta_tags %>
       <meta/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content='<%=  user_signed_in? ? current_user.name : "" %>' name='user-id'/>
+    <meta content='<%=  user_signed_in? ? current_user.name : "insomniax for geeks" %>' name='user-id'/>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,11 +25,12 @@
 
   </head>
   <body>
-    <%= render 'layouts/navbar' %>
+
 
     <!--main content-->
 
     <% if user_signed_in? %>
+      <%= render 'layouts/navbar' %>
     <main>
       <div class="row main">
 
@@ -48,10 +49,10 @@
     </main>
 
   <% else %>
-
+  <%= render 'layouts/unlognavbar' %>
     <main class="main">
     <%= flash_messages %>
-      <%= render 'layouts/login_modal' %>
+
       <%= yield %>
 
     </main>
