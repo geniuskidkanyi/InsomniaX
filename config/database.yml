@@ -27,7 +27,7 @@ development:
   <<: *default
   host: localhost
   database: insomniax_development
-  username: insomniax
+  username: geniuskid
   password: sweetbj1
 
   # The specified database role being used to connect to postgres.
@@ -64,7 +64,7 @@ test:
   <<: *default
   host: localhost
   database: insomniax_test
-  username: insomniax
+  username: geniuskid
   password: sweetbj1
 
 # As with config/secrets.yml, you never want to store sensitive information,
