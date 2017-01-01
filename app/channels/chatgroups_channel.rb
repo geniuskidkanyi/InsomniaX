@@ -13,7 +13,8 @@ class ChatgroupsChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-    # Rails.logger.info data
+    Rails.logger.info data
+    # binding.pry
     @chatgroup = Chatgroup.find(data["chatgroup_id"])
     message   = @chatgroup.messages.create(body: data["body"], user: current_user)
     MessageRelayJob.perform_later(message)

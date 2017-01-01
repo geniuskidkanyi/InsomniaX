@@ -71,6 +71,7 @@
   padding: 16px;
     display: flex;
     margin: 4px;
+    padding: 8px !important;
     &-pic{
   width: 20%;
     }
@@ -78,6 +79,7 @@
     font-weight: 300;}
     &-detail{font-size: 12px;
     font-weight: 300;
+    text-align: right;
     padding-bottom: 10px;}
 }
 .first{
@@ -90,5 +92,5 @@
     text-transform: capitalize;
     font-weight: 400;
     color: white;
-    padding: 8px 0;
+    padding: 8px 0 !important;
 }

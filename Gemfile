@@ -27,7 +27,7 @@ gem 'acts_as_commentable_with_threading'
 gem 'modernizr-rails'
 gem 'ckeditor'
 gem 'simplemde-rails'
-
+gem 'pry'
 # gem 'rack-contrib'
 # gem 'soulmate', :require => 'soulmate/server'
 gem 'will_paginate-bootstrap'

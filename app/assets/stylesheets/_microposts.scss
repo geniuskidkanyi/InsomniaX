@@ -119,7 +119,9 @@
 .news-feed-list {
   margin:40px;
   padding: 16px !important;
-
+@include until($tablet){
+    margin: 32px;
+}
   span{
     font-weight: 300;
   }
@@ -139,6 +141,9 @@
   height: 50px;
 h5{
   margin: 0;font-size: 16px;
+  @include until($tablet){
+    font-size: 10px;
+  };
   font-weight: 300;
 }
 

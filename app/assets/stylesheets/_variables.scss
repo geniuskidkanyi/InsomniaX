@@ -17,3 +17,17 @@ $black: #252525;
 $grey: #6f6f6f;
 $lightgrey: #aaa;
 $green: #4BDB9C;
+$mobile: 468px;
+$tablet: 768px;
+
+@mixin at-least($device) {
+  @media screen and (min-width:$device) {
+    @content;
+  }
+}
+
+@mixin until($device) {
+  @media screen and (max-width:$device) {
+    @content;
+  }
+}
