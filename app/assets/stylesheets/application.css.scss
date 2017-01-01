@@ -110,3 +110,13 @@ border: 2px solid;
 border-radius: 4px;
 color: #000;
 margin: 4px;}
+#sidenav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120vh;
+    background-color: rgba(0, 0, 0, 0.5);
+     z-index: -997;
+    /* will-change: opacity; */
+}
