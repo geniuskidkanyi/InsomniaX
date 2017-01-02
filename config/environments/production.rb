@@ -80,6 +80,8 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
+  config.action_cable.url = 'wss://insomniax.biz/cable'
+  config.action_cable.allowed_request_origins = ["https://insomniax.biz", /https:\/\/www.*/]
   config.active_job.queue_adapter = :sucker_punch
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
