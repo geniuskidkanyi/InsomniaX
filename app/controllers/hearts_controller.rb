@@ -13,3 +13,4 @@ def unheart
   @micropost = Micropost.find(params[:id])
   @heart.destroy!
 end
+end
