@@ -20,7 +20,9 @@ $cont[0].scrollTop = $cont[0].scrollHeight;
            <i class="material-icons">close</i>
          </div>
      <ul class="collection">
-       <% @chatgroup.users.each do |user| %>
+
+       <%  (@chatgroup.users - [current_user]).each do |user|  %>
+       <%= link_to  direct_message_path(user.id), data: {behavior: "chatgroup-link", chatgroup_id: Chatgroup.direct_message_for_users([current_user, user]).id } do %>
        <li class="collection-item avatar">
          <%= gravatar_forum(user)  %>
 
@@ -29,6 +31,9 @@ $cont[0].scrollTop = $cont[0].scrollHeight;
          </p>
 
        </li>
+       <% end %>
+
+
 
        <% end %>
 
@@ -37,11 +42,18 @@ $cont[0].scrollTop = $cont[0].scrollHeight;
    </ul>
    </div>
    <div class="main_chat_messages">
-     <div class="content" data-behavior="messages" data-chatgroup-id="<%= @chatgroup.id %>" id="content">
-     <% @chatgroup.messages.order(created_at: :desc).limit(100).reverse.each do |message| %>
-     <%= render message %>
-     <% end %>
-     </div>
+     <% unread_messages = false %>
+<div class="content" data-behavior="messages" data-chatgroup-id="<%= @chatgroup.id %>" id="content">
+  <% @messages.each do |message| %>
+    <% if !unread_messages && @chatgroup_user.last_read_at < message.created_at %>
+      <% unread_messages = true %>
+      <div class="strike"><span>Unread Messages</span></div>
+    <% end %>
+
+    <%= render message %>
+  <% end %>
+</div>
+
      <div class="editor ">
        <%= form_for [@chatgroup, Message.new] do |f| %>
        <%= f.text_field :body, autofocus: :true, class: "main_chat_form"  %>

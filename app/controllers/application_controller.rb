@@ -57,6 +57,7 @@ end
     def load_activities
     @q = ForumThread.search(params[:q])
     @forum_threads = ForumThread.first(10)
+    @direct_messages = Chatgroup.direct_messages
     end
     # Confirms a logged-in user.
     def logged_in_user

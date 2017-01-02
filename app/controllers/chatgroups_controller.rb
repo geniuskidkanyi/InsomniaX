@@ -1,16 +1,20 @@
 class ChatgroupsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_chatgroup, only: [:show, :edit, :update, :destroy]
 
 
   # GET /chatgroups
   # GET /chatgroups.json
   def index
-    @chatgroups = Chatgroup.all
+    @chatgroups = Chatgroup.public_channels
+    @direct_messages = Chatgroup.direct_messages
   end
 
   # GET /chatgroups/1
   # GET /chatgroups/1.json
   def show
+    @messages = @chatgroup.messages.order(created_at: :desc).limit(100).reverse
+    @chatgroup_user = current_user.chatgroup_users.find_by(chatgroup_id: @chatgroup.id)
   end
 
   # GET /chatgroups/new

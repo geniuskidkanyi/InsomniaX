@@ -95,14 +95,7 @@
                           <% end %>
                         </ul>
                     </li>
-                    <li>
-                        <h5>Direct messages</h5>
-                        <ul>
-                          <% User.all - [current_user].each do |user|  %>
-                          <li><%= link_to user.name, '#', data: {behavior: "chatgroup-link", chatgroup_id: "#"} %></li>
-                          <% end %>
-                        </ul>
-                    </li>
+                
 
 
                     <!--          end of login user-->

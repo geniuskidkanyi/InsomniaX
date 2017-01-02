@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :chatgroup_users
     resources :messages
   end
+  resources :direct_messages
   authenticated :user do
   #  get '/home', to: 'pages#home', as: :authenticated_root
    root 'pages#home', as: :authenticated_root

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112171310) do
+ActiveRecord::Schema.define(version: 20170102030748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,16 +55,18 @@ ActiveRecord::Schema.define(version: 20161112171310) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.datetime "last_read_at"
     t.index ["chatgroup_id"], name: "index_chatgroup_users_on_chatgroup_id", using: :btree
     t.index ["user_id"], name: "index_chatgroup_users_on_user_id", using: :btree
   end
 
   create_table "chatgroups", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.text     "description"
     t.string   "slug"
+    t.boolean  "direct_message", default: false
     t.index ["slug"], name: "index_chatgroups_on_slug", unique: true, using: :btree
   end
 
@@ -97,6 +99,95 @@ ActiveRecord::Schema.define(version: 20161112171310) do
     t.datetime "updated_at"
     t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "forem_categories", force: :cascade do |t|
+    t.string   "name",                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+    t.integer  "position",   default: 0
+    t.index ["slug"], name: "index_forem_categories_on_slug", unique: true, using: :btree
+  end
+
+  create_table "forem_forums", force: :cascade do |t|
+    t.string  "name"
+    t.text    "description"
+    t.integer "category_id"
+    t.integer "views_count", default: 0
+    t.string  "slug"
+    t.integer "position",    default: 0
+    t.index ["slug"], name: "index_forem_forums_on_slug", unique: true, using: :btree
+  end
+
+  create_table "forem_groups", force: :cascade do |t|
+    t.string "name"
+    t.index ["name"], name: "index_forem_groups_on_name", using: :btree
+  end
+
+  create_table "forem_memberships", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "member_id"
+    t.index ["group_id"], name: "index_forem_memberships_on_group_id", using: :btree
+  end
+
+  create_table "forem_moderator_groups", force: :cascade do |t|
+    t.integer "forum_id"
+    t.integer "group_id"
+    t.index ["forum_id"], name: "index_forem_moderator_groups_on_forum_id", using: :btree
+  end
+
+  create_table "forem_posts", force: :cascade do |t|
+    t.integer  "topic_id"
+    t.text     "text"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "reply_to_id"
+    t.string   "state",       default: "pending_review"
+    t.boolean  "notified",    default: false
+    t.index ["reply_to_id"], name: "index_forem_posts_on_reply_to_id", using: :btree
+    t.index ["state"], name: "index_forem_posts_on_state", using: :btree
+    t.index ["topic_id"], name: "index_forem_posts_on_topic_id", using: :btree
+    t.index ["user_id"], name: "index_forem_posts_on_user_id", using: :btree
+  end
+
+  create_table "forem_subscriptions", force: :cascade do |t|
+    t.integer "subscriber_id"
+    t.integer "topic_id"
+  end
+
+  create_table "forem_topics", force: :cascade do |t|
+    t.integer  "forum_id"
+    t.integer  "user_id"
+    t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "locked",       default: false,            null: false
+    t.boolean  "pinned",       default: false
+    t.boolean  "hidden",       default: false
+    t.datetime "last_post_at"
+    t.string   "state",        default: "pending_review"
+    t.integer  "views_count",  default: 0
+    t.string   "slug"
+    t.index ["forum_id"], name: "index_forem_topics_on_forum_id", using: :btree
+    t.index ["slug"], name: "index_forem_topics_on_slug", unique: true, using: :btree
+    t.index ["state"], name: "index_forem_topics_on_state", using: :btree
+    t.index ["user_id"], name: "index_forem_topics_on_user_id", using: :btree
+  end
+
+  create_table "forem_views", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "viewable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "count",             default: 0
+    t.string   "viewable_type"
+    t.datetime "current_viewed_at"
+    t.datetime "past_viewed_at"
+    t.index ["updated_at"], name: "index_forem_views_on_updated_at", using: :btree
+    t.index ["user_id"], name: "index_forem_views_on_user_id", using: :btree
+    t.index ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
   end
 
   create_table "forum_posts", force: :cascade do |t|
@@ -157,6 +248,56 @@ ActiveRecord::Schema.define(version: 20161112171310) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
+    t.integer "unsubscriber_id"
+    t.string  "unsubscriber_type"
+    t.integer "conversation_id"
+    t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id", using: :btree
+    t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
+  end
+
+  create_table "mailboxer_conversations", force: :cascade do |t|
+    t.string   "subject",    default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "mailboxer_notifications", force: :cascade do |t|
+    t.string   "type"
+    t.text     "body"
+    t.string   "subject",              default: ""
+    t.integer  "sender_id"
+    t.string   "sender_type"
+    t.integer  "conversation_id"
+    t.boolean  "draft",                default: false
+    t.string   "notification_code"
+    t.integer  "notified_object_id"
+    t.string   "notified_object_type"
+    t.string   "attachment"
+    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                           null: false
+    t.boolean  "global",               default: false
+    t.datetime "expires"
+    t.index ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id", using: :btree
+    t.index ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type", using: :btree
+    t.index ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type", using: :btree
+    t.index ["type"], name: "index_mailboxer_notifications_on_type", using: :btree
+  end
+
+  create_table "mailboxer_receipts", force: :cascade do |t|
+    t.integer  "receiver_id"
+    t.string   "receiver_type"
+    t.integer  "notification_id",                            null: false
+    t.boolean  "is_read",                    default: false
+    t.boolean  "trashed",                    default: false
+    t.boolean  "deleted",                    default: false
+    t.string   "mailbox_type",    limit: 25
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
+    t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
+  end
+
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "action_method"
@@ -176,6 +317,18 @@ ActiveRecord::Schema.define(version: 20161112171310) do
     t.integer  "related_change_id"
     t.string   "description"
     t.datetime "created_at"
+  end
+
+  create_table "merit_score_points", force: :cascade do |t|
+    t.integer  "score_id"
+    t.integer  "num_points", default: 0
+    t.string   "log"
+    t.datetime "created_at"
+  end
+
+  create_table "merit_scores", force: :cascade do |t|
+    t.integer "sash_id"
+    t.string  "category", default: "default"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -209,6 +362,13 @@ ActiveRecord::Schema.define(version: 20161112171310) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -217,6 +377,11 @@ ActiveRecord::Schema.define(version: 20161112171310) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
     t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+  end
+
+  create_table "sashes", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -245,8 +410,8 @@ ActiveRecord::Schema.define(version: 20161112171310) do
     t.string   "username"
     t.string   "description"
     t.integer  "age"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "encrypted_password"
     t.string   "remember_digest"
     t.boolean  "admin",                  default: false
@@ -258,7 +423,7 @@ ActiveRecord::Schema.define(version: 20161112171310) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,                null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -267,7 +432,7 @@ ActiveRecord::Schema.define(version: 20161112171310) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,     null: false
+    t.integer  "failed_attempts",        default: 0,                null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "invitation_token"
@@ -278,6 +443,11 @@ ActiveRecord::Schema.define(version: 20161112171310) do
     t.string   "invited_by_type"
     t.integer  "invited_by_id"
     t.integer  "invitations_count",      default: 0
+    t.boolean  "forem_admin",            default: false
+    t.string   "forem_state",            default: "pending_review"
+    t.boolean  "forem_auto_subscribe",   default: false
+    t.integer  "sash_id"
+    t.integer  "level",                  default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
@@ -303,6 +473,9 @@ ActiveRecord::Schema.define(version: 20161112171310) do
 
   add_foreign_key "chatgroup_users", "chatgroups"
   add_foreign_key "chatgroup_users", "users"
+  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
+  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
+  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "messages", "chatgroups"
   add_foreign_key "messages", "users"
   add_foreign_key "microposts", "users"
