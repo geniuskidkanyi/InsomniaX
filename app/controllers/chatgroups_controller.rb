@@ -33,6 +33,7 @@ class ChatgroupsController < ApplicationController
 
     respond_to do |format|
       if @chatgroup.save
+         @chatgroup.chatgroup_users.where(user_id: current_user.id).first_or_create
         format.html { redirect_to @chatgroup, notice: 'Chatgroup was successfully created.' }
         format.json { render :show, status: :created, location: @chatgroup }
       else
