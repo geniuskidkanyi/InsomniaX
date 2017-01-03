@@ -111,6 +111,7 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    big_sitemap (1.1.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bourbon (3.1.8)
@@ -530,6 +531,7 @@ DEPENDENCIES
   autoprefixer-rails
   bcrypt (~> 3.1.7)
   better_errors
+  big_sitemap
   binding_of_caller
   bourbon (~> 3.1.8)
   byebug

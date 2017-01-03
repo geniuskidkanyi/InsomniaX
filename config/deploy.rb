@@ -92,14 +92,17 @@ namespace :deploy do
             invoke 'deploy'
         end
     end
-
+    desc "Generate sitemap"
+      task :sitemap do
+        run "cd '#{current_path}' && #{bundle exec rake} custom:sitemap RAILS_ENV=#{rails_env}"
+      end
     desc 'Restart application'
     task :restart do
         on roles(:app), in: :sequence, wait: 5 do
             invoke 'puma:restart'
         end
     end
-
+    after 'deploy:update', 'deploy:sitemap'
     before :starting,     :check_revision
     after  :finishing,    :compile_assets
     after  :finishing,    :cleanup

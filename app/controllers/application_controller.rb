@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
 
       def prepare_meta_tags(options={})
         site_name   = "Insomniax"
-        description = "Super charge your skills with expert authored tech and creative training with insomniax(Atus sec). the best social networkign site
+        description = "Super charge your skills with expert authored tech and creative training with
+         insomniax(Atus sec). the best social networking site
         for geeks "
         current_url = request.url
         image =
@@ -20,11 +21,11 @@ class ApplicationController < ActionController::Base
         defaults = {
           site:        site_name,
           description: description,
-          keywords:    %w[website socialnetworking development mobile app blogging insomniax],
+          keywords:    %w[website social networking development mobile app blogging insomniax atussec atussec],
           twitter: {
             site_name: site_name,
             site: '@theinsomniax',
-            card: 'insomniax socialneworking community gor geeks',
+            card: 'insomniax social networking community for geeks',
             description: description,
             image: image
           },
