@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :hearts
   mount ActionCable.server => '/cable'
-  resources :chatgroups do
+  resources :chatgroups, path: '/chatrooms/' do
     resource :chatgroup_users
     resources :messages
   end

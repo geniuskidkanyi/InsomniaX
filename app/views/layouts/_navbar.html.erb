@@ -86,16 +86,19 @@
 
                     <% end %></li>
                     <li><%= link_to 'Forum', main_app.forum_threads_path, class: 'list-group-item' %></li>
-                    <li><%= link_to 'Articles', main_app.articles_path, class: 'list-group-item' %></li>
+                    <li><%= link_to 'Blog', main_app.articles_path, class: 'list-group-item' %></li>
+                    <li >
+                      <%= link_to "Chat Room", main_app.chatgroups_path %>
+                    </li>
                     <li>
-                        <h5>chatgroups</h5>
+                        <h5>chatrooms</h5>
                         <ul>
                           <% current_user.chatgroups.each do |chatgroup|  %>
                           <li><%= link_to chatgroup.name, chatgroup, data: {behavior: "chatgroup-link", chatgroup_id: chatgroup.id} %></li>
                           <% end %>
                         </ul>
                     </li>
-                
+
 
 
                     <!--          end of login user-->
