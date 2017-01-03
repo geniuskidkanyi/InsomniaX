@@ -94,7 +94,7 @@ namespace :deploy do
     end
     desc "Generate sitemap"
       task :sitemap do
-        run "cd '#{current_path}' && #{rake} custom:sitemap RAILS_ENV=#{rails_env}"
+        run "cd '#{current_path}' && #{rails} custom:sitemap RAILS_ENV=#{rails_env}"
       end
     desc 'Restart application'
     task :restart do
