@@ -39,7 +39,7 @@ module UsersHelper
         size = options[:size]
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
         avatar_url = user.avatar? ? user.avatar.url : gravatar_url
-        image_tag(avatar_url, alt: user.name, class: " circle")
+        image_tag(avatar_url, alt: user.name, class: " circle v-circle")
     end
     def gravatar_mdprofile(user, options = { size: 80 })
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
@@ -53,7 +53,7 @@ module UsersHelper
         size = options[:size]
         gravatar_url = "http://bootdey.com/img/Content/bg_element.jpg"
         dprofile_url = user.dprofile? ? user.dprofile.url : gravatar_url
-        image_tag(dprofile_url, alt: user.name, class: " circle")
+        image_tag(dprofile_url, alt: user.name, class: " circle v-circle")
     end
     def gravatar_all(user, options = { size: 80 })
         gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
@@ -67,7 +67,7 @@ module UsersHelper
         size = options[:size]
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
      avatar_url = user.avatar? ? user.avatar.url : gravatar_url
-     image_tag(avatar_url, alt: user.name, class: " circle")
+     image_tag(avatar_url, alt: user.name, class: " circle v-circle")
     end
 
     def gravatar_message(user, options = { size: 80 })
@@ -82,6 +82,6 @@ module UsersHelper
         size = options[:size]
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
         avatar_url = user.avatar? ? user.avatar.url : gravatar_url
-        image_tag(avatar_url, alt: user.name, class: "circle")
+        image_tag(avatar_url, alt: user.name, class: "circle v-circle")
     end
 end
