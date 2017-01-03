@@ -4,6 +4,7 @@ server '188.166.6.59', port: 3445, roles: [:web, :app, :db], primary: true
 set :application, 'insomniax'
 set :repo_url, 'git@bitbucket.org:geniuskid/insomniax.git'
 set :branch, ENV["REVISION"] || ENV["BRANCH_NAME"] || "master"
+#set :branch,        :version2
 set :user,            'deploy'
 set :rbenv_type, :user
 set :rbenv_ruby, '2.2.3'
@@ -46,8 +47,8 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 # Default value for :log_level is :debug
 # set :log_level, :debug
-
 # Default value for :pty is false
+
 # set :pty, true
 
 # Default value for :linked_files is []
@@ -91,19 +92,30 @@ namespace :deploy do
             invoke 'deploy'
         end
     end
-
+    desc "Generate sitemap"
+      task :sitemap do
+        run "cd '#{current_path}' && #{bundle exec rake} custom:sitemap RAILS_ENV=#{rails_env}"
+      end
     desc 'Restart application'
     task :restart do
         on roles(:app), in: :sequence, wait: 5 do
             invoke 'puma:restart'
         end
     end
-
+    after 'deploy:update', 'deploy:sitemap'
     before :starting,     :check_revision
     after  :finishing,    :compile_assets
     after  :finishing,    :cleanup
     after  :finishing,    :restart
 end
+# namespace :redis do
+#   %w[start stop restart].each do |command|
+#     desc "#{command} redis"
+#     task command, roles: :web do
+#       run "#{sudo} service redis-server #{command}"
+#     end
+#   end
+# end
 
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
