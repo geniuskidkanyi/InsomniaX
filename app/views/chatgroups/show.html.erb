@@ -11,7 +11,7 @@ $cont[0].scrollTop = $cont[0].scrollHeight;
 </script>
 
  <div class="main_chat">
- <div class="main_chat_title"> <%= @chatgroup.name %>  <%= @chatgroup.messages.count %> messages<span>  <%= link_to edit_chatgroup_path(@chatgroup) do %><i class="material-icons">edit</i> <% end %>
+ <div class="main_chat_title"> <%= @chatgroup.name %>   <%= @chatgroup.messages.count %> messages<span>  <%= link_to edit_chatgroup_path(@chatgroup) do %><i class="material-icons">edit</i> <% end %>
  </span> <span><%= link_to chatgroups_path do %> <i class="material-icons">reply_all</i><% end %></span></%> <span><i class="material-icons">delete_sweep</i></span></div>
    <div class="main_chat_users">
    <div class="input-field main_chat_search">
