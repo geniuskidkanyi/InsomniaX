@@ -47,21 +47,25 @@
       <div class="card-panel">
 
 
-          <h4 class="text-centre"><%= @article.title %></h4>
+        <div class="article-preview" style="background: linear-gradient(to bottom, rgba(42,19,59,0.8) ,rgba(42,19,59,0.8) ), url(<%= @article.picture_article.url if @article.picture_article? %>) no-repeat;">
+<div class="article-wrap">
+  <h3 class="text-centre"><%= @article.title %></h3>
 
-          <hr>
-      <!-- Date/Time -->
-          <p><span class="glyphicon glyphicon-time"></span> Posted on <%= time_ago_in_words(@article.created_at) %> ago
-              <span class="glyphicon glyphicon-time"> <%= "#{@article.impressionist_count} views" %></span></p>
-       <hr>
+<!-- Date/Time -->
+  <span class="glyphicon glyphicon-time"></span> Posted on <%= time_ago_in_words(@article.created_at) %> ago
+      <span class="glyphicon glyphicon-time"> </span></p>
+
+</div>
+
       <!-- Preview Image -->
-          <div class="article-preview">
-          <%= image_tag @article.picture_article.url if @article.picture_article? %>
+
+
+
           </div>
-          <hr>
+
 
           <!-- Post Content -->
-          <div class="post-body flow-text">
+          <div class="post-body">
              <%= raw @article.body %>
           </div>
  <%= social_share_button_tag(@article.title) %>
