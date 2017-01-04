@@ -87,7 +87,7 @@
           <% @articles.each do |article| %>
 
           <li class="collection-item avatar grey lighten-5 z-depth-1">
-            <%= link_to (image_tag article.picture_article.url,:class => "img-recent" ), article_path(article ), class: "circle"%>
+            <%= link_to article , article_path(article ), class: "circle"%>
             <span class="title"><%= link_to article.title, article %></span>
             <p>  <%= raw truncate_html(article.body, length: 190) %>
             </p>
@@ -118,7 +118,7 @@
 
                 <h1>Login</h1>
 
-                <%= form_for(:session, url: login_path, class: 'form', id: 'login-nav') do |f| %>
+                <%= form_for(:user, :url => session_path(:user)) do |f| %>
                 <div class="input-fieldp">
                   <%= f.label :email, class: 'active' %>
                   <%= f.email_field :email, placeholder: 'Email address', class:'form-control' %>
@@ -140,7 +140,7 @@
               <div class="card-action">
                 <%= f.submit 'Sign In', class:'waves-effect waves-light btn' %>
                 <p>New user?
-                  <%= link_to "Sign up now!", signup_path %></p>
+                  <%= link_to "Sign up now!", user_registration_path %></p>
 
 
               </div>
