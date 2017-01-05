@@ -3,7 +3,7 @@
   <%= link_to gravatar_post(micropost.user, size: 72), micropost.user, class: "news-feed-image" %>
 <div class="news-feed-person"><h5><%= link_to micropost.user.name, micropost.user %></h5>
  <span><%= link_to micropost.user.username, micropost.user %></span></div>
- <div class="news-feed-time"> 4 hours ago</div>
+ <div class="news-feed-time"> <%= time_ago_in_words(message.created_at) %> ago</div>
    </div>
  <hr />
  <div class="news-feed-content">
