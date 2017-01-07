@@ -27,7 +27,12 @@
 <%= f.cktext_area :body, :ckeditor => {:toolbar => 'mini'} %>
 
 <br>
-<%= f.text_field :tag_list %>
+<div class="form-group">
+  <label for="fenter_subject">Enter tags</label>
+  <%= f.text_field :tag_list %>
+
+</div>
+
 <%= f.submit  class: 'btn light-blue accent-4' %>
 <% end %>
 <% else %>

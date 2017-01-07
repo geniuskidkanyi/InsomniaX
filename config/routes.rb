@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :hearts
   mount ActionCable.server => '/cable'
+  mount Ckeditor::Engine => '/ckeditor'
   resources :chatgroups, path: '/chatrooms/' do
     resource :chatgroup_users
     resources :messages
@@ -11,8 +12,6 @@ Rails.application.routes.draw do
    root 'pages#home', as: :authenticated_root
   end
   root 'pages#index'
-
-  mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :users, skip: [:sessions]
   as :user do
