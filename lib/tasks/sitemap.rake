@@ -10,7 +10,7 @@ namespace :custom do
       base_url: 'https://insomniax.biz' ,
       ping_google: true,
       ping_bing: true,
-      gzip: true
+      gzip: false
     }
 
     if Rails.env.development?
