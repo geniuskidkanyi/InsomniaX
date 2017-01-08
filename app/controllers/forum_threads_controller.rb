@@ -24,6 +24,7 @@ class ForumThreadsController < ApplicationController
 
   def show
     @forum_post = ForumPost.new
+    impressionist(@forum_thread)
   end
 private
 
