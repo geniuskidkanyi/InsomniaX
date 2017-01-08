@@ -22,7 +22,7 @@ $('.post-module').hover(function() {
        <div class="date">
          <div class="day"><%= article.created_at.strftime("%b") %></div>
          <div class="month"><%= article.created_at.strftime("%d") %></div>
-       </div> <%= article_for article %> 
+       </div> <%= article_for article %>
      </div>
      <!-- Post Content-->
      <div class="post-content">
@@ -35,7 +35,7 @@ $('.post-module').hover(function() {
 
        <h1 class="title"><%= article.title %></h1>
        <!-- <h2 class="sub_title">The city that never sleeps.</h2> -->
-       <p class="description"><%= article.body %>.</p>
+       <p class="description"><%= article.body.first(80) %>.</p>
        <div class="post-meta">
          <span class="comments"><i class="fa fa-comments"></i><a href="#"> <%= "#{article.impressionist_count} views" %></a></span></div>
      </div>
