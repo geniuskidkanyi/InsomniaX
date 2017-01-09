@@ -1,48 +1,33 @@
 <% provide(:title, "Blog") %>
-<script type="text/javascript">
-$(window).load(function() {
-$('.post-module').hover(function() {
-  $(this).find('.description').stop().animate({
-    height: "toggle",
-    opacity: "toggle"
-  }, 300);
-});
-});
-</script>
     <div class="row">
-        <h2 class="text-center">BLOGS </h2>
+        <h4 class="text-center">BLOGS </h4>
         <hr/>
     </div>
-    <div class="row">
+
+    <%= will_paginate  renderer: BootstrapPagination::Rails%>
+   <div class="row">
 <% @articles.each do |article| %>
-<%= link_to article do %>
-<div class="post-module col s12 m4 s4">
-     <!-- Thumbnail-->
-     <div class="thumbnail">
-       <div class="date">
-         <div class="day"><%= article.created_at.strftime("%b") %></div>
-         <div class="month"><%= article.created_at.strftime("%d") %></div>
-       </div> <%= article_for article %>
-     </div>
-     <!-- Post Content-->
-     <div class="post-content">
-       <% if article.tags.nil? %>
-
-       <% else %>
-
-       <div class="category"><%= article.tags.first %></div>
-       <% end %>
-
-       <h1 class="title"><%= article.title %></h1>
-       <!-- <h2 class="sub_title">The city that never sleeps.</h2> -->
-       <p class="description"><%= article.body.first(80) %>.</p>
-       <div class="post-meta">
-         <span class="comments"><i class="fa fa-comments"></i><a href="#"> <%= "#{article.impressionist_count} views" %></a></span></div>
-     </div>
-   </div>
-<% end %>
 
 
+        <div class="col s6 m4">
+            <div class="card small">
+                <div class="label label-info blue darken-3">
 
+                    <span data-toggle="tooltip" title="viewed">
+                        <b class="glyphicon glyphicon-sunglasses"><%= "#{article.impressionist_count} views" %></b> </span>
+                    <span data-toggle="tooltip" title="created"><%= article.created_at.strftime("%B %d, %Y") %></span>
+                </div>
+                        <div class="card-image image-card">
+
+                     <%= link_to (image_tag article.picture_article.url), article_path(article) %>
+                        </div>
+
+                        <div class="card-action">
+                          <%= link_to article.title, article, class: "btn light-blue darken-4 ", role: "button" %>
+
+                        </div>
+                      </div>
+        </div>
 <% end %>
 </div>
+<%= will_paginate renderer: BootstrapPagination::Rails %>
