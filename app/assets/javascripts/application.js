@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ckeditor/init
 //= require rails_emoji_picker
 //= require materialize-sprockets
 //= require materialize
-//= require ckeditor/init
+
 //= require linkify
 //= require cable
 //= require linkify-jquery

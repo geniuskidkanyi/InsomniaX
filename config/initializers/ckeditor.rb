@@ -10,7 +10,7 @@ Ckeditor.setup do |config|
   # Set to nil or [] (empty array) for all file types
   # By default: %w(jpg jpeg png gif tiff)
   # config.image_file_types = ["jpg", "jpeg", "png", "gif", "tiff"]
-
+  config.assets_languages = ['en']
   # Allowed attachment file types for upload.
   # Set to nil or [] (empty array) for all file types
   # By default: %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
