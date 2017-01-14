@@ -43,15 +43,15 @@ Rails.application.routes.draw do
 
       end
    end
- #  resources :microposts do
- #    member do
- #      get "heart", to: "microposts#heart", via: :post
- #      delete "unheart", to: "microposts#unheart"
- #    end
- # end
+   resources :microposts do
+     member do
+       get "heart", to: "microposts#heart", via: :post
+       delete "unheart", to: "microposts#unheart"
+     end
+ end
 
- #
- # resources :microposts, only: [:create, :destroy]
+
+  resources :microposts, only: [:create, :destroy]
  resources :relationships, only: [:create, :destroy]
 
   # resources :comments
