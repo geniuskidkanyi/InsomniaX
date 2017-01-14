@@ -6,10 +6,12 @@ Rails.application.routes.draw do
     resource :chatgroup_users
     resources :messages
   end
+
   resources :direct_messages
   authenticated :user do
   #  get '/home', to: 'pages#home', as: :authenticated_root
    root 'pages#home', as: :authenticated_root
+
   end
   root 'pages#index'
 
@@ -41,18 +43,18 @@ Rails.application.routes.draw do
 
       end
    end
-  resources :microposts do
-    member do
-      get "heart", to: "microposts#heart", via: :post
-      delete "unheart", to: "microposts#unheart"
-    end
- end
+ #  resources :microposts do
+ #    member do
+ #      get "heart", to: "microposts#heart", via: :post
+ #      delete "unheart", to: "microposts#unheart"
+ #    end
+ # end
 
-
- resources :microposts, only: [:create, :destroy]
+ #
+ # resources :microposts, only: [:create, :destroy]
  resources :relationships, only: [:create, :destroy]
 
-  resources :comments
+  # resources :comments
   resources :tags, only: [:index, :show]
   resources :forum_threads, path: '/forums/'  do
     resources :forum_posts, module: :forum_threads
