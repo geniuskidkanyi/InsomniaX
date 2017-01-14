@@ -2,6 +2,6 @@
 <li class="collection-item forum-thread"><div><%= forum_thread.subject %> <a href="#!" class="secondary-content">
   <span class="forum-details"><%= forum_thread.impressionist_count %> <br>views</span>
    <span class="forum-details"><%= forum_thread.forum_posts.count %> <br>post</span> </a>
-<span class="forum-subject"><%= forum_thread.forum_posts.first.body %> </span>
+<span class="forum-subject"><%= forum_thread.forum_posts.first.body.first(150) %> </span>
  </div></li>
 <% end %>
