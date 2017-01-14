@@ -1,6 +1,6 @@
 
 <% if current_user && current_user.admin? %>
-<h4 class="center-align">Add new Blog post</h4>
+
 
 <%= form_for @article, html: { multipart: true } do |f| %>
 <% if @article.errors.any? %>
