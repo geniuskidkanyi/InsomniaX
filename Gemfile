@@ -25,10 +25,9 @@ gem "friendly_id", "~> 5.0.1"
 gem 'impressionist', github: "charlotte-ruby/impressionist"
 gem 'acts_as_commentable_with_threading'
 gem 'modernizr-rails'
-gem 'ckeditor'
 gem 'simplemde-rails'
 gem 'pry'
-gem 'ckeditor'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 # gem 'rack-contrib'
 # gem 'soulmate', :require => 'soulmate/server'
 gem 'will_paginate-bootstrap'

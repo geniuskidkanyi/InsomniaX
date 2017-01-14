@@ -16,7 +16,7 @@
 //= require rails_emoji_picker
 //= require materialize-sprockets
 //= require materialize
-
+//= require ckeditor/init
 //= require linkify
 //= require cable
 //= require linkify-jquery
