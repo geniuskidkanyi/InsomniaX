@@ -1,7 +1,18 @@
 <%= link_to forum_thread do %>
-<li class="collection-item forum-thread"><div><%= forum_thread.subject %> <a href="#!" class="secondary-content">
+<li class="collection-item forum-thread"><div><%= forum_thread.subject %> <div class="secondary-content">
+  <span class="forum-details">
+    <% if current_user == forum_thread.user %>
+  <%= link_to forum_thread_path(forum_thread.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+   <button class="btn-floating  waves-effect waves-light red"><i class="material-icons">delete_forever</i></button>
+  <% end %>
+  <% elsif current_user == current_user.admin? %>
+  <%= link_to forum_thread_path(forum_thread.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+   <button class="btn-floating  waves-effect waves-light red"><i class="material-icons">delete_forever</i></button>
+  <% end %>
+  <% end %>
+</span>
   <span class="forum-details"><%= forum_thread.impressionist_count %> <br>views</span>
-   <span class="forum-details"><%= forum_thread.forum_posts.count %> <br>post</span> </a>
+   <span class="forum-details"><%= forum_thread.forum_posts.count %> <br>post</span> </div>
 <span class="forum-subject"><%= forum_thread.forum_posts.first.body.first(150) %> </span>
  </div></li>
 <% end %>

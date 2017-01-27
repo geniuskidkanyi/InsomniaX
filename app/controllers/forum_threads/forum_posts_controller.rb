@@ -17,6 +17,7 @@ class ForumThreads::ForumPostsController < ApplicationController
       redirect_to @forum_thread, alert: "Unable to save your post"
     end
   end
+  
 
   private
 

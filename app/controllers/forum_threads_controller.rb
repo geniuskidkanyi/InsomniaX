@@ -1,5 +1,5 @@
 class ForumThreadsController < ApplicationController
-  before_action :set_forum_thread,except: [:index, :new, :create]
+  before_action :set_forum_thread,except: [:index, :new, :create, :destroy]
     impressionist :actions=>[:show]
   def index
     @q = ForumThread.search(params[:q])
@@ -23,8 +23,14 @@ class ForumThreadsController < ApplicationController
   end
 
   def show
-    @forum_post = ForumPost.new
+    @forum_thread = ForumPost.new
     impressionist(@forum_thread)
+  end
+  def destroy
+      @forum_thread = ForumThread.find(params[:id])
+      @forum_thread.destroy
+
+      redirect_to :back
   end
 private
 

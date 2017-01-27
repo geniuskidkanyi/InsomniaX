@@ -7,6 +7,8 @@
 </div>
 <div class="forum-message">
   <div class="forum-detail">
+
+
     <%= forum_post.user.name %> commented on <%= local_time_ago forum_post.created_at %>
   </div>
 <%= markdownify forum_post.body %>
