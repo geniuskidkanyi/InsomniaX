@@ -1,5 +1,4 @@
-jQuery ->
-  $(document).on 'page:change', ->
-    if window.ga?
-      ga('set',  'location', location.href.split('#')[0])
-      ga('send', 'pageview', { "title": document.title })
+document.addEventListener 'turbolinks:load', (event) ->
+  if typeof ga is 'function'
+    ga('set', 'location', event.data.url)
+    ga('send', 'pageview')
