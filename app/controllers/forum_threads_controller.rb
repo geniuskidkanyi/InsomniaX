@@ -3,7 +3,7 @@ class ForumThreadsController < ApplicationController
     impressionist :actions=>[:show]
   def index
     @q = ForumThread.search(params[:q])
-    @forum_threads = @q.result(distinct: true)
+    @forum_threads = @q.result(distinct: true).order(created_at: :desc)
 
   end
 
