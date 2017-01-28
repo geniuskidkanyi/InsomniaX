@@ -1,6 +1,6 @@
 class ForumPost < ApplicationRecord
-  belongs_to :forum_thread
-  belongs_to :user
+  belongs_to :forum_thread,  dependent: :destroy
+  belongs_to :user,  dependent: :destroy
 
   validates :body, presence: true
 
