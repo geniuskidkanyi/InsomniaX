@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+<%= render 'layouts/google' %>
     <title><%= yield(:title) %>| Insomniax the social community for geeks</title>
      <%= favicon_link_tag 'favicon.ico' %>
     <meta name="msvalidate.01" content="9BF9701D09E8E5A4D09FA989AE2C5617"/>
@@ -19,7 +19,7 @@
     <%= csrf_meta_tags %>
 <%= action_cable_meta_tag %>
 
-    <%= render 'layouts/google' %>
+
 <style media="screen">
   .v-circle{
     height: 50px;
