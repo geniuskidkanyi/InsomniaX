@@ -23,7 +23,7 @@ class ForumThreadsController < ApplicationController
   end
 
   def show
-    @forum_thread = ForumPost.new
+    @forum_post = ForumPost.new
     impressionist(@forum_thread)
   end
   def destroy
