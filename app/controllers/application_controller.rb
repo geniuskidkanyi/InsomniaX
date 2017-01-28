@@ -22,18 +22,21 @@ class ApplicationController < ActionController::Base
           site:        site_name,
           description: description,
           keywords:    %w[website social networking development mobile app blogging insomniax atussec atussec],
+          canonical: request.url,
           twitter: {
             site_name: site_name,
             site: '@theinsomniax',
             card: 'insomniax social networking community for geeks',
             description: description,
-            image: image
+            image: image,
+            canonical: request.url
           },
           og: {
             url: current_url,
             site_name: site_name,
             image: image,
             description: description,
+            canonical: request.url,
             type: 'website'
           }
         }

@@ -25,6 +25,29 @@ class ForumThreadsController < ApplicationController
   def show
     @forum_post = ForumPost.new
     impressionist(@forum_thread)
+    prepare_meta_tags(
+    title: @forum_thread.subject,
+
+        #keywords: @article.tags,
+
+        #twitter: {card: "summary_large_image"}
+        twitter: {
+          #site_name: site_name,
+          title: @forum_thread.subject,
+          site: '@theinsomniax',
+          #keywords: @article.tags,
+          card: 'insomniax social networking community gor geeks',
+          description: @forum_thread.forum_posts.first.body,
+        },
+        og: {
+          #url: current_url,
+          #site_name: site_name,
+          title: @forum_thread.subject,
+          keywords: %[@forum_thread.subject],
+          description: @forum_thread.forum_posts.first.body,
+
+          type: 'website'
+        })
   end
   def destroy
       @forum_thread_delete = ForumThread.find(params[:id])
