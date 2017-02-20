@@ -1,4 +1,4 @@
 User-Agent: *
 Disallow:
-
+Disallow: /microposts/
 Sitemap: https://insomniax.biz/sitemap.xml
