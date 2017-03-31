@@ -56,14 +56,14 @@ gem 'bourbon', '~> 3.1.8'
 # Use Unicorn as the app server
 #deployment
 group :development do
-    gem 'capistrano',         require: false
+    gem 'capistrano', '3.5',         require: false
     gem 'capistrano-rbenv',     require: false
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
     gem 'capistrano3-puma',   require: false
     gem 'capistrano-local-precompile', require: false
     gem 'capistrano-faster-assets', '~> 1.0'
-    
+
 end
 
 gem 'puma'
@@ -80,4 +80,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
