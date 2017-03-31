@@ -80,7 +80,7 @@ gem 'bourbon', '~> 3.1.8'
 #deployment
 group :development do
     gem 'better_errors'
-    gem 'capistrano', '~> 3.4.0',         require: false
+    gem 'capistrano', '3.5',         require: false
     gem 'capistrano-rbenv',     require: false
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
